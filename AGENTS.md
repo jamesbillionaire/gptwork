@@ -37,6 +37,135 @@ Use the approved LAVI Xavier University quotation family as the baseline:
 
 Maintain the typography, colors, margins, table widths, alignment, and information hierarchy of the approved template. Do not redesign the visual language for each building.
 
+## LAVI billing statement template standard
+
+Use this standard for client billing statements unless James approves a different client-specific form. The current approved reference is the branded Gigaworks Technologies Inc. Billing Statement `0813-001`, Revision 3.
+
+### Page and visual system
+
+- Use **Legal / long bond paper: 8.5 x 14 inches (612 x 1008 points)**.
+- Keep a one-page billing statement to one page when its actual content fits comfortably. Do not enlarge elements merely to fill the sheet.
+- Use the same LAVI palette and typography as the quotation family:
+  - Primary teal: `#008B8B`.
+  - Deep teal for the amount due: `#006E70`.
+  - Light teal: `#E8F5F5`.
+  - Pale teal card fill: `#F4FAFA`.
+  - Grid: `#BFCBD2`.
+  - Zebra gray: `#F1F3F4`.
+  - Main ink: `#1F2935`.
+  - Muted text: `#647386`.
+  - Grand-total highlight: `#FFF5D5`.
+- Use a clean sans-serif family with dependable PDF embedding. The current implementation uses DejaVu Sans under the registered family name `LAVISans`.
+- Use approximately 35-point left and right margins, giving a 542-point content width.
+
+### Compact LAVI heading
+
+The logo is the primary brand element. Business details are supporting information and must remain visibly smaller.
+
+- Center the LAVI logo at approximately **140 points wide**. Preserve its aspect ratio and do not rebuild, stretch, recolor, or overlap it.
+- Render the address separately beneath the logo at approximately **6.25 pt**:
+  `C-One Industrial Park, Rodolfo Pelaez Boulevard, Kauswagan, Cagayan de Oro City`
+- Render the contact line beneath it at approximately **6 pt**:
+  `09399264230 / 09173082354 | info@lavitechnologies.com | www.lavitechnologies.com`
+- Keep the address and contact details on two compact centered lines. They must be smaller and quieter than the title, client details, and amount due.
+- Finish the heading with a thin teal rule across the content width.
+- Do not use a single flattened header image when separate text rendering is needed to control the business-detail size. A logo-only transparent asset plus live text is preferred.
+
+### Title and billing identity
+
+- Center `BILLING STATEMENT` in bold teal at approximately 17 pt.
+- Place a concise service/project subtitle beneath it at approximately 9 pt bold. The subtitle describes the billed work; it must not introduce scope not supported by the source billing.
+- Follow the title with one bordered, pale-teal billing card divided into two areas:
+  - Left: `BILLED TO`, recipient name, company, and complete address.
+  - Right: `BILLING NO.`, `BILLING DATE`, `TAX TREATMENT`, and a prominently emphasized `AMOUNT DUE`.
+- The current card proportion is approximately 342 points for the client side and 200 points for the billing-summary side.
+- Give `AMOUNT DUE` the strongest numeric emphasis after the document title, using deep teal and approximately 13.5 pt bold.
+- Do not invent a due date, purchase-order number, payment term, reference, or client tax identifier when it is absent from the source.
+
+### Section A: summary of charges
+
+Use the heading `A. SUMMARY OF CHARGES` followed by a teal-header table.
+
+Standard columns:
+
+| Column | Recommended width | Alignment |
+| --- | ---: | --- |
+| QTY | 42 pt | Center |
+| UNIT | 58 pt | Center |
+| DESCRIPTION | 286 pt | Left |
+| UNIT RATE | 78 pt | Right |
+| AMOUNT | 78 pt | Right |
+
+Table behavior:
+
+- Use a light-teal category row such as `PROFESSIONAL SERVICES` when the charge belongs to a service group.
+- Keep descriptions concise, specific, and faithful to the approved billing source.
+- Use consistent currency formatting such as `P 2,800.00` and `P 8,400.00`.
+- Show `SUBTOTAL` before the grand total.
+- Highlight `GRAND TOTAL` with the approved pale-gold fill, not bright yellow.
+- State tax treatment completely and unambiguously: `VAT Exclusive` or `VAT Inclusive`. Do not abbreviate it as `VAT Ex`.
+- Do not add 12% VAT to a VAT-exclusive billing unless the approved source explicitly instructs that VAT be charged in the statement.
+
+### Section B: remittance details
+
+Use the heading `B. REMITTANCE DETAILS` followed by a two-column table containing only approved payment information.
+
+Current LAVI bank details:
+
+- Bank Name: `CHINABANK`
+- Account Name: `LAVI TECHNOLOGIES INC.`
+- Account Number: `168200010742`
+
+Place the following instruction in a restrained teal callout immediately after the bank table:
+
+`Please make all checks payable to LAVI TECHNOLOGIES INC.`
+
+Never change a bank name, account name, account number, or check-payee instruction based on memory alone. Verify it against the approved source or a newer direct instruction from James.
+
+### Closing, signatures, and conforme
+
+- Center `THANK YOU FOR YOUR BUSINESS` in bold teal.
+- Use one bordered closing table split evenly into two approximately 271-point columns:
+  - Left: `PREPARED BY`, the authorized LAVI signature, printed name, and role.
+  - Right: `CONFORME`, an authorized-representative signature line and a date line.
+- The current prepared-by identity is `MS. LEA C. RUILES` with the role `Admin, LAVI Technologies Inc.`; treat this as statement data that may change on a later billing.
+- Preserve a signature image's transparency mask. When extracting from a PDF, reconstruct the image and its soft mask together before reuse. A black rectangle or black signature background is a release-blocking defect.
+- Keep the closing table visually balanced and fully inside the page frame. Do not leave signature labels floating without a containing structure.
+
+### Footer and revision naming
+
+- Use a thin gray rule above the footer.
+- Left footer format: `LAVI Technologies Inc. | <Client> Billing Statement`.
+- Right footer format: `Page x of y`.
+- Use a descriptive filename such as:
+  `LAVI_<Client>_Billing_Statement_<BillingNo>_vN.pdf`
+- Match the filename revision, internal billing number, PDF title metadata, and persistent-file version description.
+- Preserve earlier revisions unless James explicitly requests their removal or an in-place version update is supported.
+
+### Billing data integrity
+
+Layout cleanup never authorizes a commercial change.
+
+- Preserve the exact client, recipient, address, billing number, date, charge description, quantity, unit, unit rate, subtotal, tax treatment, grand total, bank details, prepared-by identity, and conforme requirement from the approved source.
+- Correct arithmetic only when James authorizes a commercial correction or when an objective source error is reported before release.
+- Verify every line extension and total. For example, `3 x P 2,800.00 = P 8,400.00`.
+- Clearly distinguish `Amount Due`, `Subtotal`, and `Grand Total`; identical values are acceptable when the billing has only one charge and no added tax.
+- Never add standard quotation terms, warranty language, implementation periods, or technical exclusions to a billing statement unless the billing source specifically requires them.
+
+### Billing-specific mandatory QA
+
+Before delivery:
+
+1. Confirm the page is exactly 612 x 1008 points.
+2. Extract and compare all source billing data against the revised PDF.
+3. Recalculate each line amount, subtotal, tax, and grand total.
+4. Render every page to PNG at readable resolution.
+5. Verify that the business details are smaller than the logo and title but remain legible.
+6. Verify that the amount due is immediately visible.
+7. Confirm there are no clipped rows, overlapping text, broken glyphs, black signature rectangles, or off-page footer elements.
+8. Confirm the prepared-by and conforme areas are complete and balanced.
+9. Confirm the exact reviewed PDF is the file delivered or written back as the new persistent version.
+
 ## Standard section hierarchy
 
 Conventional FDAS quotations should normally use this order and wording:
