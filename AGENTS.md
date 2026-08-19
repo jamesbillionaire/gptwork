@@ -37,6 +37,55 @@ Use the approved LAVI Xavier University quotation family as the baseline:
 
 Maintain the typography, colors, margins, table widths, alignment, and information hierarchy of the approved template. Do not redesign the visual language for each building.
 
+## LAVI 2026 general quotation template standard
+
+Use the repository package under `templates/lavi/quotation-2026/` for new general LAVI quotations:
+
+- Editable source: `LAVI_Modern_Quotation_Template_2026.docx`
+- Approved rendered reference: `LAVI_Modern_Quotation_Template_2026.pdf`
+- Official logo: `LAVI_New_Logo_2026.png`
+- Implementation notes and checksums: `README.md`
+
+### Page, palette, and content rail
+
+- Use **Legal / long bond paper: 8.5 x 14 inches (612 x 1008 points)**.
+- Use 0.55-inch side margins, producing one 7.40-inch content rail (`10,656 DXA`).
+- Primary teal: `#03A5B0`.
+- Primary navy: `#324F79`.
+- Align all first-page cards, pricing tables, section headings, notes, conditions, signatures, continuation elements, and footers to the same content rail.
+- Keep section headings such as `SCOPE AND PRICING` and `COMMERCIAL NOTES` fully inside the content boundary. Do not use a prefix bar, paragraph border, or decorative line that extends into the margin.
+
+### Pricing and totals alignment
+
+Use these fixed line-item column widths:
+
+| Column | Width (DXA) |
+| --- | ---: |
+| QTY | 650 |
+| UNIT | 720 |
+| DESCRIPTION | 5,510 |
+| UNIT PRICE | 1,888 |
+| AMOUNT | 1,888 |
+
+The total table width is `10,656 DXA`. Do not let auto-fit or a conversion engine redistribute the columns.
+
+The totals block must align exactly with the pricing table's last two columns:
+
+- Left indent: `6,880 DXA`, equal to QTY + UNIT + DESCRIPTION.
+- Label column: `1,888 DXA`.
+- Amount column: `1,888 DXA`.
+- Preserve the pricing table's right edge and internal divider.
+- Highlight only `GRAND TOTAL` with the pale-gold fill; use restrained neutral fills for intermediate adjustments.
+
+### Required composition and continuation behavior
+
+- Page 1 includes the logo and live business details, quotation title, client and reference cards, introduction, scope-and-pricing table, aligned totals, commercial notes or conditions, and signature area.
+- Later pages use a compact continuation header with the quotation reference, repeated pricing headers when applicable, intact line-item rows, and accurate `Page x of y` numbering.
+- Use content-driven pagination. Do not force a one-page result when real content requires continuation.
+- Replace every visible placeholder before release.
+- Confirm VAT-inclusive or VAT-exclusive treatment from approved source data. Never infer commercial data from the template.
+- Do not invent client details, references, dates, validity, payment terms, delivery periods, warranties, exclusions, quantities, unit prices, VAT, or totals.
+
 ## LAVI billing statement template standard
 
 Use this standard for client billing statements unless James approves a different client-specific form. The current approved reference is the branded Gigaworks Technologies Inc. Billing Statement `0813-001`, Revision 3.
