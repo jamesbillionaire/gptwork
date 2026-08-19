@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lavitechnologies.com/schemas/lavi-quotation-2026.2.json",
+  "title": "LAVI Locked Quotation Job",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "template_version",
+    "document",
+    "client",
+    "project",
+    "introduction",
+    "pricing",
+    "additional_notes",
+    "signatures"
+  ],
+  "properties": {
+    "template_version": {
+      "const": "LAVI-QUOTATION-2026.2"
+    },
+    "document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["quote_reference", "quote_date", "validity_days"],
+      "properties": {
+        "quote_reference": {"type": "string", "minLength": 1},
+        "quote_date": {"type": "string", "format": "date"},
+        "validity_days": {"type": "integer", "minimum": 1}
+      }
+    },
+    "client": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["company", "attention"],
+      "properties": {
+        "company": {"type": "string", "minLength": 1},
+        "attention": {"type": "string", "minLength": 1},
+        "business_address": {"type": "string"}
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "subtitle", "location"],
+      "properties": {
+        "title": {"type": "string", "minLength": 1},
+        "subtitle": {"type": "string", "minLength": 1},
+        "location": {"type": "string", "minLength": 1}
+      }
+    },
+    "introduction": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "pricing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["currency", "tax_treatment", "vat_rate", "items"],
+      "properties": {
+        "currency": {"const": "PHP"},
+        "tax_treatment": {"const": "VAT Inclusive"},
+        "vat_rate": {"const": 0.12},
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["quantity", "unit", "title", "description", "unit_price"],
+            "properties": {
+              "quantity": {"type": "number", "exclusiveMinimum": 0, "multipleOf": 0.01},
+              "unit": {"type": "string", "minLength": 1},
+              "title": {"type": "string", "minLength": 1},
+              "description": {"type": "string", "minLength": 1},
+              "unit_price": {"type": "number", "exclusiveMinimum": 0, "multipleOf": 0.01}
+            }
+          }
+        }
+      }
+    },
+    "pricing_basis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "additional_notes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["heading", "text"],
+        "properties": {
+          "heading": {"type": "string", "minLength": 1},
+          "text": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "signatures": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prepared_name",
+        "prepared_role",
+        "accepted_name",
+        "accepted_company",
+        "accepted_detail"
+      ],
+      "properties": {
+        "prepared_name": {"type": "string", "minLength": 1},
+        "prepared_role": {"type": "string", "minLength": 1},
+        "accepted_name": {"type": "string", "minLength": 1},
+        "accepted_company": {"type": "string", "minLength": 1},
+        "accepted_detail": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

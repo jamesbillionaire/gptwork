@@ -1,0 +1,32 @@
+{
+  "template_id": "LAVI-QUOTATION-2026.2",
+  "engine_version": "1.0.0",
+  "status": "APPROVED_LOCKED",
+  "approved_by": "James Brown Bete",
+  "approved_on": "2026-08-19",
+  "approved_basis": "LAVI Modern Quotation 2026 template with the approved lighter header, regular-weight information values, right-aligned numerical fields and totals, and Additional Notes hierarchy.",
+  "page": {
+    "size": "Legal",
+    "width_points": 612,
+    "height_points": 1008,
+    "side_margin_inches": 0.55,
+    "content_width_points": 532.8
+  },
+  "locked_labels": {
+    "title_eyebrow": "PREPARED QUOTATION FOR",
+    "pricing_section": "SCOPE AND PRICING",
+    "notes_section": "ADDITIONAL NOTES"
+  },
+  "pricing_columns_points": [32.5, 36.0, 275.5, 94.4, 94.4],
+  "totals_columns_points": [94.4, 94.4],
+  "sha256": {
+    "quotation_engine/contract.py": "50621f3fed45b0c38f688ff1f1565c3db547d52604d61914f2641ee652ed72c9",
+    "quotation_engine/renderer.py": "81d0d1716bb9cd08a9e6e949fb5bd9e06bb558dcaa9d1d20d385b2d49c1f411b",
+    "quotation_engine/validation.py": "d1f96907bb1541dfbedfddc26e5164494f7d39c7b90e8efcd883dfa5eb89c340",
+    "quotation_engine/cli.py": "1682643173fac1a42ca14800d75be36cfcd6b65dd9da6f545cae94d9e4c7d3ed",
+    "quotation_engine/schema/quotation.schema.json": "540b004eba293cb7f6ece5d57edcb9657c940201be3bc716eb413c8571263d13",
+    "quotation_engine/golden/approved_sample_contract.json": "dcc479b39a38d693857236dd89c70d317d79921911920ea9546085a0267e9c17",
+    "templates/lavi/quotation-2026/LAVI_New_Logo_2026.png": "15cc5e470a5f6222c02d2de656c55a5f292f8b17577b730da63255aa0eda4353",
+    "templates/lavi/quotation-2026/LAVI_Modern_Quotation_Template_2026.pdf": "114c710ea10182ebe45017b78127f7558c1a1552165bdcb1fb9bb1454d14e6b1"
+  }
+}

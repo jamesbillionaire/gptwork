@@ -1,0 +1,134 @@
+{
+  "template_version": "LAVI-QUOTATION-2026.2",
+  "document": {
+    "quote_reference": "LAVI-QTN-20260819-SAMPLE-01",
+    "quote_date": "2026-08-19",
+    "validity_days": 30
+  },
+  "client": {
+    "company": "Sample Industrial Corporation",
+    "attention": "Mr. Sample Client",
+    "business_address": "Sample Industrial Park, Cagayan de Oro City 9000"
+  },
+  "project": {
+    "title": "Wet Standpipe Extension and Four Additional Fire Hose Cabinets",
+    "subtitle": "Existing wet-standpipe extension to an adjacent building using mixed-diameter Schedule 40 BI piping",
+    "location": "Sample Project Site, Cagayan de Oro City 9000"
+  },
+  "introduction": [
+    "LAVI Technologies Inc. is pleased to submit this quotation for the extension of the existing wet-standpipe system from the designated connection point to the adjacent building. The work covers a mixed-diameter, aboveground Schedule 40 black-iron piping network and four additional complete fire hose cabinets."
+  ],
+  "pricing": {
+    "currency": "PHP",
+    "tax_treatment": "VAT Inclusive",
+    "vat_rate": 0.12,
+    "items": [
+      {
+        "quantity": 1,
+        "unit": "lot",
+        "title": "Mobilization, system verification, layout and safety coordination",
+        "description": "Verify the connection point, establish the proposed work route, coordinate access and prepare the installation work zones.",
+        "unit_price": 40000
+      },
+      {
+        "quantity": 1,
+        "unit": "lot",
+        "title": "Schedule 40 BI main piping backbone",
+        "description": "Supply, fabricate, weld and install the primary aboveground main, including main-line fittings, valves and welding consumables.",
+        "unit_price": 297000
+      },
+      {
+        "quantity": 1,
+        "unit": "lot",
+        "title": "Secondary piping and short FHC branch connections",
+        "description": "Supply and install coordinated secondary lines, reducers, fittings and individual branches serving the proposed cabinets.",
+        "unit_price": 110000
+      },
+      {
+        "quantity": 1,
+        "unit": "lot",
+        "title": "Pipe supports and protective coating",
+        "description": "Fabricate and install hangers, anchors and brackets; prepare surfaces and apply primer plus red protective finish.",
+        "unit_price": 65000
+      },
+      {
+        "quantity": 4,
+        "unit": "set",
+        "title": "Complete fire hose cabinet assemblies",
+        "description": "Each set includes the cabinet, fire hose, hose or landing valve, nozzle and standard mounting accessories.",
+        "unit_price": 32000
+      },
+      {
+        "quantity": 1,
+        "unit": "lot",
+        "title": "FHC mounting and final branch connections",
+        "description": "Install, secure and connect the complete cabinet assemblies to the new branch piping.",
+        "unit_price": 45000
+      },
+      {
+        "quantity": 1,
+        "unit": "lot",
+        "title": "System tie-in and controlled shutdown",
+        "description": "Connect the extension to the existing wet-standpipe header with isolation and restoration of normal service.",
+        "unit_price": 35000
+      },
+      {
+        "quantity": 1,
+        "unit": "lot",
+        "title": "Flushing, pressure testing, commissioning and turnover",
+        "description": "Flush the new line, perform hydrostatic and operational checks, rectify installation defects and submit turnover records.",
+        "unit_price": 45000
+      }
+    ]
+  },
+  "pricing_basis": "The amount shown is VAT inclusive and is based on the defined aboveground piping extension and listed equipment. Final routing and pipe transitions will be verified on site before fabrication; approved quantities outside this basis will be treated as variations.",
+  "additional_notes": [
+    {
+      "heading": "Payment Terms",
+      "text": "Fifty percent downpayment; forty percent after completion of the primary installation activities; and ten percent after testing and client acceptance."
+    },
+    {
+      "heading": "Implementation",
+      "text": "Approximately thirty calendar days from receipt of the downpayment, approved work route and uninterrupted site access, excluding delays beyond LAVI's control."
+    },
+    {
+      "heading": "Scope Basis",
+      "text": "The work is an extension of the existing system and includes only the equipment, materials and services identified in the pricing schedule."
+    },
+    {
+      "heading": "Pipe Sizing",
+      "text": "The preliminary pipe arrangement will be confirmed from the actual route, elevation, fittings and available flow and pressure before fabrication."
+    },
+    {
+      "heading": "Existing Equipment",
+      "text": "Pricing assumes that retained equipment and utilities are operational and suitable for the proposed extension unless specifically included in the pricing schedule."
+    },
+    {
+      "heading": "Installation Access",
+      "text": "Pricing covers ordinary aboveground access. Special lifting equipment, trenching and major civil restoration are excluded unless listed."
+    },
+    {
+      "heading": "Testing and Turnover",
+      "text": "The completed extension will be flushed, pressure tested and operationally checked before turnover."
+    },
+    {
+      "heading": "Warranty",
+      "text": "One year workmanship warranty from turnover. Supplied equipment is covered by the applicable manufacturer's warranty, subject to its terms."
+    },
+    {
+      "heading": "Variations",
+      "text": "Concealed conditions, defective retained components and additional quantities outside the approved scope require written approval and separate pricing before execution."
+    },
+    {
+      "heading": "Validity",
+      "text": "This quotation is valid for thirty days from the quotation date and remains subject to material availability at the time of order."
+    }
+  ],
+  "signatures": {
+    "prepared_name": "James Brown Bete",
+    "prepared_role": "General Manager, LAVI Technologies Inc.",
+    "accepted_name": "Sample Client",
+    "accepted_company": "Sample Industrial Corporation",
+    "accepted_detail": "Position / Date"
+  }
+}

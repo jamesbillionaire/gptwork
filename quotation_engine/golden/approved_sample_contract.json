@@ -1,0 +1,16 @@
+{
+  "template_id": "LAVI-QUOTATION-2026.2",
+  "sample_job": "quotation_engine/examples/approved_sample.json",
+  "expected_page_count": 2,
+  "expected_page_width_points": 612,
+  "expected_page_height_points": 1008,
+  "expected_extracted_text_sha256": "685d48724f07d7e6fab7819c4d2841ebdb2f0167f4ed9ff63e313151ebfacdf9",
+  "required_labels": [
+    "PREPARED QUOTATION FOR",
+    "SCOPE AND PRICING",
+    "ADDITIONAL NOTES",
+    "SUBTOTAL",
+    "12% VAT",
+    "GRAND TOTAL"
+  ]
+}
