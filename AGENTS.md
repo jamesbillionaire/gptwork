@@ -39,7 +39,18 @@ Maintain the typography, colors, margins, table widths, alignment, and informati
 
 ## LAVI 2026 general quotation template standard
 
-Use the repository package under `templates/lavi/quotation-2026/` for new general LAVI quotations:
+The authoritative production path for every new general LAVI quotation is the locked engine under `quotation_engine/`.
+
+- Read `quotation_engine/manifest.json` before generating a quotation.
+- Start from `quotation_engine/examples/approved_sample.json` and change structured job data only.
+- Validate with `python -m quotation_engine.cli validate <job.json>`.
+- Render with `python -m quotation_engine.cli render <job.json> --output <quotation.pdf>`.
+- Run `python -m unittest discover -s quotation_engine/tests -v` before release.
+- Do not create a standalone ReportLab, Word, HTML, SVG, Canvas, or drawing script for an individual quotation.
+- Do not edit the renderer, geometry, colors, typography, logo treatment, cards, section titles, pricing columns, totals block, continuation header, or footer during ordinary quotation work.
+- A template revision requires James's explicit authorization, a new template ID, updated manifest checksums, a regenerated golden PDF, and passing regression tests.
+
+The repository package under `templates/lavi/quotation-2026/` remains the editable and rendered design reference:
 
 - Editable source: `LAVI_Modern_Quotation_Template_2026.docx`
 - Approved rendered reference: `LAVI_Modern_Quotation_Template_2026.pdf`
@@ -53,7 +64,7 @@ Use the repository package under `templates/lavi/quotation-2026/` for new genera
 - Primary teal: `#03A5B0`.
 - Primary navy: `#324F79`.
 - Align all first-page cards, pricing tables, section headings, notes, conditions, signatures, continuation elements, and footers to the same content rail.
-- Keep section headings such as `SCOPE AND PRICING` and `COMMERCIAL NOTES` fully inside the content boundary. Do not use a prefix bar, paragraph border, or decorative line that extends into the margin.
+- Keep section headings such as `SCOPE AND PRICING` and `ADDITIONAL NOTES` fully inside the content boundary. Do not use a prefix bar, paragraph border, or decorative line that extends into the margin.
 
 ### Pricing and totals alignment
 
@@ -79,7 +90,7 @@ The totals block must align exactly with the pricing table's last two columns:
 
 ### Required composition and continuation behavior
 
-- Page 1 includes the logo and live business details, quotation title, client and reference cards, introduction, scope-and-pricing table, aligned totals, commercial notes or conditions, and signature area.
+- Page 1 includes the logo and live business details, quotation title, client and reference cards, introduction, scope-and-pricing table, aligned totals, additional notes or conditions, and signature area.
 - Later pages use a compact continuation header with the quotation reference, repeated pricing headers when applicable, intact line-item rows, and accurate `Page x of y` numbering.
 - Use content-driven pagination. Do not force a one-page result when real content requires continuation.
 - Replace every visible placeholder before release.
