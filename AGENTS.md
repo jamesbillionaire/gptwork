@@ -5,9 +5,22 @@
 This file is the repository-wide operating standard for agents creating, revising, reviewing, or finalizing LAVI Technologies PDF quotations, proposals, BOQs, reports, and similar client documents.
 
 - Read this file completely before touching a PDF-related artifact.
+- After reading this file, read `LATEST.md` before task-specific work. `LATEST.md` is the canonical current-work handoff for this repository.
 - A direct instruction from James for the current task overrides this file.
 - Preserve approved commercial data and client decisions unless James explicitly authorizes a change.
 - Treat an approved LAVI document as the visual and editorial reference for the whole quotation family. Consistency means the same design system, terminology, and hierarchy. It does **not** mean forcing every document to have the same page count or page breaks.
+
+## Persistent agent handoff
+
+`LATEST.md` is the live handoff file for agents. It exists to preserve current task state across agent changes, not to replace the standards in this file.
+
+- Read `LATEST.md` before making task-specific decisions.
+- If `LATEST.md` is missing, create it before ending meaningful work.
+- Before ending meaningful work, update `LATEST.md` with the current status, key decisions, files changed or outputs produced, verification performed, blockers or risks, and exact next steps.
+- Mark `LATEST.md` as `No active work` only when the task is genuinely complete and there is no pending follow-up for the next agent.
+- Keep `LATEST.md` concise and current. Do not use it as a long transcript, scratchpad, or changelog.
+- Use Git history as the normal version history. When replacing a substantial unfinished handoff or preserving a useful completed one, copy a short snapshot to `.agents/handoffs/YYYY-MM-DD-short-task-name.md`, then update `LATEST.md`.
+- Handoff notes never authorize changes to approved quantities, prices, commercial decisions, locked renderer behavior, templates, logos, typography, pagination rules, QA requirements, or any other protected LAVI standard.
 
 ## Non-negotiable document rules
 
