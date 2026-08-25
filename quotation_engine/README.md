@@ -1,6 +1,6 @@
-# LAVI Locked Quotation Engine
+# Locked Quotation Engine
 
-This package is the authoritative production system for new general LAVI quotations. It converts validated JSON job data into the approved Legal-size PDF. Ordinary quotation work must change only a job file; it must not recreate or restyle the renderer.
+This package is the authoritative production system for supported quotation profiles. It converts validated JSON job data into Legal-size PDFs. Ordinary quotation work must change only a job file; it must not recreate or restyle the renderer.
 
 ## Commands
 
@@ -24,8 +24,15 @@ Start from `examples/approved_sample.json`. The engine calculates line amounts, 
 
 `manifest.json` records the approved assets and release checksums. The approved reference PDF remains under `templates/lavi/quotation-2026/`, while `golden/approved_sample_contract.json` locks the sample page count, dimensions, required labels, and extracted-content fingerprint.
 
+## Supported profiles
+
+- `LAVI-QUOTATION-2026.2`: approved and locked LAVI Technologies profile with flat VAT-inclusive pricing.
+- `LIFES-AWESOME-QUOTATION-2026.1`: candidate Lifes Awesome Ventures Inc. profile with grouped VAT-exclusive pricing and calculated section subtotals.
+
+The Lifes Awesome candidate manifest is `manifests/lifes-awesome-quotation-2026.1.json`. Its first structured job is `work/mab-elv-quotation/2026-08-25-client-budgetary-quotation.json`.
+
 ## Change boundary
 
-Quotation edits may change client details, project data, introduction, line items, pricing basis, additional notes, and signatures in JSON.
+Quotation edits may change client details, project data, introduction, line items, pricing basis, additional notes, and signatures in JSON. The selected `template_version` controls the locked brand profile, tax treatment, and pricing structure.
 
 Template revisions require James's explicit approval, a new template ID, a regenerated golden PDF, updated checksums, passing tests, and a reviewed version-control change. Never create a project-specific rendering script.

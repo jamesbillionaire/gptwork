@@ -110,6 +110,20 @@ The totals block must align exactly with the pricing table's last two columns:
 - Confirm VAT-inclusive or VAT-exclusive treatment from approved source data. Never infer commercial data from the template.
 - Do not invent client details, references, dates, validity, payment terms, delivery periods, warranties, exclusions, quantities, unit prices, VAT, or totals.
 
+## Lifes Awesome Ventures quotation template candidate
+
+The reusable Lifes Awesome Ventures Inc. quotation profile is implemented inside the locked `quotation_engine/` production path so it shares validation, deterministic rendering, pagination, and QA controls without replacing the approved LAVI Technologies profile.
+
+- Template ID: `LIFES-AWESOME-QUOTATION-2026.1`.
+- Status: `CANDIDATE_REVIEW` until James explicitly accepts the visual and content result.
+- Template package: `templates/lifes-awesome/quotation-2026/`.
+- Candidate manifest: `quotation_engine/manifests/lifes-awesome-quotation-2026.1.json`.
+- Primary brand cyan: `#00ADED`; secondary logo gray: `#888888`.
+- The Lifes Awesome profile uses grouped system sections and calculated section subtotals.
+- The initial MAB job is VAT exclusive. Do not add VAT unless James authorizes a commercial change.
+- Ordinary work on this profile changes structured job JSON only. Brand details, palette, logo treatment, geometry, pricing columns, continuation behavior, totals, and footers remain locked after approval.
+- Do not call this candidate approved or final until it has passed complete QA and James has accepted it.
+
 ## LAVI billing statement template standard
 
 Use this standard for client billing statements unless James approves a different client-specific form. The current approved reference is the branded Gigaworks Technologies Inc. Billing Statement `0813-001`, Revision 3.

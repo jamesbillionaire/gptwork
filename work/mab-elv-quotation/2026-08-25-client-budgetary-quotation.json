@@ -1,0 +1,569 @@
+{
+  "template_version": "LIFES-AWESOME-QUOTATION-2026.1",
+  "document": {
+    "quote_date": "2026-08-25",
+    "validity_days": 45,
+    "status": "Preliminary Budgetary Draft"
+  },
+  "client": {
+    "company": "Biztech IT Solutions Corporation",
+    "attention": "Mr. Dave V. Hembrador, Chairman & CEO",
+    "salutation": "Mr. Hembrador",
+    "business_address": "1387 Bontong, Camaman-an\nCagayan de Oro City 9000, Philippines"
+  },
+  "project": {
+    "title": "Supply, Delivery, Installation, Testing and Commissioning of Electronic Low-Voltage Systems - MAB Building",
+    "subtitle": "Preliminary budgetary quotation based on the submitted MAB Electronic Plans",
+    "location": "MAB Building"
+  },
+  "introduction": [
+    "Lifes Awesome Ventures Inc. is pleased to submit this preliminary quotation for the supply, delivery, installation, testing and commissioning of the electronic low-voltage systems indicated in the submitted MAB Electronic Plans."
+  ],
+  "pricing": {
+    "currency": "PHP",
+    "tax_treatment": "VAT Exclusive",
+    "vat_rate": 0,
+    "amount_in_words": "Six Million Five Hundred Forty-Five Thousand Four Hundred Pesos Only, VAT Exclusive.",
+    "sections": [
+      {
+        "code": "A",
+        "title": "Shared MDF, IDFs, Structured Cabling and Wireless Network System",
+        "items": [
+          {
+            "item_code": "A1",
+            "quantity": 9,
+            "unit": "Box",
+            "title": "Pure-copper Hikvision CAT6 UTP cable, 305 meters per box",
+            "description": "",
+            "unit_price": 8450
+          },
+          {
+            "item_code": "A2",
+            "quantity": 5,
+            "unit": "Set",
+            "title": "24-port CAT6 patch panel loaded with snap-in connectors",
+            "description": "",
+            "unit_price": 8600
+          },
+          {
+            "item_code": "A3",
+            "quantity": 12,
+            "unit": "Pc.",
+            "title": "24-slot 1U horizontal cable manager",
+            "description": "",
+            "unit_price": 3500
+          },
+          {
+            "item_code": "A4",
+            "quantity": 10,
+            "unit": "Roll",
+            "title": "Five-meter Velcro cable tie",
+            "description": "",
+            "unit_price": 250
+          },
+          {
+            "item_code": "A5",
+            "quantity": 100,
+            "unit": "Pc.",
+            "title": "M6 cage nuts and rack screws",
+            "description": "",
+            "unit_price": 35
+          },
+          {
+            "item_code": "A6",
+            "quantity": 97,
+            "unit": "Set",
+            "title": "D-Link CAT6 keystone jack with faceplate and outlet box",
+            "description": "",
+            "unit_price": 680
+          },
+          {
+            "item_code": "A7",
+            "quantity": 2,
+            "unit": "Box",
+            "title": "Passthrough CAT6 RJ45 connectors",
+            "description": "",
+            "unit_price": 1550
+          },
+          {
+            "item_code": "A8",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "CAT6 patch cords, equipment cords, labels and remaining rack accessories",
+            "description": "",
+            "unit_price": 43640
+          },
+          {
+            "item_code": "A9",
+            "quantity": 8,
+            "unit": "Unit",
+            "title": "TP-Link AX3000 ceiling-mounted Wi-Fi 6 access point",
+            "description": "",
+            "unit_price": 12000
+          },
+          {
+            "item_code": "A10",
+            "quantity": 1,
+            "unit": "Unit",
+            "title": "TP-Link centralized hardware network controller",
+            "description": "",
+            "unit_price": 10800
+          },
+          {
+            "item_code": "A11",
+            "quantity": 4,
+            "unit": "Unit",
+            "title": "TP-Link 24-port managed PoE+ switch with SFP+ uplinks",
+            "description": "",
+            "unit_price": 38000
+          },
+          {
+            "item_code": "A12",
+            "quantity": 1,
+            "unit": "Unit",
+            "title": "TP-Link 48-port managed PoE+ switch with 10G SFP+ uplinks",
+            "description": "",
+            "unit_price": 104000
+          },
+          {
+            "item_code": "A13",
+            "quantity": 1,
+            "unit": "Set",
+            "title": "Complete 42U floor-mounted shared MDF data cabinet with fan, PDU and rack accessories",
+            "description": "",
+            "unit_price": 68500
+          },
+          {
+            "item_code": "A14",
+            "quantity": 4,
+            "unit": "Set",
+            "title": "Complete 18U wall-mounted shared IDF data cabinet with fan, PDU and rack accessories",
+            "description": "",
+            "unit_price": 32400
+          },
+          {
+            "item_code": "A15",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "OM3 multimode fiber-optic backbone, transceivers, ODFs, pigtails, patch cords and splicing",
+            "description": "",
+            "unit_price": 142000
+          },
+          {
+            "item_code": "A16",
+            "quantity": 4,
+            "unit": "Unit",
+            "title": "APC 1.5/1.6 kVA UPS for shared floor IDFs",
+            "description": "",
+            "unit_price": 20500
+          },
+          {
+            "item_code": "A17",
+            "quantity": 1,
+            "unit": "Unit",
+            "title": "APC 3 kVA online rack-mounted UPS for shared MDF",
+            "description": "",
+            "unit_price": 112000
+          },
+          {
+            "item_code": "A18",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Shared main ELV cable trays, riser pathways, supports, hangers and containment for all systems",
+            "description": "",
+            "unit_price": 397000
+          },
+          {
+            "item_code": "A19",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Installation, cable pulling, termination, labeling, network configuration, certification, testing and documentation",
+            "description": "",
+            "unit_price": 571350
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "title": "IP CCTV Surveillance System",
+        "items": [
+          {
+            "item_code": "B1",
+            "quantity": 13,
+            "unit": "Unit",
+            "title": "Hikvision 4MP PoE network dome camera",
+            "description": "",
+            "unit_price": 5600
+          },
+          {
+            "item_code": "B2",
+            "quantity": 5,
+            "unit": "Unit",
+            "title": "Hikvision 4MP weather-resistant PoE network bullet camera",
+            "description": "",
+            "unit_price": 5400
+          },
+          {
+            "item_code": "B3",
+            "quantity": 1,
+            "unit": "Unit",
+            "title": "Hikvision 32-channel network video recorder",
+            "description": "",
+            "unit_price": 32000
+          },
+          {
+            "item_code": "B4",
+            "quantity": 4,
+            "unit": "Unit",
+            "title": "4TB surveillance-grade hard disk drive",
+            "description": "",
+            "unit_price": 14500
+          },
+          {
+            "item_code": "B5",
+            "quantity": 5,
+            "unit": "Unit",
+            "title": "24-port managed PoE CCTV switch with fiber uplinks",
+            "description": "",
+            "unit_price": 32500
+          },
+          {
+            "item_code": "B6",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "CCTV rack-mounting, patching and power-connection accessories within the shared MDF and IDFs",
+            "description": "",
+            "unit_price": 25000
+          },
+          {
+            "item_code": "B7",
+            "quantity": 1,
+            "unit": "Unit",
+            "title": "40-inch CCTV monitoring display",
+            "description": "",
+            "unit_price": 38000
+          },
+          {
+            "item_code": "B8",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Hikvision CAT6 UTP cabling, OM3 fiber backbone, transceivers, ODFs and fiber termination",
+            "description": "",
+            "unit_price": 182000
+          },
+          {
+            "item_code": "B9",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Camera mounts, junction boxes, connectors, branch conduits and supports",
+            "description": "",
+            "unit_price": 187000
+          },
+          {
+            "item_code": "B10",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Installation, configuration, camera aiming, recording setup, testing, training and documentation",
+            "description": "",
+            "unit_price": 463900
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "title": "Public Address and Background Music System",
+        "items": [
+          {
+            "item_code": "C1",
+            "quantity": 113,
+            "unit": "Unit",
+            "title": "Auveo 6W ceiling-mounted public-address speaker",
+            "description": "",
+            "unit_price": 1200
+          },
+          {
+            "item_code": "C2",
+            "quantity": 10,
+            "unit": "Unit",
+            "title": "Zone remote-control wall plate",
+            "description": "",
+            "unit_price": 6800
+          },
+          {
+            "item_code": "C3",
+            "quantity": 2,
+            "unit": "Unit",
+            "title": "Remote zone-paging microphone",
+            "description": "",
+            "unit_price": 20500
+          },
+          {
+            "item_code": "C4",
+            "quantity": 1,
+            "unit": "Set",
+            "title": "Digital audio matrix and zone-paging controller",
+            "description": "",
+            "unit_price": 40000
+          },
+          {
+            "item_code": "C5",
+            "quantity": 2,
+            "unit": "Unit",
+            "title": "500W six-zone public-address power amplifier",
+            "description": "",
+            "unit_price": 28000
+          },
+          {
+            "item_code": "C6",
+            "quantity": 1,
+            "unit": "Unit",
+            "title": "Digital music and program-source player",
+            "description": "",
+            "unit_price": 18000
+          },
+          {
+            "item_code": "C7",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "PA rack-mounting, power-connection and termination accessories within the shared MDF and IDFs",
+            "description": "",
+            "unit_price": 20000
+          },
+          {
+            "item_code": "C8",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Fire-retardant two-core speaker cabling, including quantity allowance",
+            "description": "",
+            "unit_price": 142000
+          },
+          {
+            "item_code": "C9",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Branch conduits, supports, boxes and PA pathway materials",
+            "description": "",
+            "unit_price": 137000
+          },
+          {
+            "item_code": "C10",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Installation, termination, programming, zone balancing, testing, training and documentation",
+            "description": "",
+            "unit_price": 380600
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "title": "IP-Based Nurse Call System",
+        "items": [
+          {
+            "item_code": "D1",
+            "quantity": 1,
+            "unit": "Set",
+            "title": "Yarward intelligent management host, management server/workstation and software",
+            "description": "",
+            "unit_price": 180000
+          },
+          {
+            "item_code": "D2",
+            "quantity": 2,
+            "unit": "Unit",
+            "title": "Yarward nurse-station medical-care host with interactive display",
+            "description": "",
+            "unit_price": 68000
+          },
+          {
+            "item_code": "D3",
+            "quantity": 44,
+            "unit": "Set",
+            "title": "Door-side terminal and corridor-light combination",
+            "description": "",
+            "unit_price": 6800
+          },
+          {
+            "item_code": "D4",
+            "quantity": 13,
+            "unit": "Set",
+            "title": "Yarward bedside call terminal with handset",
+            "description": "",
+            "unit_price": 8500
+          },
+          {
+            "item_code": "D5",
+            "quantity": 7,
+            "unit": "Unit",
+            "title": "Yarward bathroom emergency pull-cord station",
+            "description": "",
+            "unit_price": 4500
+          },
+          {
+            "item_code": "D6",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Gateways, power supplies, control interfaces, isolators and software licenses",
+            "description": "",
+            "unit_price": 108000
+          },
+          {
+            "item_code": "D7",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Initial spare components, specialized connectors and testing accessories",
+            "description": "",
+            "unit_price": 58000
+          },
+          {
+            "item_code": "D8",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "International freight, insurance, importation, customs and brokerage allowance",
+            "description": "",
+            "unit_price": 227000
+          },
+          {
+            "item_code": "D9",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Two-core communication and power bus, boxes, branch conduits and local rough-in materials",
+            "description": "",
+            "unit_price": 148000
+          },
+          {
+            "item_code": "D10",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Installation, programming, device addressing, testing, commissioning, training, warranty support and documentation",
+            "description": "",
+            "unit_price": 395800
+          }
+        ]
+      },
+      {
+        "code": "E",
+        "title": "Cable Television Distribution System",
+        "items": [
+          {
+            "item_code": "E1",
+            "quantity": 18,
+            "unit": "Point",
+            "title": "Complete cable television outlet with faceplate, connector and outlet box",
+            "description": "",
+            "unit_price": 2850
+          },
+          {
+            "item_code": "E2",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Passive distribution equipment, splitters, taps and enclosures mounted within the shared MDF and IDFs",
+            "description": "",
+            "unit_price": 68000
+          },
+          {
+            "item_code": "E3",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "RG6/RG11 coaxial backbone and horizontal cabling",
+            "description": "",
+            "unit_price": 68000
+          },
+          {
+            "item_code": "E4",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Connectors, grounding, termination and distribution accessories",
+            "description": "",
+            "unit_price": 40000
+          },
+          {
+            "item_code": "E5",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Branch conduits, boxes, supports and containment",
+            "description": "",
+            "unit_price": 62700
+          },
+          {
+            "item_code": "E6",
+            "quantity": 1,
+            "unit": "Lot",
+            "title": "Installation, termination, signal testing, labeling and as-built documentation",
+            "description": "",
+            "unit_price": 130000
+          }
+        ]
+      }
+    ]
+  },
+  "additional_notes": [
+    {
+      "heading": "Tax Treatment",
+      "text": "All quoted prices are VAT exclusive. Applicable VAT shall be added only when required under the final commercial agreement or billing arrangement."
+    },
+    {
+      "heading": "Scope Basis",
+      "text": "This preliminary quotation is based on the submitted 34-page MAB Electronic Plans. Final quantities remain subject to approved technical submittals, coordinated shop drawings and physical site validation."
+    },
+    {
+      "heading": "Cabling Standard",
+      "text": "The drawing's nonstandard \"Cat6E\" notation has been interpreted as standards-compliant pure-copper Hikvision CAT6 UTP cabling."
+    },
+    {
+      "heading": "Shared MDF and IDFs",
+      "text": "The electronic systems shall share one 42U MDF and four 18U floor IDFs. Separate CCTV, PA, nurse-call and CATV equipment cabinets and UPS units are not included or charged separately."
+    },
+    {
+      "heading": "Shared Infrastructure",
+      "text": "The shared MDF and IDFs include common rack power distribution, UPS protection, fiber termination and primary ELV cable pathways. Each system retains its required internal mounting, patching and termination accessories."
+    },
+    {
+      "heading": "Equipment Selection",
+      "text": "Equipment descriptions are performance-based. Exact equipment models shall be finalized during technical submittal and approval."
+    },
+    {
+      "heading": "Drawing Interpretation",
+      "text": "Third Floor Plan A and Third Floor Plan B have been treated as alternative layouts and counted only once."
+    },
+    {
+      "heading": "CCTV Storage",
+      "text": "The CCTV allowance includes a 32-channel recorder and 16TB raw storage. Actual retention shall depend on resolution, compression, frame rate, recording schedule and site activity."
+    },
+    {
+      "heading": "Nurse Call Architecture",
+      "text": "The nurse-call solution uses an IP-connected management host and nurse-station hosts, with wired two-core signaling and power to field devices."
+    },
+    {
+      "heading": "Implementation Period",
+      "text": "Estimated project duration is 90-120 calendar days after notice to proceed, initial payment, approved technical submittals and confirmation of site readiness."
+    },
+    {
+      "heading": "Payment Schedule",
+      "text": "50% down payment; 40% progress billing upon equipment delivery and substantial installation; and 10% upon testing, commissioning and turnover."
+    },
+    {
+      "heading": "Validity",
+      "text": "Quotation validity is 45 calendar days."
+    },
+    {
+      "heading": "Warranty",
+      "text": "Equipment carries a one-year manufacturer's warranty. Installation workmanship carries a three-month warranty from project acceptance."
+    },
+    {
+      "heading": "Exclusions",
+      "text": "Internet service, cable television subscription, recurring service charges, electrical panelboards, dedicated electrical circuits, major civil works, ceiling replacement, painting, permits and government fees are excluded."
+    },
+    {
+      "heading": "Variations",
+      "text": "Work resulting from revised layouts, inaccessible pathways or routes beyond the approved drawings shall be treated as variation work."
+    }
+  ],
+  "signatures": {
+    "prepared_name": "James Brown B. Bete",
+    "prepared_role": "General Manager\nLifes Awesome Ventures Inc.",
+    "accepted_name": "",
+    "accepted_company": "",
+    "accepted_detail": ""
+  }
+}
