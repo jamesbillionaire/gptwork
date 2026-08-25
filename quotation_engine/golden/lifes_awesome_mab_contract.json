@@ -1,0 +1,29 @@
+{
+  "template_id": "LIFES-AWESOME-QUOTATION-2026.1",
+  "sample_job": "work/mab-elv-quotation/2026-08-25-client-budgetary-quotation.json",
+  "expected_page_count": 3,
+  "expected_page_width_points": 612,
+  "expected_page_height_points": 1008,
+  "expected_extracted_text_sha256": "1f285c3eb503facd1584a94701412b6a1f1c643a2d1eb712a0312ec8ddff7929",
+  "required_labels": [
+    "COMMERCIAL AND TECHNICAL QUOTATION",
+    "C-One Industrial Park, Rodolfo Palaez Blvd., Kauswagan, Cagayan De Oro City",
+    "james@brownjourney.com",
+    "SCOPE AND PRICING",
+    "SECTION A SUBTOTAL",
+    "P 2,145,000.00",
+    "SECTION B SUBTOTAL",
+    "P 1,248,200.00",
+    "SECTION C SUBTOTAL",
+    "P 1,038,200.00",
+    "SECTION D SUBTOTAL",
+    "P 1,694,000.00",
+    "SECTION E SUBTOTAL",
+    "P 420,000.00",
+    "PROJECT COST SUMMARY",
+    "TOTAL QUOTATION, VAT EXCLUSIVE",
+    "P 6,545,400.00",
+    "ADDITIONAL NOTES",
+    "JAMES BROWN B. BETE"
+  ]
+}

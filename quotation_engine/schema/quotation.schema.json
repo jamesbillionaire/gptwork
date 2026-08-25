@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://lavitechnologies.com/schemas/lavi-quotation-2026.2.json",
-  "title": "LAVI Locked Quotation Job",
+  "$id": "https://lavitechnologies.com/schemas/quotation-engine-2026.json",
+  "title": "Locked Quotation Engine Job",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -16,16 +16,20 @@
   ],
   "properties": {
     "template_version": {
-      "const": "LAVI-QUOTATION-2026.2"
+      "enum": [
+        "LAVI-QUOTATION-2026.2",
+        "LIFES-AWESOME-QUOTATION-2026.1"
+      ]
     },
     "document": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["quote_reference", "quote_date", "validity_days"],
+      "required": ["quote_date", "validity_days"],
       "properties": {
         "quote_reference": {"type": "string", "minLength": 1},
         "quote_date": {"type": "string", "format": "date"},
-        "validity_days": {"type": "integer", "minimum": 1}
+        "validity_days": {"type": "integer", "minimum": 1},
+        "status": {"type": "string", "minLength": 1}
       }
     },
     "client": {
@@ -35,6 +39,7 @@
       "properties": {
         "company": {"type": "string", "minLength": 1},
         "attention": {"type": "string", "minLength": 1},
+        "salutation": {"type": "string", "minLength": 1},
         "business_address": {"type": "string"}
       }
     },
@@ -56,11 +61,12 @@
     "pricing": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["currency", "tax_treatment", "vat_rate", "items"],
+      "required": ["currency", "tax_treatment", "vat_rate"],
       "properties": {
         "currency": {"const": "PHP"},
-        "tax_treatment": {"const": "VAT Inclusive"},
-        "vat_rate": {"const": 0.12},
+        "tax_treatment": {"enum": ["VAT Inclusive", "VAT Exclusive"]},
+        "vat_rate": {"enum": [0, 0.12]},
+        "amount_in_words": {"type": "string", "minLength": 1},
         "items": {
           "type": "array",
           "minItems": 1,
@@ -69,11 +75,42 @@
             "additionalProperties": false,
             "required": ["quantity", "unit", "title", "description", "unit_price"],
             "properties": {
+              "item_code": {"type": "string", "minLength": 1},
               "quantity": {"type": "number", "exclusiveMinimum": 0, "multipleOf": 0.01},
               "unit": {"type": "string", "minLength": 1},
               "title": {"type": "string", "minLength": 1},
               "description": {"type": "string", "minLength": 1},
               "unit_price": {"type": "number", "exclusiveMinimum": 0, "multipleOf": 0.01}
+            }
+          }
+        },
+        "sections": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["code", "title", "items"],
+            "properties": {
+              "code": {"type": "string", "minLength": 1},
+              "title": {"type": "string", "minLength": 1},
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["quantity", "unit", "title", "description", "unit_price"],
+                  "properties": {
+                    "item_code": {"type": "string", "minLength": 1},
+                    "quantity": {"type": "number", "exclusiveMinimum": 0, "multipleOf": 0.01},
+                    "unit": {"type": "string", "minLength": 1},
+                    "title": {"type": "string", "minLength": 1},
+                    "description": {"type": "string"},
+                    "unit_price": {"type": "number", "exclusiveMinimum": 0, "multipleOf": 0.01}
+                  }
+                }
+              }
             }
           }
         }
@@ -114,5 +151,45 @@
         "accepted_detail": {"type": "string", "minLength": 1}
       }
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "template_version": {"const": "LAVI-QUOTATION-2026.2"}
+        }
+      },
+      "then": {
+        "properties": {
+          "document": {"required": ["quote_reference"]},
+          "pricing": {
+            "required": ["items"],
+            "properties": {
+              "tax_treatment": {"const": "VAT Inclusive"},
+              "vat_rate": {"const": 0.12}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "template_version": {"const": "LIFES-AWESOME-QUOTATION-2026.1"}
+        }
+      },
+      "then": {
+        "properties": {
+          "document": {"required": ["status"]},
+          "pricing": {
+            "required": ["sections"],
+            "properties": {
+              "tax_treatment": {"const": "VAT Exclusive"},
+              "vat_rate": {"const": 0}
+            }
+          }
+        }
+      }
+    }
+  ]
 }

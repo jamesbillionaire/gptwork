@@ -27,34 +27,23 @@ from reportlab.platypus import (
 
 from .contract import (
     BOTTOM_MARGIN,
-    COMPANY_ADDRESS,
-    COMPANY_CONTACT,
-    COMPANY_NAME,
     CONTENT_WIDTH,
     FONT_BOLD,
     FONT_REGULAR,
-    GRID,
-    INK,
     LEFT_MARGIN,
-    LOCKED_SECTION_TITLES,
-    LOGO_PATH,
-    MUTED,
-    NAVY,
     PAGE_HEIGHT,
     PAGE_WIDTH,
-    PALE_BLUE,
-    PALE_GOLD,
-    PALE_TEAL,
     PRICING_COLUMN_WIDTHS,
     RIGHT_MARGIN,
-    ROW_ALT,
-    TEAL,
-    TITLE_BG,
     TOP_MARGIN,
     TOTALS_COLUMN_WIDTHS,
-    WHITE,
 )
-from .validation import calculate_totals, validate_quotation
+from .profiles import TemplateProfile, get_template_profile
+from .validation import (
+    calculate_section_totals,
+    calculate_totals,
+    validate_quotation,
+)
 
 
 def _safe(value: object) -> str:
@@ -88,12 +77,19 @@ def register_fonts() -> None:
 class NumberedCanvas(canvas.Canvas):
     """Two-pass canvas with deterministic metadata and Page x of y footers."""
 
-    def __init__(self, *args, footer_label: str, **kwargs):
+    def __init__(
+        self,
+        *args,
+        footer_label: str,
+        profile: TemplateProfile,
+        **kwargs,
+    ):
         if kwargs.get("invariant") is None:
             kwargs["invariant"] = 1
         super().__init__(*args, **kwargs)
         self._saved_page_states: list[dict] = []
         self._footer_label = footer_label
+        self._profile = profile
 
     def showPage(self):
         self._saved_page_states.append(dict(self.__dict__))
@@ -109,10 +105,10 @@ class NumberedCanvas(canvas.Canvas):
 
     def _draw_footer(self, page_count: int) -> None:
         y = 0.27 * inch
-        self.setStrokeColor(GRID)
+        self.setStrokeColor(self._profile.grid)
         self.setLineWidth(0.55)
         self.line(LEFT_MARGIN, y + 11, PAGE_WIDTH - RIGHT_MARGIN, y + 11)
-        self.setFillColor(MUTED)
+        self.setFillColor(self._profile.muted)
         self.setFont(FONT_REGULAR, 7.1)
         self.drawString(LEFT_MARGIN, y, self._footer_label)
         self.drawRightString(
@@ -126,7 +122,7 @@ def _paragraph(text: str, style: ParagraphStyle) -> Paragraph:
     return Paragraph(text, style)
 
 
-def _build_styles() -> dict[str, ParagraphStyle]:
+def _build_styles(profile: TemplateProfile) -> dict[str, ParagraphStyle]:
     base = getSampleStyleSheet()
     return {
         "body": ParagraphStyle(
@@ -135,7 +131,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontName=FONT_REGULAR,
             fontSize=8.35,
             leading=10.6,
-            textColor=INK,
+            textColor=profile.ink,
             spaceAfter=4,
         ),
         "muted": ParagraphStyle(
@@ -144,7 +140,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontName=FONT_REGULAR,
             fontSize=7.2,
             leading=9.1,
-            textColor=MUTED,
+            textColor=profile.muted,
         ),
         "center_small": ParagraphStyle(
             "LAVICenterSmall",
@@ -153,7 +149,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontSize=6.55,
             leading=8.0,
             alignment=TA_CENTER,
-            textColor=MUTED,
+            textColor=profile.muted,
         ),
         "title": ParagraphStyle(
             "LAVITitle",
@@ -162,7 +158,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontSize=11.6,
             leading=13.5,
             alignment=TA_LEFT,
-            textColor=NAVY,
+            textColor=profile.navy,
             spaceAfter=2,
         ),
         "title_eyebrow": ParagraphStyle(
@@ -172,7 +168,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontSize=6.9,
             leading=8.2,
             alignment=TA_LEFT,
-            textColor=TEAL,
+            textColor=profile.teal,
         ),
         "subtitle": ParagraphStyle(
             "LAVISubtitle",
@@ -181,7 +177,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontSize=7.8,
             leading=9.4,
             alignment=TA_LEFT,
-            textColor=MUTED,
+            textColor=profile.muted,
         ),
         "section": ParagraphStyle(
             "LAVISection",
@@ -189,7 +185,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontName=FONT_BOLD,
             fontSize=9.4,
             leading=11.0,
-            textColor=TEAL,
+            textColor=profile.teal,
             spaceAfter=0,
         ),
         "label": ParagraphStyle(
@@ -198,7 +194,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontName=FONT_BOLD,
             fontSize=6.5,
             leading=7.7,
-            textColor=TEAL,
+            textColor=profile.teal,
             spaceAfter=2,
         ),
         "value": ParagraphStyle(
@@ -207,7 +203,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontName=FONT_REGULAR,
             fontSize=8.15,
             leading=10.0,
-            textColor=INK,
+            textColor=profile.ink,
         ),
         "table_header": ParagraphStyle(
             "LAVITableHeader",
@@ -216,7 +212,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontSize=6.7,
             leading=7.8,
             alignment=TA_CENTER,
-            textColor=WHITE,
+            textColor=profile.white,
         ),
         "table_text": ParagraphStyle(
             "LAVITableText",
@@ -224,7 +220,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontName=FONT_REGULAR,
             fontSize=6.65,
             leading=8.15,
-            textColor=INK,
+            textColor=profile.ink,
         ),
         "table_center": ParagraphStyle(
             "LAVITableCenter",
@@ -233,7 +229,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontSize=6.65,
             leading=8.15,
             alignment=TA_CENTER,
-            textColor=INK,
+            textColor=profile.ink,
         ),
         "table_qty": ParagraphStyle(
             "LAVITableQty",
@@ -242,7 +238,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontSize=6.65,
             leading=8.15,
             alignment=TA_RIGHT,
-            textColor=INK,
+            textColor=profile.ink,
         ),
         "table_right": ParagraphStyle(
             "LAVITableRight",
@@ -251,7 +247,24 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontSize=6.75,
             leading=8.15,
             alignment=TA_RIGHT,
-            textColor=INK,
+            textColor=profile.ink,
+        ),
+        "pricing_section": ParagraphStyle(
+            "LAVIPricingSection",
+            parent=base["BodyText"],
+            fontName=FONT_BOLD,
+            fontSize=7.2,
+            leading=8.7,
+            textColor=profile.navy,
+        ),
+        "section_total_label": ParagraphStyle(
+            "LAVISectionTotalLabel",
+            parent=base["BodyText"],
+            fontName=FONT_BOLD,
+            fontSize=6.75,
+            leading=8.15,
+            alignment=TA_RIGHT,
+            textColor=profile.ink,
         ),
         "total_label": ParagraphStyle(
             "LAVITotalLabel",
@@ -260,7 +273,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontSize=6.75,
             leading=8.15,
             alignment=TA_RIGHT,
-            textColor=INK,
+            textColor=profile.ink,
         ),
         "total_amount": ParagraphStyle(
             "LAVITotalAmount",
@@ -269,7 +282,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontSize=6.75,
             leading=8.15,
             alignment=TA_RIGHT,
-            textColor=INK,
+            textColor=profile.ink,
         ),
         "grand_label": ParagraphStyle(
             "LAVIGrandLabel",
@@ -278,7 +291,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontSize=8.5,
             leading=10.2,
             alignment=TA_RIGHT,
-            textColor=NAVY,
+            textColor=profile.navy,
         ),
         "grand_amount": ParagraphStyle(
             "LAVIGrandAmount",
@@ -287,7 +300,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontSize=8.5,
             leading=10.2,
             alignment=TA_RIGHT,
-            textColor=NAVY,
+            textColor=profile.navy,
         ),
         "condition": ParagraphStyle(
             "LAVICondition",
@@ -298,7 +311,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             leftIndent=15,
             firstLineIndent=-15,
             spaceAfter=6,
-            textColor=INK,
+            textColor=profile.ink,
         ),
         "signature_label": ParagraphStyle(
             "LAVISignatureLabel",
@@ -306,7 +319,7 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontName=FONT_BOLD,
             fontSize=6.6,
             leading=8,
-            textColor=TEAL,
+            textColor=profile.teal,
         ),
         "signature_name": ParagraphStyle(
             "LAVISignatureName",
@@ -314,12 +327,16 @@ def _build_styles() -> dict[str, ParagraphStyle]:
             fontName=FONT_BOLD,
             fontSize=8.5,
             leading=10.2,
-            textColor=INK,
+            textColor=profile.ink,
         ),
     }
 
 
-def _section_heading(text: str, styles: dict[str, ParagraphStyle]) -> Table:
+def _section_heading(
+    text: str,
+    styles: dict[str, ParagraphStyle],
+    profile: TemplateProfile,
+) -> Table:
     heading = Table(
         [[_paragraph(_safe(text.upper()), styles["section"])]],
         colWidths=[CONTENT_WIDTH],
@@ -331,27 +348,30 @@ def _section_heading(text: str, styles: dict[str, ParagraphStyle]) -> Table:
                 ("RIGHTPADDING", (0, 0), (-1, -1), 0),
                 ("TOPPADDING", (0, 0), (-1, -1), 3),
                 ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
-                ("LINEBELOW", (0, 0), (-1, -1), 1.1, TEAL),
+                ("LINEBELOW", (0, 0), (-1, -1), 1.1, profile.teal),
             ]
         )
     )
     return heading
 
 
-def _draw_continuation_header(quote_reference: str):
+def _draw_continuation_header(
+    quote_reference: str,
+    profile: TemplateProfile,
+):
     def draw(canv: canvas.Canvas, doc: BaseDocTemplate) -> None:
         if doc.page == 1:
             return
         y = PAGE_HEIGHT - 0.31 * inch
         canv.saveState()
-        canv.setStrokeColor(TEAL)
+        canv.setStrokeColor(profile.teal)
         canv.setLineWidth(1.2)
         canv.line(LEFT_MARGIN, y, PAGE_WIDTH - RIGHT_MARGIN, y)
         canv.setFont(FONT_BOLD, 7.5)
-        canv.setFillColor(NAVY)
-        canv.drawString(LEFT_MARGIN, y - 12, COMPANY_NAME)
+        canv.setFillColor(profile.navy)
+        canv.drawString(LEFT_MARGIN, y - 12, profile.company_name)
         canv.setFont(FONT_REGULAR, 7.2)
-        canv.setFillColor(MUTED)
+        canv.setFillColor(profile.muted)
         canv.drawRightString(PAGE_WIDTH - RIGHT_MARGIN, y - 12, quote_reference)
         canv.restoreState()
 
@@ -370,15 +390,21 @@ def _title_style(title: str, styles: dict[str, ParagraphStyle]) -> ParagraphStyl
     return style
 
 
-def _build_pricing_table(data: dict, styles: dict[str, ParagraphStyle]) -> Table:
+def _build_pricing_table(
+    data: dict,
+    styles: dict[str, ParagraphStyle],
+    profile: TemplateProfile,
+) -> Table:
     raw_rows = [["QTY", "UNIT", "DESCRIPTION / ACTIVITY", "UNIT PRICE", "AMOUNT"]]
     for item in data["pricing"]["items"]:
         quantity = Decimal(str(item["quantity"]))
         unit_price = Decimal(str(item["unit_price"]))
         amount = quantity * unit_price
-        description = (
-            f"<b>{_safe(item['title'])}</b><br/>{_safe_lines(item['description'])}"
-        )
+        item_code = item.get("item_code")
+        title = f"{item_code} - {item['title']}" if item_code else item["title"]
+        description = f"<b>{_safe(title)}</b>"
+        if item["description"]:
+            description += f"<br/>{_safe_lines(item['description'])}"
         raw_rows.append(
             [
                 _format_quantity(quantity),
@@ -413,9 +439,9 @@ def _build_pricing_table(data: dict, styles: dict[str, ParagraphStyle]) -> Table
         hAlign="LEFT",
     )
     commands = [
-        ("BACKGROUND", (0, 0), (-1, 0), NAVY),
-        ("LINEABOVE", (0, 0), (-1, 0), 1.4, TEAL),
-        ("GRID", (0, 0), (-1, -1), 0.45, GRID),
+        ("BACKGROUND", (0, 0), (-1, 0), profile.navy),
+        ("LINEABOVE", (0, 0), (-1, 0), 1.4, profile.teal),
+        ("GRID", (0, 0), (-1, -1), 0.45, profile.grid),
         ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
         ("LEFTPADDING", (0, 0), (-1, -1), 4),
         ("RIGHTPADDING", (0, 0), (-1, -1), 4),
@@ -429,12 +455,180 @@ def _build_pricing_table(data: dict, styles: dict[str, ParagraphStyle]) -> Table
     ]
     for index in range(1, len(rows)):
         if index % 2 == 0:
-            commands.append(("BACKGROUND", (0, index), (-1, index), ROW_ALT))
+            commands.append(("BACKGROUND", (0, index), (-1, index), profile.row_alt))
     table.setStyle(TableStyle(commands))
     return table
 
 
-def _build_totals(data: dict, styles: dict[str, ParagraphStyle]) -> Table:
+def _build_grouped_pricing(
+    data: dict,
+    styles: dict[str, ParagraphStyle],
+    profile: TemplateProfile,
+) -> list:
+    """Build independently flowing section tables with calculated subtotals."""
+
+    tables = []
+    section_totals = calculate_section_totals(data)
+    for section_index, (section, section_total) in enumerate(
+        zip(data["pricing"]["sections"], section_totals)
+    ):
+        rows = [
+            [
+                _paragraph(
+                    f"{_safe(section['code'])}. {_safe(section['title'])}",
+                    styles["pricing_section"],
+                ),
+                "",
+                "",
+                "",
+                "",
+            ],
+            [
+                _paragraph("QTY", styles["table_header"]),
+                _paragraph("UNIT", styles["table_header"]),
+                _paragraph("DESCRIPTION / ACTIVITY", styles["table_header"]),
+                _paragraph("UNIT PRICE", styles["table_header"]),
+                _paragraph("AMOUNT", styles["table_header"]),
+            ],
+        ]
+        for item in section["items"]:
+            quantity = Decimal(str(item["quantity"]))
+            unit_price = Decimal(str(item["unit_price"]))
+            amount = quantity * unit_price
+            item_code = item.get("item_code")
+            title = f"{item_code} - {item['title']}" if item_code else item["title"]
+            description = f"<b>{_safe(title)}</b>"
+            if item["description"]:
+                description += f"<br/>{_safe_lines(item['description'])}"
+            rows.append(
+                [
+                    _paragraph(_format_quantity(quantity), styles["table_qty"]),
+                    _paragraph(_safe(item["unit"]).upper(), styles["table_center"]),
+                    _paragraph(description, styles["table_text"]),
+                    _paragraph(_format_money(unit_price), styles["table_right"]),
+                    _paragraph(_format_money(amount), styles["table_right"]),
+                ]
+            )
+        subtotal_row = len(rows)
+        rows.append(
+            [
+                _paragraph(
+                    f"SECTION {_safe(section['code'])} SUBTOTAL",
+                    styles["section_total_label"],
+                ),
+                "",
+                "",
+                "",
+                _paragraph(_format_money(section_total), styles["table_right"]),
+            ]
+        )
+
+        table = Table(
+            rows,
+            colWidths=list(PRICING_COLUMN_WIDTHS),
+            repeatRows=2,
+            splitByRow=1,
+            splitInRow=0,
+            hAlign="LEFT",
+        )
+        commands = [
+            ("SPAN", (0, 0), (-1, 0)),
+            ("SPAN", (0, subtotal_row), (3, subtotal_row)),
+            ("NOSPLIT", (0, subtotal_row - 1), (-1, subtotal_row)),
+            ("BACKGROUND", (0, 0), (-1, 0), profile.pale_teal),
+            ("BACKGROUND", (0, 1), (-1, 1), profile.navy),
+            ("BACKGROUND", (0, subtotal_row), (-1, subtotal_row), profile.pale_blue),
+            ("LINEABOVE", (0, 0), (-1, 0), 1.4, profile.teal),
+            ("GRID", (0, 0), (-1, -1), 0.45, profile.grid),
+            ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+            ("LEFTPADDING", (0, 0), (-1, -1), 4),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+            ("TOPPADDING", (0, 0), (-1, 0), 5),
+            ("BOTTOMPADDING", (0, 0), (-1, 0), 5),
+            ("TOPPADDING", (0, 1), (-1, 1), 6),
+            ("BOTTOMPADDING", (0, 1), (-1, 1), 6),
+            ("TOPPADDING", (0, 2), (-1, subtotal_row - 1), 5),
+            ("BOTTOMPADDING", (0, 2), (-1, subtotal_row - 1), 5),
+            ("TOPPADDING", (0, subtotal_row), (-1, subtotal_row), 6),
+            ("BOTTOMPADDING", (0, subtotal_row), (-1, subtotal_row), 6),
+            ("ALIGN", (0, 2), (0, subtotal_row - 1), "RIGHT"),
+            ("ALIGN", (1, 2), (1, subtotal_row - 1), "CENTER"),
+            ("ALIGN", (3, 2), (4, -1), "RIGHT"),
+        ]
+        for row_index in range(2, subtotal_row):
+            if (row_index - 2) % 2 == 1:
+                commands.append(
+                    ("BACKGROUND", (0, row_index), (-1, row_index), profile.row_alt)
+                )
+        table.setStyle(TableStyle(commands))
+        tables.append(table)
+        if section_index < len(data["pricing"]["sections"]) - 1:
+            tables.append(Spacer(1, 7))
+    return tables
+
+
+def _build_project_summary(
+    data: dict,
+    styles: dict[str, ParagraphStyle],
+    profile: TemplateProfile,
+) -> Table:
+    section_totals = calculate_section_totals(data)
+    rows = []
+    for section, amount in zip(data["pricing"]["sections"], section_totals):
+        rows.append(
+            [
+                _paragraph(
+                    f"{_safe(section['code'])}. {_safe(section['title'])}",
+                    styles["table_text"],
+                ),
+                "",
+                "",
+                "",
+                _paragraph(_format_money(amount), styles["table_right"]),
+            ]
+        )
+    total_row = len(rows)
+    grand_total = calculate_totals(data)["grand_total"]
+    rows.append(
+        [
+            _paragraph("TOTAL QUOTATION, VAT EXCLUSIVE", styles["grand_label"]),
+            "",
+            "",
+            "",
+            _paragraph(_format_money(grand_total), styles["grand_amount"]),
+        ]
+    )
+    table = Table(rows, colWidths=list(PRICING_COLUMN_WIDTHS), hAlign="LEFT")
+    commands = [
+        ("GRID", (0, 0), (-1, -1), 0.5, profile.grid),
+        ("BACKGROUND", (0, total_row), (-1, total_row), profile.pale_gold),
+        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 7),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 7),
+        ("TOPPADDING", (0, 0), (-1, -1), 6),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+        ("ALIGN", (4, 0), (4, -1), "RIGHT"),
+    ]
+    for row_index in range(len(rows)):
+        commands.append(("SPAN", (0, row_index), (3, row_index)))
+    for row_index in range(total_row):
+        commands.append(
+            (
+                "BACKGROUND",
+                (0, row_index),
+                (-1, row_index),
+                profile.row_alt if row_index % 2 else profile.white,
+            )
+        )
+    table.setStyle(TableStyle(commands))
+    return table
+
+
+def _build_totals(
+    data: dict,
+    styles: dict[str, ParagraphStyle],
+    profile: TemplateProfile,
+) -> Table:
     totals = calculate_totals(data)
     vat_percent = int(Decimal(str(data["pricing"]["vat_rate"])) * 100)
     table = Table(
@@ -458,10 +652,10 @@ def _build_totals(data: dict, styles: dict[str, ParagraphStyle]) -> Table:
     table.setStyle(
         TableStyle(
             [
-                ("GRID", (0, 0), (-1, -1), 0.5, GRID),
-                ("BACKGROUND", (0, 0), (-1, 0), WHITE),
-                ("BACKGROUND", (0, 1), (-1, 1), PALE_BLUE),
-                ("BACKGROUND", (0, 2), (-1, 2), PALE_GOLD),
+                ("GRID", (0, 0), (-1, -1), 0.5, profile.grid),
+                ("BACKGROUND", (0, 0), (-1, 0), profile.white),
+                ("BACKGROUND", (0, 1), (-1, 1), profile.pale_blue),
+                ("BACKGROUND", (0, 2), (-1, 2), profile.pale_gold),
                 ("ALIGN", (0, 0), (-1, -1), "RIGHT"),
                 ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
                 ("LEFTPADDING", (0, 0), (-1, -1), 7),
@@ -479,15 +673,20 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
 
     validate_quotation(data)
     register_fonts()
-    styles = _build_styles()
+    profile = get_template_profile(data["template_version"])
+    styles = _build_styles(profile)
 
     output = Path(output_path)
     if output.suffix.lower() != ".pdf":
         raise ValueError("Output path must end in .pdf")
     output.parent.mkdir(parents=True, exist_ok=True)
 
-    reference = data["document"]["quote_reference"]
-    footer_label = f"{COMPANY_NAME} | {data['client']['company']} QUOTATION".upper()
+    reference = data["document"].get("quote_reference") or data["document"].get(
+        "status", "QUOTATION"
+    )
+    footer_label = (
+        f"{profile.company_name} | {data['client']['company']} QUOTATION".upper()
+    )
     doc = BaseDocTemplate(
         str(output),
         pagesize=(PAGE_WIDTH, PAGE_HEIGHT),
@@ -495,10 +694,13 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
         rightMargin=RIGHT_MARGIN,
         topMargin=TOP_MARGIN,
         bottomMargin=BOTTOM_MARGIN,
-        title=f"LAVI Quotation - {data['project']['title']}",
-        author="LAVI Technologies Inc.",
+        title=f"{profile.metadata_brand} Quotation - {data['project']['title']}",
+        author=profile.metadata_brand,
         subject=data["project"]["subtitle"],
-        keywords=f"LAVI, quotation, {data['client']['company']}, {reference}",
+        keywords=(
+            f"{profile.metadata_brand}, quotation, "
+            f"{data['client']['company']}, {reference}"
+        ),
     )
 
     first_frame = Frame(
@@ -523,7 +725,7 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
         topPadding=0,
         bottomPadding=0,
     )
-    continuation_header = _draw_continuation_header(reference)
+    continuation_header = _draw_continuation_header(reference, profile)
     doc.addPageTemplates(
         [
             PageTemplate(
@@ -543,15 +745,25 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
 
     story = []
     top_rule = Table([[""]], colWidths=[CONTENT_WIDTH], rowHeights=[3])
-    top_rule.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, -1), TEAL)]))
+    top_rule.setStyle(
+        TableStyle([("BACKGROUND", (0, 0), (-1, -1), profile.teal)])
+    )
     story.extend([top_rule, Spacer(1, 5)])
 
-    logo = Image(str(LOGO_PATH), width=1.42 * inch, height=0.465 * inch)
+    logo = Image(
+        str(profile.logo_path),
+        width=profile.logo_width_inches * inch,
+        height=profile.logo_height_inches * inch,
+    )
     logo.hAlign = "CENTER"
     story.append(logo)
+    company_contact = _safe(profile.company_contact)
+    if not profile.grouped_pricing:
+        company_contact = company_contact.replace(" | ", " &nbsp;|&nbsp; ")
     story.append(
         _paragraph(
-            f"{_safe(COMPANY_ADDRESS)}<br/>{_safe(COMPANY_CONTACT).replace(' | ', ' &nbsp;|&nbsp; ')}",
+            f"{_safe(profile.company_address)}<br/>"
+            f"{company_contact}",
             styles["center_small"],
         )
     )
@@ -560,7 +772,12 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
     project_title = data["project"]["title"]
     title_box = Table(
         [
-            [_paragraph(LOCKED_SECTION_TITLES["title_eyebrow"], styles["title_eyebrow"])],
+            [
+                _paragraph(
+                    profile.section_titles["title_eyebrow"],
+                    styles["title_eyebrow"],
+                )
+            ],
             [_paragraph(_safe(project_title), _title_style(project_title, styles))],
             [_paragraph(_safe(data["project"]["subtitle"]), styles["subtitle"])],
         ],
@@ -569,10 +786,10 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
     title_box.setStyle(
         TableStyle(
             [
-                ("BACKGROUND", (0, 0), (-1, -1), TITLE_BG),
-                ("BOX", (0, 0), (-1, -1), 0.55, GRID),
-                ("LINEABOVE", (0, 0), (-1, 0), 2.0, TEAL),
-                ("LINEBELOW", (0, 2), (-1, 2), 0.7, NAVY),
+                ("BACKGROUND", (0, 0), (-1, -1), profile.title_bg),
+                ("BOX", (0, 0), (-1, -1), 0.55, profile.grid),
+                ("LINEABOVE", (0, 0), (-1, 0), 2.0, profile.teal),
+                ("LINEBELOW", (0, 2), (-1, 2), 0.7, profile.navy),
                 ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
                 ("LEFTPADDING", (0, 0), (-1, -1), 11),
                 ("RIGHTPADDING", (0, 0), (-1, -1), 11),
@@ -591,11 +808,23 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
     if data["client"].get("business_address"):
         prepared_lines.append(data["client"]["business_address"])
     prepared_for = "<br/>".join(_safe(line) for line in prepared_lines)
-    quote_details = (
-        f"<font size='7' color='#6C7A8C'>Reference:</font> {_safe(reference)}"
-        f"<br/><font size='7' color='#6C7A8C'>Date:</font> {_format_date(data['document']['quote_date'])}"
-        f"<br/><font size='7' color='#6C7A8C'>Validity:</font> {data['document']['validity_days']} calendar days"
-    )
+    if profile.grouped_pricing:
+        quote_details = (
+            f"<font size='7' color='#6B7280'>Status:</font> "
+            f"{_safe(data['document'].get('status', 'Quotation'))}"
+            f"<br/><font size='7' color='#6B7280'>Date:</font> "
+            f"{_format_date(data['document']['quote_date'])}"
+            f"<br/><font size='7' color='#6B7280'>Validity:</font> "
+            f"{data['document']['validity_days']} calendar days"
+            f"<br/><font size='7' color='#6B7280'>Pricing:</font> "
+            f"{_safe(data['pricing']['tax_treatment'])}"
+        )
+    else:
+        quote_details = (
+            f"<font size='7' color='#6C7A8C'>Reference:</font> {_safe(reference)}"
+            f"<br/><font size='7' color='#6C7A8C'>Date:</font> {_format_date(data['document']['quote_date'])}"
+            f"<br/><font size='7' color='#6C7A8C'>Validity:</font> {data['document']['validity_days']} calendar days"
+        )
     info_data = [
         [
             [
@@ -622,10 +851,10 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
     info_table.setStyle(
         TableStyle(
             [
-                ("BACKGROUND", (0, 0), (0, 0), PALE_TEAL),
-                ("BACKGROUND", (1, 0), (1, 0), PALE_BLUE),
-                ("BACKGROUND", (0, 1), (-1, 1), WHITE),
-                ("GRID", (0, 0), (-1, -1), 0.55, GRID),
+                ("BACKGROUND", (0, 0), (0, 0), profile.pale_teal),
+                ("BACKGROUND", (1, 0), (1, 0), profile.pale_blue),
+                ("BACKGROUND", (0, 1), (-1, 1), profile.white),
+                ("GRID", (0, 0), (-1, -1), 0.55, profile.grid),
                 ("VALIGN", (0, 0), (-1, -1), "TOP"),
                 ("LEFTPADDING", (0, 0), (-1, -1), 10),
                 ("RIGHTPADDING", (0, 0), (-1, -1), 10),
@@ -638,7 +867,7 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
     )
     story.extend([info_table, Spacer(1, 8)])
 
-    salutation_name = data["client"]["attention"]
+    salutation_name = data["client"].get("salutation", data["client"]["attention"])
     story.append(_paragraph(f"Dear {_safe(salutation_name)},", styles["body"]))
     for intro in data["introduction"]:
         story.append(_paragraph(_safe_lines(intro), styles["body"]))
@@ -646,14 +875,52 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
     story.extend(
         [
             Spacer(1, 4),
-            _section_heading(LOCKED_SECTION_TITLES["pricing"], styles),
+            _section_heading(profile.section_titles["pricing"], styles, profile),
             Spacer(1, 4),
-            _build_pricing_table(data, styles),
-            Spacer(1, 5),
-            _build_totals(data, styles),
-            Spacer(1, 6),
         ]
     )
+    if profile.grouped_pricing:
+        story.extend(_build_grouped_pricing(data, styles, profile))
+        story.extend(
+            [
+                Spacer(1, 8),
+                _section_heading(profile.section_titles["summary"], styles, profile),
+                Spacer(1, 4),
+                _build_project_summary(data, styles, profile),
+                Spacer(1, 6),
+            ]
+        )
+        if data["pricing"].get("amount_in_words"):
+            amount_words = Table(
+                [[_paragraph(
+                    f"<b>Amount in Words:</b> "
+                    f"{_safe_lines(data['pricing']['amount_in_words'])}",
+                    styles["muted"],
+                )]],
+                colWidths=[CONTENT_WIDTH],
+            )
+            amount_words.setStyle(
+                TableStyle(
+                    [
+                        ("BACKGROUND", (0, 0), (-1, -1), profile.pale_teal),
+                        ("BOX", (0, 0), (-1, -1), 0.55, profile.grid),
+                        ("LEFTPADDING", (0, 0), (-1, -1), 9),
+                        ("RIGHTPADDING", (0, 0), (-1, -1), 9),
+                        ("TOPPADDING", (0, 0), (-1, -1), 7),
+                        ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+                    ]
+                )
+            )
+            story.extend([amount_words, Spacer(1, 6)])
+    else:
+        story.extend(
+            [
+                _build_pricing_table(data, styles, profile),
+                Spacer(1, 5),
+                _build_totals(data, styles, profile),
+                Spacer(1, 6),
+            ]
+        )
 
     if data.get("pricing_basis"):
         pricing_basis = Table(
@@ -666,8 +933,8 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
         pricing_basis.setStyle(
             TableStyle(
                 [
-                    ("BACKGROUND", (0, 0), (-1, -1), PALE_TEAL),
-                    ("BOX", (0, 0), (-1, -1), 0.55, GRID),
+                    ("BACKGROUND", (0, 0), (-1, -1), profile.pale_teal),
+                    ("BOX", (0, 0), (-1, -1), 0.55, profile.grid),
                     ("LEFTPADDING", (0, 0), (-1, -1), 9),
                     ("RIGHTPADDING", (0, 0), (-1, -1), 9),
                     ("TOPPADDING", (0, 0), (-1, -1), 7),
@@ -679,32 +946,47 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
 
     story.extend(
         [
-            _section_heading(LOCKED_SECTION_TITLES["notes"], styles),
+            _section_heading(profile.section_titles["notes"], styles, profile),
             Spacer(1, 6),
         ]
     )
     for index, note in enumerate(data["additional_notes"], start=1):
         heading = _safe(note["heading"].rstrip("."))
         note_text = _safe_lines(note["text"])
+        note_prefix = f"{index}. "
+        if not profile.grouped_pricing:
+            note_prefix = f"{index}.&nbsp;&nbsp;"
         story.append(
             _paragraph(
-                f"{index}.&nbsp;&nbsp;<b>{heading}.</b> {note_text}",
+                f"{note_prefix}<b>{heading}.</b> {note_text}",
                 styles["condition"],
             )
         )
 
+    if profile.grouped_pricing:
+        story.append(_paragraph("Respectfully submitted,", styles["body"]))
     story.append(Spacer(1, 10))
     signatures = data["signatures"]
-    signature_table = Table(
-        [
+    has_conforme = any(
+        signatures[key]
+        for key in ("accepted_name", "accepted_company", "accepted_detail")
+    )
+    if has_conforme:
+        signature_rows = [
             [
                 _paragraph("PREPARED BY", styles["signature_label"]),
                 _paragraph("ACCEPTED / CONFORME", styles["signature_label"]),
             ],
             [Spacer(1, 42), Spacer(1, 42)],
             [
-                _paragraph(_safe(signatures["prepared_name"]).upper(), styles["signature_name"]),
-                _paragraph(_safe(signatures["accepted_name"]).upper(), styles["signature_name"]),
+                _paragraph(
+                    _safe(signatures["prepared_name"]).upper(),
+                    styles["signature_name"],
+                ),
+                _paragraph(
+                    _safe(signatures["accepted_name"]).upper(),
+                    styles["signature_name"],
+                ),
             ],
             [
                 _paragraph(_safe_lines(signatures["prepared_role"]), styles["muted"]),
@@ -714,13 +996,26 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
                     styles["muted"],
                 ),
             ],
-        ],
-        colWidths=[CONTENT_WIDTH / 2, CONTENT_WIDTH / 2],
-    )
+        ]
+        signature_widths = [CONTENT_WIDTH / 2, CONTENT_WIDTH / 2]
+    else:
+        signature_rows = [
+            [_paragraph("PREPARED BY", styles["signature_label"])],
+            [Spacer(1, 42)],
+            [
+                _paragraph(
+                    _safe(signatures["prepared_name"]).upper(),
+                    styles["signature_name"],
+                )
+            ],
+            [_paragraph(_safe_lines(signatures["prepared_role"]), styles["muted"])],
+        ]
+        signature_widths = [CONTENT_WIDTH]
+    signature_table = Table(signature_rows, colWidths=signature_widths)
     signature_table.setStyle(
         TableStyle(
             [
-                ("LINEABOVE", (0, 0), (-1, 0), 0.9, TEAL),
+                ("LINEABOVE", (0, 0), (-1, 0), 0.9, profile.teal),
                 ("VALIGN", (0, 0), (-1, -1), "TOP"),
                 ("LEFTPADDING", (0, 0), (-1, -1), 10),
                 ("RIGHTPADDING", (0, 0), (-1, -1), 10),
@@ -731,6 +1026,10 @@ def render_quotation(data: dict, output_path: str | Path) -> Path:
     )
     story.append(KeepTogether([signature_table]))
 
-    canvas_maker = partial(NumberedCanvas, footer_label=footer_label)
+    canvas_maker = partial(
+        NumberedCanvas,
+        footer_label=footer_label,
+        profile=profile,
+    )
     doc.build(story, canvasmaker=canvas_maker)
     return output

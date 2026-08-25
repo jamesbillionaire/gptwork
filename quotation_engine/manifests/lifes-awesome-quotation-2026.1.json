@@ -1,0 +1,39 @@
+{
+  "template_id": "LIFES-AWESOME-QUOTATION-2026.1",
+  "engine_version": "1.1.0",
+  "status": "CANDIDATE_REVIEW",
+  "requested_by": "James Brown Bete",
+  "created_on": "2026-08-25",
+  "basis": "Reusable Lifes Awesome Ventures Inc. Legal-size quotation profile using colors sampled from the supplied logo, grouped system pricing, calculated section subtotals and VAT-exclusive totals.",
+  "page": {
+    "size": "Legal",
+    "width_points": 612,
+    "height_points": 1008,
+    "side_margin_inches": 0.55,
+    "content_width_points": 532.8
+  },
+  "brand": {
+    "primary_cyan": "#00ADED",
+    "secondary_gray": "#888888",
+    "address": "C-One Industrial Park, Rodolfo Palaez Blvd., Kauswagan, Cagayan De Oro City",
+    "mobile": "0939-9264230 / 09173082354",
+    "email": "james@brownjourney.com"
+  },
+  "pricing": {
+    "structure": "grouped_sections",
+    "tax_treatment": "VAT Exclusive",
+    "vat_rate": 0,
+    "pricing_columns_points": [32.5, 36.0, 275.5, 94.4, 94.4]
+  },
+  "sha256": {
+    "quotation_engine/profiles.py": "7bc2658644881365ac0aadc46f4e029f825dfa2babe6858486903bb950592cac",
+    "quotation_engine/renderer.py": "4941628be9f5f059e029c87312055f4490be20999b2db64896da9723cc071d01",
+    "quotation_engine/validation.py": "b8a3b84cb49233bbe47849a284855ac120142757e1a954905328fd5b1ef0220f",
+    "quotation_engine/schema/quotation.schema.json": "1fc57dae5559317ce6eb07132e3f4597bc242e0cd8acc40306bbbaab3f3b51c7",
+    "quotation_engine/golden/lifes_awesome_mab_contract.json": "fec818f0f9fbfa9398b27c8819d385965b685e9c4ff2f5c5e7abe354c1a10383",
+    "templates/lifes-awesome/quotation-2026/Lifes-Awesome-Logo.png": "a0dfdf0cd987932ec0c1bcb866919bde678b695a6e3ea42381dde2be75eea176",
+    "templates/lifes-awesome/quotation-2026/README.md": "6b0b542da0a35aae32da5ec51943a1ac85d264c34806003ecc5ff814ceb7343f",
+    "templates/lifes-awesome/quotation-2026/Lifes_Awesome_MAB_ELV_Budgetary_Quotation_2026-08-25_v1.pdf": "a7b42ebdc14202dcf159aab81b73688c1ece3d871d5d8eaba68a76a6b5c185ca",
+    "work/mab-elv-quotation/2026-08-25-client-budgetary-quotation.json": "7649dc76205e83c3265b2122382a5b3c21637392909d4435a8844a0cb4a08925"
+  }
+}

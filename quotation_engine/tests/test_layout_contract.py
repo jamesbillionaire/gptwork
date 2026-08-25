@@ -24,6 +24,16 @@ ROOT = Path(__file__).resolve().parents[1]
 SAMPLE = ROOT / "examples" / "approved_sample.json"
 GOLDEN_CONTRACT = ROOT / "golden" / "approved_sample_contract.json"
 MANIFEST = ROOT / "manifest.json"
+TEXT_CHECKSUM_SUFFIXES = {".json", ".md", ".py"}
+
+
+def manifest_sha256(path: Path) -> str:
+    """Normalize text line endings so manifest checks are cross-platform."""
+
+    if path.suffix.lower() in TEXT_CHECKSUM_SUFFIXES:
+        normalized = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+        return sha256(normalized.encode("utf-8")).hexdigest()
+    return sha256(path.read_bytes()).hexdigest()
 
 
 class LayoutContractTests(unittest.TestCase):
@@ -91,7 +101,7 @@ class LayoutContractTests(unittest.TestCase):
         self.assertEqual(manifest["status"], "APPROVED_LOCKED")
         repo_root = ROOT.parent
         for relative_path, expected_hash in manifest["sha256"].items():
-            actual = sha256((repo_root / relative_path).read_bytes()).hexdigest()
+            actual = manifest_sha256(repo_root / relative_path)
             self.assertEqual(actual, expected_hash, relative_path)
 
 
