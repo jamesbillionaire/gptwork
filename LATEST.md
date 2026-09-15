@@ -1,61 +1,49 @@
 # Latest Agent Handoff
 
-Handoff version: 0003
-Last updated: 2026-08-25
-Status: Lifes Awesome MAB client quotation and reusable template candidate created; complete QA passed; awaiting James's acceptance.
+Handoff version: 0004
+Last updated: 2026-09-15
+Status: SFDHMC editable LAVI draft prepared for scope/pricing review; PDF not requested yet.
 
-## Purpose
+## Current Task
+Prepare LAVI Technologies quotations for Saint Francis Doctors' Hospital & Medical Center, Cagayan de Oro: IP PABX and ITC PA. James requested an editable draft before PDF production.
 
-This is the canonical current-work handoff. It does not replace `AGENTS.md`, direct user instructions, approved commercial data, or locked template controls.
+## Authoritative Scope
+- James's latest instruction sets PA coverage to floors 4–8: approximately 10 speakers each, plus 2 roof speakers; provisional total 52.
+- IP alternative: 50 indoor IP speakers, 2 weatherproof outdoor IP speakers, 5 TP-Link 24-port PoE switches (one per floor).
+- Analog alternative: 50 indoor analog speakers, 2 weatherproof roof speakers, one ITC IP amplifier per floor (5 total).
+- Speakers and PA amplifiers are ITC. Existing cabling is assumed installed.
+- No telephone count, IP PABX capacity, ITC supplier rates, VAT treatment or project commercial terms has been approved.
+- Do not use prior MAB/Auveo or other-project rates as ITC/SFDHMC prices.
 
-## Current Active Task
+## Draft Decisions, Not Yet Approved
+- IP switch specification proposed: 24 PoE+ ports, 250W budget; roof points served by 8th-floor switch.
+- Analog sizing proposed: four 120W IP amplifiers for floors 4–7; one 240W for floor 8 plus roof. Basis: 10 x 6W = 60W per floor; 8th floor plus 2 x 30W roof = 120W connected load.
+- Analog roof shares 8th-floor paging zone. IP roof can be a separate paging group.
+- Both alternatives include one compatible ITC controller/server/software package and one IP paging microphone, installation, configuration and turnover.
+- Availability of inter-floor network, network ports for head-end/amplifiers, equipment cabinets and AC power is a stated draft assumption.
+- All prices, totals, tax and commercial terms are TBC. IP PABX central unit/handsets/configuration remain an explicit provisional section.
+- Final ITC model compatibility and actual speaker cable/data topology require confirmation before finalization.
 
-Review and, if accepted, approve the new Lifes Awesome Ventures Inc. quotation profile and its first client budgetary quotation for the MAB Building electronic low-voltage systems package.
+## Sources and Outputs
+- Source PDFs supplied by James: Floor Plan - SFDHMC (13 pages), PAGA System - SFDHMC (10 pages).
+- Earlier review found floor naming/layout differences; James's new floor coverage controls this draft.
+- Draft: `work/sfdhmc-communications/2026-09-15-draft-01.md`.
+- Saved user artifact: `LAVI_SFDHMC_IP_PABX_PA_Draft_01.md`, Library ID `libfile_41025181ed64819185c1c86acc61ecfa`.
+- Delivery: one editable standard writing block; PDF not generated.
+- Use locked `LAVI-QUOTATION-2026.2` engine for eventual PDF. Do not use Lifes Awesome profile.
 
-- Template ID: `LIFES-AWESOME-QUOTATION-2026.1`.
-- Template status: `CANDIDATE_REVIEW`; do not call it approved or final yet.
-- Client: Biztech IT Solutions Corporation.
-- Attention: Mr. Dave V. Hembrador, Chairman & CEO.
-- Date: 25 August 2026.
-- Status: Preliminary Budgetary Draft.
-- Pricing: VAT Exclusive.
-- Total: P 6,545,400.00 VAT Exclusive.
-
-## Key Decisions
-
-- Preserve the approved `LAVI-QUOTATION-2026.2` profile and its golden output unchanged.
-- Add Lifes Awesome as a separate selectable profile inside the tested `quotation_engine/` path.
-- Use the supplied logo's exact cyan `#00ADED` and gray `#888888` as the brand basis.
-- Use the directly supplied address, mobile numbers and email as live header text.
-- Support grouped pricing sections with calculated section subtotals and a VAT-exclusive project summary.
-- Keep the PDF on Legal / long bond paper with content-driven pagination and repeated continuation headers.
-- Omit an invented quotation reference and client conforme identity because neither appeared in the source.
-
-## Files And Outputs
-
-- Structured job: `work/mab-elv-quotation/2026-08-25-client-budgetary-quotation.json`.
-- Original client source: `work/mab-elv-quotation/2026-08-25-client-budgetary-draft.md`.
-- PDF candidate: `output/pdf/Lifes_Awesome_MAB_ELV_Budgetary_Quotation_2026-08-25_v1.pdf`.
-- Versioned PDF reference: `templates/lifes-awesome/quotation-2026/Lifes_Awesome_MAB_ELV_Budgetary_Quotation_2026-08-25_v1.pdf`.
-- Template package: `templates/lifes-awesome/quotation-2026/`.
-- Candidate manifest: `quotation_engine/manifests/lifes-awesome-quotation-2026.1.json`.
-- Golden contract: `quotation_engine/golden/lifes_awesome_mab_contract.json`.
-- Historical source-stage handoff: `.agents/handoffs/2026-08-25-mab-quotation-source-capture.md`.
-
-## Verification Completed
-
-- Validated all 55 pricing rows against the original pasted client source: item code, description, quantity, unit, unit price and line extension all match.
-- Recalculated section subtotals: P 2,145,000.00; P 1,248,200.00; P 1,038,200.00; P 1,694,000.00; and P 420,000.00.
-- Recalculated VAT-exclusive total: P 6,545,400.00 with P 0.00 VAT added.
-- Passed all 14 quotation-engine regression tests, including the unchanged approved LAVI golden contract and both manifests.
-- Confirmed three pages, each exactly 612 x 1008 points.
-- Confirmed correct `Page 1 of 3`, `Page 2 of 3` and `Page 3 of 3` footers.
-- Rendered and visually inspected every final PDF page; no clipping, overlap, split rows, orphan headings, broken glyphs or pagination defects were found.
-- Confirmed the reviewed PDF checksum is `a7b42ebdc14202dcf159aab81b73688c1ece3d871d5d8eaba68a76a6b5c185ca`.
+## Verification
+- Read AGENTS.md, prior LATEST.md, engine manifest and approved sample.
+- Verified 5 x 10 + 2 = 52 speakers, 5 switches for IP, 4 + 1 = 5 analog IP amplifiers.
+- Reviewed ITC manufacturer references for PoE speakers, 100V IP amplifiers and paging control; TP-Link reference confirms 24 PoE+ ports and 250W.
+- Technical references: https://www.itctech.com.cn/pro/index/art/2965.html ; https://www.itctech.com.cn/pro/index/art/3678.html ; https://www.itctech.com.cn/pro/index/art/1718.html ; https://www.omadanetworks.com/ph/business-networking/omada-switch-access/tl-sg2428p/
+- No approved selling prices or final package compatibility established. No PDF QA claimed.
 
 ## Next Steps
+1. Apply James's edits to this draft.
+2. Complete supplier-backed ITC rates and selling prices, telephone schedule and capacity, selected PA option, tax and commercial terms.
+3. Confirm roof zoning, existing cable suitability, network/power/cabinet assumptions and final ITC package compatibility.
+4. Generate PDF only when James requests it, through locked engine with required content and visual QA.
 
-1. James reviews the candidate PDF for content and visual acceptance.
-2. Apply any requested client wording or design corrections through the structured job or an explicitly authorized template revision.
-3. If James accepts the template, change its manifest status to `APPROVED_LOCKED`, record the approval date, rerun complete QA, and update this handoff.
-4. Continue the subcontractor quotation only when James asks; its source remains recorded but no subcontractor PDF has been generated.
+## Earlier Unfinished Work
+The prior MAB/Lifes Awesome template review handoff is preserved in `.agents/handoffs/2026-09-15-previous-mab-template-review.md`. Its status was not changed by this task.
