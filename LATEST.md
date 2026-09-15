@@ -1,49 +1,58 @@
 # Latest Agent Handoff
 
-Handoff version: 0004
+Handoff version: 0005
 Last updated: 2026-09-15
-Status: SFDHMC editable LAVI draft prepared for scope/pricing review; PDF not requested yet.
+Status: Priced SFDHMC editable quotation prepared for James's review. PDF awaits his request.
 
-## Current Task
-Prepare LAVI Technologies quotations for Saint Francis Doctors' Hospital & Medical Center, Cagayan de Oro: IP PABX and ITC PA. James requested an editable draft before PDF production.
+## Current Task and Authority
+James asked to apply pricing, remove all draft labels, and return an editable formal quotation before PDF. His edited writing block 59284 controls: it removes the IP PABX line-item section and changes preparer to **Ms. Leah Ruiles, Sales Admin**. Preserve both edits. Keep the project title mentioning IP PABX, but explicitly exclude IP PABX from the PA totals pending a separate scope.
 
-## Authoritative Scope
-- James's latest instruction sets PA coverage to floors 4–8: approximately 10 speakers each, plus 2 roof speakers; provisional total 52.
-- IP alternative: 50 indoor IP speakers, 2 weatherproof outdoor IP speakers, 5 TP-Link 24-port PoE switches (one per floor).
-- Analog alternative: 50 indoor analog speakers, 2 weatherproof roof speakers, one ITC IP amplifier per floor (5 total).
-- Speakers and PA amplifiers are ITC. Existing cabling is assumed installed.
-- No telephone count, IP PABX capacity, ITC supplier rates, VAT treatment or project commercial terms has been approved.
-- Do not use prior MAB/Auveo or other-project rates as ITC/SFDHMC prices.
+## Current Scope
+- Floors 4–8, 10 speakers each, plus 2 roof speakers: provisional total 52.
+- Option 1: 50 ITC indoor IP speakers + 2 weatherproof roof IP speakers; five TP-Link managed 24-port PoE+ switches, 250W each. Roof uses 8th-floor switch; separate roof paging group.
+- Option 2: 50 ITC 100V ceiling speakers at provisional 6W + 2 roof 100V speakers at provisional 30W; four ITC 120W IP amplifiers and one 240W on 8th floor. Roof shares 8th-floor zone.
+- Both include ITC controller/server/software/licenses, IP paging mic, local installation materials, installation and commissioning.
+- Existing suitable cabling, inter-floor LAN, network ports, cabinet space and AC outlets assumed available.
+- Final equipment models, compatible software, cable suitability and site quantities need confirmation.
 
-## Draft Decisions, Not Yet Approved
-- IP switch specification proposed: 24 PoE+ ports, 250W budget; roof points served by 8th-floor switch.
-- Analog sizing proposed: four 120W IP amplifiers for floors 4–7; one 240W for floor 8 plus roof. Basis: 10 x 6W = 60W per floor; 8th floor plus 2 x 30W roof = 120W connected load.
-- Analog roof shares 8th-floor paging zone. IP roof can be a separate paging group.
-- Both alternatives include one compatible ITC controller/server/software package and one IP paging microphone, installation, configuration and turnover.
-- Availability of inter-floor network, network ports for head-end/amplifiers, equipment cabinets and AC power is a stated draft assumption.
-- All prices, totals, tax and commercial terms are TBC. IP PABX central unit/handsets/configuration remain an explicit provisional section.
-- Final ITC model compatibility and actual speaker cable/data topology require confirmation before finalization.
+## Proposed Pricing and Terms — Awaiting User Review
+All values PHP, VAT exclusive. These are proposed selling rates, not an approved ITC supplier quotation.
+- Option 1 rates in table order: 18,500; 28,500; 24,500; 165,000; 38,500; 18,500; 65,000; 35,000.
+- Option 1 total: **1,426,500.00**.
+- Option 2 rates in table order: 2,500; 8,500; 45,000; 55,000; 165,000; 38,500; 15,000; 60,000; 30,000.
+- Option 2 total: **685,500.00**.
+- Proposed terms: 50% downpayment / 50% completion and turnover; 45–60 calendar days equipment delivery after PO, downpayment and technical approval, subject to supplier availability; 10–15 working days installation after delivery/site readiness; one-year supplied-equipment and workmanship warranty; 30-calendar-day validity; site delivery included.
+- James authorized applying prices, but has not yet accepted these proposed rates or terms. Final response explicitly identifies ITC rates as estimates and terms as proposed for review.
+- No IP PABX quantity, capacity, handsets, trunks or price inferred from speaker count.
+- Do not restore removed IP PABX table or change Leah's identity back to James.
 
-## Sources and Outputs
-- Source PDFs supplied by James: Floor Plan - SFDHMC (13 pages), PAGA System - SFDHMC (10 pages).
-- Earlier review found floor naming/layout differences; James's new floor coverage controls this draft.
-- Draft: `work/sfdhmc-communications/2026-09-15-draft-01.md`.
-- Saved user artifact: `LAVI_SFDHMC_IP_PABX_PA_Draft_01.md`, Library ID `libfile_41025181ed64819185c1c86acc61ecfa`.
-- Delivery: one editable standard writing block; PDF not generated.
-- Use locked `LAVI-QUOTATION-2026.2` engine for eventual PDF. Do not use Lifes Awesome profile.
+## Outputs and Verification
+- Current editable quotation: `work/sfdhmc-communications/2026-09-15-quotation-02.md`.
+- Prior unpriced source retained: `work/sfdhmc-communications/2026-09-15-draft-01.md`.
+- User file: `LAVI_SFDHMC_PA_Quotation_02.md`; Library ID `libfile_41025181ed64819185c1c86acc61ecfa`, version 1.
+- File ID `file_000000008d6481f4b9bdb5dc49559685`.
+- Local path: `/workspace/scratch/e4a0e5315fd3/output/LAVI_SFDHMC_PA_Quotation_02.md`.
+- Independently checked all 17 line extensions and both totals using Decimal; confirmed 52 speakers and 5 switches/amplifiers; no draft/TBC wording; Ms. Leah Ruiles preserved.
+- No PDF generated and no PDF QA claimed.
 
-## Verification
-- Read AGENTS.md, prior LATEST.md, engine manifest and approved sample.
-- Verified 5 x 10 + 2 = 52 speakers, 5 switches for IP, 4 + 1 = 5 analog IP amplifiers.
-- Reviewed ITC manufacturer references for PoE speakers, 100V IP amplifiers and paging control; TP-Link reference confirms 24 PoE+ ports and 250W.
-- Technical references: https://www.itctech.com.cn/pro/index/art/2965.html ; https://www.itctech.com.cn/pro/index/art/3678.html ; https://www.itctech.com.cn/pro/index/art/1718.html ; https://www.omadanetworks.com/ph/business-networking/omada-switch-access/tl-sg2428p/
-- No approved selling prices or final package compatibility established. No PDF QA claimed.
+## Pricing Evidence and Limits
+- TP-Link local retail benchmark: XBSAsia TL-SG2428P posted PHP18,500; proposed LAVI selling price PHP24,500 VAT exclusive is not the retailer's price:
+  https://www.xbsasia.ph/product/tp-linkjetstream-28-port-gigabit-smart-switch-with-24-port-poe/
+- InfoBahn listing also exists:
+  https://shop.ibahn.net.ph/products/tp-link-jetstream-28-port-gigabit-smart-switch-with-24-port-poe-tl-sg2428p
+- ITC public listings did not establish a reliable current Philippine package cost. CCTVPinoy T-77120B page displayed PHP0.00 placeholder; unrelated product prices in search snippets must not be treated as ITC prices. Do not claim confirmed supplier rates or margin.
+- Personal-context retrieval did not find approved SFDHMC rates/tax/terms or a general LAVI markup policy. Historical terms from other LAVI jobs were only precedents; new proposed terms are not established project commitments.
+- ITC technical references remain:
+  https://www.itctech.com.cn/pro/index/art/2965.html
+  https://www.itctech.com.cn/pro/index/art/3678.html
+  https://www.itctech.com.cn/pro/index/art/1718.html
+- Prior drawing study: architecture13/PAGA10 scanned pages; floor numbering/layout differences. James's explicit scope controls.
 
 ## Next Steps
-1. Apply James's edits to this draft.
-2. Complete supplier-backed ITC rates and selling prices, telephone schedule and capacity, selected PA option, tax and commercial terms.
-3. Confirm roof zoning, existing cable suitability, network/power/cabinet assumptions and final ITC package compatibility.
-4. Generate PDF only when James requests it, through locked engine with required content and visual QA.
+1. Apply James's next edits using the latest user-edited writing block as authoritative. No PDF until requested.
+2. Confirm final supplier costs/model compatibility and review selling rates, VAT treatment and commercial terms.
+3. Establish a separate IP PABX extension/trunk schedule when requested.
+4. For PDF, use locked LAVI-QUOTATION-2026.2 engine, structured job data, Legal pages and all required arithmetic/content/visual QA. Do not use Lifes Awesome profile.
 
 ## Earlier Unfinished Work
-The prior MAB/Lifes Awesome template review handoff is preserved in `.agents/handoffs/2026-09-15-previous-mab-template-review.md`. Its status was not changed by this task.
+Prior MAB/Lifes Awesome review remains preserved in `.agents/handoffs/2026-09-15-previous-mab-template-review.md`.
