@@ -1,11 +1,11 @@
 {
   "lavi": {
-    "template_id": "LAVI-QUOTATION-2026.3",
+    "template_id": "LAVI-QUOTATION-2026.4",
     "status": "APPROVED_LOCKED",
     "company": "LAVI TECHNOLOGIES INC.",
     "page": [
-      595.275590551,
-      841.88976378
+      612,
+      1008
     ],
     "margin": 42.5196850394,
     "bottom": 39.68503937,

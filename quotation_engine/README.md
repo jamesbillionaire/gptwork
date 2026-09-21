@@ -1,10 +1,10 @@
-# Approved quotation engine — CPSC reference release 2.0.0
+# Approved quotation engine — CPSC reference release 2.0.1
 
-**Start with AGENTS.md and LATEST.md.** James approved these two separate profiles, based on the final CPSC Projects 1, 2, 5 and 8 quotation family. Old LAVI Legal-size / Xavier styling and the previous Lifes Awesome candidate no longer drive new quotation production.
+**Start with AGENTS.md and LATEST.md.** James approved these two separate profiles, based on the final CPSC Projects 1, 2, 5 and 8 quotation family. Old Xavier quotation styling and the previous Lifes Awesome candidate no longer drive new quotation production.
 
 ## Which profile?
 
-- `lavi`: `LAVI-QUOTATION-2026.3`; A4, Liberation Sans, teal/navy, left-aligned first-page logo and right-aligned live contact block. Detailed infrastructure/equipment BOQs. See `templates/lavi/cpsc-2026/README.md`.
+- `lavi`: `LAVI-QUOTATION-2026.4`; Legal 612 x 1008 pt, Liberation Sans, teal/navy, left-aligned first-page logo and right-aligned live contact block. Detailed infrastructure/equipment BOQs. See `templates/lavi/cpsc-2026/README.md`.
 - `lifes-awesome`: `LIFES-AWESOME-QUOTATION-2026.2`; Legal, DejaVu Sans, cyan/gray, centered first-page logo and compact contact lines, tinted title band. Software deliverable/fee tables. See `templates/lifes-awesome/cpsc-2026/README.md`.
 
 The engine keeps brand styles separate while sharing validation, arithmetic, section flow, tables, list indents, calculated page numbers and safe diagram geometry. It does not use a project-specific generator script.
@@ -63,6 +63,10 @@ The linear `blocks` array supports:
 - `page_break`: use only for an intentional approved document boundary, never page-count imitation.
 
 `introduction`, optional `metrics`, `boundary` and `front_notes` compose the opening summary. `prepared_by` is data, not a signature asset. The engine does not infer source quantities, fill missing terms or upgrade a draft assumption into a client requirement.
+
+## Common paper standard
+
+Both active profiles render Legal 612 x 1008 point pages (8.5 x 14 inches). LAVI retains its 15 mm side margins; Lifes Awesome retains its 32 pt side margins. Component widths follow each profile's content rail. Typography is not enlarged or shrunk to fill the new sheet. Body pagination remains content-driven. Historical source page sizes/counts and source preview crops are not active paper instructions; current regression page counts live in `reference/layout_contract.json`. The original source PDFs and their recorded hashes remain unchanged.
 
 ## Architecture diagrams
 

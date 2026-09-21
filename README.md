@@ -8,7 +8,7 @@ Persistent work instructions and reusable approved document engines for James Br
 
 | Issuer | Active template | Read |
 |---|---|---|
-| LAVI Technologies Inc. | LAVI-QUOTATION-2026.3 — A4, teal/navy, Liberation Sans | [LAVI guide](templates/lavi/cpsc-2026/README.md) |
+| LAVI Technologies Inc. | LAVI-QUOTATION-2026.4 — Legal 612 x 1008 pt, teal/navy, Liberation Sans | [LAVI guide](templates/lavi/cpsc-2026/README.md) |
 | Lifes Awesome Ventures Inc. | LIFES-AWESOME-QUOTATION-2026.2 — Legal, cyan/gray, DejaVu Sans | [Lifes Awesome guide](templates/lifes-awesome/cpsc-2026/README.md) |
 
 Both were approved from CPSC Projects 1, 2, 5 and 8. Use the [quotation engine](quotation_engine/README.md); do not recreate the template for each job. [Profile tokens](quotation_engine/profiles.json), [source fingerprints](quotation_engine/reference/sources.json) and [reference header/diagram crops](quotation_engine/reference/previews/) make the design independent of a previous chat or container.

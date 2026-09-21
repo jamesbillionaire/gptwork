@@ -4,7 +4,7 @@ description: Create or revise Lifes Awesome Ventures quotations using the approv
 ---
 Read `AGENTS.md`, `LATEST.md`, `quotation_engine/manifest.json`, `quotation_engine/README.md`, then `templates/lifes-awesome/cpsc-2026/README.md`.
 
-Select `LIFES-AWESOME-QUOTATION-2026.2`, brand `lifes-awesome`. This profile is approved, not a candidate. Use Legal paper, DejaVu Sans and the supplied Lifes Awesome logo/cyan-gray palette, not the A4 LAVI infrastructure template. The heading, deliverable fees, section subtotals, role titles and source boundaries follow this brand's profile.
+Select `LIFES-AWESOME-QUOTATION-2026.2`, brand `lifes-awesome`. This profile is approved, not a candidate. Use Legal paper, DejaVu Sans and the supplied Lifes Awesome logo/cyan-gray palette, not the Legal 612 x 1008 pt LAVI infrastructure template. The heading, deliverable fees, section subtotals, role titles and source boundaries follow this brand's profile.
 
 Start a blank job via `python -m quotation_engine.cli new --brand lifes-awesome --output work/job.json`. Refer to `examples/cpsc-05.json` and `examples/cpsc-08.json` for structure. Never copy their prices, dates, validity, migration limits, implementation terms or integrations into a different client job by default. Distinguish historical migration from live integration and from cloud hosting. Provisional allowances are not confirmed client counts.
 
