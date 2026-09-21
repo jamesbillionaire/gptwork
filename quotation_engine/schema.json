@@ -6,7 +6,7 @@
   "properties": {
     "schema_version": {"const": 2},
     "brand": {"enum": ["lavi", "lifes-awesome"]},
-    "template_id": {"enum": ["LAVI-QUOTATION-2026.3", "LIFES-AWESOME-QUOTATION-2026.2"]},
+    "template_id": {"enum": ["LAVI-QUOTATION-2026.4", "LIFES-AWESOME-QUOTATION-2026.2"]},
     "title": {"type": "string", "minLength": 1},
     "quote_no": {"type": "string", "minLength": 1},
     "date": {"type": "string", "minLength": 1},

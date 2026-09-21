@@ -4,7 +4,7 @@ Template: **LIFES-AWESOME-QUOTATION-2026.2**. Sources: CPSC Project 5 V2 and Pro
 
 ## Exact brand contract
 
-- Legal: 612 x 1008 pt; left/right margins 32 pt; full content rail 548 pt. Do not inherit LAVI's A4 dimensions.
+- Legal: 612 x 1008 pt; left/right margins 32 pt; full content rail 548 pt. Do not inherit LAVI's Legal 612 x 1008 pt dimensions.
 - DejaVu Sans Regular/Bold/Oblique. All narrative and semantic explanatory paragraphs use 8.7/12.3 pt. BOQ text 7.65/10.55; table header 6.8/9; section 10.6/14; subsection 8.4/11.4; title 17/21.5. The old inconsistent body/note sizes are not a template feature.
 - Cyan #00ADED; heading/diagram emphasis #0085B4; slate gray/table header #57616C; ink #27313B; muted #687580; border #CFD9E0; pale cyan #EBF7FC; zebra #F3F6F8; total #FFF4D8. Do not carry over LAVI teal/navy headers.
 - Exact pricing column widths: 30, 44, 280, 97, 97 pt (sum 548). Center quantities/units, left-align descriptions, right-align currency.

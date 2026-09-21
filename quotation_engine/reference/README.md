@@ -9,3 +9,7 @@ No signed page/signature artwork is included. These crops demonstrate approved s
 `word_contract.json` is a source-derived vocabulary guard used alongside full editable example jobs. It catches dropped scope terminology in generated regression PDFs. It is not a replacement for comparing every number, name, paragraph and approved commercial condition during a client revision.
 
 Full engine regression PDFs can be regenerated with `python -m quotation_engine.cli render-examples --output output/golden`. Their pagination is content-driven and their bytes need not equal the original edited/signed source PDFs. The source-derived fixtures preserve all priced items, totals, quote dates and principal source terms.
+
+## Legal-paper correction, 21 September 2026
+
+Original source fingerprints, source page counts and approved style crops are retained as historical evidence. Both active production profiles now use Legal 612 x 1008 pt. Do not infer production paper size from an older LAVI source crop. `layout_contract.json` records the revised rendered fixture sizes/page counts; regeneration and review must use the active profiles.

@@ -1,0 +1,26 @@
+{
+  "page_points": [
+    612,
+    1008
+  ],
+  "paper": "Legal 8.5 x 14 inches",
+  "authority": "James: Both template should use legal size paper format.",
+  "fixtures": {
+    "1": {
+      "pages": 5,
+      "brand": "lavi"
+    },
+    "2": {
+      "pages": 5,
+      "brand": "lavi"
+    },
+    "5": {
+      "pages": 8,
+      "brand": "lifes-awesome"
+    },
+    "8": {
+      "pages": 7,
+      "brand": "lifes-awesome"
+    }
+  }
+}

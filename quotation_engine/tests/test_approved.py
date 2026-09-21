@@ -16,6 +16,29 @@ class ApprovalTests(unittest.TestCase):
         cls.jobs=[json.loads(p.read_text()) for p in sorted(EXAMPLES.glob('cpsc-*.json'))]
     def test_asset_lock(self):
         self.assertEqual(verify_lock()['status'],'APPROVED_LOCKED')
+    def test_both_profiles_require_legal_paper(self):
+        for brand,p in PROFILES.items():
+            self.assertEqual(p['page'],[612,1008],brand)
+        self.assertEqual(PROFILES['lavi']['template_id'],'LAVI-QUOTATION-2026.4')
+        self.assertEqual(PROFILES['lifes-awesome']['template_id'],'LIFES-AWESOME-QUOTATION-2026.2')
+    def test_brand_styles_preserved(self):
+        expected={'lavi':('LiberationSans',42.5196850394,'#0AA7AE','#243F73'),
+                  'lifes-awesome':('DejaVuSans',32,'#00ADED','#57616C')}
+        for brand,(font,margin,accent,header) in expected.items():
+            p=PROFILES[brand]
+            self.assertEqual((p['font'],p['margin'],p['accent'],p['table_header']),
+                             (font,margin,accent,header))
+    def test_footer_baseline_is_not_selected_by_page_size(self):
+        with tempfile.TemporaryDirectory() as td:
+            for j in self.jobs:
+                doc=fitz.open(render(j,Path(td)/f"footer-{j['source']['project']}.pdf"))
+                expected_y=1008-(22.1 if j['brand']=='lavi' else 19)
+                for pg in doc:
+                    spans=[s for b in pg.get_text('dict')['blocks'] if b['type']==0 for l in b['lines'] for s in l['spans']]
+                    footer=next(s for s in spans if j['footer_label'] in s['text'])
+                    number=next(s for s in spans if re.fullmatch(r'Page \d+ of \d+',s['text']))
+                    self.assertAlmostEqual(footer['origin'][1],expected_y,places=2)
+                    self.assertAlmostEqual(number['origin'][1],expected_y,places=2)
     def test_source_totals(self):
         expected={1:'17886000.00',2:'7353000.00',5:'26841000.00',8:'6368000.00'}
         for j in self.jobs:self.assertEqual(validate(j)['total'],expected[j['source']['project']])
@@ -52,7 +75,8 @@ class ApprovalTests(unittest.TestCase):
             for j in self.jobs:
                 i=j['source']['project'];out=render(j,Path(td)/f'{i}.pdf');doc=fitz.open(out);p=PROFILES[j['brand']]
                 # These counts are fixture regression checks, not forced page counts for new work.
-                self.assertEqual(len(doc),j['source']['pages'])
+                layout=json.loads((ROOT/'quotation_engine/reference/layout_contract.json').read_text())
+                self.assertEqual(len(doc),layout['fixtures'][str(i)]['pages'])
                 full=' '.join(pg.get_text() for pg in doc)
                 words=set(re.findall(r'[\w/-]+',full.lower()))
                 missing=set(contracts[str(i)])-words-{'continued'}
@@ -61,7 +85,7 @@ class ApprovalTests(unittest.TestCase):
                 self.assertIn(j['date'],full)
                 self.assertIn(j['quote_no'],full)
                 for pi,pg in enumerate(doc):
-                    self.assertAlmostEqual(pg.rect.width,p['page'][0],places=2);self.assertAlmostEqual(pg.rect.height,p['page'][1],places=2)
+                    self.assertAlmostEqual(pg.rect.width,612,places=2);self.assertAlmostEqual(pg.rect.height,1008,places=2)
                     self.assertIn(f'Page {pi+1} of {len(doc)}',pg.get_text())
                     if pi:self.assertFalse(pg.get_image_info(),'Continuation page must not repeat a logo/signature image.')
                     for word in pg.get_text('words'):

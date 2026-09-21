@@ -29,7 +29,7 @@ class PageCanvas(Canvas):
         for state in self.states:
             self.__dict__.update(state)
             self.setFont(self._page_font,6.1);self.setFillColor(colors.HexColor('#65717E'))
-            self.drawRightString(self._pagesize[0]-self._page_margin,19 if self._pagesize[1]>900 else 22.1,f'Page {self._pageNumber} of {total}')
+            self.drawRightString(self._pagesize[0]-self._page_margin,self._page_footer_y,f'Page {self._pageNumber} of {total}')
             super().showPage()
         super().save()
 
@@ -78,7 +78,7 @@ class Builder:
         return Paragraph(str(text),st)
     def header(self,c,doc,first=False):
         p,j=self.p,self.job;W,H=p['page'];m=p['margin'];r=W-m
-        c._page_font=self.font;c._page_margin=m
+        c._page_font=self.font;c._page_margin=m;c._page_footer_y=19 if self.software else 22.1
         c.saveState();c.setFillColor(self.c('accent'));c.rect(m,H-(14 if self.software else 29.76 if first else 26.93),self.w,1.25 if self.software else 3.54 if first else 2.55,fill=1,stroke=0)
         if first:
             logo=ROOT/p['logo'];lw=270 if self.software else 104.88

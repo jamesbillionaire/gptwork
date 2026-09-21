@@ -14,12 +14,14 @@ James explicitly approved replacing the previous quotation engines with the CPSC
 
 | Brand | Active template | Approved design basis | Page / typography |
 |---|---|---|---|
-| LAVI Technologies Inc. | `LAVI-QUOTATION-2026.3` | Project 1 corrected network diagram + Project 2 corrected CCTV quotation | A4, 15 mm side margins, Liberation Sans; teal/navy |
+| LAVI Technologies Inc. | `LAVI-QUOTATION-2026.4` | Project 1 corrected network diagram + Project 2 corrected CCTV quotation | Legal 612 x 1008 pt, 15 mm side margins, Liberation Sans; teal/navy |
 | Lifes Awesome Ventures Inc. | `LIFES-AWESOME-QUOTATION-2026.2` | Project 5 V2 + Project 8 V1 | Legal 612 x 1008 pt, 32 pt side margins, DejaVu Sans; cyan/gray |
 
 These are **two different approved templates**, not the same page recolored. Lifes Awesome is now APPROVED_LOCKED, not a candidate. For this CPSC family, LAVI handles infrastructure; Lifes Awesome handles software. Never infer the issuer from the generic name “LAVI”: use the legal company explicitly requested.
 
 ### Non-negotiable visual rules
+
+- **Both active brands use Legal paper, 8.5 x 14 inches (612 x 1008 points), on every page.** James explicitly corrected the paper standard on 21 September 2026. This supersedes the earlier LAVI A4 source geometry; historical source sizes are evidence only, not production defaults. Keep the separate brand margins, typography, colors and logo arrangements. Do not crop, stretch or scale an existing PDF to satisfy this rule; render/reflow from approved job data.
 
 - Preserve supplied logo artwork and aspect ratio; page 1 only. Continuation pages have text-only headers, with the quotation reference aligned to the right content edge.
 - Use one full-width content rail. Tables, cards, headings, dividers, totals and diagram boundaries share its left/right edges. Internal card padding is intentional and does not change the outer rail.
