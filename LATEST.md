@@ -1,58 +1,40 @@
 # Latest Agent Handoff
 
-Handoff version: 0005
-Last updated: 2026-09-15
-Status: Priced SFDHMC editable quotation prepared for James's review. PDF awaits his request.
+Handoff version: 0006
+Last updated: 2026-09-21
+Status: Approved CPSC quotation-template promotion complete; no active quotation edit.
 
-## Current Task and Authority
-James asked to apply pricing, remove all draft labels, and return an editable formal quotation before PDF. His edited writing block 59284 controls: it removes the IP PABX line-item section and changes preparer to **Ms. Leah Ruiles, Sales Admin**. Preserve both edits. Keep the project title mentioning IP PABX, but explicitly exclude IP PABX from the PA totals pending a separate scope.
+## Authority and starting point
 
-## Current Scope
-- Floors 4–8, 10 speakers each, plus 2 roof speakers: provisional total 52.
-- Option 1: 50 ITC indoor IP speakers + 2 weatherproof roof IP speakers; five TP-Link managed 24-port PoE+ switches, 250W each. Roof uses 8th-floor switch; separate roof paging group.
-- Option 2: 50 ITC 100V ceiling speakers at provisional 6W + 2 roof 100V speakers at provisional 30W; four ITC 120W IP amplifiers and one 240W on 8th floor. Roof shares 8th-floor zone.
-- Both include ITC controller/server/software/licenses, IP paging mic, local installation materials, installation and commissioning.
-- Existing suitable cabling, inter-floor LAN, network ports, cabinet space and AC outlets assumed available.
-- Final equipment models, compatible software, cable suitability and site quantities need confirmation.
+James explicitly asked to replace the gptwork quotation engine with the recently approved LAVI Technologies and Lifes Awesome Ventures templates from CPSC Projects 1, 2, 5 and 8. Read AGENTS.md, quotation_engine/README.md and quotation_engine/manifest.json first. Do not resume older template directions from memory.
 
-## Proposed Pricing and Terms — Awaiting User Review
-All values PHP, VAT exclusive. These are proposed selling rates, not an approved ITC supplier quotation.
-- Option 1 rates in table order: 18,500; 28,500; 24,500; 165,000; 38,500; 18,500; 65,000; 35,000.
-- Option 1 total: **1,426,500.00**.
-- Option 2 rates in table order: 2,500; 8,500; 45,000; 55,000; 165,000; 38,500; 15,000; 60,000; 30,000.
-- Option 2 total: **685,500.00**.
-- Proposed terms: 50% downpayment / 50% completion and turnover; 45–60 calendar days equipment delivery after PO, downpayment and technical approval, subject to supplier availability; 10–15 working days installation after delivery/site readiness; one-year supplied-equipment and workmanship warranty; 30-calendar-day validity; site delivery included.
-- James authorized applying prices, but has not yet accepted these proposed rates or terms. Final response explicitly identifies ITC rates as estimates and terms as proposed for review.
-- No IP PABX quantity, capacity, handsets, trunks or price inferred from speaker count.
-- Do not restore removed IP PABX table or change Leah's identity back to James.
+## Active profiles
 
-## Outputs and Verification
-- Current editable quotation: `work/sfdhmc-communications/2026-09-15-quotation-02.md`.
-- Prior unpriced source retained: `work/sfdhmc-communications/2026-09-15-draft-01.md`.
-- User file: `LAVI_SFDHMC_PA_Quotation_02.md`; Library ID `libfile_41025181ed64819185c1c86acc61ecfa`, version 1.
-- File ID `file_000000008d6481f4b9bdb5dc49559685`.
-- Local path: `/workspace/scratch/e4a0e5315fd3/output/LAVI_SFDHMC_PA_Quotation_02.md`.
-- Independently checked all 17 line extensions and both totals using Decimal; confirmed 52 speakers and 5 switches/amplifiers; no draft/TBC wording; Ms. Leah Ruiles preserved.
-- No PDF generated and no PDF QA claimed.
+- LAVI-QUOTATION-2026.3: A4, 15 mm side margins, Liberation Sans, teal/navy; sources Project 1 Diagram Corrected and Project 2 V2 Corrected (NOT the broken Final2 diagram).
+- LIFES-AWESOME-QUOTATION-2026.2: Legal, 32 pt margins, DejaVu Sans, cyan/gray; sources Project 5 V2 and Project 8 V1. Status APPROVED_LOCKED.
+- Correct shared alignment, justified narrative, hanging lists, no continuation-page logo and gap-only/split/merge diagram geometry are locked.
 
-## Pricing Evidence and Limits
-- TP-Link local retail benchmark: XBSAsia TL-SG2428P posted PHP18,500; proposed LAVI selling price PHP24,500 VAT exclusive is not the retailer's price:
-  https://www.xbsasia.ph/product/tp-linkjetstream-28-port-gigabit-smart-switch-with-24-port-poe/
-- InfoBahn listing also exists:
-  https://shop.ibahn.net.ph/products/tp-link-jetstream-28-port-gigabit-smart-switch-with-24-port-poe-tl-sg2428p
-- ITC public listings did not establish a reliable current Philippine package cost. CCTVPinoy T-77120B page displayed PHP0.00 placeholder; unrelated product prices in search snippets must not be treated as ITC prices. Do not claim confirmed supplier rates or margin.
-- Personal-context retrieval did not find approved SFDHMC rates/tax/terms or a general LAVI markup policy. Historical terms from other LAVI jobs were only precedents; new proposed terms are not established project commitments.
-- ITC technical references remain:
-  https://www.itctech.com.cn/pro/index/art/2965.html
-  https://www.itctech.com.cn/pro/index/art/3678.html
-  https://www.itctech.com.cn/pro/index/art/1718.html
-- Prior drawing study: architecture13/PAGA10 scanned pages; floor numbering/layout differences. James's explicit scope controls.
+## Durable files
 
-## Next Steps
-1. Apply James's next edits using the latest user-edited writing block as authoritative. No PDF until requested.
-2. Confirm final supplier costs/model compatibility and review selling rates, VAT treatment and commercial terms.
-3. Establish a separate IP PABX extension/trunk schedule when requested.
-4. For PDF, use locked LAVI-QUOTATION-2026.2 engine, structured job data, Legal pages and all required arithmetic/content/visual QA. Do not use Lifes Awesome profile.
+- quotation_engine/: active renderer, profiles, validation, schema, CLI, manifest and tests.
+- quotation_engine/examples/cpsc-{01,02,05,08}.json: source-grounded editable fixtures.
+- quotation_engine/reference/: source filenames/hashes, word-preservation contract, approved header/architecture SVG crops.
+- templates/{lavi,lifes-awesome}/cpsc-2026/: separate style guides and original supplied logos.
+- .agents/skills/{lavi-quotation,lifes-awesome-quotation}/SKILL.md: brand-specific agent instructions.
+- CI renders all examples and uploads full PDFs + page previews as artifacts.
 
-## Earlier Unfinished Work
-Prior MAB/Lifes Awesome review remains preserved in `.agents/handoffs/2026-09-15-previous-mab-template-review.md`.
+## Commercial source values — examples only
+
+P1 17,886,000 PHP; P2 7,353,000 PHP; P5 26,841,000 PHP; P8 6,368,000 PHP, all VAT inclusive. Source date 18 September 2026. LAVI validity 30 days / James Brown Bete CEO; Lifes Awesome validity 60 days / James Brown Bete General Manager. P5 implementation 18 months; P8 12 months; each has 12 months separate post-acceptance support. No quotation data changed by this promotion.
+
+Migration in P5/P8 is a proposed supplier allowance, not an explicitly quantified CPSC requirement. Cloud/Supabase/PITR plus independent/campus backups is a discussion proposal subject to CPSC approval, not an included recurring hosting expense. See software templates for Registrar/Legal integration boundaries.
+
+## Verification and remaining checks
+
+Release tests cover four totals/line extensions, preserved source terms, both page sizes/font families, absence of logos on continuation pages, all text within content rails, brand/signature guards, no implicit VAT, blank-job isolation, four fixture page counts and gap-only diagram connectors. Manifest pins code/profile/logo/schema checksums. See .agents/handoffs/2026-09-21-cpsc-approved-template-promotion.md and CI artifacts for execution evidence.
+
+Every future final client PDF still needs readable full-page visual inspection; automated tests and a manifest do not replace that.
+
+## Historical work retained
+
+Prior handoff is archived at .agents/handoffs/2026-09-21-prior-sfdhmc-handoff.md. Previous AGENTS and quotation engine are archived under legacy/. Billing, other brands, FDAS source decisions and earlier unfinished work were not redefined or marked resolved. No pending PDF/layout change from this task.

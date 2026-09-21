@@ -1,0 +1,147 @@
+{
+  "lavi": {
+    "template_id": "LAVI-QUOTATION-2026.3",
+    "status": "APPROVED_LOCKED",
+    "company": "LAVI TECHNOLOGIES INC.",
+    "page": [
+      595.275590551,
+      841.88976378
+    ],
+    "margin": 42.5196850394,
+    "bottom": 39.68503937,
+    "first_top": 110.5511811,
+    "later_top": 62.36220472,
+    "font": "LiberationSans",
+    "body": [
+      8.1,
+      11.2
+    ],
+    "table": [
+      6.5,
+      8.1
+    ],
+    "note": [
+      7.1,
+      9.3
+    ],
+    "heading": [
+      10.2,
+      12.0
+    ],
+    "subheading": [
+      8.2,
+      10.2
+    ],
+    "title": [
+      18.5,
+      20.5
+    ],
+    "table_padding": 4.2,
+    "columns": [
+      0.055,
+      0.07,
+      0.52,
+      0.175,
+      0.18
+    ],
+    "accent": "#0AA7AE",
+    "heading_color": "#078A91",
+    "dark": "#1C3159",
+    "table_header": "#243F73",
+    "ink": "#26313D",
+    "muted": "#65717E",
+    "border": "#D7E0E6",
+    "light": "#F5F8FA",
+    "tint": "#EAF7F8",
+    "tint2": "#EEF2F8",
+    "gold": "#FFF5DA",
+    "logo": "templates/lavi/cpsc-2026/logo.png",
+    "logo_sha256": "15cc5e470a5f6222c02d2de656c55a5f292f8b17577b730da63255aa0eda4353",
+    "contact": [
+      "C-One Industrial Park, Rodolfo Pelaez Boulevard, Kauswagan, Cagayan de Oro City",
+      "0939 926 4230 / 0917 308 2354",
+      "info@lavitechnologies.com  |  www.lavitechnologies.com"
+    ],
+    "summary_label": "COMMERCIAL SUMMARY",
+    "summary_codes": false,
+    "bullet_indent": 17.007874,
+    "number_indent": 25.511811,
+    "reference_projects": [
+      1,
+      2
+    ],
+    "display_name": "LAVI Technologies Inc."
+  },
+  "lifes-awesome": {
+    "template_id": "LIFES-AWESOME-QUOTATION-2026.2",
+    "status": "APPROVED_LOCKED",
+    "company": "LIFES AWESOME VENTURES INC.",
+    "page": [
+      612,
+      1008
+    ],
+    "margin": 32,
+    "bottom": 37,
+    "first_top": 112,
+    "later_top": 49,
+    "font": "DejaVuSans",
+    "body": [
+      8.7,
+      12.3
+    ],
+    "table": [
+      7.65,
+      10.55
+    ],
+    "note": [
+      8.7,
+      12.3
+    ],
+    "heading": [
+      10.6,
+      14.0
+    ],
+    "subheading": [
+      8.4,
+      11.4
+    ],
+    "title": [
+      17,
+      21.5
+    ],
+    "table_padding": 6,
+    "columns": [
+      0.0547445255,
+      0.0802919708,
+      0.5109489051,
+      0.1770072993,
+      0.1770072993
+    ],
+    "accent": "#00ADED",
+    "heading_color": "#0085B4",
+    "dark": "#57616C",
+    "table_header": "#57616C",
+    "ink": "#27313B",
+    "muted": "#687580",
+    "border": "#CFD9E0",
+    "light": "#F3F6F8",
+    "tint": "#EBF7FC",
+    "tint2": "#F3F6F8",
+    "gold": "#FFF4D8",
+    "logo": "templates/lifes-awesome/cpsc-2026/logo.png",
+    "logo_sha256": "a0dfdf0cd987932ec0c1bcb866919bde678b695a6e3ea42381dde2be75eea176",
+    "contact": [
+      "C-One Industrial Park, Rodolfo Palaez Blvd., Kauswagan, Cagayan de Oro City",
+      "0939-9264230  |  james@brownjourney.com"
+    ],
+    "summary_label": "QUOTATION SUMMARY",
+    "summary_codes": true,
+    "bullet_indent": 18,
+    "number_indent": 23,
+    "reference_projects": [
+      5,
+      8
+    ],
+    "display_name": "Lifes Awesome Ventures Inc."
+  }
+}

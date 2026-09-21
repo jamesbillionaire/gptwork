@@ -1,0 +1,24 @@
+{
+  "release": "CPSC-APPROVED-QUOTATIONS-2026-09",
+  "engine_version": "2.0.0",
+  "base_main_commit": "9516c0a9ad993fdd0d07e6be8c97b618df8d8df9",
+  "tested_source_commit": "a4a2e9ac5c551f7b9349ac048dea3bc9a86aebb3",
+  "verified_payload_sha256": "d1557a7c4865bbec7ce936c611e5f2f693b3ecafb3bff6343c3233ffece2bf88",
+  "ci_run": "https://github.com/jamesbillionaire/gptwork/actions/runs/35561585962",
+  "ci_job": "https://github.com/jamesbillionaire/gptwork/actions/runs/35561585962/job/106215325405",
+  "ci_conclusion": "success",
+  "verified_at_utc": "2026-09-21T04:36:10Z",
+  "checks": {
+    "transport_sha256": "passed",
+    "manifest_and_asset_lock": "passed",
+    "unit_and_regression_tests": "10 passed locally and on GitHub Actions",
+    "four_complete_pdf_fixtures": "rendered successfully",
+    "all_fixture_pages": "rendered with Poppler",
+    "source_page_counts": [6, 6, 8, 7],
+    "source_totals_php": [17886000, 7353000, 26841000, 6368000],
+    "local_visual_review": "Contact sheets and readable representative headers, tables and architecture pages reviewed; no content-rail overflow or connector collisions in regression checks"
+  },
+  "promotion": "Clean release tree excludes the temporary installer workflow and transport. Main is promoted by an explicit non-force ref update. Regular quotation CI runs on main.",
+  "scope": "Replaces only the two requested quotation profiles. Previous engine, AGENTS and requirements archived under legacy; prior LATEST handoff archived; unrelated work retained.",
+  "future_delivery_gate": "Every new client PDF requires full rendered visual inspection; automated regression success is not client approval."
+}
