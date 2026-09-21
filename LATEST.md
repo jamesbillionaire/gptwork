@@ -1,32 +1,46 @@
 # Latest Agent Handoff
 
-Handoff version: 0007
-Last updated: 2026-09-21
-Status: Legal-paper correction complete. Both approved quotation profiles use Legal paper; no active quotation edit.
+Handoff version: 0008
+Last updated: 2026-09-22
+Status: CPSC Project 4 Revision 2 budgetary quotation prepared and visually verified. Await James's review and configured supplier/site validation before a binding supply commitment. No active template edit.
 
-## Latest explicit instruction
-James: "Both template should use legal size paper format." Both active brands must use Legal 8.5 x 14 inches (612 x 1008 pt), not A4 or 8.5 x 13. This paper instruction overrides the older source PDF dimensions, not their commercial data.
+## Latest task and authority
+James requested a defensible LAVI Project 4 quotation near PHP8.8M with profitability assessed. CPSC's original ICT table image 1000076952.jpg supplies the functional scope (data center, servers, virtualization, storage, recovery, networking/security, hybrid cloud and consolidation), not equipment counts, room dimensions or a budget. Detailed quantities below are proposed allowances, not confirmed College inventories. Earlier PHP5.8185M draft was a preliminary configuration, not a ceiling or a verified acquisition cost.
 
-## Active profiles
-- Engine 2.0.1; LAVI-QUOTATION-2026.4: Legal, 15 mm side margins, Liberation Sans, teal/navy, original logo at left on page 1.
-- LIFES-AWESOME-QUOTATION-2026.2: Legal, 32 pt side margins, DejaVu Sans, cyan/gray, original centered logo on page 1. Its profile is unchanged.
-- Preserve justified narratives, common content rails, hanging lists, text-only continuation headers and safe shared diagram geometry. Page numbers align with each brand's footer baseline, independent of paper height.
+## Locked production path
+Engine 2.0.1; LAVI-QUOTATION-2026.4. Both brands remain Legal 612 x 1008 pt. No renderer, profile, logo, font or engine-manifest change was made for this quotation. Use AGENTS.md, quotation_engine/README.md, manifest.json and structured job data; never rebuild the PDF from this handoff summary. No copied signature.
 
-## Changes and safeguards
-Profiles, LAVI example template IDs, renderer footer baseline, active guides/skills, schema, tests and manifest updated. Historical source PDF fingerprints and page counts are unchanged; current rendered page counts are in quotation_engine/reference/layout_contract.json. Regenerate through the existing engine; no stretching, cropping, font resizing, filler spacing or forced historical page counts.
+## Prepared deliverables — conversation attachments, not repo files
+Client PDF: LAVI_CPSC_Project_4_Data_Center_Server_Storage_Cloud_Quotation_v2.pdf.
+Editable sources: same basename with .md and .json.
+PDF SHA256: e5389cb222687a2e4adacd9b53abbc5131bd99efc75dab740e27d78744d0f5ec.
+JSON SHA256: d2eaa5e3faabea18d0d2b28a4aef35d9d889ec5658fe28e3e5fac3a001679439.
+The attachments were created under /mnt/data in this conversation. Future agents must retrieve the actual attachments and verify hashes; these paths are not guaranteed to exist in a fresh container. The full job is NOT committed under work/ and is not an approved universal template fixture.
 
-Client data unchanged: P1 PHP17,886,000; P2 PHP7,353,000; P5 PHP26,841,000; P8 PHP6,368,000, all inclusive. Dates, rates, quantities, terms, migration allowances, integration boundaries and signatory roles are job-specific. Cloud hosting remains for CPSC discussion/approval. No signed or previously delivered client PDF was altered and no signatures added.
+## Revision 2 commercial and scope snapshot
+- Client selling total: PHP8,792,900.00 VAT inclusive; seven Legal pages; 38 priced line items across eight sections.
+- Quotation number LAVI-QTN-20260918-CPSC-04-R02; retained batch date 18 September 2026; 30-calendar-day validity; James Brown Bete / CEO / LAVI Technologies Inc.
+- Proposed implementation 150–180 calendar days; twelve months of separately described LAVI support after acceptance. Itemized three-year vendor entitlements do not mean three years of LAVI operations.
+- Two 16-core/256GB hosts plus an independent physical quorum device. Matched active/passive primary NAS pair and separate backup NAS. 48TB nominal production capacity counted once, not 96TB; 80TB nominal independent backup before overhead. Three cold spares.
+- Dedicated rack switching, two server/storage racks, A/B 6kVA/6kW UPS paths with external battery packs and bypasses, auxiliary UPS, bounded existing-room cooling/electrical/monitoring/access/local-fire-alarm works. Initial critical-load basis <=4kW; surveyed load/design approval required.
+- One existing room up to 30m2; no new building, precision cooling, clean-agent suppression, generator/utility upgrade, Tier certification or zero-downtime guarantee.
+- Migration: up to five compatible existing workloads, 2TB combined VM allocation and 3TB digital files; two trial batches and final cutover. Not software business-record mapping/imports from Projects 5/8.
+- Four implementation visits, four training sessions, twelve monthly remote health/backup reviews and four quarterly support visits including travel.
 
-## Completed verification
-- 13 regression tests passed locally and on GitHub Actions, including independent Legal dimensions, preserved brand styles, footer alignment, totals, source terms, continuation logos, content rails, pagination and diagram geometry.
-- CI run: https://github.com/jamesbillionaire/gptwork/actions/runs/35562513384 (success).
-- All four complete PDF fixtures generated and every page rendered with Poppler. All 10 changed LAVI pages visually inspected, including both architecture diagrams.
-- Current fixture counts: P1 5, P2 5, P5 8, P8 7. Counts result from content flow; never force them onto new jobs.
-- P5 and P8 rendered PDFs are byte-identical to their pre-correction engine baseline. All 25 current fixture pages measure 612 x 1008 pt.
-- See .agents/handoffs/2026-09-21-legal-paper-standard.md for release evidence. The regular main-branch CI continues to enforce the new locks.
+## Boundaries and unresolved decisions
+Campus core/perimeter firewalls remain under Project 1 or existing CPSC infrastructure; no second campus core/firewall purchase is included. Reconcile handoff optics, racks, power, cooling and other retained equipment before award; remove or credit unneeded items through an approved revision. Cloud/Supabase/PITR and software placement remain subject to CPSC approval. Recurring cloud accounts/capacity/services are excluded from this equipment quotation; one approved backup connection and recovery test are included.
 
-## Next agent
-Read AGENTS.md, this handoff, quotation_engine/README.md and manifest.json. Select the correct brand and use the active engine/JSON workflow. There is no outstanding work from the paper correction. Every new final client PDF still needs full rendered visual review.
+Configured OEM/distributor offers, supported disk/NIC combinations, Camiguin warranty coverage, HVAC duty/heat-load suitability, electrical scope, migration compatibility and staffing rates remain to be confirmed. No maximum-profit or actual-cost claim is verified. A separate private internal costing review was prepared for James only; do not publish its contents, supplier assumptions or profit figures to this public repository or attach it to the client quotation.
 
-## Prior work
-Previous completed template handoff is at .agents/handoffs/2026-09-21-before-legal-paper-correction.md. Prior SFDHMC and historical billing/FDAS instructions remain archived as before. This task changes template paper sizing, not client quotations or unrelated standards.
+## Verification
+- Template verify-lock and all 13 existing unit/regression tests passed locally.
+- All 38 extensions and 8 section totals checked; total reconciled.
+- Seven final pages rendered and individually inspected after final edits; no text clipping, repeated continuation logo, diagram collision or off-rail text found.
+- Legal dimensions, page numbers, date, reference, unsigned preparer and gap-only diagram connectors verified against the exact PDF hash above.
+- No new GitHub Actions run is claimed for this document-only task. The existing template CI remains unchanged.
+
+## Next action
+Use the exact JSON attachment for any requested quotation revision. Preserve client prices/terms unless James authorizes a commercial change. Validate supplier and site assumptions before treating this budgetary offer as a fixed procurement commitment. Keep private cost review separate. No additional PDF or repository engine work runs in the background.
+
+## Previous work
+Previous completed Legal-paper handoff snapshot: .agents/handoffs/2026-09-22-before-cpsc-project4.md. Prior SFDHMC, software quotations, templates and billing/FDAS history remain preserved. This task does not supersede their approved content or silently mark unresolved work complete.
