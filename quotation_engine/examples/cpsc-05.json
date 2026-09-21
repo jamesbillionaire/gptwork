@@ -1,0 +1,729 @@
+{
+  "schema_version": 2,
+  "brand": "lifes-awesome",
+  "template_id": "LIFES-AWESOME-QUOTATION-2026.2",
+  "title": "CPSC Unified College Information and Management System",
+  "subtitle": "Budgetary Technical and Financial Proposal | ISSP Project No. 5",
+  "quote_no": "LAV-QTN-20260918-CPSC-05",
+  "date": "18 September 2026",
+  "validity_days": 60,
+  "tax_treatment": "VAT Inclusive",
+  "expected_total": "26841000.00",
+  "amount_words": "Twenty-Six Million Eight Hundred Forty-One Thousand Pesos Only.",
+  "client": {
+    "name": "Camiguin Polytechnic State College",
+    "address": "Balbagon 9100, Mambajao, Camiguin",
+    "attention": "Jenelyn G. Sabellina, PhD",
+    "role": "SUC President II",
+    "location": "Balbagon, Mambajao, Camiguin 9100"
+  },
+  "salutation": "Dear Dr. Sabellina:",
+  "prepared_by": {
+    "name": "JAMES BROWN BETE",
+    "role": "General Manager"
+  },
+  "introduction": [
+    "Lifes Awesome Ventures Inc. is pleased to submit this proposal for the <b>CPSC Unified College Information and Management System</b>. The proposed enterprise-wide platform will connect the College&#x27;s academic-support, administrative, financial and institutional processes through shared authentication, controlled information sharing, standardized data, workflows, dashboards and reporting.",
+    "The quotation covers a shared enterprise platform, <b>12 departmental modules</b>, defined integration and migration work packages, testing, training and <b>eighteen (18) months of phased implementation</b>, followed by <b>twelve (12) months of post-acceptance support</b>. The detailed functions and delivery allowances below are our proposed costing basis and remain subject to CPSC&#x27;s requirements validation."
+  ],
+  "footer_label": "CPSC UNIFIED COLLEGE INFORMATION AND MANAGEMENT SYSTEM",
+  "source": {
+    "project": 5,
+    "filename": "Lifes_Awesome_CPSC_Project_5_Unified_College_Information_Management_System_Quotation_v2.pdf",
+    "sha256": "ece8e2c62b0a2978151eb02e3aa46d46b0302488be0086023990a99e73646cd3",
+    "pages": 8,
+    "status": "user-approved visual reference; job commercial data are historical example values, not global defaults"
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. PROPOSED SOLUTION ARCHITECTURE"
+    },
+    {
+      "type": "paragraph",
+      "text": "The proposed design uses one shared enterprise platform across the quoted office modules. Each office retains its authorized functions and data responsibilities, while common identity, workflow, audit and reporting services provide institution-wide consistency. The diagram shows logical application relationships, not a separate hardware supply."
+    },
+    {
+      "type": "diagram",
+      "caption": "LOGICAL COLLEGE INFORMATION AND MANAGEMENT PLATFORM",
+      "rows": [
+        {
+          "nodes": [
+            {
+              "title": "COLLEGE LEADERSHIP",
+              "subtitle": [
+                "Executive oversight"
+              ]
+            },
+            {
+              "title": "OFFICES & PERSONNEL",
+              "subtitle": [
+                "Authorized office workflows"
+              ]
+            },
+            {
+              "title": "STUDENT SERVICES",
+              "subtitle": [
+                "Approved self-service functions"
+              ]
+            }
+          ],
+          "fill": "tint"
+        },
+        {
+          "nodes": [
+            {
+              "title": "SHARED ENTERPRISE PLATFORM",
+              "subtitle": [
+                "Single Sign-On | Role-based access | Workflow approvals | Audit | Notifications"
+              ]
+            }
+          ],
+          "fill": "light"
+        },
+        {
+          "nodes": [
+            {
+              "title": "FINANCE & PEOPLE",
+              "subtitle": [
+                "Accounting | Cashier",
+                "Budget | Human Resources"
+              ]
+            },
+            {
+              "title": "ADMINISTRATION & ASSETS",
+              "subtitle": [
+                "Procurement | Supply",
+                "Property | Records"
+              ]
+            },
+            {
+              "title": "PLANNING & SERVICES",
+              "subtitle": [
+                "Planning | Student Affairs",
+                "Research | Extension"
+              ]
+            }
+          ],
+          "fill": "light"
+        },
+        {
+          "nodes": [
+            {
+              "title": "INTEGRATION, DATA AND CONTROLLED REPORTING",
+              "subtitle": [
+                "Documented APIs | Shared master data | Application records | Authorized reporting"
+              ]
+            }
+          ],
+          "fill": "tint"
+        },
+        {
+          "nodes": [
+            {
+              "title": "REGISTRAR - PROJECT #7",
+              "subtitle": [
+                "Existing / separately procured",
+                "Not developed under this quotation"
+              ]
+            },
+            {
+              "title": "APPROVED EXISTING SYSTEMS",
+              "subtitle": [
+                "Named interfaces only",
+                "Subject to authorized access"
+              ]
+            },
+            {
+              "title": "LEGAL SERVICES - PROJECT #8",
+              "subtitle": [
+                "Future interface readiness only",
+                "Legal system separately procured"
+              ]
+            }
+          ],
+          "fill": "light"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The Registrar system remains the source of approved academic records; this project consumes or exchanges only the data agreed in the interface specification. Future Legal Services integration uses documented interfaces rather than recreating its separately quoted case-management functions."
+    },
+    {
+      "type": "paragraph",
+      "text": "Deployment will use CPSC-provided or separately procured computing, database, storage, backup and network resources. Final hosting architecture and capacity targets are established during requirements discovery; no server, cloud capacity or equipment purchase is embedded in the software-module fees."
+    },
+    {
+      "type": "heading",
+      "text": "2. PROPOSED SCOPE AND COSTING BASELINE"
+    },
+    {
+      "type": "paragraph",
+      "text": "The following are <b>proposed quotation allowances</b>, not confirmed campus counts. Detailed workflow/report quantities, data volumes, user concurrency, interface availability and hosting capacity remain to be validated for this quotation. The approved requirements baseline will confirm these before fixed-scope implementation."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "<b>Institution and use</b>",
+          "One CPSC institutional deployment, a shared core and the 12 named office modules. No separate per-user charge for the custom-developed platform; third-party licensing is separate."
+        ],
+        [
+          "<b>Workflows and reports</b>",
+          "Up to 36 configured approval workflows and 48 custom report/dashboard layouts across the priced modules. Standard record lists and exports are included; final forms and report formats require CPSC approval."
+        ],
+        [
+          "<b>Interfaces</b>",
+          "One Registrar interface, one existing finance-system interface, one identity provider and one email service. Project No. 8 receives documented future-interface readiness only."
+        ],
+        [
+          "<b>Migration</b>",
+          "Up to five structured source datasets, one million rows and 100GB of existing digital documents; two trial loads and one final cutover. Physical scanning and reconstruction of missing records are excluded."
+        ],
+        [
+          "<b>Environments and capacity</b>",
+          "One production and one non-production environment. CPSC supplies user/concurrency forecasts and infrastructure specifications before workload sizing and performance targets are agreed."
+        ],
+        [
+          "<b>Training and support</b>",
+          "Ten role-based workshops plus two administrator sessions; two scheduled campus visits; twelve months of corrective maintenance from final acceptance."
+        ]
+      ],
+      "widths": [
+        0.27000001225158243,
+        0.7299999877484176
+      ],
+      "header": false
+    },
+    {
+      "type": "paragraph",
+      "text": "Any other offices, modules or interfaces mentioned generally in institutional planning are not automatically included beyond the priced scope. Changes to the agreed baseline will be assessed and authorized in writing before additional work is performed."
+    },
+    {
+      "type": "heading",
+      "text": "3. DETAILED SCOPE AND PROFESSIONAL FEES"
+    },
+    {
+      "type": "paragraph",
+      "text": "All amounts below are in Philippine pesos and are <b>VAT inclusive</b>. Each work package is a proposed bundled fee for the stated deliverables, including the relevant design, development and developer-level checks. Cross-module acceptance testing, migration, deployment and support are separately identified to avoid double charging."
+    },
+    {
+      "type": "boq",
+      "title": "A. Enterprise Core Platform and Solution Design",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Requirements discovery, process mapping and solution design</b> Workshops for the 12 listed office domains; current-system inventory; process and data ownership map; solution architecture, prototypes, requirements register and phased delivery baseline for CPSC approval.",
+          "unit_price": "910000.00",
+          "amount": "910000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Shared identity, user access and administration</b> Institutional user directory, Single Sign-On capability, role-based and office-level permissions, privileged-user Multi-Factor Authentication, account lifecycle, session controls and centralized administration for all quoted modules.",
+          "unit_price": "1581000.00",
+          "amount": "1581000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Shared workflow, forms and notification services</b> Reusable form and approval engine; routing, delegation, task queues, status tracking and in-application notifications. Configure the agreed workflow allowance; external identity and email connections are priced in Section C.",
+          "unit_price": "1246000.00",
+          "amount": "1246000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Master data, audit and shared application services</b> Common identifiers and reference catalogs; reusable document attachments, audit events, report/export foundation and cross-module data validation. Department-specific processes and reports are delivered under Section B.",
+          "unit_price": "1157000.00",
+          "amount": "1157000.00"
+        }
+      ],
+      "subtotal": "4894000.00",
+      "note": "<b>Shared-platform basis.</b> Common identity, workflow, audit and reference-data services are priced once and reused by all quoted modules. External provider connections and department-specific business rules are priced separately below."
+    },
+    {
+      "type": "boq",
+      "title": "B. Departmental Information System Modules",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Accounting Management and Financial Reporting</b> Chart-of-accounts configuration; journal and voucher workflows; ledger and subsidiary summaries; review/posting controls; reconciliation and agreed financial reports. Interfaces to an existing authorized accounting system are separately defined under Section C.",
+          "unit_price": "1620000.00",
+          "amount": "1620000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Cashier and Collection Management</b> Charge and receivable references, authorized receipt records, collections, deposit summaries, daily cash reports and reconciliation. Receive agreed student/fee data from the Registrar interface; external payment gateway integration is excluded.",
+          "unit_price": "1170000.00",
+          "amount": "1170000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Human Resource Management</b> Employee profiles and digital personnel files; appointment, position and service histories; leave requests and approvals; training records and personnel reports. Includes payroll-ready data exports, not a separate payroll/tax computation engine.",
+          "unit_price": "1424000.00",
+          "amount": "1424000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Procurement Management</b> Procurement plan references, purchase requests, review/approval routing, sourcing and quotation records, comparison worksheets, purchase orders, delivery monitoring and supplier records. Government-platform submissions remain with authorized CPSC personnel.",
+          "unit_price": "1656000.00",
+          "amount": "1656000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Supply and Inventory Management</b> Item catalog, receiving, requisition and issue workflows, stock movements, stock cards, counts, reorder alerts and inventory reconciliation. Link approved procurement receipts and departmental issuances to the common data model.",
+          "unit_price": "1157000.00",
+          "amount": "1157000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Property and Asset Management</b> Asset register and asset identifiers; custodian/accountability records, transfer, inspection, maintenance and disposal workflows; asset verification and reports using CPSC-approved templates. Barcode equipment is not included.",
+          "unit_price": "1157000.00",
+          "amount": "1157000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Institutional Records Management</b> Record registration, classification, metadata, electronic routing, version history, search, retention settings and permission-controlled retrieval for institutional documents. The separate Legal Services case repository under Project No. 8 is excluded.",
+          "unit_price": "979000.00",
+          "amount": "979000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Budget Management</b> Approved budget, allotment and obligation references; utilization and available-balance tracking, budget requests, adjustments and reconciliation with accounting/procurement. Configure CPSC-approved classifications and report formats; balances are not a bank-cash substitute.",
+          "unit_price": "1170000.00",
+          "amount": "1170000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Planning and Institutional Performance</b> Institutional plans, programs and project registers, targets, milestones, accomplishment submissions, evidence links and management dashboards. Consolidate approved departmental indicators and executive reports with defined data owners.",
+          "unit_price": "979000.00",
+          "amount": "979000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Student Affairs Management</b> Student-service requests, scholarships/assistance records, organizations, activities, guidance/referral metadata and clearance status workflows. Student identity and enrollment references are sourced from the existing or separately procured Registrar system.",
+          "unit_price": "957000.00",
+          "amount": "957000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Research Management</b> Research proposals, review routing, project and funding references, milestones, ethics/approval metadata, outputs, publications and accomplishment reporting. Store review outcomes recorded by authorized officers; the system does not make substantive research decisions.",
+          "unit_price": "957000.00",
+          "amount": "957000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Extension Management</b> Extension programs and projects, partner and beneficiary records, activities, resource references, attendance, outputs and impact/accomplishment reports. Link approved plans and institutional indicators without duplicating research or finance records.",
+          "unit_price": "870000.00",
+          "amount": "870000.00"
+        }
+      ],
+      "subtotal": "14096000.00",
+      "note": "<b>Module boundary.</b> Section B contains 12 office domains. Registrar development, a standalone payroll engine and the Legal Services system are not part of these fees. Functional details and report formats will be signed off by the appropriate CPSC business owners."
+    },
+    {
+      "type": "boq",
+      "title": "C. Integration and Interoperability",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Registrar system integration - Project No. 7</b> One defined interface package for agreed student identifiers, enrollment references, fee/assessment data and clearance/status exchange. Includes mapping, connector configuration and reconciliation tests, subject to documented access supplied by CPSC and its Registrar vendor.",
+          "unit_price": "798000.00",
+          "amount": "798000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Existing accounting/finance system interface</b> One agreed interface to an existing institutional finance system using an authorized Application Programming Interface (API) or structured batch exchange. Define ownership, mappings, validation, error handling and reconciliation; vendor access charges are excluded.",
+          "unit_price": "646000.00",
+          "amount": "646000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Identity-provider and institutional email connections</b> Connect one CPSC-approved identity provider and one institutional email service to shared login and notification services. Includes configuration, role/claim mapping and delivery tests; provider subscriptions and paid messaging fees are excluded.",
+          "unit_price": "576000.00",
+          "amount": "576000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>API documentation and future Legal Services interface readiness</b> Versioned interface catalog, authentication/data contracts, sample payloads, error logs and integration handover. Reserve documented endpoints for Project No. 8; development of its legal workflows, case system and live connector is not included here.",
+          "unit_price": "396000.00",
+          "amount": "396000.00"
+        }
+      ],
+      "subtotal": "2416000.00",
+      "note": "<b>Third-party dependency.</b> Access to the Registrar and other external systems requires authorized documentation, credentials, sample data and vendor cooperation. Interface capability is included only within the named packages; proprietary access fees and modifications to another supplier&#x27;s system are excluded."
+    },
+    {
+      "type": "boq",
+      "title": "D. Data Migration and Reconciliation",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Legacy-data mapping and migration preparation</b> Map and transform the agreed structured extracts; prepare import templates, duplicate/validation rules and migration scripts. Pricing allowance: up to five source datasets, one million structured rows and 100GB of already digitized documents, subject to baseline approval.",
+          "unit_price": "990000.00",
+          "amount": "990000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Trial migrations, reconciliation and final cutover load</b> Two trial loads and one final cutover load; control totals, exception registers, sample-record checks and departmental sign-off. CPSC validates source accuracy and resolves missing or conflicting records before final loading.",
+          "unit_price": "384000.00",
+          "amount": "384000.00"
+        }
+      ],
+      "subtotal": "1374000.00",
+      "note": "<b>Migration boundary.</b> CPSC remains responsible for the legality, completeness and business accuracy of source data. Migration is limited to authorized extracts and the stated allowances; an exception register will identify records requiring CPSC correction."
+    },
+    {
+      "type": "boq",
+      "title": "E. Quality Assurance, Security Validation and Acceptance",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Cross-module functional and integration testing</b> Test plans, automated/regression checks, end-to-end transaction scenarios, error handling and agreed capacity/performance tests on the approved hosting environment. Record defects, remediation and retest evidence for the delivered scope.",
+          "unit_price": "1085000.00",
+          "amount": "1085000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Application-security assessment and remediation</b> Access-control, authentication, session, upload, configuration and dependency checks; application vulnerability testing, remediation and retesting. Includes a security findings report; no third-party certification or guarantee of regulator approval is implied.",
+          "unit_price": "528000.00",
+          "amount": "528000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>User Acceptance Testing and acceptance evidence</b> Facilitated User Acceptance Testing (UAT) for the 12 modules, shared services and named interfaces; scripts, business-owner results, issue closure and release acceptance pack. Includes two consolidated UAT cycles within the approved requirements.",
+          "unit_price": "480000.00",
+          "amount": "480000.00"
+        }
+      ],
+      "subtotal": "2093000.00",
+      "note": "<b>Validation basis.</b> Acceptance follows the approved requirements and documented test outcomes. Additional processes and reports outside that baseline are subject to written change control."
+    },
+    {
+      "type": "boq",
+      "title": "F. Deployment, Training and Delivery Management",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Environment configuration, release and production cutover</b> Application deployment to one production and one non-production environment supplied by CPSC; release scripts, application configuration, backup/restore procedures, rehearsal and production cutover. Server, storage and hosting procurement are excluded.",
+          "unit_price": "420000.00",
+          "amount": "420000.00"
+        },
+        {
+          "qty": "12",
+          "unit": "Sessions",
+          "description": "<b>Role-based and administrator training</b> Ten office/user workshops and two technical-administrator sessions, including preparation, demonstrations, exercises and digital training materials. Delivery combines remote sessions and the included scheduled campus visits.",
+          "unit_price": "21000.00",
+          "amount": "252000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Delivery governance, documentation and handover</b> Delivery coordination, progress and issue tracking, change register, stakeholder reviews, operating manuals, data dictionary, deployment guide, source-code handover package and final turnover documentation.",
+          "unit_price": "510000.00",
+          "amount": "510000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "Lot",
+          "description": "<b>Camiguin workshops and deployment logistics</b> Two planned campus visits for requirements/training and go-live coordination, including travel, accommodation and local transport for the delivery team. Other collaboration is remote; additional visits are subject to an agreed scope change.",
+          "unit_price": "126000.00",
+          "amount": "126000.00"
+        }
+      ],
+      "subtotal": "1308000.00",
+      "note": "<b>Deployment basis.</b> Application setup and release work are included; production hosting, recurring cloud services, database/platform licenses and physical equipment remain outside this quotation."
+    },
+    {
+      "type": "boq",
+      "title": "G. Post-Acceptance Warranty and Technical Support",
+      "items": [
+        {
+          "qty": "12",
+          "unit": "Months",
+          "description": "<b>Software corrective maintenance and technical support</b> Twelve months from final acceptance: defect correction within the accepted scope, remote troubleshooting, configuration assistance, security-maintenance coordination and scheduled application health reviews. New modules, major enhancements and external subscription renewals are excluded.",
+          "unit_price": "55000.00",
+          "amount": "660000.00"
+        }
+      ],
+      "subtotal": "660000.00",
+      "note": "<b>Support basis.</b> Corrective support starts at final acceptance of the integrated solution. Enhancement requests and recurring infrastructure charges are not charged to this warranty allowance."
+    },
+    {
+      "type": "heading",
+      "text": "4. TOTAL CONTRACT PRICE"
+    },
+    {
+      "type": "total"
+    },
+    {
+      "type": "paragraph",
+      "text": "This budgetary price is based on the scope and allowances stated here. Final contractual requirements, technical schedules and commercial conditions are subject to CPSC validation and the procurement documents. Additional modules, integrations and capabilities outside the priced scope require an approved variation."
+    },
+    {
+      "type": "heading",
+      "text": "5. IMPLEMENTATION PROGRAM"
+    },
+    {
+      "type": "paragraph",
+      "text": "<b>Proposed implementation period: eighteen (18) months</b> from Notice to Proceed and availability of the required CPSC counterparts, authorized data/interfaces and approved hosting environment. Work streams may run in parallel, with phased module releases before the final institution-wide rollout. The existing <b>twelve (12) months of warranty and technical support</b> will start at final acceptance and is separate from the eighteen-month implementation period."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "<b>PLANNING WINDOW</b>",
+          "<b>PHASE</b>",
+          "<b>DELIVERABLE</b>"
+        ],
+        [
+          "Months 1-3",
+          "Discovery and requirements baseline",
+          "Office workshops, architecture, data/interface inventory, prototypes and signed phased delivery plan."
+        ],
+        [
+          "Months 3-6",
+          "Shared platform and first module builds",
+          "Identity, permissions, common workflow, master data, audit and initial module demonstrations."
+        ],
+        [
+          "Months 6-12",
+          "Departmental releases",
+          "Finance/HR, procurement, supply/property, records, budget/planning and academic-support module releases with owner reviews."
+        ],
+        [
+          "Months 6-14",
+          "Integration and migration trials",
+          "Named connectors, data mapping, trial loads, reconciliation, cross-module and security tests."
+        ],
+        [
+          "Months 14-16",
+          "Acceptance and readiness",
+          "Two consolidated UAT cycles, remediation, role-based training, restore drill and cutover rehearsal."
+        ],
+        [
+          "Months 17-18",
+          "Final rollout and turnover",
+          "Approved cutover, stabilization, final acceptance record, source/deployment package and support handover."
+        ]
+      ],
+      "widths": [
+        0.16000000055689012,
+        0.2799999905328681,
+        0.5600000089102418
+      ],
+      "header": true
+    },
+    {
+      "type": "paragraph",
+      "text": "The sequence and elapsed time may change if CPSC approvals, third-party access, usable source data or infrastructure readiness are delayed. Any schedule adjustment will be documented."
+    },
+    {
+      "type": "heading",
+      "text": "6. ACCEPTANCE AND TURNOVER REQUIREMENTS"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "<b>Requirements and functionality</b>",
+          "CPSC-approved scope-to-test matrix; demonstration of each priced module, shared service and named interface. Department owners validate forms, workflows, calculations and reports."
+        ],
+        [
+          "<b>Data and interoperability</b>",
+          "Successful agreed interface scenarios; migration control totals and sample checks; approved exception register and data-owner reconciliation sign-offs."
+        ],
+        [
+          "<b>Security and operations</b>",
+          "Role/office access tests, privileged-user controls, auditable transactions, restore demonstration and closure of agreed blocking security defects. No open critical defects affecting accepted operations at release."
+        ],
+        [
+          "<b>Usability and readiness</b>",
+          "UAT completion and issue-resolution log; training attendance/materials; operating procedures, deployment/cutover checklist and administrative handover."
+        ]
+      ],
+      "widths": [
+        0.27000001225158243,
+        0.7299999877484176
+      ],
+      "header": false
+    },
+    {
+      "type": "list",
+      "items": [
+        "Approved requirements, architecture, process/permission matrices, module inventory and acceptance records.",
+        "Project-specific source code, database schema/migrations, data dictionary, documented APIs and build/deployment instructions, subject to the license and payment terms below.",
+        "Migration scripts/control reports, test results, security findings and remediation evidence, configuration and backup/restore procedures.",
+        "Administrator and end-user manuals, training materials, credentials handover procedure and support contacts/escalation process."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "7. SECURITY, DATA GOVERNANCE AND DEPLOYMENT"
+    },
+    {
+      "type": "list",
+      "items": [
+        "<b>Access and accountability.</b> Role-based and office-level permissions, privileged-user Multi-Factor Authentication, session controls and traceable activity logs are included. CPSC approves account owners, access roles and separation of duties.",
+        "<b>Data protection.</b> Configure encrypted application transport, controlled file access, protected secrets and appropriate retention/backup settings on the approved platform. CPSC supplies its privacy, record-retention and data-classification decisions; this quotation does not claim automatic regulatory certification.",
+        "<b>System ownership.</b> CPSC retains ownership and control of its institutional data. Registrar academic records remain under the designated source-system owner; the unified platform will not alter third-party records outside authorized interface operations.",
+        "<b>Hosting responsibilities.</b> CPSC provides or separately procures servers/virtual machines or cloud capacity, database/storage capacity, operating environment, backup destinations, connectivity and endpoint devices. This quotation includes application setup, not infrastructure purchase or managed hosting."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "8. SOFTWARE RIGHTS, WARRANTY AND SUPPORT"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "<b>Custom deliverables and code</b>",
+          "Proposed commercial basis: project-specific custom deliverables, source code, database scripts and deployment documentation are handed over to CPSC upon full payment. CPSC receives continuing internal institutional use of the delivered system."
+        ],
+        [
+          "<b>Background and third-party components</b>",
+          "Lifes Awesome retains its pre-existing reusable frameworks, tools and general know-how, with the continuing rights needed for CPSC to operate the delivered system. Third-party/open-source components remain under their respective licenses, disclosed in the handover inventory."
+        ],
+        [
+          "<b>Warranty term</b>",
+          "Twelve months from final acceptance for defects in the approved and delivered scope. Includes defect correction, configuration assistance and scheduled application health reviews; no claim of perpetual free support is made."
+        ],
+        [
+          "<b>Service arrangement</b>",
+          "Remote-first support during Philippine business hours, Monday-Friday excluding holidays. Proposed initial response: within four business hours for a production-blocking incident and one business day for other reports. Restoration time depends on diagnosis and external dependencies."
+        ],
+        [
+          "<b>Support exclusions</b>",
+          "New modules, major enhancements, source-data correction, unauthorized system changes, third-party outages, hosting/ISP costs, subscription renewals and work outside the accepted baseline are excluded. Defect remediation within the supplied scope remains included."
+        ]
+      ],
+      "widths": [
+        0.27000001225158243,
+        0.7299999877484176
+      ],
+      "header": false
+    },
+    {
+      "type": "heading",
+      "text": "9. ASSUMPTIONS, DEPENDENCIES AND EXCLUSIONS"
+    },
+    {
+      "type": "list",
+      "numbered": true,
+      "start": 1,
+      "items": [
+        "Budgetary basis. The institution-wide Project No. 5 description is the starting scope. Detailed workflows, reports, user volumes, migration quality and external system access are not yet validated. The proposed allowances in Section 2 define this quotation, not facts about CPSC&#x27;s present environment.",
+        "Registrar exclusion. The Registrar and Academic Records Information System under Project No. 7 is excluded. Admissions, enrollment, curriculum, class schedules, grades, transcripts and graduation processing are not redeveloped here. Only the defined interface package is included.",
+        "Legal Services exclusion. Project No. 8 case/matter management, legal opinions, contract-review workflows and legal document repository are excluded. This quotation includes future API readiness, not delivery or live integration of that separate system.",
+        "Other project boundaries. Network/CCTV infrastructure under Projects Nos. 1-2, renewable power under No. 3, servers/storage/cloud infrastructure under No. 4 and enterprise software subscriptions under No. 6 remain separately scoped. No duplicate equipment or institution-wide license budget is included here.",
+        "Department participation. CPSC will designate a project sponsor, ICT focal person and business owners for the 12 quoted modules; provide approved forms and calculation/reporting rules; validate data; and consolidate decisions and acceptance comments.",
+        "External interfaces. CPSC will arrange authorized vendor access, documentation, test data and permitted exchange methods. Access fees, proprietary changes, bank/payment integrations, government-platform integrations and unnamed interfaces are excluded unless later expressly agreed.",
+        "Migration and data quality. Only authorized digital source extracts and already digitized documents within the stated allowances are included. Bulk scanning, manual reconstruction, transcription and cleansing of missing historical records are excluded; CPSC resolves business-data exceptions.",
+        "Functional exclusions. A standalone payroll/tax engine, Learning Management System, full library automation, public website/admissions portal, native mobile apps, biometric hardware and AI-based decisions are not included. The supplied platform is responsive web-based software.",
+        "Hosting and recurring charges. Recurring cloud hosting, compute/storage, disaster-recovery site charges, domains/certificates requiring paid subscriptions, messaging/SMS, identity/email licenses, commercial database licenses and third-party renewals are excluded unless itemized.",
+        "Change control. Additions to the approved modules, interfaces, workflow/report allowances, migration scope or campus deployment will require a written cost/schedule assessment and CPSC authorization before execution."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "10. PAYMENT TERMS"
+    },
+    {
+      "type": "paragraph",
+      "text": "Progress billing shall be based on objectively completed and accepted software milestones, supported by CPSC-approved accomplishment reports, demonstrations and deliverables. The proposed allocation below is subject to the final procurement/contract terms, applicable retention and required supporting documents; it is not an unconditional advance-payment request."
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "<b>SHARE</b>",
+          "<b>ACCEPTED MILESTONE</b>",
+          "<b>AMOUNT</b>"
+        ],
+        [
+          "10%",
+          "Accepted requirements baseline, architecture and implementation plan",
+          "PHP 2,684,100.00"
+        ],
+        [
+          "20%",
+          "Accepted shared platform and first departmental release",
+          "PHP 5,368,200.00"
+        ],
+        [
+          "25%",
+          "Accepted remaining departmental module releases",
+          "PHP 6,710,250.00"
+        ],
+        [
+          "20%",
+          "Accepted interfaces, migration and integrated UAT",
+          "PHP 5,368,200.00"
+        ],
+        [
+          "15%",
+          "Production cutover, training and complete technical handover",
+          "PHP 4,026,150.00"
+        ],
+        [
+          "10%",
+          "Final acceptance after agreed stabilization and outstanding issue closure",
+          "PHP 2,684,100.00"
+        ],
+        [
+          "100%",
+          "TOTAL - VAT INCLUSIVE",
+          "PHP 26,841,000.00"
+        ]
+      ],
+      "widths": [
+        0.0899999994431099,
+        0.6400000161498133,
+        0.26999998440707684
+      ],
+      "header": true
+    },
+    {
+      "type": "paragraph",
+      "text": "Payments shall be made payable to <b>LIFES AWESOME VENTURES INC.</b>"
+    },
+    {
+      "type": "heading",
+      "text": "11. QUOTATION VALIDITY"
+    },
+    {
+      "type": "paragraph",
+      "text": "This quotation is valid for <b>sixty (60) calendar days</b> from 18 September 2026. It is submitted for ISSP planning and budgetary evaluation; final scope, delivery schedule and commercial obligations will be confirmed through CPSC&#x27;s approved requirements and formal contract."
+    }
+  ],
+  "boundary": "Project No. 7 Registrar and Academic Records system development is <b>excluded</b>; its defined interface is included. Project No. 8 Legal Services system development and live integration are <b>excluded</b>; documented future interface readiness is included. These separately procured systems retain their own responsibilities and data ownership.",
+  "front_notes": [
+    "Pricing includes the professional services, implementation, logistics and support expressly listed in this quotation. Campus networking, CCTV, servers/storage, recurring hosting and institution-wide third-party software subscriptions are not included."
+  ]
+}

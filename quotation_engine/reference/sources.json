@@ -1,0 +1,30 @@
+[
+  {
+    "project": 1,
+    "filename": "LAVI_CPSC_Project_1_Integrated_Campus_Network_Quotation_Diagram_Corrected.pdf",
+    "sha256": "978a25eed3cede8dfdc74d164ad4a65b339a3fc338cb4fbe5256e07b3ff11b4c",
+    "pages": 6,
+    "status": "user-approved visual reference; job commercial data are historical example values, not global defaults"
+  },
+  {
+    "project": 2,
+    "filename": "LAVI_CPSC_Project_2_Integrated_Campus_Security_CCTV_Quotation_v2_Corrected.pdf",
+    "sha256": "995e6d92d90d83c89512ccbf0477c545723cef71f8b8fa4c17ef0f0c42930114",
+    "pages": 6,
+    "status": "user-approved visual reference; job commercial data are historical example values, not global defaults"
+  },
+  {
+    "project": 5,
+    "filename": "Lifes_Awesome_CPSC_Project_5_Unified_College_Information_Management_System_Quotation_v2.pdf",
+    "sha256": "ece8e2c62b0a2978151eb02e3aa46d46b0302488be0086023990a99e73646cd3",
+    "pages": 8,
+    "status": "user-approved visual reference; job commercial data are historical example values, not global defaults"
+  },
+  {
+    "project": 8,
+    "filename": "Lifes_Awesome_CPSC_Project_8_Legal_Services_Case_Query_Document_Management_Quotation_v1.pdf",
+    "sha256": "b1b31e24574387f01f712e6ce4ea1864d9ec4fa0ad15563287d45966d908abfd",
+    "pages": 7,
+    "status": "user-approved visual reference; job commercial data are historical example values, not global defaults"
+  }
+]

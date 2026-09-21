@@ -1,33 +1,41 @@
 {
-  "template_id": "LAVI-QUOTATION-2026.2",
-  "engine_version": "1.1.0",
+  "release_id": "CPSC-APPROVED-QUOTATIONS-2026-09",
+  "engine_version": "2.0.0",
   "status": "APPROVED_LOCKED",
   "approved_by": "James Brown Bete",
-  "approved_on": "2026-08-19",
-  "approved_basis": "LAVI Modern Quotation 2026 template with the approved lighter header, regular-weight information values, right-aligned numerical fields and totals, and Additional Notes hierarchy. Engine 1.1.0 preserves this output while adding a separate Lifes Awesome candidate profile.",
-  "page": {
-    "size": "Legal",
-    "width_points": 612,
-    "height_points": 1008,
-    "side_margin_inches": 0.55,
-    "content_width_points": 532.8
+  "approved_on": "2026-09-21",
+  "active_profiles": {
+    "lavi": "LAVI-QUOTATION-2026.3",
+    "lifes-awesome": "LIFES-AWESOME-QUOTATION-2026.2"
   },
-  "locked_labels": {
-    "title_eyebrow": "PREPARED QUOTATION FOR",
-    "pricing_section": "SCOPE AND PRICING",
-    "notes_section": "ADDITIONAL NOTES"
-  },
-  "pricing_columns_points": [32.5, 36.0, 275.5, 94.4, 94.4],
-  "totals_columns_points": [94.4, 94.4],
+  "source_manifest": "quotation_engine/reference/sources.json",
+  "approval_scope": "Approved design and reusable engine, not automatic approval of future commercial data, source assumptions or signing.",
+  "legacy_archive": "legacy/quotation_engine-pre-cpsc",
   "sha256": {
-    "quotation_engine/contract.py": "50621f3fed45b0c38f688ff1f1565c3db547d52604d61914f2641ee652ed72c9",
-    "quotation_engine/profiles.py": "7bc2658644881365ac0aadc46f4e029f825dfa2babe6858486903bb950592cac",
-    "quotation_engine/renderer.py": "4941628be9f5f059e029c87312055f4490be20999b2db64896da9723cc071d01",
-    "quotation_engine/validation.py": "b8a3b84cb49233bbe47849a284855ac120142757e1a954905328fd5b1ef0220f",
-    "quotation_engine/cli.py": "1682643173fac1a42ca14800d75be36cfcd6b65dd9da6f545cae94d9e4c7d3ed",
-    "quotation_engine/schema/quotation.schema.json": "1fc57dae5559317ce6eb07132e3f4597bc242e0cd8acc40306bbbaab3f3b51c7",
-    "quotation_engine/golden/approved_sample_contract.json": "dcc479b39a38d693857236dd89c70d317d79921911920ea9546085a0267e9c17",
-    "templates/lavi/quotation-2026/LAVI_New_Logo_2026.png": "15cc5e470a5f6222c02d2de656c55a5f292f8b17577b730da63255aa0eda4353",
-    "templates/lavi/quotation-2026/LAVI_Modern_Quotation_Template_2026.pdf": "114c710ea10182ebe45017b78127f7558c1a1552165bdcb1fb9bb1454d14e6b1"
+    "quotation_engine/__init__.py": "c5b10cbf88ebb01a6f66cf4ec48aae39016dec4a3eab29bc76aaae59f5446602",
+    "quotation_engine/cli.py": "e277ed1792fd50d9f2f614142920f8c11cb7e4a5e5f7a48e64e8e5e58e9c1a53",
+    "quotation_engine/diagrams.py": "7ae51ad97ae5e07bbd38eab795becca793d6ae914d20de5a18ff0d08fba0d090",
+    "quotation_engine/examples/cpsc-01.json": "f413b8ad9210d1b33da4a96e52b9163fdb5254e1c6f40db4e90a580db56a9749",
+    "quotation_engine/examples/cpsc-02.json": "705f80c15f6a5e496f831a630a9a8e7c53e117a4b55bb64b1e6a5cca692c68eb",
+    "quotation_engine/examples/cpsc-05.json": "3b6b2d9d82096b6c40570b30dbeabafdc0011737ad03a036653727099e166e00",
+    "quotation_engine/examples/cpsc-08.json": "90139bc42e40bac55e91a567afa43e9c8a531250fa0cc06a4cf1030c4cbfca73",
+    "quotation_engine/profiles.json": "7dfd9c962cab6daf76917289473104d72d411da4d2fb3e1927e949c76e61f93f",
+    "quotation_engine/reference/previews/cpsc-01-architecture.svg": "06290ce8627494c2469698c78fda05673a39b87ba00d1a06e38f7efb3b599952",
+    "quotation_engine/reference/previews/cpsc-01-header.svg": "26d9f748d7a5545aaf1551ea8497c59c62ea486a92a0260c3ae2cb49eef34820",
+    "quotation_engine/reference/previews/cpsc-02-architecture.svg": "f82547ec4842036a75cfcc58d891a7d6ab7a55325e20100154ddf377c683f8aa",
+    "quotation_engine/reference/previews/cpsc-02-header.svg": "877ffc8a06d549a8d9404471443f485f5bbd4f133c512bd50f6c33197f60bf3f",
+    "quotation_engine/reference/previews/cpsc-05-architecture.svg": "d491066256b9620e8feea6ba37ddc1576e2eff97833f1ce0a7f3a130745b1226",
+    "quotation_engine/reference/previews/cpsc-05-header.svg": "fa98a3017805354d455e5e339baabe9e3ba9a8d7b0608b051ee57140db5173cc",
+    "quotation_engine/reference/previews/cpsc-08-architecture.svg": "85924755aa4f7f688f67ea22c65e23d74bd33d0124796b3e17717b4a817efefe",
+    "quotation_engine/reference/previews/cpsc-08-header.svg": "535e73f5c59bd755267bad852a3ce8135423b3a9bcc58cfccc17484a99067644",
+    "quotation_engine/reference/sources.json": "159af0e4d9711b4127cf011e1b33262e2d7d1667856f756f3ae9ae0b76d73d7b",
+    "quotation_engine/reference/word_contract.json": "4e86f73259c7541bec7b4a4dfa2e94b7fd19dd9f756fbbb2ffe81e4d02613be3",
+    "quotation_engine/renderer.py": "dbc20b790a859bf717a1a6f078574508baed2e761d94877f01fa0ee462e23175",
+    "quotation_engine/schema.json": "4b063a243ce91a95685c31660aa36963f6a78f06cc44ee4e94a3231c505d0c09",
+    "quotation_engine/tests/test_approved.py": "61276527c8ecf887744993d7f6fa199a2280d15d1315789920d95ea8584dd430",
+    "quotation_engine/validation.py": "56241205b6422875d30df937f5e410c2ceb9a778db5a5815487da5579136121c",
+    "requirements.txt": "5614e324dab2dcb58a47b9e182299f1e79ea8df62ac605947ab9d3d76b7496fc",
+    "templates/lavi/cpsc-2026/logo.png": "15cc5e470a5f6222c02d2de656c55a5f292f8b17577b730da63255aa0eda4353",
+    "templates/lifes-awesome/cpsc-2026/logo.png": "a0dfdf0cd987932ec0c1bcb866919bde678b695a6e3ea42381dde2be75eea176"
   }
 }

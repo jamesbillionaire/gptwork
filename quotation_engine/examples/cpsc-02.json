@@ -1,0 +1,599 @@
+{
+  "schema_version": 2,
+  "brand": "lavi",
+  "template_id": "LAVI-QUOTATION-2026.3",
+  "title": "CPSC Integrated Campus Security and CCTV Surveillance System",
+  "subtitle": "Budgetary Technical and Financial Proposal | ISSP Project No. 2",
+  "quote_no": "LAVI-QTN-20260918-CPSC-02",
+  "date": "18 September 2026",
+  "validity_days": 30,
+  "tax_treatment": "VAT Inclusive",
+  "expected_total": "7353000.00",
+  "amount_words": "Seven Million Three Hundred Fifty-Three Thousand Pesos Only",
+  "client": {
+    "name": "Camiguin Polytechnic State College",
+    "address": "Balbagon 9100, Mambajao, Camiguin",
+    "attention": "Jenelyn G. Sabellina, PhD",
+    "role": "SUC President II",
+    "location": "Balbagon, Mambajao, Camiguin"
+  },
+  "salutation": "Dear Dr. Sabellina:",
+  "prepared_by": {
+    "name": "JAMES BROWN BETE",
+    "role": "CEO"
+  },
+  "introduction": [
+    "LAVI Technologies Inc. is pleased to submit this quotation for the CPSC Integrated Campus Security and CCTV Surveillance System, intended to establish a centrally managed, network-based surveillance environment covering strategic campus areas with centralized recording, video management, monitoring, evidence retrieval, and command-center operations.",
+    "The proposed budgetary design provides 64 active IP camera channels, distributed managed Power over Ethernet switching, centralized recording and storage, a Video Management System, and a dedicated command center. The camera mix, exact locations, retention settings, and inter-building uplink routes shall be finalized through detailed site validation and CPSC approval."
+  ],
+  "footer_label": "CPSC INTEGRATED CAMPUS SECURITY AND CCTV SURVEILLANCE SYSTEM",
+  "source": {
+    "project": 2,
+    "filename": "LAVI_CPSC_Project_2_Integrated_Campus_Security_CCTV_Quotation_v2_Corrected.pdf",
+    "sha256": "995e6d92d90d83c89512ccbf0477c545723cef71f8b8fa4c17ef0f0c42930114",
+    "pages": 6,
+    "status": "user-approved visual reference; job commercial data are historical example values, not global defaults"
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. PROPOSED SOLUTION ARCHITECTURE"
+    },
+    {
+      "type": "paragraph",
+      "text": "The proposed system follows a centralized campus-surveillance architecture. IP cameras connect through managed Power over Ethernet access switches and dedicated CCTV network segmentation, then traverse approved fiber/network uplinks to centralized recording, storage, and Video Management System services. Authorized operators monitor live and recorded video from the command center."
+    },
+    {
+      "type": "diagram",
+      "caption": "LOGICAL CAMPUS CCTV AND COMMAND CENTER FLOW",
+      "rows": [
+        {
+          "nodes": [
+            {
+              "title": "48 FIXED 4MP IP CAMERAS",
+              "subtitle": [
+                "Perimeter / roads / general areas"
+              ]
+            },
+            {
+              "title": "12 VARIFOCAL 4MP IP CAMERAS",
+              "subtitle": [
+                "Entrances / critical identification"
+              ]
+            },
+            {
+              "title": "4 PTZ IP CAMERAS",
+              "subtitle": [
+                "Open areas / active monitoring"
+              ]
+            }
+          ],
+          "fill": "tint"
+        },
+        {
+          "nodes": [
+            {
+              "title": "MANAGED POE SWITCHING | CCTV VLAN | FIBER / NETWORK UPLINKS",
+              "subtitle": []
+            }
+          ],
+          "label": "CCTV ACCESS NETWORK",
+          "fill": "tint2"
+        },
+        {
+          "nodes": [
+            {
+              "title": "RECORDER / STORAGE A",
+              "subtitle": [],
+              "outline": true
+            },
+            {
+              "title": "CENTRAL VMS +",
+              "subtitle": [
+                "MANAGEMENT SERVER"
+              ]
+            },
+            {
+              "title": "RECORDER / STORAGE B",
+              "subtitle": [],
+              "outline": true
+            }
+          ],
+          "label": "CENTRAL RECORDING AND VIDEO MANAGEMENT",
+          "fill": "light"
+        },
+        {
+          "nodes": [
+            {
+              "title": "CENTRAL COMMAND CENTER | 2 OPERATOR WORKSTATIONS | 2x2 COMMERCIAL DISPLAY WALL",
+              "subtitle": []
+            }
+          ],
+          "fill": "tint"
+        },
+        {
+          "nodes": [
+            {
+              "title": "SECURITY MONITORING / INCIDENT RESPONSE",
+              "subtitle": []
+            },
+            {
+              "title": "AUTHORIZED ADMINISTRATION / EVIDENCE EXPORT",
+              "subtitle": []
+            }
+          ],
+          "fill": "light"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "The design target is approximately 45 to 60 days of recording retention for 64 cameras at 4MP-class resolution using H.265/H.265+ or equivalent compression. Actual retention will depend on final bitrate, frame rate, scene complexity, motion/continuous recording policies, storage RAID configuration, and usable capacity after formatting."
+    },
+    {
+      "type": "heading",
+      "text": "2. DETAILED BILL OF QUANTITIES AND COST"
+    },
+    {
+      "type": "boq",
+      "title": "A. IP Cameras and Field Edge Devices",
+      "items": [
+        {
+          "qty": "48",
+          "unit": "PCS",
+          "description": "4MP Outdoor Fixed IP Cameras - weather-resistant network cameras for perimeter, roads, general campus areas and building approaches; H.265/H.265+ or equivalent; infrared/night capability; Power over Ethernet; ONVIF-compatible or equivalent open interoperability.",
+          "unit_price": "11500.00",
+          "amount": "552000.00"
+        },
+        {
+          "qty": "12",
+          "unit": "PCS",
+          "description": "4MP Motorized Varifocal IP Cameras - higher-detail cameras for entrances, exits, corridors and critical identification points; remote zoom/focus; infrared/night capability; Power over Ethernet.",
+          "unit_price": "18500.00",
+          "amount": "222000.00"
+        },
+        {
+          "qty": "4",
+          "unit": "PCS",
+          "description": "4MP Outdoor PTZ IP Cameras - approximately 25x optical zoom or better; pan/tilt/zoom control; preset patrols; weather-resistant housing; for open areas requiring active monitoring.",
+          "unit_price": "48000.00",
+          "amount": "192000.00"
+        },
+        {
+          "qty": "64",
+          "unit": "SETS",
+          "description": "Camera Mounting / Junction / Protection Sets - compatible junction boxes, brackets, weatherproof fittings, local surge-protection accessories and termination materials as required by each camera location.",
+          "unit_price": "4500.00",
+          "amount": "288000.00"
+        }
+      ],
+      "subtotal": "1254000.00",
+      "note": "Camera planning basis. The 48 fixed, 12 varifocal and 4 PTZ distribution is provisional and provides 64 active channels. Final camera types and locations shall be confirmed through line-of-sight review, coverage mapping, privacy considerations and CPSC approval."
+    },
+    {
+      "type": "boq",
+      "title": "B. Central Recording, Storage and Video Management",
+      "items": [
+        {
+          "qty": "2",
+          "unit": "UNITS",
+          "description": "Enterprise Recording / Storage Servers - 64-channel-class RAID-capable recording platforms with dual network interfaces or better, alarm/event handling, centralized playback and evidence export; sized for distributed recording load and service continuity.",
+          "unit_price": "210000.00",
+          "amount": "420000.00"
+        },
+        {
+          "qty": "16",
+          "unit": "PCS",
+          "description": "16TB Surveillance / Enterprise Hard Disk Drives - 24/7 video-recording class drives for centralized storage. Total raw provision approximately 256TB before RAID and formatting overhead.",
+          "unit_price": "49500.00",
+          "amount": "792000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "UNIT",
+          "description": "Central Video Management System Management Server - dedicated server/workstation-class hardware for device management, user administration, health monitoring, event handling, logs and command-center operations.",
+          "unit_price": "195000.00",
+          "amount": "195000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "64-Channel Professional Video Management System Licensing and Support - centralized live view, playback, user roles, audit logs, event handling, maps/e-maps where supported, health monitoring and initial three-year software support/licensing where applicable.",
+          "unit_price": "265000.00",
+          "amount": "265000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "UNIT",
+          "description": "Evidence Export / Backup Storage Appliance - dedicated storage for selected incident exports, case evidence and configuration/metadata backups, separate from primary continuous recording capacity.",
+          "unit_price": "95000.00",
+          "amount": "95000.00"
+        }
+      ],
+      "subtotal": "1767000.00",
+      "note": "Storage design basis. The proposed 16 x 16TB storage provision provides approximately 256TB raw capacity. Usable capacity will be lower after RAID protection, formatting and reserved system space. Final retention shall be validated against the selected camera bitrate and recording policy."
+    },
+    {
+      "type": "boq",
+      "title": "C. Command Center Monitoring Infrastructure",
+      "items": [
+        {
+          "qty": "4",
+          "unit": "UNITS",
+          "description": "55-Inch Commercial-Grade Monitoring Displays - suitable for continuous CCTV monitoring and arranged as a 2 x 2 command-center display wall or equivalent approved layout.",
+          "unit_price": "72000.00",
+          "amount": "288000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "SET",
+          "description": "Multi-Display Video Wall Controller / Decoder - centralized decoding and display management for live camera layouts, alarm views and playback presentation.",
+          "unit_price": "185000.00",
+          "amount": "185000.00"
+        },
+        {
+          "qty": "2",
+          "unit": "SETS",
+          "description": "Security Operator Workstations - professional workstation-class computers with dual-display capability, dedicated graphics as required, enterprise operating system and VMS client software.",
+          "unit_price": "138000.00",
+          "amount": "276000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "SET",
+          "description": "Command Center Operator Console / Furniture - durable two-operator console with cable management, equipment accommodation and ergonomic monitoring layout.",
+          "unit_price": "135000.00",
+          "amount": "135000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "SET",
+          "description": "42U Command Center Data Cabinet complete with fan system, cable management and Power Distribution Units.",
+          "unit_price": "155000.00",
+          "amount": "155000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "UNIT",
+          "description": "3 kVA Online Uninterruptible Power Supply for central recording, management and command-center network equipment.",
+          "unit_price": "125000.00",
+          "amount": "125000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Command Center Interconnection Accessories - HDMI/DisplayPort extenders, KVM/accessories, patching, local network interconnects, cable management and labeling.",
+          "unit_price": "90000.00",
+          "amount": "90000.00"
+        }
+      ],
+      "subtotal": "1254000.00"
+    },
+    {
+      "type": "boq",
+      "title": "D. CCTV Network, Cabling and Field Infrastructure",
+      "items": [
+        {
+          "qty": "8",
+          "unit": "UNITS",
+          "description": "24-Port Managed Gigabit PoE+ CCTV Access Switches - managed Power over Ethernet switching with fiber/uplink capability, VLAN, Quality of Service, loop protection, monitoring and sufficient PoE budget for assigned cameras.",
+          "unit_price": "54000.00",
+          "amount": "432000.00"
+        },
+        {
+          "qty": "8",
+          "unit": "SETS",
+          "description": "Distributed CCTV Network Cabinets - wall-mount rack/cabinet with fan, Power Distribution Unit, cable management and mounting accessories for camera-zone switching.",
+          "unit_price": "23000.00",
+          "amount": "184000.00"
+        },
+        {
+          "qty": "64",
+          "unit": "NODES",
+          "description": "Complete Category 6A CCTV Network Links - cable, connectors, patching, labeling, termination, installation and testing from cameras to assigned access-switch locations, subject to final route conditions.",
+          "unit_price": "5500.00",
+          "amount": "352000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "CCTV Fiber Uplink and Optical Interconnection Allowance - single-mode fiber patching, SFP/SFP+ modules, local fiber extensions, termination and interconnection accessories required to link CCTV zones to the approved campus network/backbone.",
+          "unit_price": "220000.00",
+          "amount": "220000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Field Mounting, Pole and Grounding Allowance - selected poles/extensions, heavy-duty supports, weatherproof enclosures, grounding/bonding materials and installation hardware for exposed camera locations. This line excludes the per-camera junction and local accessories already budgeted under Section A.",
+          "unit_price": "205000.00",
+          "amount": "205000.00"
+        }
+      ],
+      "subtotal": "1393000.00",
+      "note": "Network integration basis. Project No. 2 includes camera-side cabling, managed PoE switching and a budgetary allowance for CCTV uplinks. Where the campus backbone under ISSP Project No. 1 is available, the CCTV system shall integrate through dedicated network segmentation. Extensive new inter-building backbone construction beyond this allowance shall be subject to final site validation."
+    },
+    {
+      "type": "boq",
+      "title": "E. Engineering, Installation and Commissioning",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Detailed CCTV site survey, coverage plan, camera schedule, command-center layout, network segmentation plan and final implementation design.",
+          "unit_price": "160000.00",
+          "amount": "160000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Installation of cameras, mounts, cabinets, cabling, PoE switches, recording/storage equipment and command-center components.",
+          "unit_price": "530000.00",
+          "amount": "530000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Camera addressing, CCTV VLAN configuration, recorder/VMS setup, user roles, retention policies, event profiles and command-center integration.",
+          "unit_price": "145000.00",
+          "amount": "145000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "End-to-end testing, image optimization, day/night verification, storage/recording validation, playback/export testing and commissioning.",
+          "unit_price": "110000.00",
+          "amount": "110000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "As-built camera layout, IP/device schedule, credentials handover procedure, operating documentation and operator/administrator training.",
+          "unit_price": "100000.00",
+          "amount": "100000.00"
+        }
+      ],
+      "subtotal": "1045000.00"
+    },
+    {
+      "type": "boq",
+      "title": "F. Mobilization, Logistics and Project Management",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Mobilization, demobilization, equipment delivery, inter-island freight, logistics and handling to Camiguin.",
+          "unit_price": "215000.00",
+          "amount": "215000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Project management, site supervision, coordination, safety administration, progress documentation and implementation control.",
+          "unit_price": "235000.00",
+          "amount": "235000.00"
+        }
+      ],
+      "subtotal": "450000.00"
+    },
+    {
+      "type": "boq",
+      "title": "G. Warranty and Technical Support",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "One-year workmanship warranty and post-implementation technical support, including remote assistance, system health checks, configuration support and warranty coordination with equipment manufacturers.",
+          "unit_price": "190000.00",
+          "amount": "190000.00"
+        }
+      ],
+      "subtotal": "190000.00"
+    },
+    {
+      "type": "heading",
+      "text": "3. CONTRACT PRICE"
+    },
+    {
+      "type": "total"
+    },
+    {
+      "type": "heading",
+      "text": "4. INCLUDED SCOPE"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Detailed CCTV survey, coverage planning and final camera-location validation.",
+        "Supply and delivery of 64 IP camera channels comprising fixed, varifocal and PTZ camera classes as budgeted.",
+        "Managed PoE switching, camera-side structured cabling, CCTV network segmentation and required optical/uplink accessories.",
+        "Central recording, RAID-capable storage, Video Management System, user management, playback and evidence export.",
+        "Central command center with commercial monitoring displays, operator workstations, controller/decoder, rack and power protection.",
+        "Camera mounting, local field enclosures, selected supports, grounding and surge-protection accessories.",
+        "Installation, addressing, configuration, integration, testing, commissioning and image optimization.",
+        "Operator and administrator training, as-built documentation and system turnover.",
+        "One-year workmanship warranty and technical support."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "5. SECURITY, PRIVACY AND MANAGEMENT FEATURES"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Role-based access for security operators, supervisors and system administrators.",
+        "Individual user accounts, password/security policies, access logs and audit trails as supported by the selected platform.",
+        "Dedicated CCTV Virtual Local Area Network segmentation and controlled access to recording and management services.",
+        "Camera/device health monitoring, recording status monitoring, storage alerts and system event logging.",
+        "Secure evidence export with date/time, camera identification and authorized-user controls.",
+        "Privacy masking and camera-placement controls where required to avoid unnecessary surveillance of private or restricted areas.",
+        "Time synchronization across cameras, recorders, servers and operator stations.",
+        "Provision for future integration with campus network monitoring and authorized incident-response workflows."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "6. RECORDING, STORAGE AND COMMAND CENTER DESIGN"
+    },
+    {
+      "type": "paragraph",
+      "text": "The budgetary design provides approximately 256TB raw surveillance storage before RAID and formatting overhead. The intended design target is approximately 45 to 60 days of retained video under the final approved 4MP recording profile. The final retention calculation shall be documented after camera models, frame rates, bitrates, compression settings, continuous/motion recording rules and RAID configuration are approved."
+    },
+    {
+      "type": "paragraph",
+      "text": "The command center is designed for continuous centralized monitoring with a 2 x 2 commercial display wall, two operator workstations, centralized Video Management System access, incident playback and controlled evidence export. Final furniture layout, electrical requirements and viewing distance shall be validated with CPSC before installation."
+    },
+    {
+      "type": "heading",
+      "text": "7. ASSUMPTIONS AND QUALIFICATIONS"
+    },
+    {
+      "type": "list",
+      "numbered": true,
+      "start": 1,
+      "items": [
+        " The proposal is based on the initial CPSC requirement for a 64-channel campus CCTV system with centralized command center.",
+        " The provisional camera mix is 48 fixed 4MP cameras, 12 motorized-varifocal 4MP cameras and 4 PTZ cameras. Final types and locations are subject to detailed site validation and CPSC approval.",
+        " The proposed storage allocation is approximately 256TB raw before RAID, formatting and reserved system space. Actual recording retention is dependent on approved video settings and recording policies.",
+        " The project includes camera-side network links, managed PoE switching and an allowance for CCTV fiber/uplink interconnection. Existing CPSC fiber/network infrastructure or the approved campus backbone under Project No. 1 may be utilized where technically suitable.",
+        " Final inter-building fiber routes, pole requirements, trenching and civil works shall be validated during site survey. Major road cutting, extensive concrete restoration, directional drilling and major new utility infrastructure are excluded unless specifically included by approved variation.",
+        " Adequate electrical service and grounding points are assumed available at the command center and distributed cabinet locations, except for the local power-protection components specifically listed in the BOQ.",
+        " Final equipment brands/models shall comply with or exceed the approved minimum technical requirements and shall be subject to availability and CPSC approval. Equivalent enterprise/campus-grade CCTV platforms may be proposed provided interoperability, performance, warranty and centralized-management requirements are maintained.",
+        " Facial recognition, biometric identification, license-plate recognition, artificial-intelligence analytics beyond standard camera/VMS functions, access-control integration and public-address integration are excluded unless subsequently specified.",
+        " The quotation does not include recurring internet-service fees, major building renovation, dedicated air-conditioning for the command center, or civil/architectural fit-out beyond the listed console, rack and installation scope.",
+        " Any existing cameras, cabling, switches or storage proposed for reuse shall be subject to compatibility and condition assessment."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "8. PROJECT DURATION"
+    },
+    {
+      "type": "paragraph",
+      "text": "Estimated implementation period: 90 to 120 calendar days from receipt of Notice to Proceed, approved final camera layout, site availability, and completion of required project mobilization conditions."
+    },
+    {
+      "type": "paragraph",
+      "text": "The final schedule shall cover detailed survey and design; technical submittals and procurement; field cabling and camera installation; command-center works; recorder/VMS configuration; integration; testing and commissioning; training; documentation; and final turnover."
+    },
+    {
+      "type": "heading",
+      "text": "9. WARRANTY"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Workmanship",
+          "One (1) year from final acceptance."
+        ],
+        [
+          "Cameras / Recording / Network Equipment",
+          "Manufacturer&#x27;s standard warranty, minimum one (1) year or better depending on the approved equipment."
+        ],
+        [
+          "Video Management Software",
+          "Initial support/licensing term stated in the BOQ, with three-year coverage where specifically indicated."
+        ],
+        [
+          "Cabling / Passive Components",
+          "Manufacturer warranty where applicable, plus LAVI workmanship warranty."
+        ]
+      ],
+      "widths": [
+        0.3099999591792078,
+        0.6900000408207921
+      ],
+      "header": false
+    },
+    {
+      "type": "paragraph",
+      "text": "Warranty excludes damage caused by misuse, unauthorized modification, abnormal utility conditions, lightning beyond installed protection capability, flooding, fire, force majeure, vandalism, deliberate physical damage, or third-party intervention."
+    },
+    {
+      "type": "heading",
+      "text": "10. DELIVERABLES AND TURNOVER DOCUMENTATION"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Approved final CCTV coverage plan and camera-location schedule.",
+        "Camera identification, IP address, switch-port and network/VLAN schedule.",
+        "Recording-server, storage and retention configuration summary.",
+        "Video Management System user-role and administration matrix.",
+        "Command-center equipment inventory, serial-number registry and warranty records.",
+        "System configuration backups and documented evidence-export procedure.",
+        "Camera testing/commissioning checklist, day/night verification records and final acceptance checklist.",
+        "Operator and administrator training records, operating guide and as-built turnover package."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "11. IMPLEMENTATION MILESTONES"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Phase 1",
+          "Detailed site survey, camera coverage validation, network/uplink review and final engineering design."
+        ],
+        [
+          "Phase 2",
+          "Technical submittals, material procurement, logistics and project mobilization."
+        ],
+        [
+          "Phase 3",
+          "Cabling, cabinets, PoE switching, mounts and camera field installation."
+        ],
+        [
+          "Phase 4",
+          "Recording/storage, Video Management System and command-center installation and configuration."
+        ],
+        [
+          "Phase 5",
+          "Integration, retention validation, testing, optimization, training, documentation and final turnover."
+        ]
+      ],
+      "widths": [
+        0.1399999907293439,
+        0.8600000092706561
+      ],
+      "header": false
+    },
+    {
+      "type": "heading",
+      "text": "12. PAYMENT TERMS"
+    },
+    {
+      "type": "paragraph",
+      "text": "Payment shall be through progress billing based on documented accomplishment, delivered equipment and approved project milestones, subject to applicable CPSC procurement, accounting, auditing, and government disbursement requirements."
+    },
+    {
+      "type": "heading",
+      "text": "13. QUOTATION VALIDITY"
+    },
+    {
+      "type": "paragraph",
+      "text": "This quotation shall remain valid for thirty (30) calendar days from the date above, subject to equipment availability, foreign-exchange movement, manufacturer price changes, and final validation of quantities."
+    }
+  ],
+  "metrics": [
+    [
+      "64",
+      "ACTIVE CCTV CHANNELS"
+    ],
+    [
+      "4MP",
+      "PRIMARY CAMERA RESOLUTION"
+    ],
+    [
+      "45-60 DAYS",
+      "TARGET RECORDING RETENTION"
+    ],
+    [
+      "COMMAND CENTER",
+      "CENTRALIZED MONITORING"
+    ]
+  ]
+}

@@ -1,0 +1,676 @@
+{
+  "schema_version": 2,
+  "brand": "lavi",
+  "template_id": "LAVI-QUOTATION-2026.3",
+  "title": "CPSC Integrated Campus Network and Internet Connectivity Project",
+  "subtitle": "Budgetary Technical and Financial Proposal | ISSP Project No. 1",
+  "quote_no": "LAVI-QTN-20260921-CPSC-01",
+  "date": "18 September 2026",
+  "validity_days": 30,
+  "tax_treatment": "VAT Inclusive",
+  "expected_total": "17886000.00",
+  "amount_words": "Seventeen Million Eight Hundred Eighty-Six Thousand Pesos Only",
+  "client": {
+    "name": "Camiguin Polytechnic State College",
+    "address": "Balbagon 9100, Mambajao, Camiguin",
+    "attention": "Jenelyn G. Sabellina, PhD",
+    "role": "SUC President II",
+    "location": "Balbagon, Mambajao, Camiguin"
+  },
+  "salutation": "Dear Dr. Sabellina:",
+  "prepared_by": {
+    "name": "JAMES BROWN BETE",
+    "role": "CEO"
+  },
+  "introduction": [
+    "LAVI Technologies Inc. is pleased to submit this quotation for the CPSC Integrated Campus Network and Internet Connectivity Project, intended to establish a centralized, secure, scalable, and centrally managed campus network infrastructure supporting the College&#x27;s academic, administrative, research, security, and future digital-service requirements.",
+    "The proposed solution is designed around the College&#x27;s identified 80 network service nodes, supported by a campus-wide fiber-optic backbone, enterprise core and access switching, centrally managed wireless connectivity, next-generation perimeter security, multi-internet capability, network monitoring, equipment cabinets, power protection, structured cabling, testing, commissioning, and technical documentation."
+  ],
+  "footer_label": "CPSC INTEGRATED CAMPUS NETWORK AND INTERNET CONNECTIVITY PROJECT",
+  "source": {
+    "project": 1,
+    "filename": "LAVI_CPSC_Project_1_Integrated_Campus_Network_Quotation_Diagram_Corrected.pdf",
+    "sha256": "978a25eed3cede8dfdc74d164ad4a65b339a3fc338cb4fbe5256e07b3ff11b4c",
+    "pages": 6,
+    "status": "user-approved visual reference; job commercial data are historical example values, not global defaults"
+  },
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. PROPOSED SOLUTION ARCHITECTURE"
+    },
+    {
+      "type": "paragraph",
+      "text": "The proposed network follows a layered campus design that separates internet security, core routing, the inter-building fiber backbone, building access, wireless services, and future ICT systems while keeping the environment centrally manageable and resilient."
+    },
+    {
+      "type": "diagram",
+      "caption": "LOGICAL CAMPUS NETWORK FLOW",
+      "rows": [
+        {
+          "nodes": [
+            {
+              "title": "PRIMARY ISP",
+              "subtitle": []
+            },
+            {
+              "title": "SECONDARY ISP",
+              "subtitle": []
+            },
+            {
+              "title": "FUTURE / BACKUP ISP",
+              "subtitle": []
+            }
+          ],
+          "fill": "tint"
+        },
+        {
+          "nodes": [
+            {
+              "title": "NGFW A",
+              "subtitle": [],
+              "outline": true
+            },
+            {
+              "title": "HIGH AVAILABILITY",
+              "subtitle": [
+                "MULTI-WAN / SD-WAN"
+              ]
+            },
+            {
+              "title": "NGFW B",
+              "subtitle": [],
+              "outline": true
+            }
+          ],
+          "label": "SECURITY EDGE / INTERNET CONTROL",
+          "fill": "tint2"
+        },
+        {
+          "nodes": [
+            {
+              "title": "CORE SWITCH A",
+              "subtitle": [],
+              "outline": true
+            },
+            {
+              "title": "LAYER 3 ROUTING",
+              "subtitle": [
+                "+ REDUNDANCY"
+              ]
+            },
+            {
+              "title": "CORE SWITCH B",
+              "subtitle": [],
+              "outline": true
+            }
+          ],
+          "label": "REDUNDANT CAMPUS CORE",
+          "fill": "light"
+        },
+        {
+          "nodes": [
+            {
+              "title": "CAMPUS SINGLE-MODE FIBER BACKBONE | HIGH-SPEED BUILDING UPLINKS",
+              "subtitle": []
+            }
+          ],
+          "fill": "tint"
+        },
+        {
+          "nodes": [
+            {
+              "title": "ADMINISTRATION",
+              "subtitle": [
+                "Managed PoE access"
+              ]
+            },
+            {
+              "title": "ACADEMIC / LABS",
+              "subtitle": [
+                "Managed PoE access"
+              ]
+            },
+            {
+              "title": "OTHER CAMPUS ZONES",
+              "subtitle": [
+                "Managed PoE access"
+              ]
+            }
+          ],
+          "fill": "light"
+        },
+        {
+          "nodes": [
+            {
+              "title": "80 WIRED NODES | 32 PROVISIONAL WI-FI APs | FUTURE CCTV | SERVERS / SYSTEMS",
+              "subtitle": []
+            }
+          ],
+          "fill": "light"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Logical segmentation will be provided for Administration, Academic Offices, Faculty, Laboratories, Students, Guest Wireless Access, CCTV / Security Devices, Servers and Institutional Systems, Network Management, and future Voice over IP / Internet of Things devices. Final VLANs, addressing, routing policies, access rules, Quality of Service policies, and security policies shall be finalized with the CPSC ICT Office during implementation."
+    },
+    {
+      "type": "heading",
+      "text": "2. DETAILED BILL OF QUANTITIES AND COST"
+    },
+    {
+      "type": "boq",
+      "title": "A. Enterprise Core Network, Internet Edge and Cybersecurity",
+      "items": [
+        {
+          "qty": "2",
+          "unit": "UNITS",
+          "description": "Enterprise Layer 3 Core Switches - high-availability campus core; high-speed 10/25 Gigabit fiber uplinks or better; advanced Layer 3 routing; link aggregation; stacking/virtual chassis capability; redundant power capability; IPv6-ready.",
+          "unit_price": "882000.00",
+          "amount": "1764000.00"
+        },
+        {
+          "qty": "2",
+          "unit": "UNITS",
+          "description": "Enterprise Next-Generation Firewall Appliances in High-Availability Configuration - multi-Gigabit security capacity; intrusion prevention, application control, malware/threat protection, web filtering, VPN, multi-WAN/SD-WAN, traffic management, logging and reporting; inclusive of initial three-year security subscription/support package.",
+          "unit_price": "952000.00",
+          "amount": "1904000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Centralized Network Management, Monitoring and Wireless Management Platform - centralized configuration, device health and topology monitoring, alerts, traffic visibility, configuration backup, performance monitoring and initial three-year platform licensing/support as applicable.",
+          "unit_price": "744000.00",
+          "amount": "744000.00"
+        }
+      ],
+      "subtotal": "4412000.00",
+      "note": "Technical purpose. The redundant core and firewall architecture reduces single points of failure. The firewall pair also provides centralized management of multiple internet connections and can automatically fail over or distribute traffic among available service providers."
+    },
+    {
+      "type": "boq",
+      "title": "B. Campus Distribution and Access Switching",
+      "items": [
+        {
+          "qty": "6",
+          "unit": "UNITS",
+          "description": "48-Port Enterprise Managed PoE+ Access Switch - Gigabit access ports; 10 Gigabit fiber uplinks; Layer 2/Layer 3 management features; VLAN, Quality of Service, Spanning Tree, link aggregation, network security and centralized management capability.",
+          "unit_price": "154000.00",
+          "amount": "924000.00"
+        },
+        {
+          "qty": "4",
+          "unit": "UNITS",
+          "description": "24-Port Enterprise Managed PoE+ Access Switch - Gigabit access ports; high-speed fiber uplinks; VLAN, Quality of Service, security and centralized management.",
+          "unit_price": "105000.00",
+          "amount": "420000.00"
+        },
+        {
+          "qty": "2",
+          "unit": "UNITS",
+          "description": "Enterprise Layer 3 Distribution/Aggregation Switch - high-speed fiber aggregation for major campus network zones; 10/25 Gigabit-capable uplinks or equivalent.",
+          "unit_price": "255000.00",
+          "amount": "510000.00"
+        },
+        {
+          "qty": "30",
+          "unit": "UNITS",
+          "description": "10 Gigabit Single-Mode Fiber Transceiver Modules - compatible enterprise optical modules for campus backbone links and redundant uplinks.",
+          "unit_price": "18500.00",
+          "amount": "555000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Switch Uplink, Stacking and Interconnection Accessories - optical accessories, direct-attach cables, uplink modules, fiber interconnects, spare optical modules and required active-network accessories.",
+          "unit_price": "525000.00",
+          "amount": "525000.00"
+        }
+      ],
+      "subtotal": "2934000.00",
+      "note": "Capacity rationale. Switching capacity is intentionally higher than the initial 80 wired nodes to accommodate wireless access points, future CCTV/IP devices, servers, Voice over IP, office/laboratory expansion, and spare capacity during the useful life of the network."
+    },
+    {
+      "type": "boq",
+      "title": "C. Enterprise Wireless Network",
+      "items": [
+        {
+          "qty": "32",
+          "unit": "UNITS",
+          "description": "Enterprise Wi-Fi 6 Wireless Access Points - dual-band enterprise wireless; multi-user MIMO/OFDMA; WPA3 security; seamless roaming; multiple SSIDs; VLAN support; centralized management; PoE-powered.",
+          "unit_price": "39000.00",
+          "amount": "1248000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Wireless Controller / Centralized Wireless Management Licensing - centralized AP configuration, monitoring, firmware management, guest-network control, RF management and initial three-year support/license where applicable.",
+          "unit_price": "408000.00",
+          "amount": "408000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Wireless Installation Accessories - mounting kits, weather/environmental protection where applicable, network accessories, surge protection and related installation materials.",
+          "unit_price": "122000.00",
+          "amount": "122000.00"
+        }
+      ],
+      "subtotal": "1778000.00",
+      "note": "Wireless design basis. Thirty-two access points are a provisional budgetary quantity. Final quantities and locations shall be validated through site inspection and wireless coverage assessment prior to final deployment."
+    },
+    {
+      "type": "boq",
+      "title": "D. Campus Fiber-Optic Backbone",
+      "items": [
+        {
+          "qty": "2500",
+          "unit": "METERS",
+          "description": "12-Core OS2 Single-Mode Armored Fiber-Optic Backbone Cable or equivalent campus-grade backbone cable suitable for underground/aerial deployment as applicable.",
+          "unit_price": "188.00",
+          "amount": "470000.00"
+        },
+        {
+          "qty": "10",
+          "unit": "SETS",
+          "description": "Fiber-Optic Distribution Frames / Termination Enclosures complete with adapters, trays and required termination hardware.",
+          "unit_price": "33500.00",
+          "amount": "335000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Fiber Pigtails, Patch Cords, Splice Trays, Closures and Passive Optical Accessories.",
+          "unit_price": "298000.00",
+          "amount": "298000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Campus Backbone Pathway and Civil Works Allowance - conduits, inner ducts, junction boxes, supports, excavation/trenching and restoration, aerial supports and related pathway works where applicable.",
+          "unit_price": "1158000.00",
+          "amount": "1158000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Fiber Fusion Splicing, Optical Testing and Certification - complete termination, fusion splicing, optical power testing and Optical Time-Domain Reflectometer testing/documentation.",
+          "unit_price": "322000.00",
+          "amount": "322000.00"
+        }
+      ],
+      "subtotal": "2583000.00",
+      "note": "Backbone design. Final topology shall prioritize centralized connection to the College ICT/Data Center, high-speed links between major campus zones, redundant paths for critical facilities where physical routes permit, and spare fiber capacity for future systems."
+    },
+    {
+      "type": "boq",
+      "title": "E. Structured Cabling - 80 Identified Network Nodes",
+      "items": [
+        {
+          "qty": "80",
+          "unit": "NODES",
+          "description": "Complete Category 6A Structured Cabling Network Node - cable, information outlet, faceplate, modular connector, labeling, termination, installation and associated materials.",
+          "unit_price": "8150.00",
+          "amount": "652000.00"
+        },
+        {
+          "qty": "4",
+          "unit": "SETS",
+          "description": "24-Port Loaded Patch Panels complete with connectors and rack-mount hardware.",
+          "unit_price": "31500.00",
+          "amount": "126000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Patch Cords, Cable Managers, Labels and Structured Cabling Accessories.",
+          "unit_price": "158000.00",
+          "amount": "158000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Network Cabling Testing and Certification - individual testing and identification of installed network nodes.",
+          "unit_price": "158000.00",
+          "amount": "158000.00"
+        }
+      ],
+      "subtotal": "1094000.00",
+      "note": "Node assumption. For this budgetary quotation, CPSC&#x27;s 80 identified nodes are treated as 80 wired network service points. The final schedule shall identify each node by Building - Room/Office - Node Number - Cabinet/IDF - Switch Port - VLAN / Service Assignment."
+    },
+    {
+      "type": "boq",
+      "title": "F. Network Cabinets, Power Protection and Electrical Accessories",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "SET",
+          "description": "42U Main Data Cabinet complete with fan system, cable management and Power Distribution Units.",
+          "unit_price": "172000.00",
+          "amount": "172000.00"
+        },
+        {
+          "qty": "10",
+          "unit": "SETS",
+          "description": "18U Building/Zone Data Cabinets complete with fan, cable management and Power Distribution Units.",
+          "unit_price": "49500.00",
+          "amount": "495000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "UNIT",
+          "description": "3 kVA Online Uninterruptible Power Supply for main network/core equipment.",
+          "unit_price": "138000.00",
+          "amount": "138000.00"
+        },
+        {
+          "qty": "10",
+          "unit": "UNITS",
+          "description": "1.5 kVA Network Uninterruptible Power Supply for distributed network cabinets.",
+          "unit_price": "32000.00",
+          "amount": "320000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Grounding, Surge Protection, Power Distribution and Electrical Network Accessories.",
+          "unit_price": "112000.00",
+          "amount": "112000.00"
+        }
+      ],
+      "subtotal": "1237000.00"
+    },
+    {
+      "type": "boq",
+      "title": "G. Engineering, Installation, Configuration and Commissioning",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Detailed network engineering, final logical and physical architecture, IP/VLAN plan and implementation design.",
+          "unit_price": "240000.00",
+          "amount": "240000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Installation of active and passive network equipment, structured cabling, fiber backbone and network cabinets.",
+          "unit_price": "1200000.00",
+          "amount": "1200000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Core, firewall, switching and wireless configuration including VLANs, routing, network segmentation, internet failover/load balancing, security policies, Quality of Service and management integration.",
+          "unit_price": "440000.00",
+          "amount": "440000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "System integration, end-to-end testing, performance validation and commissioning.",
+          "unit_price": "260000.00",
+          "amount": "260000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Complete as-built drawings, port schedules, fiber schedules, device inventory, addressing plan, configuration records and turnover documentation.",
+          "unit_price": "180000.00",
+          "amount": "180000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Technical administrator and ICT personnel training.",
+          "unit_price": "160000.00",
+          "amount": "160000.00"
+        }
+      ],
+      "subtotal": "2480000.00"
+    },
+    {
+      "type": "boq",
+      "title": "H. Mobilization, Logistics and Project Management",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Mobilization, demobilization, equipment delivery, inter-island freight, logistics and handling to Camiguin.",
+          "unit_price": "338000.00",
+          "amount": "338000.00"
+        },
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "Project management, site supervision, coordination, safety administration, progress documentation and implementation control.",
+          "unit_price": "610000.00",
+          "amount": "610000.00"
+        }
+      ],
+      "subtotal": "948000.00"
+    },
+    {
+      "type": "boq",
+      "title": "I. Warranty and Technical Support",
+      "items": [
+        {
+          "qty": "1",
+          "unit": "LOT",
+          "description": "One-year workmanship warranty and post-implementation technical support, including remote assistance, configuration support, scheduled system health checks and warranty coordination with equipment manufacturers.",
+          "unit_price": "420000.00",
+          "amount": "420000.00"
+        }
+      ],
+      "subtotal": "420000.00"
+    },
+    {
+      "type": "heading",
+      "text": "3. CONTRACT PRICE"
+    },
+    {
+      "type": "total"
+    },
+    {
+      "type": "heading",
+      "text": "4. INCLUDED SCOPE"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Detailed network design and engineering, including final logical and physical architecture.",
+        "Supply and delivery of the listed network, wireless, security, fiber, structured-cabling, cabinet and power-protection components.",
+        "Redundant enterprise core network and high-availability next-generation firewall environment.",
+        "Multi-WAN / SD-WAN capability for centralized management of multiple internet connections.",
+        "Centralized network monitoring, device management and wireless management.",
+        "Managed Layer 2 / Layer 3 switching and enterprise Wi-Fi 6 network.",
+        "Campus single-mode fiber-optic backbone and 80 structured-cabling network nodes.",
+        "Network cabinets, Uninterruptible Power Supply equipment, grounding and surge-protection accessories.",
+        "Installation, fiber termination, fusion splicing, structured-cabling testing and certification.",
+        "VLAN segmentation, routing, security policy, internet failover/load-balancing and wireless configuration.",
+        "System integration, testing, commissioning, administrator training and as-built documentation.",
+        "One-year workmanship warranty and technical support."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "5. NETWORK SECURITY AND MANAGEMENT FEATURES"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Next-generation firewall security with intrusion-prevention and application-control capabilities.",
+        "Malware/threat protection, web/content filtering and secure Virtual Private Network connectivity as supported by the selected platform.",
+        "Multiple internet-provider support with automatic WAN failover and Software-Defined Wide Area Network traffic management.",
+        "Bandwidth prioritization, Virtual Local Area Network segmentation, centralized equipment management and network-health monitoring.",
+        "Configuration backup, system/security logging, administrator role separation, guest wireless isolation and current enterprise wireless security standards.",
+        "IPv6 readiness and provision for future authentication/RADIUS integration."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "6. DESIGN PROVISIONS FOR FUTURE CPSC SYSTEMS"
+    },
+    {
+      "type": "paragraph",
+      "text": "The infrastructure shall be designed with sufficient segmentation and network capacity for future CPSC ICT projects, including centralized servers and storage, institutional information systems, campus CCTV and command-center systems, Voice over IP, access-control systems, computer laboratories, environmental monitoring, cloud platforms, Internet of Things devices, and future wireless expansion."
+    },
+    {
+      "type": "paragraph",
+      "text": "The Network and CCTV projects shall remain separately procurable and independently functional; however, the network design shall provide the backbone capacity required for future IP-based surveillance traffic where applicable."
+    },
+    {
+      "type": "heading",
+      "text": "7. ASSUMPTIONS AND QUALIFICATIONS"
+    },
+    {
+      "type": "list",
+      "numbered": true,
+      "start": 1,
+      "items": [
+        " The proposal is based on the initial information supplied by CPSC, including 80 identified network nodes.",
+        " The 80-node quantity is presently interpreted as 80 wired structured-cabling service points. Wireless access points are separately provisioned.",
+        " Fiber quantities, cabinet locations, wireless access-point locations and civil works are provisional and shall be validated during the detailed site survey.",
+        " Approximately 2,500 meters of campus single-mode fiber backbone has been budgeted. Final route length shall depend on approved pathways and actual field measurements.",
+        " The proposed architecture assumes approximately 10 distributed building/network zones served from the College&#x27;s main ICT/Data Center.",
+        " Existing usable conduits, poles, pathways and electrical sources may be utilized where found technically suitable.",
+        " Major road cutting, extensive concrete restoration, directional drilling, new utility poles, major electrical-panel upgrades and structural construction outside normal network installation are excluded unless specifically identified during final site validation.",
+        " Monthly or recurring fees charged by Internet Service Providers are not included. The proposed gateway infrastructure shall support centralized management of multiple CPSC-procured internet connections.",
+        " Final brands/models shall comply with or exceed the approved minimum technical requirements and shall be subject to availability and CPSC approval. Equivalent enterprise/campus-grade equipment may be proposed provided interoperability, performance, warranty and centralized-management requirements are maintained.",
+        " This proposal does not include servers, data-center storage, campus CCTV cameras/recording equipment, software information systems or other projects separately identified under the CPSC ISSP.",
+        " Any existing equipment to be retained shall be subject to compatibility and condition assessment."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "8. PROJECT DURATION"
+    },
+    {
+      "type": "paragraph",
+      "text": "Estimated implementation period: 120 to 150 calendar days from receipt of Notice to Proceed, approved final design, site availability, and completion of required project mobilization conditions."
+    },
+    {
+      "type": "paragraph",
+      "text": "The final implementation schedule shall cover mobilization and detailed survey; engineering/design; material procurement and delivery; backbone/cabling installation; equipment installation; configuration; testing and commissioning; documentation and training; and final turnover."
+    },
+    {
+      "type": "heading",
+      "text": "9. WARRANTY"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Workmanship",
+          "One (1) year from final acceptance."
+        ],
+        [
+          "Active Network Equipment",
+          "Manufacturer&#x27;s standard warranty, minimum one (1) year or better depending on the approved equipment."
+        ],
+        [
+          "Security / Network Software",
+          "Initial term stated in the BOQ, with three-year coverage where specifically indicated."
+        ],
+        [
+          "Structured Cabling / Passive Components",
+          "Manufacturer warranty where applicable, plus LAVI workmanship warranty."
+        ]
+      ],
+      "widths": [
+        0.3099996951789811,
+        0.6900003048210189
+      ],
+      "header": false
+    },
+    {
+      "type": "paragraph",
+      "text": "Warranty excludes damage caused by misuse, unauthorized modification, utility abnormalities, lightning beyond installed protection capability, flooding, fire, force majeure, or third-party intervention."
+    },
+    {
+      "type": "heading",
+      "text": "10. DELIVERABLES AND TURNOVER DOCUMENTATION"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Approved final logical and physical network architecture and campus backbone diagram.",
+        "IP addressing, VLAN, routing and service-segmentation matrix.",
+        "Network device inventory, equipment serial-number registry and warranty records.",
+        "Switch-port schedules, rack/cabinet schedules, node labels and fiber-core allocation schedule.",
+        "Fiber Optical Time-Domain Reflectometer test results and structured-cabling certification records.",
+        "Configuration backups for core, firewall, switching, wireless and network-management systems.",
+        "Administrative handover package, operating guide, training records and final acceptance checklist."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "11. IMPLEMENTATION MILESTONES"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Phase 1",
+          "Detailed site survey, route validation, node verification and final engineering design."
+        ],
+        [
+          "Phase 2",
+          "Technical submittals, material procurement, logistics and project mobilization."
+        ],
+        [
+          "Phase 3",
+          "Fiber backbone, pathways, cabinets and structured-cabling installation."
+        ],
+        [
+          "Phase 4",
+          "Core, firewall, switching, wireless and power-protection installation and configuration."
+        ],
+        [
+          "Phase 5",
+          "Integration, testing, optimization, training, documentation and final turnover."
+        ]
+      ],
+      "widths": [
+        0.14000011364035184,
+        0.8599998863596482
+      ],
+      "header": false
+    },
+    {
+      "type": "heading",
+      "text": "12. PAYMENT TERMS"
+    },
+    {
+      "type": "paragraph",
+      "text": "Payment shall be through progress billing based on documented accomplishment, delivered equipment and approved project milestones, subject to applicable CPSC procurement, accounting, auditing, and government disbursement requirements."
+    },
+    {
+      "type": "heading",
+      "text": "13. QUOTATION VALIDITY"
+    },
+    {
+      "type": "paragraph",
+      "text": "This quotation shall remain valid for thirty (30) calendar days from the date above, subject to equipment availability, foreign-exchange movement, manufacturer price changes, and final validation of quantities."
+    }
+  ],
+  "metrics": [
+    [
+      "80",
+      "WIRED NETWORK NODES"
+    ],
+    [
+      "32",
+      "PROVISIONAL WI-FI APs"
+    ],
+    [
+      "2.5 km",
+      "PROVISIONAL FIBER BACKBONE"
+    ],
+    [
+      "HA",
+      "REDUNDANT CORE + FIREWALL"
+    ]
+  ]
+}
