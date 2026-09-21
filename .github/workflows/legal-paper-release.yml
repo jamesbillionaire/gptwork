@@ -1,0 +1,51 @@
+name: Verify Legal paper for both quotation brands
+on:
+  push:
+    branches: [automation/legal-paper-20260921]
+    paths: ['.legal-release/**', '.github/workflows/legal-paper-release.yml']
+permissions:
+  contents: write
+jobs:
+  legal:
+    if: startsWith(github.event.head_commit.message, 'Stage Legal paper correction')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update && sudo apt-get install -y fonts-liberation fonts-dejavu-core poppler-utils
+      - run: python -m pip install -r requirements.txt
+      - name: Baseline verification and renders
+        run: |
+          python -m quotation_engine.cli verify-lock
+          python -m unittest discover -s quotation_engine/tests -v
+          python -m quotation_engine.cli render-examples --output output/before
+      - name: Apply authorized paper correction
+        run: PYTHONPATH=. python .legal-release/apply_legal.py
+      - name: Verify new lock and regression tests
+        run: |
+          python -m quotation_engine.cli verify-lock
+          python -m unittest discover -s quotation_engine/tests -v
+      - name: Render every Legal fixture page
+        run: |
+          mkdir -p output/previews
+          for pdf in output/legal/*.pdf; do
+            stem=$(basename "$pdf" .pdf)
+            pdftoppm -png -r 120 "$pdf" "output/previews/$stem"
+          done
+      - name: Commit verified correction on staging only
+        run: |
+          rm -rf .legal-release
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Apply Legal paper to both brands and verify 13 template regressions'
+          git push origin HEAD:automation/legal-paper-20260921
+          git archive --format=zip --output=output/verified-source.zip HEAD
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: legal-paper-verification
+          path: output/
+          retention-days: 30
