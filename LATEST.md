@@ -1,28 +1,34 @@
 # Latest Agent Handoff
 
-Handoff version: 0009
+Handoff version: 0010
 Last updated: 2026-09-22
-Status: New private LAVI subcontract CCTV draft prepared for James's review. No PDF or spreadsheet authorized yet. No active template changes.
+Status: Wonderzone LAVI quotation Revision 2 completed and visually verified. No template changes.
 
 ## Latest task
-James requested a low-cost Hikvision 4MP, 16-channel perimeter/sea-landing CCTV draft addressed to sister company JANDEC as main contractor, based on the uploaded map and Hikvision price workbook. Do not publish the depot's camera/node positions, security assumptions, supplier prices, commercial totals or detailed draft to this public repository.
+James requested final edits to the Wonderzone CCTV, Internet and Managed Wi-Fi quotation: align the Warranty table column widths to the Payment Terms table; change the network cabinet from 12U to 18U at PHP34,000; change the KStar 1000VA/900W online UPS to PHP22,280. The document remains addressed to Ms. Jugie Ybanez of Limketkai Sons Inc. / Wonderzone and prepared by Ms. Leah Ruiles, Sales Admin.
 
-## Authoritative private attachments
-- LAVI_JANDEC_Phoenix_Perimeter_Jetty_CCTV_Draft_v1.md — editable full draft; SHA256 5fa9325666a4b2329aa820bd64c992a10069a05dc9b02e812943c6bbaf12acc1.
-- LAVI_JANDEC_Phoenix_CCTV_Price_List_Basis_v1.md — private source-cell references and estimation qualifications; SHA256 b989cc6beac3247b38ed8b7133576496136ba069fdc0cdcce49a1f3bac2cb075.
-- LAVI_JANDEC_Phoenix_CCTV_Draft_Data_v1.json — companion structured data, not a PDF-engine fixture; SHA256 7b88b91900c3782a866959c02e7c0e56a19a6259b52f8e863f88a21e54cffb4b.
-Original user attachments: Hikvision_Pricelist_February_2026(2).xlsx and 1(3).png. Retrieve actual conversation/Library files; old /mnt/data paths are not guaranteed in a new session.
+## Final client document
+Conversation attachment: LAVI_Wonderzone_CCTV_Internet_Managed_WiFi_Quotation_v2.pdf
+Companion editable job: LAVI_Wonderzone_CCTV_Internet_Managed_WiFi_Quotation_v2.json
+Quotation reference: LAVI-QTN-20260922-WONDERZONE-01-R02
+Date: 22 September 2026
+Pricing: VAT Exclusive
+Validity: 30 calendar days
+Implementation: 30-35 working days
+Prepared by: Ms. Leah Ruiles / Sales Admin
+Revised total: PHP928,980.00 VAT Exclusive
 
-## Boundaries for the next agent
-Draft only. Await James's edits before spreadsheet export. Never generate a PDF without a new request. Current subcontract pricing, tax treatment, proposed terms, quantities and schedule are not yet final. Verify exact camera hardware/casing and current supplier invoice/tax treatment. The uploaded price list is a dated reference, not a current purchase offer.
+## Revised section values
+- A. CCTV Surveillance Equipment: PHP363,730.00. KStar 1000VA / 900W online UPS revised to PHP22,280.00.
+- B. Internet and Managed Wi-Fi Equipment: PHP263,250.00. Cabinet revised to 18U Server / Network Cabinet at PHP34,000.00.
+- C. Installation, Cabling, Configuration and Commissioning: PHP302,000.00 unchanged.
+- Warranty table uses [0.24, 0.76] widths, matching Payment Terms.
 
-Standard outdoor equipment is limited to approved non-classified locations; depot hazardous-area drawings and competent safety/electrical validation are prerequisites. Plastic/IP ratings do not establish explosion protection or marine corrosion certification. The quoted system provides selected views, not continuous identification-grade coverage. Distinguish LAVI's bounded CCTV works from JANDEC's civil/pathway/power/access responsibilities. Do not silently add them to the quoted fee or omit them from the overall project.
-
-## Verification completed
-31 draft extensions and five subtotals independently reconciled with Decimal. Source workbook read from native XLSX XML after the spreadsheet-import runtime timed out; no OCR and no workbook edits. Source notes retain exact worksheet/cell references and technical ambiguities. No PDF, spreadsheet, signatures, rendered diagram or template regression run was produced or claimed for this text-only task. Companion JSON is draft export data, not schema_version 2 production PDF-engine data.
+## Verification
+Generated through the active LAVI quotation renderer using LAVI-QUOTATION-2026.4 on Legal 612 x 1008 pt pages. Arithmetic validated at PHP928,980.00 across three priced sections. Final PDF rendered to three PNG pages at 160 dpi; pages 2 and 3 were visually inspected. Revised prices, 18U description, contract total, page headers/footers, and Warranty/Payment column alignment are correct. No clipping, overlap, repeated continuation logo, or off-rail table content observed.
 
 ## Template standards unchanged
-Read AGENTS.md and active manifests for future PDFs. Engine 2.0.1; LAVI-QUOTATION-2026.4 and LIFES-AWESOME-QUOTATION-2026.2 remain separate approved Legal-paper profiles. No renderer/profile/asset changes made.
+No renderer/profile/logo/font/manifest change was made. LAVI-QUOTATION-2026.4 and LIFES-AWESOME-QUOTATION-2026.2 remain the approved Legal-paper profiles. Future revisions should edit structured quotation data only unless James explicitly authorizes a template revision.
 
-## Prior unfinished reviews preserved
-CPSC Project 4 handoff snapshot: .agents/handoffs/2026-09-22-cpsc-project4-before-private-cctv-draft.md. Supplier/site validation and James's review remain outstanding. Earlier CPSC software, SFDHMC and billing work retains its own history. No ongoing background work or automatic external submission.
+## Prior work preserved
+Previous private Phoenix/JANDEC CCTV draft handoff archived at .agents/handoffs/2026-09-22-before-wonderzone-cctv-final.md. That Phoenix draft remains separate and unfinished; do not merge its commercial or technical assumptions into Wonderzone.
