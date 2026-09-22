@@ -1,6 +1,6 @@
 {
   "lavi": {
-    "template_id": "LAVI-QUOTATION-2026.4",
+    "template_id": "LAVI-QUOTATION-2026.5",
     "status": "APPROVED_LOCKED",
     "company": "LAVI TECHNOLOGIES INC.",
     "page": [
@@ -70,7 +70,8 @@
       1,
       2
     ],
-    "display_name": "LAVI Technologies Inc."
+    "display_name": "LAVI Technologies Inc.",
+    "flow_table_padding": 3.2
   },
   "lifes-awesome": {
     "template_id": "LIFES-AWESOME-QUOTATION-2026.2",

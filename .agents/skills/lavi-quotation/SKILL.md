@@ -4,7 +4,7 @@ description: Create or revise LAVI Technologies quotations with the approved CPS
 ---
 Read `AGENTS.md`, `LATEST.md`, `quotation_engine/manifest.json`, `quotation_engine/README.md`, then `templates/lavi/cpsc-2026/README.md`.
 
-Use `LAVI-QUOTATION-2026.4`, brand `lavi`, on **Legal paper: 8.5 x 14 inches (612 x 1008 pt)**. Both active brands share this paper size but retain separate designs. Start a blank structured job with `python -m quotation_engine.cli new --brand lavi --output work/job.json`; consult `examples/cpsc-01.json` or `examples/cpsc-02.json` for component patterns, not reusable commercial values. Do not select the Lifes Awesome or archived pre-CPSC LAVI profile.
+Use `LAVI-QUOTATION-2026.5`, brand `lavi`, on **Legal paper: 8.5 x 14 inches (612 x 1008 pt)**. Both active brands share this paper size but retain separate designs. Start a blank structured job with `python -m quotation_engine.cli new --brand lavi --output work/job.json`; consult `examples/cpsc-01.json` or `examples/cpsc-02.json` for component patterns, not reusable commercial values. Do not select the Lifes Awesome or archived pre-CPSC LAVI profile.
 
 Preserve approved quantities, prices, date, recipient, warranty, tax and preparer. No raw font files or copied signature. Use the official logo, same content rail, justified body, centered QTY/UNIT, right-aligned prices, hanging lists, repeated table headers and shared diagram component. Later pages never repeat the logo. Render with the CLI, run tests, and inspect every final page including the architecture at readable scale.
 

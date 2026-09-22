@@ -14,7 +14,7 @@ James explicitly approved replacing the previous quotation engines with the CPSC
 
 | Brand | Active template | Approved design basis | Page / typography |
 |---|---|---|---|
-| LAVI Technologies Inc. | `LAVI-QUOTATION-2026.4` | Project 1 corrected network diagram + Project 2 corrected CCTV quotation | Legal 612 x 1008 pt, 15 mm side margins, Liberation Sans; teal/navy |
+| LAVI Technologies Inc. | `LAVI-QUOTATION-2026.5` | Project 1 corrected network diagram + Project 2 corrected CCTV quotation | Legal 612 x 1008 pt, 15 mm side margins, Liberation Sans; teal/navy |
 | Lifes Awesome Ventures Inc. | `LIFES-AWESOME-QUOTATION-2026.2` | Project 5 V2 + Project 8 V1 | Legal 612 x 1008 pt, 32 pt side margins, DejaVu Sans; cyan/gray |
 
 These are **two different approved templates**, not the same page recolored. Lifes Awesome is now APPROVED_LOCKED, not a candidate. For this CPSC family, LAVI handles infrastructure; Lifes Awesome handles software. Never infer the issuer from the generic name “LAVI”: use the legal company explicitly requested.
@@ -30,7 +30,7 @@ These are **two different approved templates**, not the same page recolored. Lif
 - Use proper hanging indents: bullet/number markers in their own column, wrapped text aligned with the first text line. Two-digit numbering must fit.
 - Preserve restrained zebra rows, thin grid lines, pale-gold totals, readable small contact details and compact footers with calculated `Page x of y`.
 - Keep table rows intact and repeat headers. Keep a heading with meaningful following content. Do not leave a section title alone at a page bottom.
-- Let the body paginate from content. The approved executive-summary opening page is an intentional section boundary; do not imitate a reference's total page count or add blank space to make later pages match.
+- Let the body paginate from content. Keep the executive-summary opening boundary only when selected; when continuous flow is requested set `front_page_break: false` so Section 1 can follow the Project Boundary card on page 1. Never imitate a page count or add filler. Use `signature_mode: "two_column_prepared_conforme"` for the requested padded two-column LAVI sign-off; preserve its 14-point padding and 18-point gutter.
 - Architecture diagrams must use the shared component with row positions calculated from preceding heights, a separate caption lane and constant connector gaps. Never independently anchor the bottom boxes. Arrows must stay inside the gaps; multiple destinations require a proper split connector. No connector through a label or shape.
 - Layout-only edits preserve approved scope, quantities, rates, totals, date, recipient, role, exclusions and other details. Compare before/after pages outside the intended edit.
 - Render and inspect the exact final PDF, including diagrams at readable size. A successful code run or a contact sheet alone is not visual approval.
