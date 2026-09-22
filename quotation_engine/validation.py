@@ -56,6 +56,19 @@ def validate(job):
     for k in ('name','role'):
         if not job.get('prepared_by', {}).get(k):
             raise ValidationError(f'Missing prepared_by.{k}.')
+    if 'front_page_break' in job and not isinstance(job['front_page_break'], bool):
+        raise ValidationError('front_page_break must be a boolean.')
+    if job.get('signature_mode', 'prepared_only') not in (
+            'prepared_only', 'two_column_prepared_conforme'):
+        raise ValidationError('Unknown signature_mode.')
+    if job.get('signature_mode') == 'two_column_prepared_conforme' and brand != 'lavi':
+        raise ValidationError('The two-column sign-off is currently authorized for LAVI only.')
+    if 'conforme_fields' in job:
+        fields = job['conforme_fields']
+        if not isinstance(fields, dict) or set(fields) - {'authorized_name', 'signature', 'date'}:
+            raise ValidationError('Invalid conforme_fields.')
+        if any(not isinstance(v, str) or not v.strip() or len(v) > 64 for v in fields.values()):
+            raise ValidationError('Conforme labels must be short, nonempty strings.')
     if job.get('signature'):
         raise ValidationError('Reusable jobs must be unsigned; use an explicitly authorized signing workflow.')
     if not job.get('blocks') or not priced_blocks(job):

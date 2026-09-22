@@ -1,10 +1,10 @@
-# Approved quotation engine — CPSC reference release 2.0.1
+# Approved quotation engine — CPSC reference release 2.0.2
 
 **Start with AGENTS.md and LATEST.md.** James approved these two separate profiles, based on the final CPSC Projects 1, 2, 5 and 8 quotation family. Old Xavier quotation styling and the previous Lifes Awesome candidate no longer drive new quotation production.
 
 ## Which profile?
 
-- `lavi`: `LAVI-QUOTATION-2026.4`; Legal 612 x 1008 pt, Liberation Sans, teal/navy, left-aligned first-page logo and right-aligned live contact block. Detailed infrastructure/equipment BOQs. See `templates/lavi/cpsc-2026/README.md`.
+- `lavi`: `LAVI-QUOTATION-2026.5`; Legal 612 x 1008 pt, Liberation Sans, teal/navy, left-aligned first-page logo and right-aligned live contact block. Detailed infrastructure/equipment BOQs. See `templates/lavi/cpsc-2026/README.md`.
 - `lifes-awesome`: `LIFES-AWESOME-QUOTATION-2026.2`; Legal, DejaVu Sans, cyan/gray, centered first-page logo and compact contact lines, tinted title band. Software deliverable/fee tables. See `templates/lifes-awesome/cpsc-2026/README.md`.
 
 The engine keeps brand styles separate while sharing validation, arithmetic, section flow, tables, list indents, calculated page numbers and safe diagram geometry. It does not use a project-specific generator script.
@@ -77,3 +77,11 @@ Rows advance from the preceding row's measured height, then an 18-point gap. Cap
 A template change needs James's approval, a version increment, regenerated checksums in `manifest.json`, all tests and visual review. Do not bypass the manifest to make a one-off quote. New commercial/source edits normally change only JSON and do not change the style lock. Keep approved examples unchanged; create a new job instead.
 
 CI regenerates all four full PDF fixtures and page previews as workflow artifacts. This makes the next agent independent of a previous container or private scratchpad. Historical engines are archived; billing and other document families are not replaced by this release.
+
+## Authorized continuous flow and sign-off correction (22 September 2026)
+
+Engine 2.0.2 / LAVI-QUOTATION-2026.5 adds two explicit job controls. For the Philpost revision, use `front_page_break: false` and `signature_mode: "two_column_prepared_conforme"`. These are reusable renderer capabilities, not a one-off PDF overlay. No forced blank remainder is left after the Project Boundary card: Section 1 follows in the same content flow, with normal heading/table keep rules. The continuous mode uses 3.2-point vertical table padding; font sizes, line heights, rails, colors, logos and all horizontal table padding remain unchanged.
+
+The two-column sign-off is a single unbroken component with equal white panels, a clear 18-point gutter, 14-point interior padding, dedicated signing space above the preparer, and separate writable Authorized name / Signature / Date fields. It does not inherit the generic table grid or zebra shading. Do not remove this padding or reproduce underscore-based field widths. `conforme_fields` may supply short explicit field labels; blank signers stay blank.
+
+Defaults for other jobs remain the existing first-page boundary and prepared-only block. Do not silently change previous quotations or Lifes Awesome styling. Historical LAVI job data using 2026.4 can be migrated by changing only the template ID to 2026.5; only select the new controls when requested. CPSC fixture IDs changed as release metadata; their commercial content and default rendered PDFs are preserved. The editor schema's missing closing brace was also repaired and is covered by a JSON-parse test.

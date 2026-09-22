@@ -17,6 +17,7 @@ from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, 
 from PIL import Image
 from .validation import PROFILES, ROOT, validate, totals, fmt, money
 from .diagrams import Diagram
+from .signoff import TwoColumnSignoff
 
 class PageCanvas(Canvas):
     def __init__(self,*a,**kw):
@@ -107,10 +108,11 @@ class Builder:
         c.setFillColor(self.c('muted'));c.setFont(self.font,size);c.drawString(m,19 if self.software else 22.1,footer);c.restoreState()
     def heading(self,text):return Heading(self.P(text,'heading'),self.w,self.c('accent'))
     def table(self,data,widths,header=False,style_extra=None):
+        padding = self.p.get('flow_table_padding', self.p['table_padding']) if not self.job.get('front_page_break', True) else self.p['table_padding']
         t=Table(data,colWidths=[self.w*x for x in widths],repeatRows=1 if header else 0,hAlign='LEFT',splitByRow=1)
         commands=[('VALIGN',(0,0),(-1,-1),'TOP'),('GRID',(0,0),(-1,-1),.35,self.c('border')),
             ('LEFTPADDING',(0,0),(-1,-1),6 if self.software else 4),('RIGHTPADDING',(0,0),(-1,-1),6 if self.software else 4),
-            ('TOPPADDING',(0,0),(-1,-1),self.p['table_padding']),('BOTTOMPADDING',(0,0),(-1,-1),self.p['table_padding']),
+            ('TOPPADDING',(0,0),(-1,-1),padding),('BOTTOMPADDING',(0,0),(-1,-1),padding),
             ('ROWBACKGROUNDS',(0,1 if header else 0),(-1,-1),[colors.white,self.c('light')])]
         if header:commands += [('BACKGROUND',(0,0),(-1,0),self.c('table_header')),('NOSPLIT',(0,0),(-1,1))]
         t.setStyle(TableStyle(commands+(style_extra or [])));t.spaceAfter=6;return t
@@ -176,7 +178,9 @@ class Builder:
         out += [self.table(data,[.088,.647,.265] if self.software else [.745,.255],True,cmds),self.P('Amount in words: '+j['amount_words'],'note')]
         if j.get('boundary'):out += [self.table([[self.P('<b>PROJECT BOUNDARY</b><br/>'+j['boundary'],'note')]], [1],False,[('BACKGROUND',(0,0),(-1,-1),self.c('tint'))])]
         out += [self.P(x) for x in j.get('front_notes',[])]
-        out.append(PageBreak())  # Approved executive-summary/front page boundary only.
+        # Preserve executive-summary boundaries unless continuous flow is requested.
+        if j.get('front_page_break', True):
+            out.append(PageBreak())
         return out
     def render(self,path):
         p=self.p;W,H=p['page'];m=p['margin'];out=Path(path);out.parent.mkdir(parents=True,exist_ok=True)
@@ -202,8 +206,11 @@ class Builder:
             elif k=='table':
                 data=[[self.P(c,'head' if b.get('header') and ri==0 else 'cell',**({'fontName':self.bold} if ci==0 and not b.get('header') else {})) for ci,c in enumerate(row)] for ri,row in enumerate(b['rows'])]
                 story.append(self.table(data,b['widths'],b.get('header',False)))
-        signature=self.table([[self.P('PREPARED BY','label')],[self.P('<b>'+escape(self.job['prepared_by']['name'])+'</b><br/>'+escape(self.job['prepared_by']['role'])+'<br/>'+p['display_name'])]],[1],False,[('GRID',(0,0),(-1,-1),0,colors.white),('BACKGROUND',(0,0),(-1,-1),colors.white),('LINEABOVE',(0,0),(-1,0),.65,self.c('accent')),('LEFTPADDING',(0,0),(-1,-1),0),('TOPPADDING',(0,1),(-1,1),20)])
-        story.append(signature)
+        if self.job.get('signature_mode') == 'two_column_prepared_conforme':
+            story.append(TwoColumnSignoff(self))
+        else:
+            signature=self.table([[self.P('PREPARED BY','label')],[self.P('<b>'+escape(self.job['prepared_by']['name'])+'</b><br/>'+escape(self.job['prepared_by']['role'])+'<br/>'+p['display_name'])]],[1],False,[('GRID',(0,0),(-1,-1),0,colors.white),('BACKGROUND',(0,0),(-1,-1),colors.white),('LINEABOVE',(0,0),(-1,0),.65,self.c('accent')),('LEFTPADDING',(0,0),(-1,-1),0),('TOPPADDING',(0,1),(-1,1),20)])
+            story.append(signature)
         doc.build(story,canvasmaker=PageCanvas)
         return out
 

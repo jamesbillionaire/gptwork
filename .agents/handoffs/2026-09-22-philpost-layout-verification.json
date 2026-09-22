@@ -1,0 +1,12 @@
+{
+  "engine": "2.0.2",
+  "lavi_template": "LAVI-QUOTATION-2026.5",
+  "tested_source_commit": "0f70f462f0bd0c0090d9b669a691997b833d2304",
+  "base_main_commit": "96058d730eef3c185083585a660b6fbe84629063",
+  "ci_run": "https://github.com/jamesbillionaire/gptwork/actions/runs/35677550824",
+  "ci_conclusion": "success",
+  "checks": ["18 tests passed locally and on GitHub Actions", "Manifest verified", "All four existing default PDFs byte-identical to baseline", "Philpost V4 two Legal pages visually inspected", "20 priced rows and original commercial data preserved", "No signature copied", "No temporary installer files in release tree"],
+  "pdf_sha256": "5b56ef1c599d7e1274f75bd591e2af137d88995a1fb9273fd467cef6148a4bac",
+  "job_sha256": "5f3395648b31c3c7a9b7c5b5658ceb9184fd83802dd6be71f2147e94fe845af9",
+  "promotion": "Explicit non-force ref update of a clean commit; no unrelated source changes"
+}
