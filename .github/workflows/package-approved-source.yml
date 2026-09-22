@@ -1,0 +1,24 @@
+name: Package approved quotation source
+on:
+  push:
+    branches: [automation/source-package-20260922]
+    paths: ['.github/workflows/package-approved-source.yml']
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ab3ae97b435b14f6a88af2d019f0f0b2464201c9
+          persist-credentials: false
+      - name: Package exact approved public engine and assets
+        run: |
+          git archive --format=zip --output=approved-source.zip HEAD AGENTS.md LATEST.md README.md requirements.txt quotation_engine templates/lavi/cpsc-2026 templates/lifes-awesome/cpsc-2026 .agents/skills/lavi-quotation .agents/skills/lifes-awesome-quotation
+          sha256sum approved-source.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: approved-source-2.1.0
+          path: approved-source.zip
+          retention-days: 30
