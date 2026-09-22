@@ -7,20 +7,21 @@
   "authority": "James: Both template should use legal size paper format.",
   "fixtures": {
     "1": {
-      "pages": 5,
+      "pages": 8,
       "brand": "lavi"
     },
     "2": {
-      "pages": 5,
+      "pages": 8,
       "brand": "lavi"
     },
     "5": {
-      "pages": 8,
+      "pages": 13,
       "brand": "lifes-awesome"
     },
     "8": {
-      "pages": 7,
+      "pages": 11,
       "brand": "lifes-awesome"
     }
-  }
+  },
+  "readability_revision": "2.1.0: 10pt minimum; natural reflow, not page targets"
 }

@@ -13,7 +13,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen.canvas import Canvas
-from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Table, TableStyle, Spacer, PageBreak, NextPageTemplate, Flowable
+from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Table, TableStyle, Spacer, PageBreak, NextPageTemplate, Flowable, CondPageBreak
 from PIL import Image
 from .validation import PROFILES, ROOT, validate, totals, fmt, money
 from .diagrams import Diagram
@@ -29,7 +29,7 @@ class PageCanvas(Canvas):
         total=len(self.states)
         for state in self.states:
             self.__dict__.update(state)
-            self.setFont(self._page_font,6.1);self.setFillColor(colors.HexColor('#65717E'))
+            self.setFont(self._page_font,10);self.setFillColor(colors.HexColor('#65717E'))
             self.drawRightString(self._pagesize[0]-self._page_margin,self._page_footer_y,f'Page {self._pageNumber} of {total}')
             super().showPage()
         super().save()
@@ -69,43 +69,61 @@ class Builder:
             self.styles[name]=ParagraphStyle(name,fontName=self.bold if name in ('heading','sub','title') else self.font,fontSize=size,leading=leading,
                 textColor=self.c('heading_color' if name=='heading' else ('dark' if name in ('sub','title') else 'ink')),
                 alignment=TA_JUSTIFY if name in ('body','note') else TA_LEFT,spaceAfter=6 if name in ('body','note') else 0)
-        self.styles['head']=ParagraphStyle('head',fontName=self.bold,fontSize=6.8 if self.software else 6.3,leading=9 if self.software else 7.2,textColor=colors.white,alignment=TA_CENTER)
-        self.styles['meta']=ParagraphStyle('meta',fontName=self.font,fontSize=8 if self.software else 7.3,leading=11 if self.software else 9.4,textColor=self.c('ink'))
-        self.styles['label']=ParagraphStyle('label',fontName=self.bold,fontSize=7.1 if self.software else 6.5,leading=9,textColor=self.c('heading_color'))
+        self.styles['head']=ParagraphStyle('head',fontName=self.bold,fontSize=10,leading=12,textColor=colors.white,alignment=TA_CENTER)
+        self.styles['meta']=ParagraphStyle('meta',fontName=self.font,fontSize=10,leading=13,textColor=self.c('ink'))
+        self.styles['label']=ParagraphStyle('label',fontName=self.bold,fontSize=10,leading=13,textColor=self.c('heading_color'))
     def c(self,key):return colors.HexColor(self.p.get(key,key))
     def P(self,text,style='body',**kw):
         st=self.styles[style]
-        if kw:st=ParagraphStyle(style+'-local',parent=st,**kw)
+        # The floor is a template contract, never a fit-to-page knob.
+        size=max(self.p['minimum_font_size'],kw.get('fontSize',st.fontSize))
+        leading=max(kw.get('leading',st.leading),size*1.2)
+        st=ParagraphStyle(style+'-local',parent=st,**{**kw,'fontSize':size,'leading':leading})
         return Paragraph(str(text),st)
+    def page_geometry(self):
+        """Measure live contact/header/footer text instead of shrinking it."""
+        p=self.p;m=p['margin'];W,H=p['page']
+        self.first_header=[]
+        if self.software:
+            x=m;width=self.w;top=84
+        else:
+            x=m+104.88+24;width=self.w-104.88-24;top=42.52
+            para=self.P(escape(p['company']),'sub',alignment=TA_RIGHT)
+            _,height=para.wrap(width,H);self.first_header.append((para,x,top,height));top+=height+3
+        for line in p['contact']:
+            para=self.P(escape(line),'meta',alignment=TA_CENTER if self.software else TA_RIGHT,textColor=self.c('muted'))
+            _,height=para.wrap(width,H);self.first_header.append((para,x,top,height));top+=height+1
+        self.first_rule=max(top,94 if not self.software else 106)+9
+        company=self.P(escape(p['company']),'meta',fontName=self.bold)
+        ref=self.P(escape(self.job['quote_no'])+'  |  FORMAL QUOTATION','meta',alignment=TA_RIGHT,textColor=self.c('muted'))
+        # Separate lines prevent reference/company collisions with long references.
+        _,ch=company.wrap(self.w,H);_,rh=ref.wrap(self.w,H)
+        top=37 if not self.software else 26
+        self.later_header=[(company,m,top,ch),(ref,m,top+ch+2,rh)]
+        self.later_rule=top+ch+2+rh+8
+        footer=escape(p['company']+'  |  '+self.job['footer_label'])
+        self.footer=self.P(footer,'meta',fontSize=10,leading=12,spaceAfter=0,textColor=self.c('muted'))
+        _,self.footer_height=self.footer.wrap(self.w-88,H)
+        self.footer_rule=18+self.footer_height+8
+        return self.first_rule+14,self.later_rule+12,max(p['bottom'],self.footer_rule+12)
     def header(self,c,doc,first=False):
-        p,j=self.p,self.job;W,H=p['page'];m=p['margin'];r=W-m
-        c._page_font=self.font;c._page_margin=m;c._page_footer_y=19 if self.software else 22.1
-        c.saveState();c.setFillColor(self.c('accent'));c.rect(m,H-(14 if self.software else 29.76 if first else 26.93),self.w,1.25 if self.software else 3.54 if first else 2.55,fill=1,stroke=0)
+        p=self.p;j=self.job;W,H=p['page'];m=p['margin'];r=W-m
+        c._page_font=self.font;c._page_margin=m;c._page_footer_y=20
+        c.saveState()
+        c.setFillColor(self.c('accent'))
+        c.rect(m,H-(14 if self.software else 29.76 if first else 26.93),self.w,1.25 if self.software else 3.54 if first else 2.55,fill=1,stroke=0)
         if first:
             logo=ROOT/p['logo'];lw=270 if self.software else 104.88
             with Image.open(logo) as im:lh=lw*im.height/im.width
             x=(W-lw)/2 if self.software else m;y=H-22-lh if self.software else H-42.52-lh
             c.drawImage(str(logo),x,y,width=lw,height=lh,mask='auto')
-            if self.software:
-                c.setFont(self.font,6.5);c.setFillColor(self.c('muted'))
-                for k,line in enumerate(p['contact']):c.drawCentredString(W/2,H-84-k*10,line)
-                rule=106
-            else:
-                c.setFont(self.bold,7.2);c.setFillColor(self.c('dark'));c.drawRightString(r,H-49.61,p['company'])
-                c.setFont(self.font,6.4);c.setFillColor(self.c('muted'))
-                for k,line in enumerate(p['contact']):c.drawRightString(r,H-60.95-k*9.354,line)
-                rule=96.38
-        else:
-            c.setFont(self.bold,6.9 if self.software else 7.6);c.setFillColor(self.c('dark'));c.drawString(m,H-(29 if self.software else 44.79),p['company'])
-            c.setFont(self.font,6.15 if self.software else 6.4);c.setFillColor(self.c('muted'))
-            c.drawRightString(r,H-(29 if self.software else 44.79),j['quote_no']+'  |  FORMAL QUOTATION');rule=38 if self.software else 54.43
+        for para,x,top,height in (self.first_header if first else self.later_header):
+            para.drawOn(c,x,H-top-height)
+        rule=self.first_rule if first else self.later_rule
         c.setStrokeColor(self.c('border'));c.setLineWidth(.45);c.line(m,H-rule,r,H-rule)
-        c.line(m,29 if self.software else 32.6,r,29 if self.software else 32.6)
-        footer=p['company']+'  |  '+j['footer_label']
-        size=5.75 if self.software else 6.2
-        if pdfmetrics.stringWidth(footer,self.font,size)>self.w-65:
-            raise ValueError('Footer label too long. Supply a concise approved footer_label.')
-        c.setFillColor(self.c('muted'));c.setFont(self.font,size);c.drawString(m,19 if self.software else 22.1,footer);c.restoreState()
+        c.line(m,self.footer_rule,r,self.footer_rule)
+        self.footer.drawOn(c,m,18)
+        c.restoreState()
     def heading(self,text):return Heading(self.P(text,'heading'),self.w,self.c('accent'))
     def table(self,data,widths,header=False,style_extra=None):
         padding = self.p.get('flow_table_padding', self.p['table_padding']) if not self.job.get('front_page_break', True) else self.p['table_padding']
@@ -116,8 +134,22 @@ class Builder:
             ('ROWBACKGROUNDS',(0,1 if header else 0),(-1,-1),[colors.white,self.c('light')])]
         if header:commands += [('BACKGROUND',(0,0),(-1,0),self.c('table_header')),('NOSPLIT',(0,0),(-1,1))]
         t.setStyle(TableStyle(commands+(style_extra or [])));t.spaceAfter=6;return t
+    def generic_table(self,b):
+        data=[[self.P(c,'head' if b.get('header') and ri==0 else 'cell',**({'fontName':self.bold} if ci==0 and not b.get('header') else {})) for ci,c in enumerate(row)] for ri,row in enumerate(b['rows'])]
+        widths=[self.w*x for x in b['widths']]
+        pad=12 if self.software else 8
+        minima=[max(row[i].minWidth() for row in data)+pad+.1 for i in range(len(widths))]
+        # Preserve words such as SHARE at 10pt by borrowing only the necessary
+        # space from wider columns. The outer content rail never changes.
+        extras=sum(max(0,lo-w) for lo,w in zip(minima,widths))
+        if extras:
+            widths=[max(w,lo) for w,lo in zip(widths,minima)]
+            for i in sorted(range(len(widths)),key=lambda i:widths[i]-minima[i],reverse=True):
+                take=min(extras,max(0,widths[i]-minima[i]));widths[i]-=take;extras-=take
+            if extras>.01:raise ValueError('Table cannot fit unbroken words at the minimum type size.')
+        return self.table(data,[x/self.w for x in widths],b.get('header',False))
     def boq(self,b):
-        title=self.P(b['title'],'sub',keepWithNext=True,spaceBefore=6,spaceAfter=4)
+        title=self.P(b['title'],'sub',keepWithNext=False,spaceBefore=6,spaceAfter=4)
         heads=['QTY','UNIT','DESCRIPTION / DELIVERABLE' if self.software else 'DESCRIPTION','UNIT PRICE','AMOUNT']
         data=[[self.P(h,'head') for h in heads]]
         for r in b['items']:
@@ -130,17 +162,26 @@ class Builder:
             cmds += [('SPAN',(0,0),(-1,0)),('BACKGROUND',(0,0),(-1,0),self.c('tint')),('LINEABOVE',(0,0),(-1,0),.7,self.c('accent')),('BACKGROUND',(0,1),(-1,1),self.c('table_header')),('NOSPLIT',(0,0),(-1,2))]
         t=self.table(data,self.p['columns'],True,cmds)
         if self.software:t.repeatRows=2
-        return ([t] if self.software else [title,t])+([self.P(b['note'],'note')] if b.get('note') else [])
+        if self.software:
+            content=[t]
+        else:
+            # Keep the title with the header and first row, not the entire BOQ.
+            # Keeping a whole multirow table caused avoidable blank page remainders.
+            t.wrap(self.w,100000)
+            title_h=title.wrap(self.w,100000)[1]
+            minimum=title_h+title.getSpaceBefore()+title.getSpaceAfter()+sum(t._rowHeights[:2])+2
+            content=[CondPageBreak(minimum),title,t]
+        return content+([self.P(b['note'],'note')] if b.get('note') else [])
     def total_box(self):
         j=self.job
         data=[[self.P('TOTAL CONTRACT PRICE','sub'),self.P(fmt(j['expected_total']),'sub',fontSize=14,leading=17,alignment=TA_RIGHT)],
               [self.P(j['tax_treatment'].upper(),'label'),self.P(j['amount_words'],'cell',alignment=TA_RIGHT,textColor=self.c('muted'))]]
-        return self.table(data,[.34,.66],False,[('BACKGROUND',(0,0),(-1,-1),self.c('gold')),('BOX',(0,0),(-1,-1),.6,colors.HexColor('#E8D79F')),('INNERGRID',(0,0),(-1,-1),0,self.c('gold'))])
+        return self.table(data,[.34,.66],False,[('NOSPLIT',(0,0),(-1,-1)),('BACKGROUND',(0,0),(-1,-1),self.c('gold')),('BOX',(0,0),(-1,-1),.6,colors.HexColor('#E8D79F')),('INNERGRID',(0,0),(-1,-1),0,self.c('gold'))])
     def front(self):
         j,p=self.job,self.p
-        eyebrow=self.P('FORMAL QUOTATION','label',fontSize=8.2,leading=10)
+        eyebrow=self.P('FORMAL QUOTATION','label',fontSize=10,leading=13)
         title=self.P(j['title'],'title')
-        subtitle=self.P(j.get('subtitle','Budgetary Technical and Financial Proposal'),'meta',textColor=self.c('muted'),fontSize=8.6 if self.software else 9,leading=12)
+        subtitle=self.P(j.get('subtitle','Budgetary Technical and Financial Proposal'),'meta',textColor=self.c('muted'),fontSize=11,leading=14)
         if self.software:
             titlebox=Table([[eyebrow],[title],[subtitle]],colWidths=[self.w],hAlign='LEFT')
             titlebox.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,-1),self.c('light')),('LINEABOVE',(0,0),(-1,0),.9,self.c('accent')),('LINEBELOW',(0,-1),(-1,-1),.5,self.c('dark')),('LEFTPADDING',(0,0),(-1,-1),10),('RIGHTPADDING',(0,0),(-1,-1),10),('TOPPADDING',(0,0),(-1,-1),5),('BOTTOMPADDING',(0,0),(-1,-1),5)]))
@@ -156,7 +197,7 @@ class Builder:
         else:
             data=[[self.P('PREPARED FOR','label'),self.P('QUOTE DETAILS','label')],
                 [self.P(escape(cl['name'])+'<br/>'+escape(cl['address']),'meta'),self.P(f'Quotation No. {escape(j["quote_no"])}<br/>Date: {escape(j["date"])}<br/>Validity: {valid}<br/>Pricing: {tax}','meta')],
-                [self.P(f'Attention: {escape(cl["attention"])}<br/>{escape(cl["role"])}','meta'),self.P('Project Location: '+escape(cl['location']),'meta')]]
+                [self.P(f'Attention: {escape(cl["attention"])}<br/>{escape(cl["role"])}' if cl['attention'] else escape(cl['role']),'meta'),self.P('Project Location: '+escape(cl['location']),'meta')]]
             widths=[.5,.5]
         out += [self.table(data,widths,False,[('BACKGROUND',(0,0),(0,-1),self.c('tint')),('BACKGROUND',(1,0),(1,-1),self.c('tint2'))]),Spacer(1,8),self.P(j['salutation'])]
         out += [self.P(s) for s in j.get('introduction',[])]
@@ -184,13 +225,21 @@ class Builder:
         return out
     def render(self,path):
         p=self.p;W,H=p['page'];m=p['margin'];out=Path(path);out.parent.mkdir(parents=True,exist_ok=True)
+        first_top,later_top,bottom=self.page_geometry()
         doc=BaseDocTemplate(str(out),pagesize=(W,H),title=self.job['title']+' | '+self.job['quote_no'],author=p['company'],allowSplitting=True)
-        frames=[Frame(m,p['bottom'],self.w,H-p['bottom']-top,leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0,id=str(i)) for i,top in enumerate([p['first_top'],p['later_top']])]
+        frames=[Frame(m,bottom,self.w,H-bottom-top,leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0,id=str(i)) for i,top in enumerate([first_top,later_top])]
         doc.addPageTemplates([PageTemplate(id='first',frames=[frames[0]],onPage=lambda c,d:self.header(c,d,True)),PageTemplate(id='later',frames=[frames[1]],onPage=self.header)])
         story=[NextPageTemplate('later')]+self.front()
-        for b in self.job['blocks']:
+        for bi,b in enumerate(self.job['blocks']):
             k=b['type']
-            if k=='heading':story.append(self.heading(b['text']))
+            if k=='heading':
+                heading=self.heading(b['text'])
+                following=self.job['blocks'][bi+1] if bi+1<len(self.job['blocks']) else {}
+                if following.get('type')=='table':
+                    table=self.generic_table(following);table.wrap(self.w,100000)
+                    minimum=heading.wrap(self.w,100000)[1]+heading.spaceBefore+heading.spaceAfter+sum(table._rowHeights[:2])+2
+                    story.append(CondPageBreak(minimum));heading.keepWithNext=0
+                story.append(heading)
             elif k in ('paragraph','note'):story.append(self.P(b['text'],'note' if k=='note' else 'body'))
             elif k=='boq':story.extend(self.boq(b))
             elif k=='diagram':story.extend([Spacer(1,6),Diagram(b,p,self.w,self.font,self.bold),Spacer(1,9)])
@@ -204,8 +253,7 @@ class Builder:
                         bulletAnchor='end' if numbered else 'start',bulletFontName=self.bold if numbered else self.font,bulletFontSize=p['body'][0],spaceAfter=4)
                     story.append(Paragraph(txt,st,bulletText=f'{i}.' if numbered else '\u2022'))
             elif k=='table':
-                data=[[self.P(c,'head' if b.get('header') and ri==0 else 'cell',**({'fontName':self.bold} if ci==0 and not b.get('header') else {})) for ci,c in enumerate(row)] for ri,row in enumerate(b['rows'])]
-                story.append(self.table(data,b['widths'],b.get('header',False)))
+                story.append(self.generic_table(b))
         if self.job.get('signature_mode') == 'two_column_prepared_conforme':
             story.append(TwoColumnSignoff(self))
         else:

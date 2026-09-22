@@ -1,11 +1,11 @@
-# Approved quotation engine — CPSC reference release 2.0.2
+# Approved quotation engine — CPSC reference release 2.1.0
 
 **Start with AGENTS.md and LATEST.md.** James approved these two separate profiles, based on the final CPSC Projects 1, 2, 5 and 8 quotation family. Old Xavier quotation styling and the previous Lifes Awesome candidate no longer drive new quotation production.
 
 ## Which profile?
 
-- `lavi`: `LAVI-QUOTATION-2026.5`; Legal 612 x 1008 pt, Liberation Sans, teal/navy, left-aligned first-page logo and right-aligned live contact block. Detailed infrastructure/equipment BOQs. See `templates/lavi/cpsc-2026/README.md`.
-- `lifes-awesome`: `LIFES-AWESOME-QUOTATION-2026.2`; Legal, DejaVu Sans, cyan/gray, centered first-page logo and compact contact lines, tinted title band. Software deliverable/fee tables. See `templates/lifes-awesome/cpsc-2026/README.md`.
+- `lavi`: `LAVI-QUOTATION-2026.6`; Legal 612 x 1008 pt, Liberation Sans, teal/navy, left-aligned first-page logo and right-aligned live contact block. Detailed infrastructure/equipment BOQs. See `templates/lavi/cpsc-2026/README.md`.
+- `lifes-awesome`: `LIFES-AWESOME-QUOTATION-2026.3`; Legal, DejaVu Sans, cyan/gray, centered first-page logo and compact contact lines, tinted title band. Software deliverable/fee tables. See `templates/lifes-awesome/cpsc-2026/README.md`.
 
 The engine keeps brand styles separate while sharing validation, arithmetic, section flow, tables, list indents, calculated page numbers and safe diagram geometry. It does not use a project-specific generator script.
 
@@ -80,8 +80,16 @@ CI regenerates all four full PDF fixtures and page previews as workflow artifact
 
 ## Authorized continuous flow and sign-off correction (22 September 2026)
 
-Engine 2.0.2 / LAVI-QUOTATION-2026.5 adds two explicit job controls. For the Philpost revision, use `front_page_break: false` and `signature_mode: "two_column_prepared_conforme"`. These are reusable renderer capabilities, not a one-off PDF overlay. No forced blank remainder is left after the Project Boundary card: Section 1 follows in the same content flow, with normal heading/table keep rules. The continuous mode uses 3.2-point vertical table padding; font sizes, line heights, rails, colors, logos and all horizontal table padding remain unchanged.
+Engine 2.0.2 / LAVI-QUOTATION-2026.6 adds two explicit job controls. For the Philpost revision, use `front_page_break: false` and `signature_mode: "two_column_prepared_conforme"`. These are reusable renderer capabilities, not a one-off PDF overlay. No forced blank remainder is left after the Project Boundary card: Section 1 follows in the same content flow, with normal heading/table keep rules. The continuous mode uses 3.2-point vertical table padding; font sizes, line heights, rails, colors, logos and all horizontal table padding remain unchanged.
 
 The two-column sign-off is a single unbroken component with equal white panels, a clear 18-point gutter, 14-point interior padding, dedicated signing space above the preparer, and separate writable Authorized name / Signature / Date fields. It does not inherit the generic table grid or zebra shading. Do not remove this padding or reproduce underscore-based field widths. `conforme_fields` may supply short explicit field labels; blank signers stay blank.
 
 Defaults for other jobs remain the existing first-page boundary and prepared-only block. Do not silently change previous quotations or Lifes Awesome styling. Historical LAVI job data using 2026.4 can be migrated by changing only the template ID to 2026.5; only select the new controls when requested. CPSC fixture IDs changed as release metadata; their commercial content and default rendered PDFs are preserved. The editor schema's missing closing brace was also repaired and is covered by a JSON-parse test.
+
+## Minimum readable typography — 22 September 2026
+
+Engine **2.1.0** establishes an absolute **10-point minimum for all live text** in both brand profiles; body paragraphs and conditions are **11/15 pt**. BOQ, table, note, metadata, diagram, contact, header and footer text must never fall below 10 pt. Section headings are 13/17 pt; subheadings 11/14 pt; titles 20/24 pt LAVI and 20/25 pt Lifes Awesome. See `quotation_engine/reference/readability_standard.md`, which supersedes earlier small-font size and leading values in historical examples or prose.
+
+Preserve separate brand fonts/colors, supplied logos, Legal paper and horizontal content rails. Headers/footers and diagrams wrap with measured heights, never reduced type. Readability takes priority over historical page counts. Continuous jobs retain `front_page_break: false`; the padded LAVI sign-off retains 14pt internal padding and 18pt gutter. No live font may be reduced to force a two-page quotation. Existing delivered PDFs are not changed in bulk.
+
+Migrate structured jobs by explicitly updating their template IDs. Source commercial data, including contradictory source terms, must not be silently reconciled during a typography-only edit. Run the locked CLI, all tests, minimum-font checks, content/arithmetic comparisons and rendered visual inspection.

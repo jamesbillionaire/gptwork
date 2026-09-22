@@ -1,6 +1,7 @@
 """Validate job data without inferring tax, commercial terms or project facts."""
 from __future__ import annotations
 import json
+import re
 from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
 from pathlib import Path
 
@@ -69,6 +70,16 @@ def validate(job):
             raise ValidationError('Invalid conforme_fields.')
         if any(not isinstance(v, str) or not v.strip() or len(v) > 64 for v in fields.values()):
             raise ValidationError('Conforme labels must be short, nonempty strings.')
+    def strings(value):
+        if isinstance(value,str):yield value
+        elif isinstance(value,dict):
+            for item in value.values():yield from strings(item)
+        elif isinstance(value,list):
+            for item in value:yield from strings(item)
+    for text in strings(job):
+        for match in re.finditer(r"<font\b[^>]*\bsize\s*=\s*[\"']?([0-9.]+)",text,re.IGNORECASE):
+            if float(match.group(1)) < PROFILES[brand]['minimum_font_size']:
+                raise ValidationError('Inline text cannot be smaller than the template minimum.')
     if job.get('signature'):
         raise ValidationError('Reusable jobs must be unsigned; use an explicitly authorized signing workflow.')
     if not job.get('blocks') or not priced_blocks(job):

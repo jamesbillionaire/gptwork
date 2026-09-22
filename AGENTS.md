@@ -14,8 +14,8 @@ James explicitly approved replacing the previous quotation engines with the CPSC
 
 | Brand | Active template | Approved design basis | Page / typography |
 |---|---|---|---|
-| LAVI Technologies Inc. | `LAVI-QUOTATION-2026.5` | Project 1 corrected network diagram + Project 2 corrected CCTV quotation | Legal 612 x 1008 pt, 15 mm side margins, Liberation Sans; teal/navy |
-| Lifes Awesome Ventures Inc. | `LIFES-AWESOME-QUOTATION-2026.2` | Project 5 V2 + Project 8 V1 | Legal 612 x 1008 pt, 32 pt side margins, DejaVu Sans; cyan/gray |
+| LAVI Technologies Inc. | `LAVI-QUOTATION-2026.6` | Project 1 corrected network diagram + Project 2 corrected CCTV quotation | Legal 612 x 1008 pt, 15 mm side margins, Liberation Sans; teal/navy |
+| Lifes Awesome Ventures Inc. | `LIFES-AWESOME-QUOTATION-2026.3` | Project 5 V2 + Project 8 V1 | Legal 612 x 1008 pt, 32 pt side margins, DejaVu Sans; cyan/gray |
 
 These are **two different approved templates**, not the same page recolored. Lifes Awesome is now APPROVED_LOCKED, not a candidate. For this CPSC family, LAVI handles infrastructure; Lifes Awesome handles software. Never infer the issuer from the generic name “LAVI”: use the legal company explicitly requested.
 
@@ -72,3 +72,11 @@ The previous engine and manifest are preserved at `legacy/quotation_engine-pre-c
 ## Persistent handover
 
 Before ending meaningful work update `LATEST.md`: status, approved decisions, exact files, tests/render review, blockers and next steps. Archive a superseded substantial handoff in `.agents/handoffs/`. Do not use memory alone as the source of truth and do not declare archived unfinished work completed without evidence. Git `main`, active manifests and source/job data are the durable authority for the next agent.
+
+## Minimum readable typography — 22 September 2026
+
+Engine **2.1.0** establishes an absolute **10-point minimum for all live text** in both brand profiles; body paragraphs and conditions are **11/15 pt**. BOQ, table, note, metadata, diagram, contact, header and footer text must never fall below 10 pt. Section headings are 13/17 pt; subheadings 11/14 pt; titles 20/24 pt LAVI and 20/25 pt Lifes Awesome. See `quotation_engine/reference/readability_standard.md`, which supersedes earlier small-font size and leading values in historical examples or prose.
+
+Preserve separate brand fonts/colors, supplied logos, Legal paper and horizontal content rails. Headers/footers and diagrams wrap with measured heights, never reduced type. Readability takes priority over historical page counts. Continuous jobs retain `front_page_break: false`; the padded LAVI sign-off retains 14pt internal padding and 18pt gutter. No live font may be reduced to force a two-page quotation. Existing delivered PDFs are not changed in bulk.
+
+Migrate structured jobs by explicitly updating their template IDs. Source commercial data, including contradictory source terms, must not be silently reconciled during a typography-only edit. Run the locked CLI, all tests, minimum-font checks, content/arithmetic comparisons and rendered visual inspection.

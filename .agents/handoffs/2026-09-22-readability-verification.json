@@ -1,0 +1,20 @@
+{
+  "engine": "2.1.0",
+  "profiles": ["LAVI-QUOTATION-2026.6", "LIFES-AWESOME-QUOTATION-2026.3"],
+  "minimum_live_text_pt": 10,
+  "body_text_pt": 11,
+  "base_main_commit": "6ae347feac564706083d7fb34b041c13a155f82e",
+  "verified_source_commit": "b96fdcfb283f822691ed9a259face9e58b8140aa",
+  "source_patch_sha256": "b9c876c64835712fd23d8cacf9b318e304b8347b54e0d7af19f2ec198d0189e6",
+  "ci_run": "https://github.com/jamesbillionaire/gptwork/actions/runs/35683436838",
+  "ci_conclusion": "success",
+  "tests": "24 local tests passed; the same locked source passed GitHub Actions regression steps",
+  "rendered_fixtures": 4,
+  "fixture_pages": [8, 8, 13, 11],
+  "local_checks": ["No text smaller than 10pt in the four fixtures or final client PDF", "All 20 Philpost line-item quantities and prices preserved", "Complete source word counts preserved except repeated headers and footers", "All three final Philpost pages rendered and individually inspected", "No client job, private cost model, signature or raw font files committed"],
+  "client_pdf": "LAVI_Philpost_Structured_Cabling_Quotation_v5_Readable.pdf",
+  "client_pdf_sha256": "0b7acebe329c2a426cce9bb74e9145cc837fef88d9edbbf657deec5e3bb2b25b",
+  "client_json_sha256": "77a79b816cb665175a49219858ab8bf1fc38fb4290fbeb9553c29e83a0e12a6b",
+  "unresolved_source_issue": "Quote-details validity 15 days; body clause 45 days. Both preserved for this typography-only change.",
+  "promotion": "Explicit non-force main update of clean tested source plus handoff records. No temporary installer remains. No unobserved main workflow result is claimed."
+}
