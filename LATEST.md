@@ -1,27 +1,39 @@
 # Latest Agent Handoff
 
-Handoff version: 0016
+Handoff version: 0017
 Last updated: 2026-09-22
-Status: Solar-options quotation converted to current readable LAVI styling, four Legal pages checked. Await client/user review. No global template replacement.
+Status: Brittany Blackburn solar quotation restored to the compact CPSC reference styling, three Legal pages rendered and verified. Await James's review. No global renderer/profile rollback.
 
-## Authority and exact source
-James requested conversion of the attached Brittany Blackburn 8kW solar options quotation to the new LAVI template. Source: LAVI_Brittany_Blackburn_8kW_Solar_Options_Quotation_LAVI-QTN-20260911-SOLAR-BB-01_v1(1).pdf, SHA256 6bfdcc851778e42f5deb9be6e39c496033e4fd1d45e0910ced2eb502f28cf916.
-This is source-preserving conversion, not new technical advice, equipment verification or repricing. Both options are mutually exclusive; never sum them into a contract total. Source package rows are Included-only, not individually priced. All 18 inclusion rows and all 18 commercial/technical clauses were retained, together with original models, quantities, separate package prices, date, validity, payment schedule, warranty wording and named preparer/acceptor. No signature was copied.
+## Latest explicit visual authority
+James rejected the preceding four-page, blanket 10pt/11pt solar conversion as oversized and directed: go back and apply the attached CPSC Project 2 CCTV template to Brittany Blackburn. The supplied LAVI_CPSC_Project_2_Integrated_Campus_Security_CCTV_Quotation_v5.pdf is the visual authority for this restoration. Its measured typography is compact Liberation Sans (body 8.1/11.2pt; table 6.5/8.1pt; notes 7.1/9.3pt; section 10.2/12pt; title 18.5/20.5pt; small 6.4pt contact details). Do not reapply the blanket 10pt floor to this explicitly source-matched solar version or describe the rejected four-page styling as approved.
 
-## Conversation deliverables, not public repository client files
-- LAVI_Brittany_Blackburn_8kW_Solar_Options_Quotation_v2_New_Template.pdf, four Legal pages. SHA256 fbe8b52114b464b3bef30051fe5b73f2b2d0c4cac702e27aa1a0934190be3e63.
-- Matching .md and .json; JSON SHA256 aecae7ce0b13a8f95ef80e19ab91eeea32cf4421fd54755449bd2822df5f0263.
-- LAVI_Brittany_Blackburn_Solar_Quotation_v2_Editable_Source.zip, SHA256 260c65e5fc5247d49eb74df71cf9d259268bd63003addb252ab3368aa82f9a08. Contains the minimal reproducible renderer, job, editable text and audit; no raw fonts or other client quotation data.
-Retrieve actual conversation attachments; filenames do not establish a fresh container path.
+The reference PDF is A4, but the existing explicit Legal paper requirement is retained: output 612 x 1008pt with 15mm content margins, reflowed rather than scaled. Restore the compact first-page logo-left/contact-right header, one-line text-only continuation header, teal rules, navy table headers, restrained zebra fills and pale-gold option totals. Original solar two-column named Prepared By / Accepted-Conforme block remains, with padding and signing space. This instruction concerns the requested solar quotation; other delivered PDFs and Lifes Awesome profiles are unchanged.
 
-## Layout and conversion capability
-LAVI-QUOTATION-2026.6 visuals preserved: Legal 612x1008pt, Liberation Sans, teal/navy, 10pt floor, 11pt body, original first-page logo, full-width rails, repeated table headers and 14pt-padded/18pt-gutter two-column sign-off. Source client name and role are retained on the right signatory panel. Conditions kept intact when they fit a page. Content flows naturally; no artificial three-page target.
+## Commercial content authority
+Original solar source: LAVI_Brittany_Blackburn_8kW_Solar_Options_Quotation_LAVI-QTN-20260911-SOLAR-BB-01_v1(1).pdf.
+SHA256: 6bfdcc851778e42f5deb9be6e39c496033e4fd1d45e0910ced2eb502f28cf916.
+The CCTV reference supplies style only, never solar quantities, VAT, date, prices, terms or signers.
 
-The active 2.1.0 engine supports additive BOQs but not mutually exclusive Included-only packages. A versioned isolated source-capability copy (2.1.0+source-options.1) reuses the production renderer/components, adding explicit options, separate totals, Included-only tables and optional named acceptor. It does not alter the approved profiles or bypass the upstream checksum. Its own manifest is labeled SOURCE_SCOPED_CONVERSION, not globally approved. The complete reproducible capability is in the conversation ZIP; use it for this JSON rather than feeding alternative prices to the ordinary additive renderer. Global quotation_engine and templates on main are unchanged.
+Preserved: 18 Included-only package rows and all 18 conditions, original models and quantities, 8.06kWp array, separate VAT-exclusive prices PHP375000.00 on-grid and PHP585000.00 hybrid, September 11 2026 date, 15-day validity, original 50/50 payment wording, duration and warranties. Ms. Leah Ruiles / Sales Admin and Ms. Brittany Blackburn / Client-Authorized Representative retained. Never sum the mutually exclusive options or invent unit prices for Included-only lines. No copied signature or revised technical claim.
+
+## Prepared conversation attachments
+- LAVI_Brittany_Blackburn_8kW_Solar_Options_Quotation_v3_Compact_Template.pdf, three Legal pages.
+  SHA256 cc6fdfc62ea367bb581ee5c0d8d1c6342d5180bf49bb7df20432f29fb2f114c3.
+- Matching .json, .md and .audit.json.
+  JSON SHA256 7ce4e3ba9900960dd85d118af31240954b6fc021b5dfe7f344ed6629c38aabd6.
+- LAVI_Brittany_Blackburn_Solar_Quotation_v3_Compact_Editable_Source.zip.
+  SHA256 04f2654e03666dabf52137d914e51dd19991034c326a72844cbca85102b1d167.
+Retrieve actual conversation files; these names do not establish paths in a fresh runtime. No private client job/source data is committed to this public repository.
+
+## Rendering provenance
+The prior solar source-options package and archived compact engine were checksum-verified before modification. An isolated source-scoped restoration reuses the solar alternatives renderer and original compact profile/header geometry. Version 2.1.0+source-options.compact.1; local profile LAVI-CPSC02V5-COMPACT-SOLAR-1; manifest status SOURCE_SCOPED_RESTORATION. Its own lock and CLI passed. The package has explicit source-reference provenance and restoration instructions. Do not claim this is unmodified production 2.1.0 or replace the global engine files with it.
+
+Each option starts on its own page as in the original solar source; its full inclusion table and separate total stay on that page. Conditions continue naturally from page 2 to page 3. Page count is an observed result, not a font-fitting target.
 
 ## Verification
-Exact public upstream source recovered through read-only packaging workflow 35687632263 on automation/source-package-20260922 (source commit ab3ae97b435b14f6a88af2d019f0f0b2464201c9); no source-packaging workflow merged to main. Upstream verify-lock and all 24 tests passed locally. Source-scoped copy passed 31 tests, with its expected local status recorded explicitly and seven new option tests. No CI test result is claimed for the conversion extension.
-All 18 inclusion descriptions and 18 conditions match the extracted source after whitespace normalization. Prices kept separate, no fabricated line prices, no combined total. PDF font-span audit minimum 10pt, all text within rails, Legal dimensions and correct page numbering, original logo only on page 1. Four final pages rendered with Poppler and individually inspected. No substantive source conflicts identified in this conversion.
+All nine scoped regression tests passed: checksum lock, unchanged commercial job data, original option prices, rejection of combined totals, rejection of invented line prices, reference-role sizes, all inclusion/condition text present, Legal/rails/header/one-logo/signatory layout, deterministic output hash. Unchanged upstream 2.1.0 also passed its 24 tests before the scoped restoration. All three exact final pages were rendered with Poppler and individually inspected. No clipping, intersecting text lines or broken rows found. No new CI result claimed.
 
-## Next agent and previous work
-Use the attached source package for this quote; keep source content unless James authorizes changes. Any promotion of the option capability into the global engine needs a separate versioned review. Previous Philpost handoff pointer: .agents/handoffs/2026-09-22-before-solar-options-conversion.md. Philpost, CPSC, Phoenix and other jobs remain separate. Project 4 M-Days/readability is not marked completed. No background work scheduled.
+## Next agent and separate pending work
+Use the compact V3 source package for further Brittany edits. Preserve prices and all terms unless James directs otherwise. Latest explicit user reference styling overrides the earlier large-font policy for this document; do not silently re-expand it. Any global template rollback is a separate versioned change, not performed here.
+
+Previous handoff retained by immutable reference: .agents/handoffs/2026-09-22-before-brittany-compact-restoration.md. Philpost, CPSC, Phoenix and other jobs remain separate. Project 4 M-Days/readability remains pending and is not marked completed. No background work is scheduled.
