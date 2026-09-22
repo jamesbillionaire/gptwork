@@ -19,8 +19,8 @@ class ApprovalTests(unittest.TestCase):
     def test_both_profiles_require_legal_paper(self):
         for brand,p in PROFILES.items():
             self.assertEqual(p['page'],[612,1008],brand)
-        self.assertEqual(PROFILES['lavi']['template_id'],'LAVI-QUOTATION-2026.5')
-        self.assertEqual(PROFILES['lifes-awesome']['template_id'],'LIFES-AWESOME-QUOTATION-2026.2')
+        self.assertEqual(PROFILES['lavi']['template_id'],'LAVI-QUOTATION-2026.6')
+        self.assertEqual(PROFILES['lifes-awesome']['template_id'],'LIFES-AWESOME-QUOTATION-2026.3')
     def test_brand_styles_preserved(self):
         expected={'lavi':('LiberationSans',42.5196850394,'#0AA7AE','#243F73'),
                   'lifes-awesome':('DejaVuSans',32,'#00ADED','#57616C')}
@@ -28,17 +28,16 @@ class ApprovalTests(unittest.TestCase):
             p=PROFILES[brand]
             self.assertEqual((p['font'],p['margin'],p['accent'],p['table_header']),
                              (font,margin,accent,header))
-    def test_footer_baseline_is_not_selected_by_page_size(self):
+    def test_footer_is_readable_and_within_content_rails(self):
         with tempfile.TemporaryDirectory() as td:
             for j in self.jobs:
-                doc=fitz.open(render(j,Path(td)/f"footer-{j['source']['project']}.pdf"))
-                expected_y=1008-(22.1 if j['brand']=='lavi' else 19)
-                for pg in doc:
-                    spans=[s for b in pg.get_text('dict')['blocks'] if b['type']==0 for l in b['lines'] for s in l['spans']]
-                    footer=next(s for s in spans if j['footer_label'] in s['text'])
-                    number=next(s for s in spans if re.fullmatch(r'Page \d+ of \d+',s['text']))
-                    self.assertAlmostEqual(footer['origin'][1],expected_y,places=2)
-                    self.assertAlmostEqual(number['origin'][1],expected_y,places=2)
+                with fitz.open(render(j,Path(td)/f"footer-{j['source']['project']}.pdf")) as doc:
+                    for pg in doc:
+                        spans=[s for b in pg.get_text('dict')['blocks'] if b['type']==0 for l in b['lines'] for s in l['spans']]
+                        number=next(s for s in spans if re.fullmatch(r'Page \d+ of \d+',s['text']))
+                        self.assertAlmostEqual(number['size'],10,places=2)
+                        self.assertAlmostEqual(number['origin'][1],988,places=2)
+                        self.assertLessEqual(number['bbox'][2],612-PROFILES[j['brand']]['margin']+.1)
     def test_source_totals(self):
         expected={1:'17886000.00',2:'7353000.00',5:'26841000.00',8:'6368000.00'}
         for j in self.jobs:self.assertEqual(validate(j)['total'],expected[j['source']['project']])

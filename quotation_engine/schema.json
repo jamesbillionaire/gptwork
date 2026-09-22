@@ -29,8 +29,8 @@
     },
     "template_id": {
       "enum": [
-        "LAVI-QUOTATION-2026.5",
-        "LIFES-AWESOME-QUOTATION-2026.2"
+        "LAVI-QUOTATION-2026.6",
+        "LIFES-AWESOME-QUOTATION-2026.3"
       ]
     },
     "title": {
