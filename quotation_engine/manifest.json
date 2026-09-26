@@ -1,25 +1,25 @@
 {
-  "release_id": "APPROVED-QUOTATIONS-2026-09-LAVI-SPATIAL-RHYTHM",
-  "engine_version": "2.3.0",
+  "release_id": "APPROVED-QUOTATIONS-2026-09-LAVI-LIST-ALIGNMENT",
+  "engine_version": "2.3.1",
   "status": "APPROVED_LOCKED",
   "approved_by": "James Brown Bete",
   "approved_on": "2026-09-26",
   "active_profiles": {
-    "lavi": "LAVI-QUOTATION-2026.9",
+    "lavi": "LAVI-QUOTATION-2026.10",
     "lifes-awesome": "LIFES-AWESOME-QUOTATION-2026.3"
   },
   "source_manifest": "quotation_engine/reference/sources.json",
   "approval_scope": "Approved design and reusable engine, not automatic approval of future commercial data, source assumptions or signing.",
   "legacy_archive": "legacy/quotation_engine-pre-cpsc",
   "sha256": {
-    "quotation_engine/__init__.py": "bd5073abcecc426a53b2921654dfe4fa993ec465f181ccb9be4ad5751cd3c866",
+    "quotation_engine/__init__.py": "f24f3b9ad9959e156eb323952d331f3664947a8e5cafe246b4ca35d995c1e085",
     "quotation_engine/cli.py": "b4fa71e1b2eb32da970d877e44e1b8f95e475c308ba3cdbd0ff96aece3960c1d",
     "quotation_engine/diagrams.py": "4f79d34c51366593e11664c809b57129c65d9d663472ccb47575c5795948e241",
-    "quotation_engine/examples/cpsc-01.json": "57ba8503bdacb5e35405d85f9317414ac798b32b94446915b6ef6ce5250e2340",
-    "quotation_engine/examples/cpsc-02.json": "7076afea60a3eacc1cbc4bdb69d3493fc07a224ae62d524b33c40fa8d111d6d8",
+    "quotation_engine/examples/cpsc-01.json": "33000edff9cf70a3592deafd9271b4bb3990c17e9839ce0e19a744cb8e228a9f",
+    "quotation_engine/examples/cpsc-02.json": "4cf298a63d1c8deeb728f37ef0c8c785ab551c41093e4d3540d6c026d8a0b5de",
     "quotation_engine/examples/cpsc-05.json": "48652799db1d42cafe43ce904656b2dc5fbd7ff82da40cd3299310f402d1e4ab",
     "quotation_engine/examples/cpsc-08.json": "f3c21a645889f4c559f27d793def6cc5014d1fe42bf2ae0bea9372c8390ad6eb",
-    "quotation_engine/profiles.json": "8471704a339a7d454b13e0ee7a8d499648a13aa32716a4ef1ebbcbd973745bdb",
+    "quotation_engine/profiles.json": "f01e27c27fcb98378746ed0c9716d1a9d085cc5ead20f4ec9f8c673836877357",
     "quotation_engine/reference/previews/cpsc-01-architecture.svg": "06290ce8627494c2469698c78fda05673a39b87ba00d1a06e38f7efb3b599952",
     "quotation_engine/reference/previews/cpsc-01-header.svg": "26d9f748d7a5545aaf1551ea8497c59c62ea486a92a0260c3ae2cb49eef34820",
     "quotation_engine/reference/previews/cpsc-02-architecture.svg": "f82547ec4842036a75cfcc58d891a7d6ab7a55325e20100154ddf377c683f8aa",
@@ -30,21 +30,21 @@
     "quotation_engine/reference/previews/cpsc-08-header.svg": "535e73f5c59bd755267bad852a3ce8135423b3a9bcc58cfccc17484a99067644",
     "quotation_engine/reference/sources.json": "159af0e4d9711b4127cf011e1b33262e2d7d1667856f756f3ae9ae0b76d73d7b",
     "quotation_engine/reference/word_contract.json": "4e86f73259c7541bec7b4a4dfa2e94b7fd19dd9f756fbbb2ffe81e4d02613be3",
-    "quotation_engine/renderer.py": "368a5acc01f25cce1abae6ccd42de1ab4b852ddc8d79bb29b52f356923ad9617",
-    "quotation_engine/schema.json": "9fe570378a931e9c35e9a6ab7c05d5ab65c3ae8f397ddc44f8a042082078bbdc",
-    "quotation_engine/tests/test_approved.py": "a003f97da46f5c70b17c7e9861fce1c6a81765f65b6692dc75ce50077315e192",
+    "quotation_engine/renderer.py": "daaa913981f0ed8b8c532086df9680814ca66f813d8dd46352948805110ca39f",
+    "quotation_engine/schema.json": "5e946505c9c218707acec21d4dae3b1f52ed317d3bda0aa0e8a075ae8d8ba286",
+    "quotation_engine/tests/test_approved.py": "04abc6c30c8ccd39fefcddbe45a938e5f0103193331f62f05ca81857da3386d8",
     "quotation_engine/validation.py": "511e20a19efa12f288bc8e42585f297e85f690d0e81543f9333c43fe1a4860b1",
     "requirements.txt": "5614e324dab2dcb58a47b9e182299f1e79ea8df62ac605947ab9d3d76b7496fc",
     "templates/lavi/cpsc-2026/logo.png": "15cc5e470a5f6222c02d2de656c55a5f292f8b17577b730da63255aa0eda4353",
     "templates/lifes-awesome/cpsc-2026/logo.png": "a0dfdf0cd987932ec0c1bcb866919bde678b695a6e3ea42381dde2be75eea176",
-    "quotation_engine/reference/layout_contract.json": "c3b0d1a85f06281b9466de88fb68d917ff4b7a53b464befb9e9485b7dbc7e3a6",
-    "quotation_engine/signoff.py": "6c1b65f6509145f098ff8977fce4e970fe558a2d498450c09dfa3cc59cd2536a",
-    "quotation_engine/tests/test_flow_signoff.py": "309001fa0deac2537688c62c110c6e5b3d20ea8ce0e01f7e0f082cf31293aa0a",
-    "quotation_engine/tests/test_readability.py": "a071c2f984a3a137f1c2320a0f2aa2d8ca7ae79cececd625f021c8ecfcdaa449",
-    "quotation_engine/reference/readability_standard.md": "11155d9bf8a514f2ce203413ccbcb90a798314c9ab107002c7220d98c25397cd",
-    "quotation_engine/README.md": "5d2f4eb066e88400be9240499a40ef16e91f8c42ff1ae5f3ac7ac7ad187f42c5",
-    "templates/lavi/cpsc-2026/README.md": "b10275adbc17e071460a6b59b804f1e958f54fe4ab09f9471e083e7aa5423fcb",
-    ".agents/skills/lavi-quotation/SKILL.md": "e5b3bdf7396538ed7960965635259ed6ec787379f1d245ad7afbd1ee163e576c"
+    "quotation_engine/reference/layout_contract.json": "a37e6030d232029d706223f160ca969171c1144158bce69bed1b99cf1b741916",
+    "quotation_engine/signoff.py": "d917f71c9edcafe303018f07450e93109de9817ae13fc1f8fc1c0fbce73f3e31",
+    "quotation_engine/tests/test_flow_signoff.py": "b79be72c2dda3865b6deee84ee6126df453f1d4745b882397bcfcde3ef783783",
+    "quotation_engine/tests/test_readability.py": "718c8da4dc3ad5bfdc99f3c77e18b144a4fcdf34bddbbe48fb9915209cfc54be",
+    "quotation_engine/reference/readability_standard.md": "4a4f330e824910f41b2a1256ab1048b9b5a5664b266edaddcda222874ab68ff7",
+    "quotation_engine/README.md": "1e66982275ccaa12534d654d841427753b4cf71eed9741660e0d4510fa27c369",
+    "templates/lavi/cpsc-2026/README.md": "0880c768d0dd8baed48bec944ac28811066da18f6422cb1f26548ae210e9e64d",
+    ".agents/skills/lavi-quotation/SKILL.md": "5bb18d25d0bfad9486567a40ca6738761376bafc9e5f27e2db9915d014d3ff1f"
   },
   "paper_standard": {
     "name": "Legal",
@@ -57,9 +57,9 @@
     "authority": "James explicitly corrected both templates to Legal paper on 2026-09-21."
   },
   "layout_revision": {
-    "authority": "James requested stronger LAVI signature space, list/component rhythm, table consistency and opening summary design on 26 September 2026.",
-    "defaults": "LAVI uses balanced opening cards, 34/66 two-column terms tables and expanded Prepared By / Conforme; Lifes Awesome remains unchanged.",
-    "base_engine": "2.2.0"
+    "authority": "James requested permanent bullet/number vertical alignment and Prepared By signature-line placement correction on 26 September 2026.",
+    "defaults": "LAVI uses first-line-baseline list markers; Prepared By line is directly above printed identity; other 2026.9 geometry remains unchanged.",
+    "base_engine": "2.3.0"
   },
   "readability_standard": {
     "authority": "James specified the balanced LAVI role sizes on 26 September 2026 after reviewing the HDU Ozamiz quotation.",

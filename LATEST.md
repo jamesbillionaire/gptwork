@@ -1,25 +1,16 @@
 # Latest Agent Handoff
 
-Handoff version: 0019
+Handoff version: 0020
 Last updated: 2026-09-26
-Status: LAVI template 2026.9 spatial-rhythm revision implemented and locally verified; HDU Ozamiz quotation re-rendered to four Legal pages with improved spacing, summary cards and sign-off.
+Status: LAVI template 2026.10 list/signature alignment correction implemented and Greatlink quotation re-rendered.
 
 ## Latest direct instruction
-James requested more writable signature space, better vertical rhythm for bullet/number lists, consistent table columns, a stronger Prepared For / Quote Details presentation, and more breathing between components while retaining the approved typography sizes.
+James requested three corrections after reviewing the Greatlink Forwarders quotation: shorten the quotation number; preserve Prepared By / Conforme box size but move the Prepared By signature line directly above the printed name; permanently fix bullet and numbered marker vertical alignment.
 
 ## Template release
-Engine 2.3.0. Active LAVI profile: `LAVI-QUOTATION-2026.9`. Lifes Awesome remains `LIFES-AWESOME-QUOTATION-2026.3`.
+Engine 2.3.1. Active LAVI profile: `LAVI-QUOTATION-2026.10`. Lifes Awesome remains `LIFES-AWESOME-QUOTATION-2026.3`.
 
-LAVI 2026.9 keeps the approved typography but changes spacing/geometry: 4.5 pt table cell padding, 9/6 pt section spacing, 7/4 pt BOQ subhead spacing, marker-rail list breathing, 34/66 two-column terms tables, paired Prepared For / Quote Details cards, and a 148 pt Prepared By / Conforme sign-off.
+LAVI list markers now use a dedicated baseline-aligned flowable. The marker baseline is tied to the first text-line baseline rather than relying on separate Paragraph font metrics. This applies equally to bullets and numbered lists, including wrapped items. Existing 2026.9 typography, table geometry, opening cards, section spacing and sign-off box dimensions are preserved. The Prepared By signature line now sits 7 pt above the printed preparer identity.
 
-## HDU Ozamiz validation document
-Job: LAVI-QTN-20260926-HDU-OZAMIZ-FPS-01. Commercial data is unchanged: PHP1,550,000 VAT Exclusive, 15 HP main fire pump, 3 HP jockey pump, 45 sprinkler heads, two fire hose cabinet assemblies with 100-ft double-jacket hose, BFP processing allowance, 50/40/10 payment terms, and all previously approved qualifications. Only the template ID changed to 2026.9.
-
-The revised HDU render is four Legal pages. All four pages were visually inspected with no clipping, overlap or broken alignment.
-
-## Regression evidence
-Local `verify-lock` passed and all 28 quotation-engine tests passed. CPSC LAVI fixtures render to 7 pages for Project 1 and 7 pages for Project 2. Lifes Awesome Projects 5 and 8 remain 13 and 11 pages and compare at zero changed pixels against the 2.2.0 renders.
-
-Repository implementation commit: `82a2e2e102435179b693fc57ea4200f12d5bea65`; lock-hash correction commit: `354a0a97cb9263e8e3f0bf11bbd19eb5bfb65ff9`. GitHub Actions Approved quotation engines run `36219661837` completed successfully.
-
-Previous handoff archived at `.agents/handoffs/2026-09-26-before-lavi-template-2026.9.md`.
+## Greatlink quotation
+Greatlink Forwarders structured-cabling job retains PHP97,100 VAT Exclusive and all approved scope/terms. Quotation reference is shortened to `LAVI-QTN-0926-GLF-01`. The revised client PDF renders to three Legal pages and was visually inspected.

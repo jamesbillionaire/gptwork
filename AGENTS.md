@@ -14,7 +14,7 @@ James explicitly approved replacing the previous quotation engines with the CPSC
 
 | Brand | Active template | Approved design basis | Page / typography |
 |---|---|---|---|
-| LAVI Technologies Inc. | `LAVI-QUOTATION-2026.9` | Project 1 corrected network diagram + Project 2 corrected CCTV quotation, with James' 26 Sep 2026 typography/alignment and spacing revision | Legal 612 x 1008 pt, 15 mm side margins, Liberation Sans; teal/navy |
+| LAVI Technologies Inc. | `LAVI-QUOTATION-2026.10` | Project 1 corrected network diagram + Project 2 corrected CCTV quotation, with James' 26 Sep 2026 typography/alignment and spacing revision | Legal 612 x 1008 pt, 15 mm side margins, Liberation Sans; teal/navy |
 | Lifes Awesome Ventures Inc. | `LIFES-AWESOME-QUOTATION-2026.3` | Project 5 V2 + Project 8 V1 | Legal 612 x 1008 pt, 32 pt side margins, DejaVu Sans; cyan/gray |
 
 These are **two different approved templates**, not the same page recolored. Lifes Awesome is now APPROVED_LOCKED, not a candidate. For this CPSC family, LAVI handles infrastructure; Lifes Awesome handles software. Never infer the issuer from the generic name “LAVI”: use the legal company explicitly requested.
@@ -75,7 +75,7 @@ Before ending meaningful work update `LATEST.md`: status, approved decisions, ex
 
 ## LAVI balanced typography and alignment — 26 September 2026
 
-Engine **2.2.0** / **LAVI-QUOTATION-2026.9** supersedes the blanket 10-point LAVI rule. James explicitly set these LAVI roles: title **16 pt**; section headings **11 pt**; subheadings **10 pt**; body **9.5 pt**; BOQ/general table text **9 pt**; metadata/labels about **9.5 pt**; first-page top-right `LAVI TECHNOLOGIES INC.` **9 pt**; business address/contact and page furniture/footer **8 pt**. LAVI diagrams use 9 pt text. Do not shrink semantic content roles below their profile sizes to fit pages.
+Engine **2.2.0** / **LAVI-QUOTATION-2026.10** supersedes the blanket 10-point LAVI rule. James explicitly set these LAVI roles: title **16 pt**; section headings **11 pt**; subheadings **10 pt**; body **9.5 pt**; BOQ/general table text **9 pt**; metadata/labels about **9.5 pt**; first-page top-right `LAVI TECHNOLOGIES INC.` **9 pt**; business address/contact and page furniture/footer **8 pt**. LAVI diagrams use 9 pt text. Do not shrink semantic content roles below their profile sizes to fit pages.
 
 LAVI QTY and UNIT stay centered; DESCRIPTION stays left aligned; UNIT PRICE and AMOUNT stay right aligned. General two-column condition/payment/warranty tables are vertically centered within rows and remain on the full content rail. LAVI bullet and numbered lists use a marker column rather than paragraph bullet indents. LAVI sign-off defaults to equal Prepared By / Conforme columns; the right column contains Authorized name, Signature and Date fields.
 
@@ -84,6 +84,11 @@ The Lifes Awesome profile is unchanged from 2.1.0 / `LIFES-AWESOME-QUOTATION-202
 
 ## LAVI spatial rhythm refinement — 26 September 2026
 
-Engine **2.3.0** / **LAVI-QUOTATION-2026.9** keeps the approved 16 / 11 / 10 / 9.5 / 9 pt hierarchy but corrects layout density. LAVI uses roomier table cells, 9 pt section breathing before headings, 6 pt after headings, increased BOQ subsection spacing, marker-rail lists with 1.5 pt top / 3 pt bottom row padding, and standardized 34% / 66% two-column terms/warranty/payment tables.
+Engine **2.3.0** / **LAVI-QUOTATION-2026.10** keeps the approved 16 / 11 / 10 / 9.5 / 9 pt hierarchy but corrects layout density. LAVI uses roomier table cells, 9 pt section breathing before headings, 6 pt after headings, increased BOQ subsection spacing, marker-rail lists with 1.5 pt top / 3 pt bottom row padding, and standardized 34% / 66% two-column terms/warranty/payment tables.
 
 The first-page Prepared For / Quote Details area uses paired tinted key/value cards with a 12 pt gutter. The Prepared By / Conforme sign-off remains equal-width with 18 pt gutter and 14 pt inner padding, but grows to a 148 pt signing block with a 12 pt approach gap and 32 pt Conforme field rhythm. These are reusable template rules, not one-off HDU patches. Lifes Awesome remains unchanged.
+
+
+## LAVI list/signature alignment correction — 26 September 2026
+
+Engine **2.3.1** / **LAVI-QUOTATION-2026.10** keeps the approved 2026.9 typography, card geometry, table widths and spacing. Bullet and numbered markers now use a dedicated marker flowable whose baseline is mathematically tied to the first text-line baseline, so markers stay vertically aligned even when an item wraps. The Prepared By / Conforme box size is unchanged; only the Prepared By signature line is repositioned to sit directly above the printed preparer name instead of floating near the middle of the panel.

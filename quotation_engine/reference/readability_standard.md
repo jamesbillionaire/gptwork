@@ -2,7 +2,7 @@
 
 Authority: James revised the LAVI hierarchy on 26 September 2026 after reviewing the rendered HDU Ozamiz quotation. The earlier blanket 10-point floor remains the historical 2.1.0 rule for Lifes Awesome, but it no longer governs LAVI.
 
-Engine **2.3.0**. Active profiles: **LAVI-QUOTATION-2026.9** and **LIFES-AWESOME-QUOTATION-2026.3**.
+Engine **2.3.0**. Active profiles: **LAVI-QUOTATION-2026.10** and **LIFES-AWESOME-QUOTATION-2026.3**.
 
 ## LAVI Technologies
 
@@ -29,3 +29,8 @@ LAVI lists use a separate marker column and text column with 1.5 pt top / 3 pt b
 Lifes Awesome remains unchanged from engine 2.1.0: 20/25 pt title, 13/17 pt sections, 11/14 pt subsections, 11/15 pt body, 10/13 pt tables/notes/metadata and a 10 pt live-text minimum. Regression renders must remain visually identical.
 
 Both profiles retain Legal paper, their separate fonts/colors, supplied logos, full-width content rails and data-driven pagination. Existing client content, commercial terms and source wording must not be changed merely to adopt the LAVI layout revision.
+
+
+## LAVI list/signature alignment correction — 26 September 2026
+
+Engine **2.3.1** / **LAVI-QUOTATION-2026.10** keeps the approved 2026.9 typography, card geometry, table widths and spacing. Bullet and numbered markers now use a dedicated marker flowable whose baseline is mathematically tied to the first text-line baseline, so markers stay vertically aligned even when an item wraps. The Prepared By / Conforme box size is unchanged; only the Prepared By signature line is repositioned to sit directly above the printed preparer name instead of floating near the middle of the panel.

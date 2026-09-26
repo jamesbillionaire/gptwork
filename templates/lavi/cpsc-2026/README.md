@@ -1,6 +1,6 @@
 # LAVI Technologies — APPROVED_LOCKED
 
-Template: **LAVI-QUOTATION-2026.9**. Source family remains the CPSC Project 1 final diagram-corrected PDF and Project 2 V2 Corrected PDF. James authorized this template revision on **26 September 2026** to correct typography balance, list alignment, table-column alignment, component spacing, opening summary cards and the LAVI sign-off. Use `quotation_engine/cli.py`; do not create a separate renderer.
+Template: **LAVI-QUOTATION-2026.10**. Source family remains the CPSC Project 1 final diagram-corrected PDF and Project 2 V2 Corrected PDF. James authorized this template revision on **26 September 2026** to correct typography balance, list alignment, table-column alignment, component spacing, opening summary cards and the LAVI sign-off. Use `quotation_engine/cli.py`; do not create a separate renderer.
 
 ## Exact brand contract
 
@@ -32,3 +32,8 @@ Run `verify-lock`, all quotation-engine tests, render the exact client PDF, chec
 Engine **2.3.0** keeps the approved LAVI type hierarchy while improving layout density: 4.5 pt table cell padding, 9/6 pt section approach/exit spacing, 7/4 pt BOQ subsection spacing, marker-rail list breathing, standardized 34/66 two-column terms tables, balanced Prepared For / Quote Details cards, and a taller 148 pt Prepared By / Conforme sign-off. Short two-column tables stay with their heading when the complete block fits on one page.
 
 Lifes Awesome remains visually unchanged. Existing LAVI jobs require an explicit template-ID migration to 2026.9 while preserving commercial data.
+
+
+## LAVI list/signature alignment correction — 26 September 2026
+
+Engine **2.3.1** / **LAVI-QUOTATION-2026.10** keeps the approved 2026.9 typography, card geometry, table widths and spacing. Bullet and numbered markers now use a dedicated marker flowable whose baseline is mathematically tied to the first text-line baseline, so markers stay vertically aligned even when an item wraps. The Prepared By / Conforme box size is unchanged; only the Prepared By signature line is repositioned to sit directly above the printed preparer name instead of floating near the middle of the panel.
