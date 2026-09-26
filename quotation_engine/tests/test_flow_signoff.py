@@ -21,7 +21,7 @@ class FlowSignoffTests(unittest.TestCase):
         builder = Builder(self.job)
         self.assertFalse(any(isinstance(x, PageBreak) for x in builder.front()))
         table = builder.table([[builder.P('Readable table row', 'cell')]], [1])
-        self.assertEqual(table._cellStyles[0][0].topPadding, 3.2)
+        self.assertEqual(table._cellStyles[0][0].topPadding, 4.5)
 
     def test_padded_signoff_geometry(self):
         self.job['signature_mode'] = 'two_column_prepared_conforme'
@@ -29,8 +29,8 @@ class FlowSignoffTests(unittest.TestCase):
         block = TwoColumnSignoff(builder)
         self.assertEqual(block.padding, 14)
         self.assertEqual(block.gutter, 18)
-        self.assertEqual(block.spaceBefore, 4.0)
-        self.assertGreaterEqual(block.height, 100.0)
+        self.assertEqual(block.spaceBefore, 12.0)
+        self.assertGreaterEqual(block.height, 148.0)
         self.assertAlmostEqual(2 * block.col_width + block.gutter, builder.w)
         with tempfile.TemporaryDirectory() as td:
             path = Path(td) / 'signoff.pdf'
@@ -86,6 +86,16 @@ class FlowSignoffTests(unittest.TestCase):
         self.assertEqual(bullet._cellStyles[0][0].leftPadding,0)
         self.assertEqual(bullet._cellStyles[0][1].leftPadding,0)
         self.assertEqual(number._cellStyles[0][0].rightPadding,b.p['list_gutter'])
+
+    def test_lavi_spacing_and_two_column_standard(self):
+        b=Builder(self.job)
+        bullet=b.lavi_list_item('•','First line\nwrapped',False)
+        self.assertEqual(bullet._cellStyles[0][0].topPadding,b.p['list_top_padding'])
+        self.assertEqual(bullet._cellStyles[0][0].bottomPadding,b.p['list_bottom_padding'])
+        t=b.generic_table({'type':'table','rows':[['A','B'],['C','D']], 'widths':[.3,.7], 'header':False})
+        self.assertAlmostEqual(t._colWidths[0]/b.w,.34,places=3)
+        self.assertAlmostEqual(t._colWidths[1]/b.w,.66,places=3)
+        card=b.lavi_front_cards();self.assertGreater(card.spaceAfter,8)
 
     def test_schema_is_valid_json(self):
         schema = json.loads((ROOT / 'quotation_engine/schema.json').read_text())

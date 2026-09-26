@@ -127,7 +127,7 @@ class Builder:
         c.line(m,self.footer_rule,r,self.footer_rule)
         self.footer.drawOn(c,m,18)
         c.restoreState()
-    def heading(self,text):return Heading(self.P(text,'heading'),self.w,self.c('accent'),6 if not self.software else 10,4 if not self.software else 8)
+    def heading(self,text):return Heading(self.P(text,'heading'),self.w,self.c('accent'),self.p.get('heading_space_before',9) if not self.software else 10,self.p.get('heading_space_after',6) if not self.software else 8)
     def table(self,data,widths,header=False,style_extra=None):
         padding = self.p.get('flow_table_padding', self.p['table_padding']) if not self.job.get('front_page_break', True) else self.p['table_padding']
         t=Table(data,colWidths=[self.w*x for x in widths],repeatRows=1 if header else 0,hAlign='LEFT',splitByRow=1)
@@ -136,7 +136,7 @@ class Builder:
             ('TOPPADDING',(0,0),(-1,-1),padding),('BOTTOMPADDING',(0,0),(-1,-1),padding),
             ('ROWBACKGROUNDS',(0,1 if header else 0),(-1,-1),[colors.white,self.c('light')])]
         if header:commands += [('BACKGROUND',(0,0),(-1,0),self.c('table_header')),('NOSPLIT',(0,0),(-1,1))]
-        t.setStyle(TableStyle(commands+(style_extra or [])));t.spaceAfter=6 if self.software else 4;return t
+        t.setStyle(TableStyle(commands+(style_extra or [])));t.spaceAfter=6 if self.software else self.p.get('table_space_after',7);return t
     def generic_table(self,b):
         raw_rows=b['rows'];ncols=len(b['widths'])
         names={'left':TA_LEFT,'center':TA_CENTER,'right':TA_RIGHT}
@@ -154,7 +154,10 @@ class Builder:
                     if ci==0 and not b.get('header'):kw['fontName']=self.bold
                     converted.append(self.P(c,'cell',**kw))
             data.append(converted)
-        widths=[self.w*x for x in b['widths']]
+        fractions=b['widths']
+        if not self.software and ncols==2 and self.p.get('generic_two_column_widths'):
+            fractions=self.p['generic_two_column_widths']
+        widths=[self.w*x for x in fractions]
         pad=12 if self.software else 8
         minima=[max(row[i].minWidth() for row in data)+pad+.1 for i in range(len(widths))]
         extras=sum(max(0,lo-w) for lo,w in zip(minima,widths))
@@ -170,19 +173,19 @@ class Builder:
         marker_w=self.p.get('number_marker_width',24.0) if numbered else self.p.get('bullet_marker_width',14.0)
         gutter=self.p.get('list_gutter',5.0)
         marker_p=self.P(marker,'body',fontName=self.bold if numbered else self.font,alignment=TA_RIGHT,spaceAfter=0)
-        text_p=self.P(text,'body',alignment=TA_LEFT,spaceAfter=0)
+        text_p=self.P(text.strip(),'body',alignment=TA_LEFT,spaceAfter=0)
         t=Table([[marker_p,text_p]],colWidths=[marker_w,self.w-marker_w],hAlign='LEFT',splitByRow=1)
         t.setStyle(TableStyle([
             ('VALIGN',(0,0),(-1,-1),'TOP'),
             ('LEFTPADDING',(0,0),(-1,-1),0),('RIGHTPADDING',(0,0),(-1,-1),0),
             ('RIGHTPADDING',(0,0),(0,0),gutter),
-            ('TOPPADDING',(0,0),(-1,-1),1.0),('BOTTOMPADDING',(0,0),(-1,-1),1.5),
+            ('TOPPADDING',(0,0),(-1,-1),self.p.get('list_top_padding',1.5)),('BOTTOMPADDING',(0,0),(-1,-1),self.p.get('list_bottom_padding',3.0)),
         ]))
         t.spaceAfter=0
         return t
 
     def boq(self,b):
-        title=self.P(b['title'],'sub',keepWithNext=False,spaceBefore=6 if self.software else 4,spaceAfter=4 if self.software else 2)
+        title=self.P(b['title'],'sub',keepWithNext=False,spaceBefore=6 if self.software else self.p.get('boq_subheading_space_before',7),spaceAfter=4 if self.software else self.p.get('boq_subheading_space_after',4))
         heads=['QTY','UNIT','DESCRIPTION / DELIVERABLE' if self.software else 'DESCRIPTION','UNIT PRICE','AMOUNT']
         data=[[self.P(h,'head') for h in heads]]
         for r in b['items']:
@@ -211,6 +214,34 @@ class Builder:
         data=[[self.P('TOTAL CONTRACT PRICE','sub'),total_amount],
               [self.P(j['tax_treatment'].upper(),'label'),self.P(j['amount_words'],'cell',alignment=TA_RIGHT,textColor=self.c('muted'))]]
         return self.table(data,[.34,.66],False,[('NOSPLIT',(0,0),(-1,-1)),('BACKGROUND',(0,0),(-1,-1),self.c('gold')),('BOX',(0,0),(-1,-1),.6,colors.HexColor('#E8D79F')),('INNERGRID',(0,0),(-1,-1),0,self.c('gold'))])
+    def lavi_front_cards(self):
+        """Balanced two-card client/quotation summary for the LAVI first page."""
+        j=self.job;cl=j['client'];p=self.p
+        gap=p.get('front_card_gap',12.0)
+        card_w=(self.w-gap)/2
+        inner=card_w-2*p.get('front_card_padding',9.0)
+        key_w=p.get('front_detail_label_width',72.0)
+        val_w=inner-key_w
+        left_rows=[[self.P('PREPARED FOR','label'),''],
+                   [self.P('Client','meta',fontName=self.bold,textColor=self.c('muted')),self.P('<b>'+escape(cl['name'])+'</b>','meta')],
+                   [self.P('Address','meta',fontName=self.bold,textColor=self.c('muted')),self.P(escape(cl['address'] or cl['location']),'meta')],
+                   [self.P('Attention','meta',fontName=self.bold,textColor=self.c('muted')),self.P(escape(cl['attention']),'meta')],
+                   [self.P('Role','meta',fontName=self.bold,textColor=self.c('muted')),self.P(escape(cl['role']),'meta')],
+                   [self.P('Project Location','meta',fontName=self.bold,textColor=self.c('muted')),self.P(escape(cl['location']),'meta')]]
+        left=Table(left_rows,colWidths=[key_w,val_w],hAlign='LEFT')
+        left.setStyle(TableStyle([('SPAN',(0,0),(1,0)),('GRID',(0,0),(-1,-1),0,colors.white),('LEFTPADDING',(0,0),(-1,-1),0),('RIGHTPADDING',(0,0),(-1,-1),0),('TOPPADDING',(0,0),(-1,-1),1.8),('BOTTOMPADDING',(0,0),(-1,-1),1.8),('LINEBELOW',(0,0),(-1,0),.75,self.c('accent')),('BOTTOMPADDING',(0,0),(-1,0),5.5),('TOPPADDING',(0,1),(-1,1),6.5),('VALIGN',(0,0),(-1,-1),'TOP')]))
+        detail_rows=[[self.P('QUOTE DETAILS','label'),''],
+                     [self.P('Quotation No.','meta',fontName=self.bold,textColor=self.c('muted')),self.P(escape(j['quote_no']),'meta')],
+                     [self.P('Date','meta',fontName=self.bold,textColor=self.c('muted')),self.P(escape(j['date']),'meta')],
+                     [self.P('Validity','meta',fontName=self.bold,textColor=self.c('muted')),self.P(f'{j["validity_days"]} calendar days','meta')],
+                     [self.P('Pricing','meta',fontName=self.bold,textColor=self.c('muted')),self.P(escape(j['tax_treatment']),'meta')]]
+        right=Table(detail_rows,colWidths=[key_w,val_w],hAlign='LEFT')
+        right.setStyle(TableStyle([('SPAN',(0,0),(1,0)),('GRID',(0,0),(-1,-1),0,colors.white),('LEFTPADDING',(0,0),(-1,-1),0),('RIGHTPADDING',(0,0),(-1,-1),0),('TOPPADDING',(0,0),(-1,-1),1.8),('BOTTOMPADDING',(0,0),(-1,-1),1.8),('LINEBELOW',(0,0),(-1,0),.75,self.c('accent')),('BOTTOMPADDING',(0,0),(-1,0),5.5),('TOPPADDING',(0,1),(-1,1),6.5),('VALIGN',(0,0),(-1,-1),'TOP')]))
+        outer=Table([[left,'',right]],colWidths=[card_w,gap,card_w],hAlign='LEFT')
+        pad=p.get('front_card_padding',9.0)
+        outer.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),0),('RIGHTPADDING',(0,0),(-1,-1),0),('TOPPADDING',(0,0),(-1,-1),0),('BOTTOMPADDING',(0,0),(-1,-1),0),('BACKGROUND',(0,0),(0,0),self.c('tint')),('BACKGROUND',(2,0),(2,0),self.c('tint2')),('BOX',(0,0),(0,0),.45,self.c('border')),('BOX',(2,0),(2,0),.45,self.c('border')),('LINEABOVE',(0,0),(0,0),1.15,self.c('accent')),('LINEABOVE',(2,0),(2,0),1.15,self.c('accent')),('LEFTPADDING',(0,0),(0,0),pad),('RIGHTPADDING',(0,0),(0,0),pad),('TOPPADDING',(0,0),(0,0),pad),('BOTTOMPADDING',(0,0),(0,0),pad),('LEFTPADDING',(2,0),(2,0),pad),('RIGHTPADDING',(2,0),(2,0),pad),('TOPPADDING',(2,0),(2,0),pad),('BOTTOMPADDING',(2,0),(2,0),pad)]))
+        outer.spaceAfter=p.get('front_card_space_after',10.0)
+        return outer
     def front(self):
         j,p=self.job,self.p
         eyebrow=self.P('FORMAL QUOTATION','label') if not self.software else self.P('FORMAL QUOTATION','label',fontSize=10,leading=13)
@@ -229,11 +260,11 @@ class Builder:
                   [self.P(escape(cl['location']),'meta'),self.P(valid+' from quotation date','meta')]]
             widths=[.55,.45]
         else:
-            data=[[self.P('PREPARED FOR','label'),self.P('QUOTE DETAILS','label')],
-                [self.P(escape(cl['name'])+'<br/>'+escape(cl['address']),'meta'),self.P(f'Quotation No. {escape(j["quote_no"])}<br/>Date: {escape(j["date"])}<br/>Validity: {valid}<br/>Pricing: {tax}','meta')],
-                [self.P(f'Attention: {escape(cl["attention"])}<br/>{escape(cl["role"])}' if cl['attention'] else escape(cl['role']),'meta'),self.P('Project Location: '+escape(cl['location']),'meta')]]
-            widths=[.5,.5]
-        out += [self.table(data,widths,False,[('BACKGROUND',(0,0),(0,-1),self.c('tint')),('BACKGROUND',(1,0),(1,-1),self.c('tint2'))]),Spacer(1,8),self.P(j['salutation'])]
+            data=None;widths=None
+        if self.software:
+            out += [self.table(data,widths,False,[('BACKGROUND',(0,0),(0,-1),self.c('tint')),('BACKGROUND',(1,0),(1,-1),self.c('tint2'))]),Spacer(1,8),self.P(j['salutation'])]
+        else:
+            out += [self.lavi_front_cards(),self.P(j['salutation'])]
         out += [self.P(s) for s in j.get('introduction',[])]
         if j.get('metrics'):
             metrics=[self.P('<b>'+escape(x[0])+'</b><br/>'+escape(x[1]),'cell',alignment=TA_CENTER) for x in j['metrics']]
@@ -271,7 +302,8 @@ class Builder:
                 following=self.job['blocks'][bi+1] if bi+1<len(self.job['blocks']) else {}
                 if following.get('type')=='table':
                     table=self.generic_table(following);table.wrap(self.w,100000)
-                    minimum=heading.wrap(self.w,100000)[1]+heading.spaceBefore+heading.spaceAfter+sum(table._rowHeights[:2])+2
+                    rows_to_keep=len(table._rowHeights) if (not self.software and len(following.get('rows',[]))<=4) else min(2,len(table._rowHeights))
+                    minimum=heading.wrap(self.w,100000)[1]+heading.spaceBefore+heading.spaceAfter+sum(table._rowHeights[:rows_to_keep])+2
                     story.append(CondPageBreak(minimum));heading.keepWithNext=0
                 story.append(heading)
             elif k in ('paragraph','note'):story.append(self.P(b['text'],'note' if k=='note' else 'body'))

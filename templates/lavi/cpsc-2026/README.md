@@ -1,6 +1,6 @@
 # LAVI Technologies — APPROVED_LOCKED
 
-Template: **LAVI-QUOTATION-2026.8**. Source family remains the CPSC Project 1 final diagram-corrected PDF and Project 2 V2 Corrected PDF. James authorized this template revision on **26 September 2026** to correct typography balance, list alignment, table-column alignment and the LAVI sign-off. Use `quotation_engine/cli.py`; do not create a separate renderer.
+Template: **LAVI-QUOTATION-2026.9**. Source family remains the CPSC Project 1 final diagram-corrected PDF and Project 2 V2 Corrected PDF. James authorized this template revision on **26 September 2026** to correct typography balance, list alignment, table-column alignment, component spacing, opening summary cards and the LAVI sign-off. Use `quotation_engine/cli.py`; do not create a separate renderer.
 
 ## Exact brand contract
 
@@ -25,3 +25,10 @@ CPSC examples are historical source fixtures. Their dates, prices, terms, quanti
 ## Verification
 
 Run `verify-lock`, all quotation-engine tests, render the exact client PDF, check arithmetic/content preservation and inspect every page. Lifes Awesome is a separate template and is not changed by this LAVI revision.
+
+
+## Spatial rhythm refinement — 26 September 2026
+
+Engine **2.3.0** keeps the approved LAVI type hierarchy while improving layout density: 4.5 pt table cell padding, 9/6 pt section approach/exit spacing, 7/4 pt BOQ subsection spacing, marker-rail list breathing, standardized 34/66 two-column terms tables, balanced Prepared For / Quote Details cards, and a taller 148 pt Prepared By / Conforme sign-off. Short two-column tables stay with their heading when the complete block fits on one page.
+
+Lifes Awesome remains visually unchanged. Existing LAVI jobs require an explicit template-ID migration to 2026.9 while preserving commercial data.

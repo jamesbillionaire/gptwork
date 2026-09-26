@@ -4,7 +4,7 @@
 
 ## Which profile?
 
-- `lavi`: `LAVI-QUOTATION-2026.8`; Legal 612 x 1008 pt, Liberation Sans, teal/navy, left-aligned first-page logo and right-aligned live contact block. Detailed infrastructure/equipment BOQs with the 26 Sep 2026 balanced type hierarchy and two-column sign-off default. See `templates/lavi/cpsc-2026/README.md`.
+- `lavi`: `LAVI-QUOTATION-2026.9`; Legal 612 x 1008 pt, Liberation Sans, teal/navy, left-aligned first-page logo and right-aligned live contact block. Detailed infrastructure/equipment BOQs with the 26 Sep 2026 balanced type hierarchy and two-column sign-off default. See `templates/lavi/cpsc-2026/README.md`.
 - `lifes-awesome`: `LIFES-AWESOME-QUOTATION-2026.3`; Legal, DejaVu Sans, cyan/gray, centered first-page logo and compact contact lines, tinted title band. Software deliverable/fee tables. See `templates/lifes-awesome/cpsc-2026/README.md`.
 
 The engine keeps brand styles separate while sharing validation, arithmetic, section flow, tables, list indents, calculated page numbers and safe diagram geometry. It does not use a project-specific generator script.
@@ -88,10 +88,17 @@ Defaults for other jobs remain the existing first-page boundary and prepared-onl
 
 ## LAVI balanced type hierarchy — 26 September 2026
 
-Engine **2.2.0** changes LAVI only. `LAVI-QUOTATION-2026.8` uses: 16/19.2 pt title; 11/13.5 pt sections; 10/12.4 pt subsections; 9.5/12.5 pt body and notes; 9/11.4 pt BOQ/general tables; 9.5 pt metadata/labels; 9 pt table headers and first-page company heading; 8 pt contact lines, footer, page number and running quotation furniture. LAVI diagrams use 9 pt. Semantic content roles cannot be locally shrunk below their role size; the 8 pt allowance is reserved for metadata furniture/contact/footer usage.
+Engine **2.2.0** changes LAVI only. `LAVI-QUOTATION-2026.9` uses: 16/19.2 pt title; 11/13.5 pt sections; 10/12.4 pt subsections; 9.5/12.5 pt body and notes; 9/11.4 pt BOQ/general tables; 9.5 pt metadata/labels; 9 pt table headers and first-page company heading; 8 pt contact lines, footer, page number and running quotation furniture. LAVI diagrams use 9 pt. Semantic content roles cannot be locally shrunk below their role size; the 8 pt allowance is reserved for metadata furniture/contact/footer usage.
 
 LAVI lists now render marker and text in separate columns for consistent hanging alignment. BOQ columns are fixed to the profile proportions with QTY/UNIT centered, DESCRIPTION left aligned and currency right aligned. General LAVI condition/payment/warranty tables use explicit per-column alignment support and middle row alignment.
 
 The LAVI default signature mode is `two_column_prepared_conforme`, using equal columns, 18 pt gutter and 14 pt interior padding; Conforme stays on the right with Authorized name / Signature / Date writing lines. The component is compact enough to remain with closing content when space permits, without reducing live type.
 
 Lifes Awesome remains byte-for-byte visually unchanged in regression renders from the prior 2.1.0 profile. Legal paper, separate brand fonts/colors, supplied logos and full content rails are preserved. Existing client/source data must not be changed during a typography migration.
+
+
+## LAVI spatial rhythm — 26 September 2026
+
+Engine **2.3.0** promotes LAVI to **LAVI-QUOTATION-2026.9** without changing its approved type sizes. It adds roomier table/list/component spacing, consistent 34/66 two-column terms tables, balanced Prepared For / Quote Details cards, and a taller 148 pt Prepared By / Conforme sign-off. Short two-column tables stay with their heading when the whole block fits.
+
+Lifes Awesome remains **LIFES-AWESOME-QUOTATION-2026.3** and is visually unchanged.

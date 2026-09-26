@@ -2,7 +2,7 @@
 
 Authority: James revised the LAVI hierarchy on 26 September 2026 after reviewing the rendered HDU Ozamiz quotation. The earlier blanket 10-point floor remains the historical 2.1.0 rule for Lifes Awesome, but it no longer governs LAVI.
 
-Engine **2.2.0**. Active profiles: **LAVI-QUOTATION-2026.8** and **LIFES-AWESOME-QUOTATION-2026.3**.
+Engine **2.3.0**. Active profiles: **LAVI-QUOTATION-2026.9** and **LIFES-AWESOME-QUOTATION-2026.3**.
 
 ## LAVI Technologies
 
@@ -22,7 +22,7 @@ Engine **2.2.0**. Active profiles: **LAVI-QUOTATION-2026.8** and **LIFES-AWESOME
 
 Semantic content roles may not be locally shrunk below their profile size to force pagination. The 8 pt size is reserved for business contact and page furniture.
 
-LAVI lists use a separate marker column and text column. BOQ columns remain QTY/UNIT centered, description left, currency right. General two-column terms/warranty/payment tables are vertically centered. The sign-off defaults to equal Prepared By / Conforme panels with Conforme on the right.
+LAVI lists use a separate marker column and text column with 1.5 pt top / 3 pt bottom row spacing. BOQ columns remain QTY/UNIT centered, description left, currency right. General two-column terms/warranty/payment tables are vertically centered and standardized to a 34% / 66% split. The first-page client/quote summary is rendered as two balanced key/value cards. The sign-off defaults to equal Prepared By / Conforme panels with Conforme on the right, 148 pt panel height and materially larger writable space.
 
 ## Lifes Awesome Ventures
 

@@ -1,4 +1,4 @@
-"""Padded, two-column LAVI sign-off. No table zebra fill or inherited zero padding.
+"""Balanced, two-column LAVI sign-off with real signing space.
 
 Geometry is relative to the full content rail. This indivisible flowable moves as
 one unit when the page has insufficient space. It never inserts a signature image.
@@ -12,12 +12,13 @@ from reportlab.platypus import Flowable
 class TwoColumnSignoff(Flowable):
     gutter = 18.0
     padding = 14.0
-    spaceBefore = 4.0
-    spaceAfter = 0.0
 
     def __init__(self, builder):
         super().__init__()
         self.b = builder
+        p = builder.p
+        self.spaceBefore = p.get('signoff_space_before', 12.0)
+        self.spaceAfter = p.get('signoff_space_after', 2.0)
         self.width = builder.w
         self.col_width = (self.width - self.gutter) / 2
         self.inner_width = self.col_width - 2 * self.padding
@@ -29,7 +30,8 @@ class TwoColumnSignoff(Flowable):
             escape(person['role']) + ' | ' + escape(builder.p['display_name']),
             'meta', alignment=TA_LEFT, spaceAfter=0)
         _, self.person_height = self.person.wrap(self.inner_width, 1000)
-        self.height = max(100.0, 56.0 + self.person_height + self.padding)
+        self.height = max(float(p.get('signoff_height', 148.0)),
+                          102.0 + self.person_height + self.padding)
         fields = builder.job.get('conforme_fields', {})
         self.fields = [fields.get(k, default) for k, default in (
             ('authorized_name', 'Authorized name'), ('signature', 'Signature'),
@@ -53,30 +55,36 @@ class TwoColumnSignoff(Flowable):
                 c.setFillColorRGB(1, 1, 1)
                 c.setStrokeColor(b.c('border'))
                 c.setLineWidth(.5)
-                c.roundRect(x, 0, self.col_width, self.height, 4, fill=1, stroke=1)
+                c.roundRect(x, 0, self.col_width, self.height, 5, fill=1, stroke=1)
+                _, h = label.wrap(self.inner_width, 100)
+                label_y = self.height - self.padding - h
+                label.drawOn(c, x + self.padding, label_y)
+                rule_y = self.height - 34.0
                 c.setStrokeColor(b.c('accent'))
                 c.setLineWidth(.9)
-                c.line(x + self.padding, self.height - 31,
-                       x + self.col_width - self.padding, self.height - 31)
-                _, h = label.wrap(self.inner_width, 100)
-                label.drawOn(c, x + self.padding, self.height - self.padding - h)
+                c.line(x + self.padding, rule_y,
+                       x + self.col_width - self.padding, rule_y)
 
-            # Space to sign above the prepared-by identity.
-            c.setStrokeColor(b.c('muted'));c.setLineWidth(.4)
-            c.line(self.padding, self.height - 50,
-                   self.col_width - self.padding, self.height - 50)
-            self.person.drawOn(c, self.padding, self.height - 56 - self.person_height)
+            c.setStrokeColor(b.c('muted'))
+            c.setLineWidth(.45)
+            left_line_y = self.height - 72.0
+            c.line(self.padding, left_line_y,
+                   self.col_width - self.padding, left_line_y)
+            person_y = 18.0
+            self.person.drawOn(c, self.padding, person_y)
 
-            # Same text style as the body; three separate writable fields.
             x = self.col_width + self.gutter + self.padding
             right = self.width - self.padding
             size = b.p['body'][0]
-            c.setFont(b.font, size);c.setFillColor(b.c('ink'))
-            for top, label in zip((40.0, 59.0, 78.0), self.fields):
-                baseline = self.height - top
+            c.setFont(b.font, size)
+            c.setFillColor(b.c('ink'))
+            baselines = [self.height - 58.0, self.height - 90.0, self.height - 122.0]
+            for baseline, label in zip(baselines, self.fields):
                 rendered = label + ':'
                 c.drawString(x, baseline, rendered)
                 start = x + pdfmetrics.stringWidth(rendered, b.font, size) + 8
+                c.setStrokeColor(b.c('muted'))
+                c.setLineWidth(.4)
                 c.line(start, baseline - 2, right, baseline - 2)
         finally:
             c.restoreState()

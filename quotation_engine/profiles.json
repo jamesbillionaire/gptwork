@@ -1,6 +1,6 @@
 {
   "lavi": {
-    "template_id": "LAVI-QUOTATION-2026.8",
+    "template_id": "LAVI-QUOTATION-2026.9",
     "status": "APPROVED_LOCKED",
     "company": "LAVI TECHNOLOGIES INC.",
     "page": [
@@ -17,7 +17,7 @@
       12.5
     ],
     "table": [
-      9.0,
+      9,
       11.4
     ],
     "note": [
@@ -25,18 +25,18 @@
       12.5
     ],
     "heading": [
-      11.0,
+      11,
       13.5
     ],
     "subheading": [
-      10.0,
+      10,
       12.4
     ],
     "title": [
-      16.0,
+      16,
       19.2
     ],
-    "table_padding": 3.5,
+    "table_padding": 4.5,
     "columns": [
       0.06,
       0.1,
@@ -71,26 +71,44 @@
       2
     ],
     "display_name": "LAVI Technologies Inc.",
-    "flow_table_padding": 3.2,
-    "minimum_font_size": 8.0,
-    "minimum_content_font_size": 9.0,
+    "flow_table_padding": 4.5,
+    "minimum_font_size": 8,
+    "minimum_content_font_size": 9,
     "metadata_size": 9.5,
     "metadata_leading": 11.8,
-    "table_header_size": 9.0,
+    "table_header_size": 9,
     "table_header_leading": 11.2,
-    "company_header_size": 9.0,
+    "company_header_size": 9,
     "company_header_leading": 10.8,
-    "contact_size": 8.0,
+    "contact_size": 8,
     "contact_leading": 9.6,
-    "furniture_size": 8.0,
+    "furniture_size": 8,
     "furniture_leading": 9.6,
     "continuation_company_size": 8.5,
     "continuation_company_leading": 10.2,
-    "diagram_font_size": 9.0,
-    "bullet_marker_width": 14.0,
-    "number_marker_width": 24.0,
-    "list_gutter": 5.0,
-    "default_signature_mode": "two_column_prepared_conforme"
+    "diagram_font_size": 9,
+    "bullet_marker_width": 14,
+    "number_marker_width": 24,
+    "list_gutter": 5,
+    "default_signature_mode": "two_column_prepared_conforme",
+    "heading_space_before": 9,
+    "heading_space_after": 6,
+    "boq_subheading_space_before": 7,
+    "boq_subheading_space_after": 4,
+    "table_space_after": 7,
+    "list_top_padding": 1.5,
+    "list_bottom_padding": 3,
+    "generic_two_column_widths": [
+      0.34,
+      0.66
+    ],
+    "front_card_gap": 12,
+    "front_card_padding": 9,
+    "front_card_space_after": 11,
+    "front_detail_label_width": 72,
+    "signoff_height": 148,
+    "signoff_space_before": 12,
+    "signoff_space_after": 2
   },
   "lifes-awesome": {
     "template_id": "LIFES-AWESOME-QUOTATION-2026.3",

@@ -11,7 +11,7 @@
       "brand": "lavi"
     },
     "2": {
-      "pages": 6,
+      "pages": 7,
       "brand": "lavi"
     },
     "5": {
@@ -23,5 +23,5 @@
       "brand": "lifes-awesome"
     }
   },
-  "readability_revision": "2.2.0: LAVI balanced hierarchy / marker-rail lists / two-column signoff default; Lifes Awesome unchanged"
+  "readability_revision": "2.3.0: LAVI spatial-rhythm refinement / balanced first-page cards / standardized two-column tables / expanded sign-off; Lifes Awesome unchanged"
 }
