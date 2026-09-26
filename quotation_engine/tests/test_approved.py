@@ -19,7 +19,7 @@ class ApprovalTests(unittest.TestCase):
     def test_both_profiles_require_legal_paper(self):
         for brand,p in PROFILES.items():
             self.assertEqual(p['page'],[612,1008],brand)
-        self.assertEqual(PROFILES['lavi']['template_id'],'LAVI-QUOTATION-2026.9')
+        self.assertEqual(PROFILES['lavi']['template_id'],'LAVI-QUOTATION-2026.10')
         self.assertEqual(PROFILES['lifes-awesome']['template_id'],'LIFES-AWESOME-QUOTATION-2026.3')
     def test_brand_styles_preserved(self):
         expected={'lavi':('LiberationSans',42.5196850394,'#0AA7AE','#243F73'),

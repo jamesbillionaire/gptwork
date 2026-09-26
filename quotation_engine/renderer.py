@@ -58,6 +58,27 @@ class Heading(Flowable):
         self.paragraph.drawOn(self.canv,0,5)
         self.canv.setStrokeColor(self.color);self.canv.setLineWidth(.65);self.canv.line(0,0,self.width,0)
 
+class ListMarker(Flowable):
+    """Draw a list marker on the exact first-line baseline of its sibling paragraph."""
+    def __init__(self, marker, width, font, font_size, leading, color):
+        super().__init__()
+        self.marker=str(marker); self.width=width; self.height=leading
+        self.font=font; self.font_size=font_size; self.color=color
+        self.ascent=pdfmetrics.getAscent(font, font_size)
+
+    def wrap(self, availWidth, availHeight):
+        return self.width, self.height
+
+    def draw(self):
+        c=self.canv
+        c.saveState()
+        try:
+            c.setFont(self.font,self.font_size)
+            c.setFillColor(self.color)
+            c.drawRightString(self.width,self.height-self.ascent,self.marker)
+        finally:
+            c.restoreState()
+
 class Builder:
     def __init__(self,job):
         validate(job);self.job=job;self.p=PROFILES[job['brand']];p=self.p
@@ -172,13 +193,13 @@ class Builder:
     def lavi_list_item(self, marker, text, numbered=False):
         marker_w=self.p.get('number_marker_width',24.0) if numbered else self.p.get('bullet_marker_width',14.0)
         gutter=self.p.get('list_gutter',5.0)
-        marker_p=self.P(marker,'body',fontName=self.bold if numbered else self.font,alignment=TA_RIGHT,spaceAfter=0)
+        marker_font=self.bold if numbered else self.font
+        marker_p=ListMarker(marker,marker_w-gutter,marker_font,self.styles['body'].fontSize,self.styles['body'].leading,self.c('ink'))
         text_p=self.P(text.strip(),'body',alignment=TA_LEFT,spaceAfter=0)
         t=Table([[marker_p,text_p]],colWidths=[marker_w,self.w-marker_w],hAlign='LEFT',splitByRow=1)
         t.setStyle(TableStyle([
             ('VALIGN',(0,0),(-1,-1),'TOP'),
             ('LEFTPADDING',(0,0),(-1,-1),0),('RIGHTPADDING',(0,0),(-1,-1),0),
-            ('RIGHTPADDING',(0,0),(0,0),gutter),
             ('TOPPADDING',(0,0),(-1,-1),self.p.get('list_top_padding',1.5)),('BOTTOMPADDING',(0,0),(-1,-1),self.p.get('list_bottom_padding',3.0)),
         ]))
         t.spaceAfter=0

@@ -85,7 +85,8 @@ class FlowSignoffTests(unittest.TestCase):
         self.assertAlmostEqual(sum(number._colWidths),b.w,places=4)
         self.assertEqual(bullet._cellStyles[0][0].leftPadding,0)
         self.assertEqual(bullet._cellStyles[0][1].leftPadding,0)
-        self.assertEqual(number._cellStyles[0][0].rightPadding,b.p['list_gutter'])
+        self.assertEqual(number._cellStyles[0][0].rightPadding,0)
+        self.assertAlmostEqual(number._cellvalues[0][0].width,b.p['number_marker_width']-b.p['list_gutter'])
 
     def test_lavi_spacing_and_two_column_standard(self):
         b=Builder(self.job)
@@ -96,6 +97,16 @@ class FlowSignoffTests(unittest.TestCase):
         self.assertAlmostEqual(t._colWidths[0]/b.w,.34,places=3)
         self.assertAlmostEqual(t._colWidths[1]/b.w,.66,places=3)
         card=b.lavi_front_cards();self.assertGreater(card.spaceAfter,8)
+
+    def test_lavi_marker_baseline_contract(self):
+        b=Builder(self.job)
+        bullet=b.lavi_list_item('•','Aligned marker test',False)
+        numbered=b.lavi_list_item('1.','Aligned marker test',True)
+        for row in (bullet,numbered):
+            marker=row._cellvalues[0][0]
+            self.assertEqual(marker.__class__.__name__,'ListMarker')
+            self.assertAlmostEqual(marker.height,b.styles['body'].leading)
+            self.assertGreater(marker.ascent,0)
 
     def test_schema_is_valid_json(self):
         schema = json.loads((ROOT / 'quotation_engine/schema.json').read_text())

@@ -67,10 +67,10 @@ class TwoColumnSignoff(Flowable):
 
             c.setStrokeColor(b.c('muted'))
             c.setLineWidth(.45)
-            left_line_y = self.height - 72.0
+            person_y = 18.0
+            left_line_y = person_y + self.person_height + 7.0
             c.line(self.padding, left_line_y,
                    self.col_width - self.padding, left_line_y)
-            person_y = 18.0
             self.person.drawOn(c, self.padding, person_y)
 
             x = self.col_width + self.gutter + self.padding

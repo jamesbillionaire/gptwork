@@ -23,6 +23,8 @@ class ReadabilityTests(unittest.TestCase):
         self.assertEqual((p['table_padding'],p['flow_table_padding']), (4.5,4.5))
         self.assertEqual(p['generic_two_column_widths'],[0.34,0.66])
         self.assertEqual((p['signoff_height'],p['signoff_space_before']), (148.0,12.0))
+        self.assertEqual(p['list_marker_alignment'],'first_line_baseline')
+        self.assertEqual(p['prepared_signature_line_gap'],7.0)
 
     def test_lifes_awesome_typography_unchanged(self):
         p=PROFILES['lifes-awesome']
