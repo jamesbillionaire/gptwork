@@ -2,7 +2,7 @@
 
 Authority: James revised the LAVI hierarchy on 26 September 2026 after reviewing the rendered HDU Ozamiz quotation. The earlier blanket 10-point floor remains the historical 2.1.0 rule for Lifes Awesome, but it no longer governs LAVI.
 
-Engine **2.3.0**. Active profiles: **LAVI-QUOTATION-2026.10** and **LIFES-AWESOME-QUOTATION-2026.3**.
+Engine **2.3.0**. Active profiles: **LAVI-QUOTATION-2026.11** and **LIFES-AWESOME-QUOTATION-2026.3**.
 
 ## LAVI Technologies
 
@@ -33,4 +33,9 @@ Both profiles retain Legal paper, their separate fonts/colors, supplied logos, f
 
 ## LAVI list/signature alignment correction — 26 September 2026
 
-Engine **2.3.1** / **LAVI-QUOTATION-2026.10** keeps the approved 2026.9 typography, card geometry, table widths and spacing. Bullet and numbered markers now use a dedicated marker flowable whose baseline is mathematically tied to the first text-line baseline, so markers stay vertically aligned even when an item wraps. The Prepared By / Conforme box size is unchanged; only the Prepared By signature line is repositioned to sit directly above the printed preparer name instead of floating near the middle of the panel.
+Engine **2.3.1** / **LAVI-QUOTATION-2026.11** keeps the approved 2026.9 typography, card geometry, table widths and spacing. Bullet and numbered markers now use a dedicated marker flowable whose baseline is mathematically tied to the first text-line baseline, so markers stay vertically aligned even when an item wraps. The Prepared By / Conforme box size is unchanged; only the Prepared By signature line is repositioned to sit directly above the printed preparer name instead of floating near the middle of the panel.
+
+
+## LAVI continuation-header alignment correction — 26 September 2026
+
+Engine **2.3.2** / **LAVI-QUOTATION-2026.11** keeps the approved content rail, typography, spacing, list alignment and sign-off geometry. Continuation pages now render `LAVI TECHNOLOGIES INC.` on the left and the quotation reference / `FORMAL QUOTATION` on the right on one shared horizontal row, using the same 8/9.6 pt furniture metrics. The divider sits a fixed distance below the taller of the two header elements.

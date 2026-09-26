@@ -41,10 +41,10 @@
     "quotation_engine/signoff.py": "a57e1c31faa611bfe1229b938892f6d14b7cce0bae2969e7eccfc4cc5d068209",
     "quotation_engine/tests/test_flow_signoff.py": "1cb0439872050f551e937410ae29418f0a1205272b95e3ca20e0b5c669e916c1",
     "quotation_engine/tests/test_readability.py": "c929fd5fdb748583754bd3127938680c8e1bb8ac57f51f2c8004020748536df5",
-    "quotation_engine/reference/readability_standard.md": "4a4f330e824910f41b2a1256ab1048b9b5a5664b266edaddcda222874ab68ff7",
-    "quotation_engine/README.md": "992ce6c9dbfd8229391348ab0ca39d59c3f39b125551f556b845973cb09d74aa",
-    "templates/lavi/cpsc-2026/README.md": "169f118a2f4ba6cd1991d05b4b3af51690dc3f23c0ba17415753a96626f43d39",
-    ".agents/skills/lavi-quotation/SKILL.md": "7e9ac17f80c9d84d6353e0918f4c5d232f3c019fd54882cf11268a81093ebf4b"
+    "quotation_engine/reference/readability_standard.md": "f3277f3be55ee86ec12f4b77c1575c71956757113c278db57fd536aca6d133d3",
+    "quotation_engine/README.md": "326dacb791d9343bf72b27b4686f9ff55e67545c9005e421554fcd0bc951f053",
+    "templates/lavi/cpsc-2026/README.md": "633c528ee570ce4e26ee9ed8665390e539cd933d5eaf19525d4a54f94e2199b5",
+    ".agents/skills/lavi-quotation/SKILL.md": "e2f326840e233d31bb7a8385592f6722bf0ff8354fd77d6ea7dc0b3e13146b92"
   },
   "paper_standard": {
     "name": "Legal",
@@ -86,5 +86,12 @@
     ],
     "signoff_height_points": 148,
     "first_page_cards": "paired tinted Prepared For / Quote Details key-value cards"
+  },
+  "continuation_header": {
+    "authority": "James requested continuation-page header alignment correction on 26 September 2026.",
+    "layout": "single shared row: company left, quotation reference and FORMAL QUOTATION right",
+    "company_size_points": 8,
+    "reference_size_points": 8,
+    "leading_points": 9.6
   }
 }

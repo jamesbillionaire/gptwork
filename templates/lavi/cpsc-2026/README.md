@@ -1,6 +1,6 @@
 # LAVI Technologies — APPROVED_LOCKED
 
-Template: **LAVI-QUOTATION-2026.10**. Source family remains the CPSC Project 1 final diagram-corrected PDF and Project 2 V2 Corrected PDF. James authorized this template revision on **26 September 2026** to correct typography balance, list alignment, table-column alignment, component spacing, opening summary cards and the LAVI sign-off. Use `quotation_engine/cli.py`; do not create a separate renderer.
+Template: **LAVI-QUOTATION-2026.11**. Source family remains the CPSC Project 1 final diagram-corrected PDF and Project 2 V2 Corrected PDF. James authorized this template revision on **26 September 2026** to correct typography balance, list alignment, table-column alignment, component spacing, opening summary cards and the LAVI sign-off. Use `quotation_engine/cli.py`; do not create a separate renderer.
 
 ## Exact brand contract
 
@@ -36,4 +36,9 @@ Lifes Awesome remains visually unchanged. Existing LAVI jobs require an explicit
 
 ## LAVI list/signature alignment correction — 26 September 2026
 
-Engine **2.3.1** / **LAVI-QUOTATION-2026.10** keeps the approved 2026.9 typography, card geometry, table widths and spacing. Bullet and numbered markers now use a dedicated marker flowable whose baseline is mathematically tied to the first text-line baseline, so markers stay vertically aligned even when an item wraps. The Prepared By / Conforme box size is unchanged; only the Prepared By signature line is repositioned to sit directly above the printed preparer name instead of floating near the middle of the panel.
+Engine **2.3.1** / **LAVI-QUOTATION-2026.11** keeps the approved 2026.9 typography, card geometry, table widths and spacing. Bullet and numbered markers now use a dedicated marker flowable whose baseline is mathematically tied to the first text-line baseline, so markers stay vertically aligned even when an item wraps. The Prepared By / Conforme box size is unchanged; only the Prepared By signature line is repositioned to sit directly above the printed preparer name instead of floating near the middle of the panel.
+
+
+## LAVI continuation-header alignment correction — 26 September 2026
+
+Engine **2.3.2** / **LAVI-QUOTATION-2026.11** keeps the approved content rail, typography, spacing, list alignment and sign-off geometry. Continuation pages now render `LAVI TECHNOLOGIES INC.` on the left and the quotation reference / `FORMAL QUOTATION` on the right on one shared horizontal row, using the same 8/9.6 pt furniture metrics. The divider sits a fixed distance below the taller of the two header elements.
