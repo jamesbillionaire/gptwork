@@ -19,6 +19,8 @@ class ReadabilityTests(unittest.TestCase):
         self.assertEqual(p['table'],[9.0,11.4])
         self.assertEqual((p['metadata_size'],p['table_header_size']), (9.5,9.0))
         self.assertEqual((p['company_header_size'],p['contact_size'],p['furniture_size']), (9.0,8.0,8.0))
+        self.assertEqual((p['continuation_company_size'],p['continuation_company_leading']), (8.0,9.6))
+        self.assertEqual(p['continuation_header_alignment'],'single_row')
         self.assertEqual(p['default_signature_mode'],'two_column_prepared_conforme')
         self.assertEqual((p['table_padding'],p['flow_table_padding']), (4.5,4.5))
         self.assertEqual(p['generic_two_column_widths'],[0.34,0.66])

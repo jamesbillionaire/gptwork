@@ -1,6 +1,6 @@
 {
   "lavi": {
-    "template_id": "LAVI-QUOTATION-2026.10",
+    "template_id": "LAVI-QUOTATION-2026.11",
     "status": "APPROVED_LOCKED",
     "company": "LAVI TECHNOLOGIES INC.",
     "page": [
@@ -84,8 +84,8 @@
     "contact_leading": 9.6,
     "furniture_size": 8,
     "furniture_leading": 9.6,
-    "continuation_company_size": 8.5,
-    "continuation_company_leading": 10.2,
+    "continuation_company_size": 8,
+    "continuation_company_leading": 9.6,
     "diagram_font_size": 9,
     "bullet_marker_width": 14,
     "number_marker_width": 24,
@@ -110,7 +110,8 @@
     "signoff_space_before": 12,
     "signoff_space_after": 2,
     "list_marker_alignment": "first_line_baseline",
-    "prepared_signature_line_gap": 7
+    "prepared_signature_line_gap": 7,
+    "continuation_header_alignment": "single_row"
   },
   "lifes-awesome": {
     "template_id": "LIFES-AWESOME-QUOTATION-2026.3",

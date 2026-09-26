@@ -108,6 +108,14 @@ class FlowSignoffTests(unittest.TestCase):
             self.assertAlmostEqual(marker.height,b.styles['body'].leading)
             self.assertGreater(marker.ascent,0)
 
+    def test_lavi_continuation_header_is_single_aligned_row(self):
+        b=Builder(self.job)
+        b.page_geometry()
+        self.assertEqual(len(b.later_header),2)
+        company,ref=b.later_header
+        self.assertEqual(company[2],ref[2])
+        self.assertAlmostEqual(company[3],ref[3],places=2)
+
     def test_schema_is_valid_json(self):
         schema = json.loads((ROOT / 'quotation_engine/schema.json').read_text())
         self.assertEqual(schema['properties']['blocks']['type'], 'array')

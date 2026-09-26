@@ -1,2 +1,2 @@
 """Approved LAVI and Lifes Awesome quotation engine; CPSC reference release."""
-__version__ = '2.3.1'
+__version__ = '2.3.2'

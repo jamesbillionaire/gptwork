@@ -120,11 +120,12 @@ class Builder:
         self.first_rule=max(top,94 if not self.software else 106)+9
         company=self.P(escape(p['company']),'meta',fontName=self.bold,fontSize=p.get('continuation_company_size',self.styles['meta'].fontSize),leading=p.get('continuation_company_leading',self.styles['meta'].leading))
         ref=self.P(escape(self.job['quote_no'])+'  |  FORMAL QUOTATION','meta',fontSize=p.get('furniture_size',self.styles['meta'].fontSize),leading=p.get('furniture_leading',self.styles['meta'].leading),alignment=TA_RIGHT,textColor=self.c('muted'))
-        # Separate lines prevent reference/company collisions with long references.
+        # Continuation header is one horizontal row: company left, quotation reference right.
+        # Both use the same furniture size/leading so their visual baselines stay aligned.
         _,ch=company.wrap(self.w,H);_,rh=ref.wrap(self.w,H)
         top=37 if not self.software else 26
-        self.later_header=[(company,m,top,ch),(ref,m,top+ch+2,rh)]
-        self.later_rule=top+ch+2+rh+8
+        self.later_header=[(company,m,top,ch),(ref,m,top,rh)]
+        self.later_rule=top+max(ch,rh)+8
         footer=escape(p['company']+'  |  '+self.job['footer_label'])
         self.footer=self.P(footer,'meta',fontSize=p.get('furniture_size',10),leading=p.get('furniture_leading',12),spaceAfter=0,textColor=self.c('muted'))
         _,self.footer_height=self.footer.wrap(self.w-88,H)
