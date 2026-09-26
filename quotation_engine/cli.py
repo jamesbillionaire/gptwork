@@ -22,6 +22,7 @@ def new_job(brand):
         'client':{k:'' for k in ('name','address','attention','role','location')},
         'prepared_by':{'name':'','role':''},'salutation':'','footer_label':'','amount_words':'',
         'expected_total':'0.00','introduction':[],
+        **({'signature_mode':PROFILES[brand]['default_signature_mode']} if brand=='lavi' else {}),
         'blocks':[{'type':'boq','title':'','items':[{'qty':'1','unit':'','description':'','unit_price':'0.00','amount':'0.00'}]}]}
 
 

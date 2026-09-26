@@ -4,7 +4,7 @@
 
 ## Which profile?
 
-- `lavi`: `LAVI-QUOTATION-2026.6`; Legal 612 x 1008 pt, Liberation Sans, teal/navy, left-aligned first-page logo and right-aligned live contact block. Detailed infrastructure/equipment BOQs. See `templates/lavi/cpsc-2026/README.md`.
+- `lavi`: `LAVI-QUOTATION-2026.8`; Legal 612 x 1008 pt, Liberation Sans, teal/navy, left-aligned first-page logo and right-aligned live contact block. Detailed infrastructure/equipment BOQs with the 26 Sep 2026 balanced type hierarchy and two-column sign-off default. See `templates/lavi/cpsc-2026/README.md`.
 - `lifes-awesome`: `LIFES-AWESOME-QUOTATION-2026.3`; Legal, DejaVu Sans, cyan/gray, centered first-page logo and compact contact lines, tinted title band. Software deliverable/fee tables. See `templates/lifes-awesome/cpsc-2026/README.md`.
 
 The engine keeps brand styles separate while sharing validation, arithmetic, section flow, tables, list indents, calculated page numbers and safe diagram geometry. It does not use a project-specific generator script.
@@ -80,16 +80,18 @@ CI regenerates all four full PDF fixtures and page previews as workflow artifact
 
 ## Authorized continuous flow and sign-off correction (22 September 2026)
 
-Engine 2.0.2 / LAVI-QUOTATION-2026.6 adds two explicit job controls. For the Philpost revision, use `front_page_break: false` and `signature_mode: "two_column_prepared_conforme"`. These are reusable renderer capabilities, not a one-off PDF overlay. No forced blank remainder is left after the Project Boundary card: Section 1 follows in the same content flow, with normal heading/table keep rules. The continuous mode uses 3.2-point vertical table padding; font sizes, line heights, rails, colors, logos and all horizontal table padding remain unchanged.
+Historical engine 2.0.2 / LAVI-QUOTATION-2026.6 introduced two explicit job controls. In active LAVI 2026.8, the two-column sign-off is now the default. For the Philpost revision, use `front_page_break: false` and `signature_mode: "two_column_prepared_conforme"`. These are reusable renderer capabilities, not a one-off PDF overlay. No forced blank remainder is left after the Project Boundary card: Section 1 follows in the same content flow, with normal heading/table keep rules. The continuous mode uses 3.2-point vertical table padding; font sizes, line heights, rails, colors, logos and all horizontal table padding remain unchanged.
 
 The two-column sign-off is a single unbroken component with equal white panels, a clear 18-point gutter, 14-point interior padding, dedicated signing space above the preparer, and separate writable Authorized name / Signature / Date fields. It does not inherit the generic table grid or zebra shading. Do not remove this padding or reproduce underscore-based field widths. `conforme_fields` may supply short explicit field labels; blank signers stay blank.
 
 Defaults for other jobs remain the existing first-page boundary and prepared-only block. Do not silently change previous quotations or Lifes Awesome styling. Historical LAVI job data using 2026.4 can be migrated by changing only the template ID to 2026.5; only select the new controls when requested. CPSC fixture IDs changed as release metadata; their commercial content and default rendered PDFs are preserved. The editor schema's missing closing brace was also repaired and is covered by a JSON-parse test.
 
-## Minimum readable typography — 22 September 2026
+## LAVI balanced type hierarchy — 26 September 2026
 
-Engine **2.1.0** establishes an absolute **10-point minimum for all live text** in both brand profiles; body paragraphs and conditions are **11/15 pt**. BOQ, table, note, metadata, diagram, contact, header and footer text must never fall below 10 pt. Section headings are 13/17 pt; subheadings 11/14 pt; titles 20/24 pt LAVI and 20/25 pt Lifes Awesome. See `quotation_engine/reference/readability_standard.md`, which supersedes earlier small-font size and leading values in historical examples or prose.
+Engine **2.2.0** changes LAVI only. `LAVI-QUOTATION-2026.8` uses: 16/19.2 pt title; 11/13.5 pt sections; 10/12.4 pt subsections; 9.5/12.5 pt body and notes; 9/11.4 pt BOQ/general tables; 9.5 pt metadata/labels; 9 pt table headers and first-page company heading; 8 pt contact lines, footer, page number and running quotation furniture. LAVI diagrams use 9 pt. Semantic content roles cannot be locally shrunk below their role size; the 8 pt allowance is reserved for metadata furniture/contact/footer usage.
 
-Preserve separate brand fonts/colors, supplied logos, Legal paper and horizontal content rails. Headers/footers and diagrams wrap with measured heights, never reduced type. Readability takes priority over historical page counts. Continuous jobs retain `front_page_break: false`; the padded LAVI sign-off retains 14pt internal padding and 18pt gutter. No live font may be reduced to force a two-page quotation. Existing delivered PDFs are not changed in bulk.
+LAVI lists now render marker and text in separate columns for consistent hanging alignment. BOQ columns are fixed to the profile proportions with QTY/UNIT centered, DESCRIPTION left aligned and currency right aligned. General LAVI condition/payment/warranty tables use explicit per-column alignment support and middle row alignment.
 
-Migrate structured jobs by explicitly updating their template IDs. Source commercial data, including contradictory source terms, must not be silently reconciled during a typography-only edit. Run the locked CLI, all tests, minimum-font checks, content/arithmetic comparisons and rendered visual inspection.
+The LAVI default signature mode is `two_column_prepared_conforme`, using equal columns, 18 pt gutter and 14 pt interior padding; Conforme stays on the right with Authorized name / Signature / Date writing lines. The component is compact enough to remain with closing content when space permits, without reducing live type.
+
+Lifes Awesome remains byte-for-byte visually unchanged in regression renders from the prior 2.1.0 profile. Legal paper, separate brand fonts/colors, supplied logos and full content rails are preserved. Existing client/source data must not be changed during a typography migration.

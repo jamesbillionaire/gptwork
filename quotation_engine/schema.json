@@ -29,7 +29,7 @@
     },
     "template_id": {
       "enum": [
-        "LAVI-QUOTATION-2026.6",
+        "LAVI-QUOTATION-2026.8",
         "LIFES-AWESOME-QUOTATION-2026.3"
       ]
     },
@@ -102,6 +102,17 @@
               "page_break",
               "callout"
             ]
+          },
+          "alignments": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "left",
+                "center",
+                "right"
+              ]
+            },
+            "description": "Optional per-column table alignment; semantic validation requires one value per width."
           }
         }
       }
@@ -119,7 +130,7 @@
         "prepared_only",
         "two_column_prepared_conforme"
       ],
-      "default": "prepared_only"
+      "description": "LAVI defaults to two_column_prepared_conforme; Lifes Awesome defaults to prepared_only. Jobs may explicitly select either permitted mode where brand validation allows it."
     },
     "conforme_fields": {
       "type": "object",

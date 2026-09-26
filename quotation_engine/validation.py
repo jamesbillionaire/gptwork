@@ -78,8 +78,8 @@ def validate(job):
             for item in value:yield from strings(item)
     for text in strings(job):
         for match in re.finditer(r"<font\b[^>]*\bsize\s*=\s*[\"']?([0-9.]+)",text,re.IGNORECASE):
-            if float(match.group(1)) < PROFILES[brand]['minimum_font_size']:
-                raise ValidationError('Inline text cannot be smaller than the template minimum.')
+            if float(match.group(1)) < PROFILES[brand].get('minimum_content_font_size',PROFILES[brand]['minimum_font_size']):
+                raise ValidationError('Inline content text cannot be smaller than the template content minimum.')
     if job.get('signature'):
         raise ValidationError('Reusable jobs must be unsigned; use an explicitly authorized signing workflow.')
     if not job.get('blocks') or not priced_blocks(job):
@@ -108,6 +108,10 @@ def validate(job):
                 raise ValidationError('Table widths must be positive and sum to one.')
             if any(len(r) != len(widths) for r in b['rows']):
                 raise ValidationError('Table row/column mismatch.')
+            if 'alignments' in b:
+                a=b['alignments']
+                if not isinstance(a,list) or len(a)!=len(widths) or any(x not in ('left','center','right') for x in a):
+                    raise ValidationError('Table alignments must match columns and use left/center/right.')
         if b['type'] == 'diagram':
             if not b.get('rows') or any(not row.get('nodes') for row in b['rows']):
                 raise ValidationError('Every diagram row needs nodes.')

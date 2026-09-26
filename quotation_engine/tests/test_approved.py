@@ -19,7 +19,7 @@ class ApprovalTests(unittest.TestCase):
     def test_both_profiles_require_legal_paper(self):
         for brand,p in PROFILES.items():
             self.assertEqual(p['page'],[612,1008],brand)
-        self.assertEqual(PROFILES['lavi']['template_id'],'LAVI-QUOTATION-2026.6')
+        self.assertEqual(PROFILES['lavi']['template_id'],'LAVI-QUOTATION-2026.8')
         self.assertEqual(PROFILES['lifes-awesome']['template_id'],'LIFES-AWESOME-QUOTATION-2026.3')
     def test_brand_styles_preserved(self):
         expected={'lavi':('LiberationSans',42.5196850394,'#0AA7AE','#243F73'),
@@ -35,7 +35,7 @@ class ApprovalTests(unittest.TestCase):
                     for pg in doc:
                         spans=[s for b in pg.get_text('dict')['blocks'] if b['type']==0 for l in b['lines'] for s in l['spans']]
                         number=next(s for s in spans if re.fullmatch(r'Page \d+ of \d+',s['text']))
-                        self.assertAlmostEqual(number['size'],10,places=2)
+                        self.assertAlmostEqual(number['size'],PROFILES[j['brand']].get('furniture_size',10),places=2)
                         self.assertAlmostEqual(number['origin'][1],988,places=2)
                         self.assertLessEqual(number['bbox'][2],612-PROFILES[j['brand']]['margin']+.1)
     def test_source_totals(self):
@@ -99,8 +99,8 @@ class ApprovalTests(unittest.TestCase):
                     g=Diagram(spec,b.p,b.w,b.font,b.bold);c=Canvas(str(Path(td)/'diagram.pdf'));g.drawOn(c,0,0);c.save()
                     self.assertTrue(g.connectors)
                     for _,y1,_,y2,lo,hi in g.connectors:self.assertTrue(lo<y1<hi and lo<y2<hi)
-                    for (y,h),(yn,_) in zip(g.geometry,g.geometry[1:]):self.assertEqual(yn-y-h,18)
-                    bad=copy.deepcopy(spec);bad['rows'][0]['nodes'][0]['title']='UNACCEPTABLY LONG LABEL '*40
+                    for (y,h),(yn,_) in zip(g.geometry,g.geometry[1:]):self.assertAlmostEqual(yn-y-h,18,places=6)
+                    bad=copy.deepcopy(spec);bad['rows'][0]['nodes'][0]['title']='UNACCEPTABLY LONG LABEL '*80
                     with self.assertRaises(ValueError):Diagram(bad,b.p,b.w,b.font,b.bold).drawOn(c,0,0)
 
 if __name__=='__main__':unittest.main()

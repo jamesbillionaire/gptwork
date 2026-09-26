@@ -29,6 +29,8 @@ class FlowSignoffTests(unittest.TestCase):
         block = TwoColumnSignoff(builder)
         self.assertEqual(block.padding, 14)
         self.assertEqual(block.gutter, 18)
+        self.assertEqual(block.spaceBefore, 4.0)
+        self.assertGreaterEqual(block.height, 100.0)
         self.assertAlmostEqual(2 * block.col_width + block.gutter, builder.w)
         with tempfile.TemporaryDirectory() as td:
             path = Path(td) / 'signoff.pdf'
@@ -65,6 +67,25 @@ class FlowSignoffTests(unittest.TestCase):
                 for s in ('PREPARED BY', self.job['prepared_by']['name'], 'Authorized name:', 'Signature:', 'Date:'):
                     self.assertIn(s, text)
                 self.assertEqual(' '.join(p.get_text() for p in doc).count('PREPARED BY'), 1)
+
+
+    def test_lavi_default_is_two_column_conforme(self):
+        job=copy.deepcopy(self.job);job.pop('signature_mode',None)
+        b=Builder(job)
+        self.assertEqual(b.p['default_signature_mode'],'two_column_prepared_conforme')
+        from quotation_engine.cli import new_job
+        self.assertEqual(new_job('lavi')['signature_mode'],'two_column_prepared_conforme')
+        self.assertNotIn('signature_mode',new_job('lifes-awesome'))
+
+    def test_lavi_list_marker_rail_has_no_nested_indent(self):
+        b=Builder(self.job)
+        bullet=b.lavi_list_item('•','Wrapped list content that should align to one text rail.',False)
+        number=b.lavi_list_item('10.','Numbered list content that should align to one text rail.',True)
+        self.assertAlmostEqual(sum(bullet._colWidths),b.w,places=4)
+        self.assertAlmostEqual(sum(number._colWidths),b.w,places=4)
+        self.assertEqual(bullet._cellStyles[0][0].leftPadding,0)
+        self.assertEqual(bullet._cellStyles[0][1].leftPadding,0)
+        self.assertEqual(number._cellStyles[0][0].rightPadding,b.p['list_gutter'])
 
     def test_schema_is_valid_json(self):
         schema = json.loads((ROOT / 'quotation_engine/schema.json').read_text())

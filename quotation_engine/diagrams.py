@@ -1,4 +1,4 @@
-"""Measured, readable vector diagrams with fixed 10pt text and gap-only connectors."""
+"""Measured, readable vector diagrams with profile-defined readable text and gap-only connectors."""
 from xml.sax.saxutils import escape
 from reportlab.platypus import Flowable, Paragraph
 from reportlab.lib.styles import ParagraphStyle
@@ -11,10 +11,10 @@ class Diagram(Flowable):
         self.spec,self.p,self.width=spec,profile,width
         self.regular,self.bold=regular,bold
         self.gap=18.0;self.col_gap=8.0;self.geometry=[];self.rows=[];self.connectors=[]
-        size=profile.get('minimum_font_size',10)
+        size=profile.get('diagram_font_size',profile.get('minimum_font_size',10))
         def para(text,is_bold=True,align=TA_CENTER,ink='dark'):
             return Paragraph(escape(str(text)),ParagraphStyle('diagram',fontName=bold if is_bold else regular,
-                fontSize=size,leading=13,alignment=align,textColor=HexColor(profile.get(ink,ink)),spaceAfter=0))
+                fontSize=size,leading=13 if size>=10 else 11.4,alignment=align,textColor=HexColor(profile.get(ink,ink)),spaceAfter=0))
         self.caption=para(spec.get('caption','LOGICAL SYSTEM ARCHITECTURE'),True,TA_LEFT,'muted')
         _,self.caption_h=self.caption.wrap(width,2000)
         y=self.caption_h+12

@@ -10,10 +10,8 @@ Start a blank job via `python -m quotation_engine.cli new --brand lifes-awesome 
 
 Validate and render using the shared engine, run tests, inspect every final page and exact diagrams, then update LATEST.md. No one-off generator, hidden recurring hosting commitment, automatic VAT, copied signature or silent font substitution. The preparer role is explicit job data; these CPSC examples use James Brown Bete / General Manager.
 
-## Minimum readable typography — 22 September 2026
+## Lifes Awesome typography remains unchanged
 
-Engine **2.1.0** establishes an absolute **10-point minimum for all live text** in both brand profiles; body paragraphs and conditions are **11/15 pt**. BOQ, table, note, metadata, diagram, contact, header and footer text must never fall below 10 pt. Section headings are 13/17 pt; subheadings 11/14 pt; titles 20/24 pt LAVI and 20/25 pt Lifes Awesome. See `quotation_engine/reference/readability_standard.md`, which supersedes earlier small-font size and leading values in historical examples or prose.
+`LIFES-AWESOME-QUOTATION-2026.3` retains the 2.1.0 typography: 20/25 pt title, 13/17 pt sections, 11/14 pt subsections, 11/15 pt body, 10/13 pt tables/notes/metadata and a 10 pt live-text minimum.
 
-Preserve separate brand fonts/colors, supplied logos, Legal paper and horizontal content rails. Headers/footers and diagrams wrap with measured heights, never reduced type. Readability takes priority over historical page counts. Continuous jobs retain `front_page_break: false`; the padded LAVI sign-off retains 14pt internal padding and 18pt gutter. No live font may be reduced to force a two-page quotation. Existing delivered PDFs are not changed in bulk.
-
-Migrate structured jobs by explicitly updating their template IDs. Source commercial data, including contradictory source terms, must not be silently reconciled during a typography-only edit. Run the locked CLI, all tests, minimum-font checks, content/arithmetic comparisons and rendered visual inspection.
+The 26 September 2026 LAVI 2026.8 revision does not change this brand. Regression renders for Projects 5 and 8 must remain visually identical.

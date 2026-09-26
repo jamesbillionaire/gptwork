@@ -8,7 +8,7 @@ Persistent work instructions and reusable approved document engines for James Br
 
 | Issuer | Active template | Read |
 |---|---|---|
-| LAVI Technologies Inc. | LAVI-QUOTATION-2026.6 — Legal 612 x 1008 pt, teal/navy, Liberation Sans | [LAVI guide](templates/lavi/cpsc-2026/README.md) |
+| LAVI Technologies Inc. | LAVI-QUOTATION-2026.8 — Legal 612 x 1008 pt, teal/navy, Liberation Sans | [LAVI guide](templates/lavi/cpsc-2026/README.md) |
 | Lifes Awesome Ventures Inc. | LIFES-AWESOME-QUOTATION-2026.3 — Legal, cyan/gray, DejaVu Sans | [Lifes Awesome guide](templates/lifes-awesome/cpsc-2026/README.md) |
 
 Both were approved from CPSC Projects 1, 2, 5 and 8. Use the [quotation engine](quotation_engine/README.md); do not recreate the template for each job. [Profile tokens](quotation_engine/profiles.json), [source fingerprints](quotation_engine/reference/sources.json) and [reference header/diagram crops](quotation_engine/reference/previews/) make the design independent of a previous chat or container.
@@ -29,10 +29,10 @@ Run `python -m unittest discover -s quotation_engine/tests -v`. CI generates all
 
 The superseded engine/rules and old handoff remain under `legacy/` and `.agents/handoffs/`. Earlier billing, other-brand, bidding and project records remain intact. Old template packages are historical, not active quotation defaults.
 
-## Minimum readable typography — 22 September 2026
+## LAVI balanced typography — 26 September 2026
 
-Engine **2.1.0** establishes an absolute **10-point minimum for all live text** in both brand profiles; body paragraphs and conditions are **11/15 pt**. BOQ, table, note, metadata, diagram, contact, header and footer text must never fall below 10 pt. Section headings are 13/17 pt; subheadings 11/14 pt; titles 20/24 pt LAVI and 20/25 pt Lifes Awesome. See `quotation_engine/reference/readability_standard.md`, which supersedes earlier small-font size and leading values in historical examples or prose.
+Engine **2.2.0** promotes LAVI to **LAVI-QUOTATION-2026.8**. The LAVI profile now uses a restrained hierarchy: 16 pt title, 11 pt section headings, 10 pt subheadings, 9.5 pt body, 9 pt BOQ/table text, 9.5 pt metadata/labels, 9 pt first-page company heading, and 8 pt contact/footer/page furniture. Proper marker rails replace paragraph indents for LAVI bullet and numbered lists, BOQ alignment remains QTY/UNIT centered and currency right aligned, and two-column Prepared By / Conforme is the LAVI default sign-off.
 
-Preserve separate brand fonts/colors, supplied logos, Legal paper and horizontal content rails. Headers/footers and diagrams wrap with measured heights, never reduced type. Readability takes priority over historical page counts. Continuous jobs retain `front_page_break: false`; the padded LAVI sign-off retains 14pt internal padding and 18pt gutter. No live font may be reduced to force a two-page quotation. Existing delivered PDFs are not changed in bulk.
+Lifes Awesome Ventures remains **LIFES-AWESOME-QUOTATION-2026.3** with its 2.1.0 typography and rendered appearance unchanged. Legal paper, separate brand fonts/colors, original logos and full-width content rails remain mandatory.
 
-Migrate structured jobs by explicitly updating their template IDs. Source commercial data, including contradictory source terms, must not be silently reconciled during a typography-only edit. Run the locked CLI, all tests, minimum-font checks, content/arithmetic comparisons and rendered visual inspection.
+Existing structured LAVI jobs require an explicit template-ID migration to 2026.8. Preserve client content, prices and terms while changing layout. Run the locked CLI, all tests and rendered visual inspection before delivery.

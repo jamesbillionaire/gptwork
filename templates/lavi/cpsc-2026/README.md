@@ -1,32 +1,27 @@
 # LAVI Technologies — APPROVED_LOCKED
 
-Template: **LAVI-QUOTATION-2026.6**. Source family: CPSC Project 1 final diagram-corrected PDF and Project 2 V2 Corrected PDF. Use `quotation_engine/cli.py`, never this README as permission to write a new renderer.
+Template: **LAVI-QUOTATION-2026.8**. Source family remains the CPSC Project 1 final diagram-corrected PDF and Project 2 V2 Corrected PDF. James authorized this template revision on **26 September 2026** to correct typography balance, list alignment, table-column alignment and the LAVI sign-off. Use `quotation_engine/cli.py`; do not create a separate renderer.
 
 ## Exact brand contract
 
-- Legal: 612 x 1008 pt (8.5 x 14 inches); 15 mm (42.519685 pt) left/right margins; content width 526.96063 pt.
-- Liberation Sans Regular/Bold/Italic. Body 11/15 pt; BOQ and notes 10/13; labels, contact, metadata, running headers/footers and diagrams minimum 10 pt; section 13/17; subsection 11/14; title 20/24. All live text has a hard 10-point floor.
+- Legal: 612 x 1008 pt (8.5 x 14 inches); 15 mm (42.519685 pt) side margins; full content rail 526.96063 pt.
+- Liberation Sans. Main title **16/19.2 pt**; section headings **11/13.5 pt**; subheadings **10/12.4 pt**; body and notes **9.5/12.5 pt**; BOQ/general table text **9/11.4 pt**.
+- Metadata/labels are **9.5 pt**; table headers **9 pt**. The first-page top-right `LAVI TECHNOLOGIES INC.` heading is **9 pt**. Business address/contact lines, continuation quotation furniture, footer and page number are **8 pt**. Diagram text is **9 pt**. The 8 pt size is furniture/contact use, not a body-text fit knob.
 - Accent #0AA7AE; headings #078A91; title/deep navy #1C3159; table header #243F73; ink #26313D; muted #65717E; grid #D7E0E6; zebra #F5F8FA; pale teal #EAF7F8; pale navy #EEF2F8; total #FFF5DA.
-- Line-item proportions: 6% QTY, 10% UNIT, 49% DESCRIPTION, 17.5% UNIT PRICE, 17.5% AMOUNT. Outer width equals the content rail. QTY/UNIT centered; currency right aligned.
-- Supplied `logo.png` is the original official asset, copied by hash, not recreated. First-page logo is approximately 104.88 pt wide at the left rail. Business details are small live text aligned right. No logo on continuation pages.
-- One first-page overview: unboxed title, two-column client/quote card, introduction, optional metric strip, commercial summary. Subsequent content flows naturally.
-- Use full-rail price callout, restrained teal section rules, proper hanging lists, no extra horizontal inset. Preserve whitespace inside cards, not an extra inset around whole components.
-- Caption and each architecture row have dedicated clearance. Split/merge arrows stay in the row gaps. Do not embed a PNG screenshot of a diagram as the editable production component.
+- BOQ proportions stay 6% QTY, 10% UNIT, 49% DESCRIPTION, 17.5% UNIT PRICE, 17.5% AMOUNT. QTY/UNIT centered; description left; currency right. General tables may declare left/center/right per-column alignment; LAVI rows are vertically centered.
+- LAVI bullet and numbered lists use a dedicated marker rail. Wrapped lines align exactly with the first text line; markers do not create a second nested indent.
+- Supplied `logo.png` is the original official asset. It appears on page 1 only and is not regenerated.
+- Use one full-width rail for headings, tables, cards, rules, totals and diagrams. No extra horizontal canvas inset.
+- LAVI defaults to a two-column sign-off: **Prepared By** left and **Conforme** right, equal panels, 18 pt gutter and 14 pt internal padding. Conforme provides Authorized name, Signature and Date lines. No signature image is embedded.
 
-LAVI CPSC examples are dated 18 September 2026, valid 30 days, and prepared by James Brown Bete / CEO. These are **job-specific**, not engine defaults. Historical unit prices and provisional quantities are not verified current market data. Never copy the signed source's signature to a new quotation.
+## Flow and pagination
 
-## Authorized continuous flow and sign-off correction (22 September 2026)
+`front_page_break: false` may be used when the executive summary should flow directly into Section 1. Content determines page count; do not shrink type to imitate a previous page count. Keep headings with meaningful following content, repeat BOQ headers, protect subtotal/total rows and keep the two-column sign-off intact.
 
-Engine 2.0.2 / LAVI-QUOTATION-2026.6 adds two explicit job controls. For the Philpost revision, use `front_page_break: false` and `signature_mode: "two_column_prepared_conforme"`. These are reusable renderer capabilities, not a one-off PDF overlay. No forced blank remainder is left after the Project Boundary card: Section 1 follows in the same content flow, with normal heading/table keep rules. The continuous mode uses 3.2-point vertical table padding; font sizes, line heights, rails, colors, logos and all horizontal table padding remain unchanged.
+## Commercial integrity
 
-The two-column sign-off is a single unbroken component with equal white panels, a clear 18-point gutter, 14-point interior padding, dedicated signing space above the preparer, and separate writable Authorized name / Signature / Date fields. It does not inherit the generic table grid or zebra shading. Do not remove this padding or reproduce underscore-based field widths. `conforme_fields` may supply short explicit field labels; blank signers stay blank.
+CPSC examples are historical source fixtures. Their dates, prices, terms, quantities and signatory roles are job data, not defaults. Never copy a signature from a signed source. Layout-only edits preserve all approved content and arithmetic.
 
-Defaults for other jobs remain the existing first-page boundary and prepared-only block. Do not silently change previous quotations or Lifes Awesome styling. Historical LAVI job data using 2026.4 can be migrated by changing only the template ID to 2026.5; only select the new controls when requested. CPSC fixture IDs changed as release metadata; their commercial content and default rendered PDFs are preserved. The editor schema's missing closing brace was also repaired and is covered by a JSON-parse test.
+## Verification
 
-## Minimum readable typography — 22 September 2026
-
-Engine **2.1.0** establishes an absolute **10-point minimum for all live text** in both brand profiles; body paragraphs and conditions are **11/15 pt**. BOQ, table, note, metadata, diagram, contact, header and footer text must never fall below 10 pt. Section headings are 13/17 pt; subheadings 11/14 pt; titles 20/24 pt LAVI and 20/25 pt Lifes Awesome. See `quotation_engine/reference/readability_standard.md`, which supersedes earlier small-font size and leading values in historical examples or prose.
-
-Preserve separate brand fonts/colors, supplied logos, Legal paper and horizontal content rails. Headers/footers and diagrams wrap with measured heights, never reduced type. Readability takes priority over historical page counts. Continuous jobs retain `front_page_break: false`; the padded LAVI sign-off retains 14pt internal padding and 18pt gutter. No live font may be reduced to force a two-page quotation. Existing delivered PDFs are not changed in bulk.
-
-Migrate structured jobs by explicitly updating their template IDs. Source commercial data, including contradictory source terms, must not be silently reconciled during a typography-only edit. Run the locked CLI, all tests, minimum-font checks, content/arithmetic comparisons and rendered visual inspection.
+Run `verify-lock`, all quotation-engine tests, render the exact client PDF, check arithmetic/content preservation and inspect every page. Lifes Awesome is a separate template and is not changed by this LAVI revision.

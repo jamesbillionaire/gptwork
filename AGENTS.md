@@ -14,7 +14,7 @@ James explicitly approved replacing the previous quotation engines with the CPSC
 
 | Brand | Active template | Approved design basis | Page / typography |
 |---|---|---|---|
-| LAVI Technologies Inc. | `LAVI-QUOTATION-2026.6` | Project 1 corrected network diagram + Project 2 corrected CCTV quotation | Legal 612 x 1008 pt, 15 mm side margins, Liberation Sans; teal/navy |
+| LAVI Technologies Inc. | `LAVI-QUOTATION-2026.8` | Project 1 corrected network diagram + Project 2 corrected CCTV quotation, with James' 26 Sep 2026 typography/alignment revision | Legal 612 x 1008 pt, 15 mm side margins, Liberation Sans; teal/navy |
 | Lifes Awesome Ventures Inc. | `LIFES-AWESOME-QUOTATION-2026.3` | Project 5 V2 + Project 8 V1 | Legal 612 x 1008 pt, 32 pt side margins, DejaVu Sans; cyan/gray |
 
 These are **two different approved templates**, not the same page recolored. Lifes Awesome is now APPROVED_LOCKED, not a candidate. For this CPSC family, LAVI handles infrastructure; Lifes Awesome handles software. Never infer the issuer from the generic name “LAVI”: use the legal company explicitly requested.
@@ -27,10 +27,10 @@ These are **two different approved templates**, not the same page recolored. Lif
 - Use one full-width content rail. Tables, cards, headings, dividers, totals and diagram boundaries share its left/right edges. Internal card padding is intentional and does not change the outer rail.
 - Justify narrative paragraphs. Keep labels/headings left aligned, QTY/UNIT centered and currency right aligned; never justify numerals or short diagram labels.
 - Use the locked font family, font-size/leading hierarchy and palette for the selected profile. No mixed body/note sizes within one semantic role. Do not silently substitute fonts.
-- Use proper hanging indents: bullet/number markers in their own column, wrapped text aligned with the first text line. Two-digit numbering must fit.
+- LAVI lists use a dedicated marker rail: bullet/number markers occupy their own narrow column and wrapped text starts on one consistent text rail. Two-digit numbering must fit without nested indentation. Lifes Awesome keeps its existing list rendering.
 - Preserve restrained zebra rows, thin grid lines, pale-gold totals, readable small contact details and compact footers with calculated `Page x of y`.
 - Keep table rows intact and repeat headers. Keep a heading with meaningful following content. Do not leave a section title alone at a page bottom.
-- Let the body paginate from content. Keep the executive-summary opening boundary only when selected; when continuous flow is requested set `front_page_break: false` so Section 1 can follow the Project Boundary card on page 1. Never imitate a page count or add filler. Use `signature_mode: "two_column_prepared_conforme"` for the requested padded two-column LAVI sign-off; preserve its 14-point padding and 18-point gutter.
+- Let the body paginate from content. Keep the executive-summary opening boundary only when selected; when continuous flow is requested set `front_page_break: false` so Section 1 can follow the Project Boundary card on page 1. Never imitate a page count or add filler. LAVI now defaults to the padded two-column `Prepared By` / `Conforme` sign-off; preserve its 14-point padding and 18-point gutter. Lifes Awesome remains prepared-only unless explicitly changed.
 - Architecture diagrams must use the shared component with row positions calculated from preceding heights, a separate caption lane and constant connector gaps. Never independently anchor the bottom boxes. Arrows must stay inside the gaps; multiple destinations require a proper split connector. No connector through a label or shape.
 - Layout-only edits preserve approved scope, quantities, rates, totals, date, recipient, role, exclusions and other details. Compare before/after pages outside the intended edit.
 - Render and inspect the exact final PDF, including diagrams at readable size. A successful code run or a contact sheet alone is not visual approval.
@@ -73,10 +73,10 @@ The previous engine and manifest are preserved at `legacy/quotation_engine-pre-c
 
 Before ending meaningful work update `LATEST.md`: status, approved decisions, exact files, tests/render review, blockers and next steps. Archive a superseded substantial handoff in `.agents/handoffs/`. Do not use memory alone as the source of truth and do not declare archived unfinished work completed without evidence. Git `main`, active manifests and source/job data are the durable authority for the next agent.
 
-## Minimum readable typography — 22 September 2026
+## LAVI balanced typography and alignment — 26 September 2026
 
-Engine **2.1.0** establishes an absolute **10-point minimum for all live text** in both brand profiles; body paragraphs and conditions are **11/15 pt**. BOQ, table, note, metadata, diagram, contact, header and footer text must never fall below 10 pt. Section headings are 13/17 pt; subheadings 11/14 pt; titles 20/24 pt LAVI and 20/25 pt Lifes Awesome. See `quotation_engine/reference/readability_standard.md`, which supersedes earlier small-font size and leading values in historical examples or prose.
+Engine **2.2.0** / **LAVI-QUOTATION-2026.8** supersedes the blanket 10-point LAVI rule. James explicitly set these LAVI roles: title **16 pt**; section headings **11 pt**; subheadings **10 pt**; body **9.5 pt**; BOQ/general table text **9 pt**; metadata/labels about **9.5 pt**; first-page top-right `LAVI TECHNOLOGIES INC.` **9 pt**; business address/contact and page furniture/footer **8 pt**. LAVI diagrams use 9 pt text. Do not shrink semantic content roles below their profile sizes to fit pages.
 
-Preserve separate brand fonts/colors, supplied logos, Legal paper and horizontal content rails. Headers/footers and diagrams wrap with measured heights, never reduced type. Readability takes priority over historical page counts. Continuous jobs retain `front_page_break: false`; the padded LAVI sign-off retains 14pt internal padding and 18pt gutter. No live font may be reduced to force a two-page quotation. Existing delivered PDFs are not changed in bulk.
+LAVI QTY and UNIT stay centered; DESCRIPTION stays left aligned; UNIT PRICE and AMOUNT stay right aligned. General two-column condition/payment/warranty tables are vertically centered within rows and remain on the full content rail. LAVI bullet and numbered lists use a marker column rather than paragraph bullet indents. LAVI sign-off defaults to equal Prepared By / Conforme columns; the right column contains Authorized name, Signature and Date fields.
 
-Migrate structured jobs by explicitly updating their template IDs. Source commercial data, including contradictory source terms, must not be silently reconciled during a typography-only edit. Run the locked CLI, all tests, minimum-font checks, content/arithmetic comparisons and rendered visual inspection.
+The Lifes Awesome profile is unchanged from 2.1.0 / `LIFES-AWESOME-QUOTATION-2026.3`; do not apply the new LAVI sizes to it. Existing delivered PDFs are not changed in bulk. Migrate structured LAVI jobs by explicitly updating their template ID and preserve their commercial/source data. Run lock verification, all tests, arithmetic/content checks and page-by-page render inspection.

@@ -12,8 +12,8 @@ from reportlab.platypus import Flowable
 class TwoColumnSignoff(Flowable):
     gutter = 18.0
     padding = 14.0
-    spaceBefore = 14.0
-    spaceAfter = 6.0
+    spaceBefore = 4.0
+    spaceAfter = 0.0
 
     def __init__(self, builder):
         super().__init__()
@@ -26,10 +26,10 @@ class TwoColumnSignoff(Flowable):
         person = builder.job['prepared_by']
         self.person = builder.P(
             '<b>' + escape(person['name']) + '</b><br/>' +
-            escape(person['role']) + '<br/>' + escape(builder.p['display_name']),
-            'body', alignment=TA_LEFT, spaceAfter=0)
+            escape(person['role']) + ' | ' + escape(builder.p['display_name']),
+            'meta', alignment=TA_LEFT, spaceAfter=0)
         _, self.person_height = self.person.wrap(self.inner_width, 1000)
-        self.height = max(122.0, 70.0 + self.person_height + self.padding)
+        self.height = max(100.0, 56.0 + self.person_height + self.padding)
         fields = builder.job.get('conforme_fields', {})
         self.fields = [fields.get(k, default) for k, default in (
             ('authorized_name', 'Authorized name'), ('signature', 'Signature'),
@@ -63,16 +63,16 @@ class TwoColumnSignoff(Flowable):
 
             # Space to sign above the prepared-by identity.
             c.setStrokeColor(b.c('muted'));c.setLineWidth(.4)
-            c.line(self.padding, self.height - 63,
-                   self.col_width - self.padding, self.height - 63)
-            self.person.drawOn(c, self.padding, self.height - 70 - self.person_height)
+            c.line(self.padding, self.height - 50,
+                   self.col_width - self.padding, self.height - 50)
+            self.person.drawOn(c, self.padding, self.height - 56 - self.person_height)
 
             # Same text style as the body; three separate writable fields.
             x = self.col_width + self.gutter + self.padding
             right = self.width - self.padding
             size = b.p['body'][0]
             c.setFont(b.font, size);c.setFillColor(b.c('ink'))
-            for top, label in zip((49.0, 75.0, 101.0), self.fields):
+            for top, label in zip((40.0, 59.0, 78.0), self.fields):
                 baseline = self.height - top
                 rendered = label + ':'
                 c.drawString(x, baseline, rendered)
