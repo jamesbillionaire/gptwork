@@ -20,4 +20,6 @@ The revised HDU render is four Legal pages. All four pages were visually inspect
 ## Regression evidence
 Local `verify-lock` passed and all 28 quotation-engine tests passed. CPSC LAVI fixtures render to 7 pages for Project 1 and 7 pages for Project 2. Lifes Awesome Projects 5 and 8 remain 13 and 11 pages and compare at zero changed pixels against the 2.2.0 renders.
 
+Repository implementation commit: `82a2e2e102435179b693fc57ea4200f12d5bea65`; lock-hash correction commit: `354a0a97cb9263e8e3f0bf11bbd19eb5bfb65ff9`. GitHub Actions Approved quotation engines run `36219661837` completed successfully.
+
 Previous handoff archived at `.agents/handoffs/2026-09-26-before-lavi-template-2026.9.md`.
