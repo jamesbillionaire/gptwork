@@ -15,7 +15,7 @@ The sign-off retains 14 pt panel padding and 18 pt gutter but is vertically comp
 ## HDU Ozamiz validation document
 Job: LAVI-QTN-20260926-HDU-OZAMIZ-FPS-01. Commercial data is unchanged: PHP1,550,000 VAT Exclusive, 15 HP main fire pump, 3 HP jockey pump, 45 sprinkler heads, 2 fire hose cabinet assemblies with 100-ft double-jacket hose, BFP processing allowance and the previously approved terms/qualifications. Only the active template ID/signature mode changed.
 
-Final PDF: `LAVI_HDU_Ozamiz_Fire_Protection_System_Quotation.pdf`, three Legal pages. PDF SHA256: `b74b255ba10d6edd597a42796655cbffb1906b26c23b4d01f51305f4063d035d`. All pages inspected: no clipping/overlap; lists align to one text rail; BOQ numeric columns align correctly; warranty/payment tables are balanced; Prepared By / Conforme remains intact on page 3.
+Final PDF: `LAVI_HDU_Ozamiz_Fire_Protection_System_Quotation.pdf`, three Legal pages. PDF SHA256: `d6196e5375a60d6fd3cc757aab2b98c8481de2664afb42ab5e2403e7e25fad1d`. All pages inspected: no clipping/overlap; lists align to one text rail; BOQ numeric columns align correctly; warranty/payment tables are balanced; Prepared By / Conforme remains intact on page 3.
 
 ## Regression and repository evidence
 Local lock verification and all 27 regression tests passed. CPSC LAVI fixtures reflow to 7 pages (Project 1) and 6 pages (Project 2). Lifes Awesome Project 5 remains 13 pages and Project 8 remains 11 pages; comparison against the prior profile showed zero changed pixels across all 24 Lifes Awesome pages.
