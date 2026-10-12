@@ -97,3 +97,11 @@ Engine **2.3.1** / **LAVI-QUOTATION-2026.11** keeps the approved 2026.9 typograp
 ## LAVI continuation-header alignment correction — 26 September 2026
 
 Engine **2.3.2** / **LAVI-QUOTATION-2026.11** keeps the approved content rail, typography, spacing, list alignment and sign-off geometry. Continuation pages now render `LAVI TECHNOLOGIES INC.` on the left and the quotation reference / `FORMAL QUOTATION` on the right on one shared horizontal row, using the same 8/9.6 pt furniture metrics. The divider sits a fixed distance below the taller of the two header elements.
+
+## Default commercial terms — 13 October 2026
+
+For **new client quotations under either company profile**, James's standing defaults are:
+- **Quotation validity: 45 calendar days.**
+- **Quoted contract price: VAT exclusive.** Show the final offered amount as VAT-exclusive; do not add 12% VAT to the quotation total or use a VAT-inclusive total unless James explicitly requests it for that job.
+
+These are commercial **job-data defaults**, not hardcoded renderer/profile properties, and may be overridden by explicit project/client instructions. Preserve actual user-edited BOQ rates, tax/fee allowances, and corrected subtotals; do not change previously issued/approved quotations retroactively.
