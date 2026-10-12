@@ -1,5 +1,22 @@
 # Latest Agent Handoff
 
+Handoff version: 0022
+Last updated: 2026-10-13
+Status: Standing quotation validity and VAT presentation defaults documented; Initao FDAS quotation remains text-only, no PDF requested.
+
+## Standing commercial instructions
+For all newly prepared GPTwork quotations (LAVI and Lifes Awesome), default to **45 calendar days** quotation validity and **VAT-exclusive** contract price unless an explicit client/project instruction overrides. This is a job-data default, not an engine/profile change. Authority: James's 2026-10-13 direct instruction. Recorded in `AGENTS.md`.
+
+## Current FDAS quotation draft
+Recipient: Ms. Zenobia P Hadji Noor, Initao Wind Resort Inc. (Nadin Resort and Restaurant). Four-zone conventional FDAS, with 4 manual call points, 4 sounder-strobes and 2 batteries, fire alarm-rated twisted pair cable. User-edited regulatory amounts are BFP sales tax allowance PHP2,117, installation clearance allowance PHP8,500, and processing/coordination PHP15,000. Section D total PHP25,617; combined quotation total PHP366,617 VAT-exclusive. Preserve remaining user-edited contents. No PDF generated; await explicit authorization.
+
+## Verification and scope
+No engine/template/source changes; no PDF validation or rendering performed because the task is to revise a text draft and standing guidance only. Current AGENTS.md change commit: 3545466f08c384a8fb554dbcdbac8e3c50199eb6.
+
+---
+
+## Previous handoff — version 0021 (2026-09-26)
+
 Handoff version: 0021
 Last updated: 2026-09-26
 Status: LAVI template 2026.11 continuation-page header alignment correction implemented and Greatlink quotation re-rendered.
